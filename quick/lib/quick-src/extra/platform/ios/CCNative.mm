@@ -12,7 +12,14 @@ NS_CC_EXTRA_BEGIN
 
 void Native::showActivityIndicator(void)
 {
-    [[NativeIOS sharedInstance] showActivityIndicator:UIActivityIndicatorViewStyleWhiteLarge];
+    [[NativeIOS sharedInstance] showActivityIndicator:UIActivityIndicatorViewStyleWhiteLarge
+     andMessage:@""];
+}
+void Native::showActivityIndicatorWithMsg(const char* message)
+{
+    NSString *message_ = [NSString stringWithUTF8String:message ? message : ""];
+    [[NativeIOS sharedInstance] showActivityIndicator:UIActivityIndicatorViewStyleWhiteLarge
+        andMessage:message_];
 }
 
 void Native::hideActivityIndicator(void)

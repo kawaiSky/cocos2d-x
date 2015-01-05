@@ -105,7 +105,7 @@ void LuaTouchEventManager::addTouchableNode(LuaEventNode *node)
     {
         _touchableNodes.pushBack(node);
         _nodeLuaEventNodeMap.insert(std::make_pair(activeNode, node));
-        //CCLOG("ADD TOUCHABLE NODE <%p>", node->getNode());
+        //CCLOG("ADD TOUCHABLE NODE <%p> ,<%s>", node->getActiveNode(),typeid(node->getActiveNode()).name());
         if (!m_touchDispatchingEnabled)
         {
             enableTouchDispatching();
@@ -121,7 +121,7 @@ void LuaTouchEventManager::removeTouchableNode(LuaEventNode *node)
     {
         _nodeLuaEventNodeMap.erase(found);
     }
-    //CCLOG("REMOVE TOUCHABLE NODE <%p>", node->getNode());
+    //CCLOG("REMOVE TOUCHABLE NODE <%p> ,<%s>", node->getDetachedNode(),typeid(node->getDetachedNode()).name());
     if (_touchableNodes.size() == 0 && m_touchDispatchingEnabled)
     {
         disableTouchDispatching();
@@ -159,9 +159,11 @@ void LuaTouchEventManager::onTouchesBegan(const std::vector<Touch*>& touches, Ev
     for (auto iter = _touchableNodes.begin(); iter != _touchableNodes.end(); ++iter)
     {
         checkTouchableNode = node = *iter;
-
         // check node is visible and capturing enabled
         isTouchable = true;
+        if (checkTouchableNode==nullptr or checkTouchableNode->getReferenceCount()==0 or checkTouchableNode->getReferenceCount()>=2000000) {
+            continue;
+        }
         do
         {
             isTouchable = isTouchable
@@ -169,7 +171,8 @@ void LuaTouchEventManager::onTouchesBegan(const std::vector<Touch*>& touches, Ev
                 && checkTouchableNode->isVisible()
                 && checkTouchableNode->isTouchCaptureEnabled();
             checkTouchableNode = checkTouchableNode->getParent();
-        } while (checkTouchableNode && isTouchable);
+        
+        } while (checkTouchableNode &&checkTouchableNode->getReferenceCount()>0 &&checkTouchableNode->getReferenceCount() <=2000000 && isTouchable);
         if (!isTouchable) continue;
 
         // prepare for touch testing

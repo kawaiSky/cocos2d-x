@@ -89,7 +89,9 @@ void Ref::release()
 {
     CCASSERT(_referenceCount > 0, "reference count should greater than 0");
     --_referenceCount;
-
+    if (_referenceCount >= 20000000) {
+        CCLOG("error");
+    }
     if (_referenceCount == 0)
     {
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)

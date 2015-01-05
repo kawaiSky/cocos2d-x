@@ -70,7 +70,8 @@ Node *LuaEventNode::getActiveNode() const
 
 LuaEventNode* LuaEventNode::getParent()
 {
-    if (!_node) return nullptr;
+    //sky
+    if (!_node || _node->getReferenceCount()==0 || _node->getReferenceCount()>=2000000) return nullptr;
     Node *node = _node;
     LuaEventNode *eventNode = nullptr;
 
@@ -111,7 +112,9 @@ bool LuaEventNode::isVisible() const
 
 bool LuaEventNode::isRunning() const
 {
-    if (_node)
+    
+    //sky
+    if (_node && _node->getReferenceCount()>0 && _node->getReferenceCount() < 2000000)
     {
         return _node->isRunning();
     }

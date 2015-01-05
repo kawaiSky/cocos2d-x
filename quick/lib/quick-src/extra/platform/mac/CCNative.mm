@@ -14,6 +14,10 @@ void Native::showActivityIndicator(void)
 {
     [[NativeMac sharedInstance] showActivityIndicator];
 }
+void Native::showActivityIndicatorWithMsg(<#const char *message#>)
+{
+    [[NativeMac sharedInstance] showActivityIndicator];
+}
 
 void Native::hideActivityIndicator(void)
 {

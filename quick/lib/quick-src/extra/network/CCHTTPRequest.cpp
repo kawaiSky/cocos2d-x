@@ -190,7 +190,8 @@ bool HTTPRequest::start(void)
     curl_easy_setopt(m_curl, CURLOPT_NOPROGRESS, false);
     curl_easy_setopt(m_curl, CURLOPT_PROGRESSFUNCTION, progressCURL);
     curl_easy_setopt(m_curl, CURLOPT_PROGRESSDATA, this);
-    curl_easy_setopt(m_curl, CURLOPT_COOKIEFILE, "");
+    curl_easy_setopt(m_curl, CURLOPT_COOKIEFILE,(FileUtils::getInstance()->getWritablePath() + "cookieFile.txt").c_str());
+    curl_easy_setopt(m_curl,CURLOPT_COOKIEJAR,(FileUtils::getInstance()->getWritablePath() + "cookieFile.txt").c_str());
 
 #ifdef _WINDOWS_
 

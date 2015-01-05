@@ -20,7 +20,7 @@ public:
     
     /** @brief Show activity indicator */
     static void showActivityIndicator(void);
-    
+    static void showActivityIndicatorWithMsg(const char* message);
     /** @brief Hide activity indicator */
     static void hideActivityIndicator(void);
     

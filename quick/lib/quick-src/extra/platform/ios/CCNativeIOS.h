@@ -28,7 +28,8 @@ USING_NS_CC_EXTRA;
 #pragma mark -
 #pragma mark activity indicator
 
-- (void)showActivityIndicator:(UIActivityIndicatorViewStyle)style;
+- (void)showActivityIndicator:(UIActivityIndicatorViewStyle)style
+                      andMessage:(NSString *)message;
 - (void)hideActivityIndicator;
 
 

@@ -360,6 +360,35 @@ static int tolua_cocos2dx_extra_luabinding_Native_showActivityIndicator00(lua_St
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: showActivityIndicator of class  Native */
+#ifndef TOLUA_DISABLE_tolua_cocos2dx_extra_luabinding_Native_showActivityIndicator00
+static int tolua_cocos2dx_extra_luabinding_Native_showActivityIndicatorEX00(lua_State* tolua_S)
+{
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (
+        !tolua_isusertable(tolua_S,1,"Native",0,&tolua_err) ||
+        !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+        !tolua_isnoobj(tolua_S,3,&tolua_err)
+        )
+        goto tolua_lerror;
+    else
+#endif
+    {
+        {
+            const char* message = ((const char*)  tolua_tostring(tolua_S,2,0));
+            Native::showActivityIndicatorWithMsg(message);
+        }
+    }
+    return 0;
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'showActivityIndicatorEX'.",&tolua_err);
+    return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: hideActivityIndicator of class  Native */
 #ifndef TOLUA_DISABLE_tolua_cocos2dx_extra_luabinding_Native_hideActivityIndicator00
 static int tolua_cocos2dx_extra_luabinding_Native_hideActivityIndicator00(lua_State* tolua_S)
@@ -1578,6 +1607,7 @@ TOLUA_API int tolua_cocos2dx_extra_luabinding_open (lua_State* tolua_S)
   tolua_cclass(tolua_S,"Native","Native","",NULL);
   tolua_beginmodule(tolua_S,"Native");
    tolua_function(tolua_S,"showActivityIndicator",tolua_cocos2dx_extra_luabinding_Native_showActivityIndicator00);
+    tolua_function(tolua_S,"showActivityIndicatorEx",tolua_cocos2dx_extra_luabinding_Native_showActivityIndicatorEX00);
    tolua_function(tolua_S,"hideActivityIndicator",tolua_cocos2dx_extra_luabinding_Native_hideActivityIndicator00);
    tolua_function(tolua_S,"createAlert",tolua_cocos2dx_extra_luabinding_Native_createAlert00);
    tolua_function(tolua_S,"addAlertButton",tolua_cocos2dx_extra_luabinding_Native_addAlertButton00);

@@ -51,7 +51,7 @@ typedef double float64;
 
 /// The maximum number of vertices on a convex polygon. You cannot increase
 /// this too much because b2BlockAllocator has a maximum object size.
-#define b2_maxPolygonVertices	8
+#define b2_maxPolygonVertices	15
 
 /// This is used to fatten AABBs in the dynamic tree. This allows proxies
 /// to move by a small amount without triggering a tree adjustment.
@@ -87,7 +87,7 @@ typedef double float64;
 
 /// A velocity threshold for elastic collisions. Any collision with a relative linear
 /// velocity below this threshold will be treated as inelastic.
-#define b2_velocityThreshold		1.0f
+#define b2_velocityThreshold		0.0f
 
 /// The maximum linear position correction used when solving constraints. This helps to
 /// prevent overshoot.

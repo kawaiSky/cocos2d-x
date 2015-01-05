@@ -1313,7 +1313,7 @@ long FileUtils::getFileSize(const std::string &filepath)
 //////////////////////////////////////////////////////////////////////////
 // Notification support when getFileData from invalid file path.
 //////////////////////////////////////////////////////////////////////////
-static bool s_popupNotify = true;
+static bool s_popupNotify = false;
 
 void FileUtils::setPopupNotify(bool notify)
 {

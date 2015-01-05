@@ -45,6 +45,9 @@ public class Cocos2dxWebView extends WebView {
 
         this.setWebViewClient(new Cocos2dxWebViewClient());
         this.setWebChromeClient(new WebChromeClient());
+        //sky
+        this.setBackgroundColor(0);
+        //this.getBackground().setAlpha(0);
     }
 
     public void setJavascriptInterfaceScheme(String scheme) {

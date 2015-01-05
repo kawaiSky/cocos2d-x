@@ -34,6 +34,7 @@ static NativeIOS *s_sharedInstance;
 #pragma mark activity indicator
 
 - (void)showActivityIndicator:(UIActivityIndicatorViewStyle)style
+                   andMessage:(NSString *)message
 {
     if (activityIndicatorView_)
     {
@@ -42,11 +43,34 @@ static NativeIOS *s_sharedInstance;
     }
     
     CCLOG("[NativeIOS] showActivityIndicator()");
+    
+    const CGFloat DEFAULT_LABEL_WIDTH = 280.0;
+    const CGFloat DEFAULT_LABEL_HEIGHT = 150.0;
+    CGRect labelFrame = CGRectMake(0, 0, DEFAULT_LABEL_WIDTH, DEFAULT_LABEL_HEIGHT);
+    UILabel *loadingLabel =
+    [[[UILabel alloc]
+      initWithFrame:labelFrame]
+     autorelease];
+    loadingLabel.text = message;
+    loadingLabel.textColor = [UIColor whiteColor];
+    loadingLabel.backgroundColor = [UIColor clearColor];
+    loadingLabel.textAlignment = NSTextAlignmentCenter;
+    loadingLabel.font = [UIFont boldSystemFontOfSize:[UIFont labelFontSize]];
+    loadingLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    loadingLabel.numberOfLines = 0;
+    //loadingLabel.autoresizingMask =
+    //UIViewAutoresizingFlexibleLeftMargin |
+    //UIViewAutoresizingFlexibleRightMargin |
+    //UIViewAutoresizingFlexibleTopMargin |
+    //UIViewAutoresizingFlexibleBottomMargin;
+    
+    
     activityIndicatorView_ = [UIActivityIndicatorView  alloc];
     [activityIndicatorView_ initWithActivityIndicatorStyle:style];
     [activityIndicatorView_ autorelease];
     [activityIndicatorView_ retain];
-    
+    [activityIndicatorView_ addSubview:loadingLabel];
+    loadingLabel.center = CGPointMake(activityIndicatorView_.bounds.size.width/2,activityIndicatorView_.bounds.size.height/2+30);
     NSInteger count = [UIApplication sharedApplication].windows.count;
     UIWindow* topWindow = [[UIApplication sharedApplication].windows objectAtIndex:count - 1];
     [topWindow addSubview: activityIndicatorView_];
