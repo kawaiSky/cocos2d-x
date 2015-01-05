@@ -70,6 +70,8 @@ function UIPushButton:ctor(images, options)
     self:setButtonImage(UIPushButton.NORMAL, images["normal"], true)
     self:setButtonImage(UIPushButton.PRESSED, images["pressed"], true)
     self:setButtonImage(UIPushButton.DISABLED, images["disabled"], true)
+
+    self.args_ = {images, options}
 end
 
 function UIPushButton:setButtonImage(state, image, ignoreEmpty)
@@ -92,14 +94,11 @@ function UIPushButton:setButtonImage(state, image, ignoreEmpty)
 end
 
 function UIPushButton:onTouch_(event)
-    -- print("----UIPushButton:onTouch_")
     local name, x, y = event.name, event.x, event.y
-    -- print("----name, x, y = ", name, x, y)
     if name == "began" then
         self.touchBeganX = x
         self.touchBeganY = y
         if not self:checkTouchInSprite_(x, y) then return false end
-        -- print("----doEvent('press')")
         self.fsm_:doEvent("press")
         self:dispatchEvent({name = UIButton.PRESSED_EVENT, x = x, y = y, touchInTarget = true})
         return true
@@ -125,6 +124,10 @@ function UIPushButton:onTouch_(event)
             self:dispatchEvent({name = UIButton.CLICKED_EVENT, x = x, y = y, touchInTarget = true})
         end
     end
+end
+
+function UIPushButton:createCloneInstance_()
+    return UIPushButton.new(unpack(self.args_))
 end
 
 return UIPushButton

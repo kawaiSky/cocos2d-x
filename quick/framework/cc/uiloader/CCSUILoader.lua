@@ -461,6 +461,9 @@ function CCSUILoader:createImage(options)
 		node:setTouchEnabled(true)
 		node:setTouchSwallowEnabled(true)
 	end
+	if options.opacity then
+		node:setOpacity(options.opacity)
+	end
 
 	return node
 end
@@ -479,6 +482,7 @@ function CCSUILoader:createButton(options)
 		node:setButtonLabel(
 			cc.ui.UILabel.new({text = options.text,
 				size = options.fontSize,
+				font = options.fontName,
 				color = cc.c3b(options.textColorR, options.textColorG, options.textColorB)}))
 	end
 	if not options.ignoreSize then

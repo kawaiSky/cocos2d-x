@@ -15,7 +15,7 @@ $options = array(
     array('ex',  'extname',    1,      'lua',       'encrypted file extension name (default is "lua"), only valid for xxtea_chunk'),
     array('c',   'config',     1,      null,        'load options from config file'),
     array('q',   'quiet',      0,      false,       'quiet'),
-    array('luac', 'luac',      0,      false,       'using luac compile framework'),
+    array('jit', 'jit',        0,      false,       'using luajit compile framework'),
 );
 
 function errorhelp()
@@ -46,6 +46,7 @@ EOT;
 compile mode:
     -m zip (default)    package all scripts bytecodes to a ZIP archive file.
     -m c                package all scripts bytecodes to a C source file.
+    -m csrc             package all scripte source code to a C source file.
     -m files            save bytecodes to separate files. -o specifies output dir.
 
 encrypt mode:

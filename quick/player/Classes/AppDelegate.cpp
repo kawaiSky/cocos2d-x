@@ -10,6 +10,8 @@
 #include "network/CCHTTPRequest.h"
 #include "luabinding/cocos2dx_extra_luabinding.h"
 #include "luabinding/lua_cocos2dx_extension_filter_auto.hpp"
+#include "luabinding/lua_cocos2dx_extension_nanovg_auto.hpp"
+#include "luabinding/lua_cocos2dx_extension_nanovg_manual.hpp"
 #include "luabinding/HelperFunc_luabinding.h"
 #include "lua_extensions/lua_extensions_more.h"
 #include "PlayerProtocol.h"
@@ -30,6 +32,8 @@ static void quick_module_register(lua_State *L)
         register_all_quick_manual(L);
         luaopen_cocos2dx_extra_luabinding(L);
         register_all_cocos2dx_extension_filter(L);
+        register_all_cocos2dx_extension_nanovg(L);
+        register_all_cocos2dx_extension_nanovg_manual(L);
         luaopen_HelperFunc_luabinding(L);
     }
     lua_pop(L, 1);
@@ -60,7 +64,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 {
     if (_project.getDebuggerType() == kCCLuaDebuggerCodeIDE)
     {
-        initRuntime(_project.getProjectDir());
+        initRuntime();
         {
             ConfigParser::getInstance()->readConfig();
         }
@@ -75,7 +79,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
-    
+	director->startAnimation();
+
     // register lua engine
     auto engine = LuaEngine::getInstance();
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
