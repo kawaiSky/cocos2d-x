@@ -31,7 +31,6 @@ int lua_cocos2dx_Ref_release(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Ref_release'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -41,7 +40,8 @@ int lua_cocos2dx_Ref_release(lua_State* tolua_S)
             return 0;
         }
         cobj->release();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Ref:release",argc, 0);
     return 0;
@@ -78,7 +78,6 @@ int lua_cocos2dx_Ref_retain(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Ref_retain'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -88,7 +87,8 @@ int lua_cocos2dx_Ref_retain(lua_State* tolua_S)
             return 0;
         }
         cobj->retain();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Ref:retain",argc, 0);
     return 0;
@@ -125,7 +125,6 @@ int lua_cocos2dx_Ref_getReferenceCount(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Ref_getReferenceCount'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -195,7 +194,6 @@ int lua_cocos2dx_Console_stop(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Console_stop'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -205,7 +203,8 @@ int lua_cocos2dx_Console_stop(lua_State* tolua_S)
             return 0;
         }
         cobj->stop();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Console:stop",argc, 0);
     return 0;
@@ -242,7 +241,6 @@ int lua_cocos2dx_Console_listenOnTCP(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Console_listenOnTCP'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -293,7 +291,6 @@ int lua_cocos2dx_Console_listenOnFileDescriptor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Console_listenOnFileDescriptor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -344,7 +341,6 @@ int lua_cocos2dx_Console_log(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Console_log'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -357,7 +353,8 @@ int lua_cocos2dx_Console_log(lua_State* tolua_S)
             return 0;
         }
         cobj->log(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Console:log",argc, 1);
     return 0;
@@ -417,7 +414,6 @@ int lua_cocos2dx_Texture2D_getMaxT(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getMaxT'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -465,7 +461,6 @@ int lua_cocos2dx_Texture2D_getStringForFormat(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getStringForFormat'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -508,7 +503,6 @@ int lua_cocos2dx_Texture2D_initWithImage(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_initWithImage'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -573,7 +567,6 @@ int lua_cocos2dx_Texture2D_getMaxS(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getMaxS'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -621,7 +614,6 @@ int lua_cocos2dx_Texture2D_releaseGLTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_releaseGLTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -631,7 +623,8 @@ int lua_cocos2dx_Texture2D_releaseGLTexture(lua_State* tolua_S)
             return 0;
         }
         cobj->releaseGLTexture();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Texture2D:releaseGLTexture",argc, 0);
     return 0;
@@ -668,7 +661,6 @@ int lua_cocos2dx_Texture2D_hasPremultipliedAlpha(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_hasPremultipliedAlpha'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -716,7 +708,6 @@ int lua_cocos2dx_Texture2D_getPixelsHigh(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getPixelsHigh'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -759,7 +750,6 @@ int lua_cocos2dx_Texture2D_getBitsPerPixelForFormat(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getBitsPerPixelForFormat'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 1) {
@@ -816,7 +806,6 @@ int lua_cocos2dx_Texture2D_getName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -859,7 +848,6 @@ int lua_cocos2dx_Texture2D_initWithString(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_initWithString'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -1016,7 +1004,6 @@ int lua_cocos2dx_Texture2D_setMaxT(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_setMaxT'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -1029,7 +1016,8 @@ int lua_cocos2dx_Texture2D_setMaxT(lua_State* tolua_S)
             return 0;
         }
         cobj->setMaxT(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Texture2D:setMaxT",argc, 1);
     return 0;
@@ -1066,7 +1054,6 @@ int lua_cocos2dx_Texture2D_drawInRect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_drawInRect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -1079,7 +1066,8 @@ int lua_cocos2dx_Texture2D_drawInRect(lua_State* tolua_S)
             return 0;
         }
         cobj->drawInRect(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Texture2D:drawInRect",argc, 1);
     return 0;
@@ -1116,7 +1104,6 @@ int lua_cocos2dx_Texture2D_getContentSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getContentSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1164,7 +1151,6 @@ int lua_cocos2dx_Texture2D_setAliasTexParameters(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_setAliasTexParameters'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1174,7 +1160,8 @@ int lua_cocos2dx_Texture2D_setAliasTexParameters(lua_State* tolua_S)
             return 0;
         }
         cobj->setAliasTexParameters();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Texture2D:setAliasTexParameters",argc, 0);
     return 0;
@@ -1211,7 +1198,6 @@ int lua_cocos2dx_Texture2D_setAntiAliasTexParameters(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_setAntiAliasTexParameters'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1221,7 +1207,8 @@ int lua_cocos2dx_Texture2D_setAntiAliasTexParameters(lua_State* tolua_S)
             return 0;
         }
         cobj->setAntiAliasTexParameters();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Texture2D:setAntiAliasTexParameters",argc, 0);
     return 0;
@@ -1258,7 +1245,6 @@ int lua_cocos2dx_Texture2D_generateMipmap(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_generateMipmap'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1268,7 +1254,8 @@ int lua_cocos2dx_Texture2D_generateMipmap(lua_State* tolua_S)
             return 0;
         }
         cobj->generateMipmap();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Texture2D:generateMipmap",argc, 0);
     return 0;
@@ -1305,7 +1292,6 @@ int lua_cocos2dx_Texture2D_getDescription(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getDescription'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1353,7 +1339,6 @@ int lua_cocos2dx_Texture2D_getPixelFormat(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getPixelFormat'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1401,7 +1386,6 @@ int lua_cocos2dx_Texture2D_setGLProgram(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_setGLProgram'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -1414,7 +1398,8 @@ int lua_cocos2dx_Texture2D_setGLProgram(lua_State* tolua_S)
             return 0;
         }
         cobj->setGLProgram(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Texture2D:setGLProgram",argc, 1);
     return 0;
@@ -1451,7 +1436,6 @@ int lua_cocos2dx_Texture2D_getContentSizeInPixels(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getContentSizeInPixels'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1499,7 +1483,6 @@ int lua_cocos2dx_Texture2D_getPixelsWide(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getPixelsWide'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1547,7 +1530,6 @@ int lua_cocos2dx_Texture2D_drawAtPoint(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_drawAtPoint'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -1560,7 +1542,8 @@ int lua_cocos2dx_Texture2D_drawAtPoint(lua_State* tolua_S)
             return 0;
         }
         cobj->drawAtPoint(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Texture2D:drawAtPoint",argc, 1);
     return 0;
@@ -1597,7 +1580,6 @@ int lua_cocos2dx_Texture2D_getGLProgram(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getGLProgram'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1645,7 +1627,6 @@ int lua_cocos2dx_Texture2D_hasMipmaps(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_hasMipmaps'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1693,7 +1674,6 @@ int lua_cocos2dx_Texture2D_setMaxS(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_setMaxS'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -1706,7 +1686,8 @@ int lua_cocos2dx_Texture2D_setMaxS(lua_State* tolua_S)
             return 0;
         }
         cobj->setMaxS(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Texture2D:setMaxS",argc, 1);
     return 0;
@@ -1731,7 +1712,6 @@ int lua_cocos2dx_Texture2D_setDefaultAlphaPixelFormat(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Texture2D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_setDefaultAlphaPixelFormat'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -1744,7 +1724,8 @@ int lua_cocos2dx_Texture2D_setDefaultAlphaPixelFormat(lua_State* tolua_S)
             return 0;
         }
         cocos2d::Texture2D::setDefaultAlphaPixelFormat(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.Texture2D:setDefaultAlphaPixelFormat",argc, 1);
     return 0;
@@ -1767,7 +1748,6 @@ int lua_cocos2dx_Texture2D_getDefaultAlphaPixelFormat(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Texture2D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_getDefaultAlphaPixelFormat'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -1801,7 +1781,6 @@ int lua_cocos2dx_Texture2D_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Texture2D_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1899,7 +1878,6 @@ int lua_cocos2dx_Touch_getPreviousLocationInView(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Touch_getPreviousLocationInView'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1947,7 +1925,6 @@ int lua_cocos2dx_Touch_getLocation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Touch_getLocation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -1995,7 +1972,6 @@ int lua_cocos2dx_Touch_getDelta(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Touch_getDelta'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2043,7 +2019,6 @@ int lua_cocos2dx_Touch_getStartLocationInView(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Touch_getStartLocationInView'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2091,7 +2066,6 @@ int lua_cocos2dx_Touch_getStartLocation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Touch_getStartLocation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2139,7 +2113,6 @@ int lua_cocos2dx_Touch_getID(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Touch_getID'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2187,7 +2160,6 @@ int lua_cocos2dx_Touch_setTouchInfo(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Touch_setTouchInfo'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -2206,7 +2178,8 @@ int lua_cocos2dx_Touch_setTouchInfo(lua_State* tolua_S)
             return 0;
         }
         cobj->setTouchInfo(arg0, arg1, arg2);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Touch:setTouchInfo",argc, 3);
     return 0;
@@ -2243,7 +2216,6 @@ int lua_cocos2dx_Touch_getLocationInView(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Touch_getLocationInView'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2291,7 +2263,6 @@ int lua_cocos2dx_Touch_getPreviousLocation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Touch_getPreviousLocation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2326,7 +2297,6 @@ int lua_cocos2dx_Touch_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Touch_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2406,7 +2376,6 @@ int lua_cocos2dx_Event_getCurrentTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Event_getCurrentTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2454,7 +2423,6 @@ int lua_cocos2dx_Event_getType(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Event_getType'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2502,7 +2470,6 @@ int lua_cocos2dx_Event_getResult(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Event_getResult'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2550,7 +2517,6 @@ int lua_cocos2dx_Event_isStopped(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Event_isStopped'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2598,7 +2564,6 @@ int lua_cocos2dx_Event_setResult(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Event_setResult'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -2611,7 +2576,8 @@ int lua_cocos2dx_Event_setResult(lua_State* tolua_S)
             return 0;
         }
         cobj->setResult(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Event:setResult",argc, 1);
     return 0;
@@ -2648,7 +2614,6 @@ int lua_cocos2dx_Event_stopPropagation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Event_stopPropagation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2658,7 +2623,8 @@ int lua_cocos2dx_Event_stopPropagation(lua_State* tolua_S)
             return 0;
         }
         cobj->stopPropagation();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Event:stopPropagation",argc, 0);
     return 0;
@@ -2720,7 +2686,6 @@ int lua_cocos2dx_EventTouch_getEventCode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventTouch_getEventCode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2768,7 +2733,6 @@ int lua_cocos2dx_EventTouch_setEventCode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventTouch_setEventCode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -2781,7 +2745,8 @@ int lua_cocos2dx_EventTouch_setEventCode(lua_State* tolua_S)
             return 0;
         }
         cobj->setEventCode(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventTouch:setEventCode",argc, 1);
     return 0;
@@ -2805,7 +2770,6 @@ int lua_cocos2dx_EventTouch_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventTouch_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -2865,7 +2829,6 @@ int lua_cocos2dx_EventKeyboard_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventKeyboard_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -2937,7 +2900,6 @@ int lua_cocos2dx_Node_addChild(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_addChild'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -2950,7 +2912,8 @@ int lua_cocos2dx_Node_addChild(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->addChild(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -2961,7 +2924,8 @@ int lua_cocos2dx_Node_addChild(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->addChild(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -2980,7 +2944,8 @@ int lua_cocos2dx_Node_addChild(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->addChild(arg0, arg1, arg2);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -2999,7 +2964,8 @@ int lua_cocos2dx_Node_addChild(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->addChild(arg0, arg1, arg2);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -3033,7 +2999,6 @@ int lua_cocos2dx_Node_removeComponent(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_removeComponent'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 1) {
@@ -3094,7 +3059,6 @@ int lua_cocos2dx_Node_getDescription(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getDescription'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -3142,7 +3106,6 @@ int lua_cocos2dx_Node_setRotationSkewY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setRotationSkewY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3155,7 +3118,8 @@ int lua_cocos2dx_Node_setRotationSkewY(lua_State* tolua_S)
             return 0;
         }
         cobj->setRotationSkewY(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setRotationSkewY",argc, 1);
     return 0;
@@ -3192,7 +3156,6 @@ int lua_cocos2dx_Node_setOpacityModifyRGB(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setOpacityModifyRGB'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3205,7 +3168,8 @@ int lua_cocos2dx_Node_setOpacityModifyRGB(lua_State* tolua_S)
             return 0;
         }
         cobj->setOpacityModifyRGB(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setOpacityModifyRGB",argc, 1);
     return 0;
@@ -3242,7 +3206,6 @@ int lua_cocos2dx_Node_setCascadeOpacityEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setCascadeOpacityEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3255,7 +3218,8 @@ int lua_cocos2dx_Node_setCascadeOpacityEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setCascadeOpacityEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setCascadeOpacityEnabled",argc, 1);
     return 0;
@@ -3287,7 +3251,6 @@ int lua_cocos2dx_Node_getChildren(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getChildren'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -3340,7 +3303,6 @@ int lua_cocos2dx_Node_setOnExitCallback(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setOnExitCallback'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3357,7 +3319,8 @@ int lua_cocos2dx_Node_setOnExitCallback(lua_State* tolua_S)
             return 0;
         }
         cobj->setOnExitCallback(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setOnExitCallback",argc, 1);
     return 0;
@@ -3394,7 +3357,6 @@ int lua_cocos2dx_Node_pause(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_pause'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -3404,7 +3366,8 @@ int lua_cocos2dx_Node_pause(lua_State* tolua_S)
             return 0;
         }
         cobj->pause();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:pause",argc, 0);
     return 0;
@@ -3441,7 +3404,6 @@ int lua_cocos2dx_Node_convertToWorldSpaceAR(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_convertToWorldSpaceAR'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3492,7 +3454,6 @@ int lua_cocos2dx_Node_isIgnoreAnchorPointForPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_isIgnoreAnchorPointForPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -3540,7 +3501,6 @@ int lua_cocos2dx_Node_getChildByName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getChildByName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3591,7 +3551,6 @@ int lua_cocos2dx_Node_updateDisplayedOpacity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_updateDisplayedOpacity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3604,7 +3563,8 @@ int lua_cocos2dx_Node_updateDisplayedOpacity(lua_State* tolua_S)
             return 0;
         }
         cobj->updateDisplayedOpacity(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:updateDisplayedOpacity",argc, 1);
     return 0;
@@ -3641,7 +3601,6 @@ int lua_cocos2dx_Node_getCameraMask(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getCameraMask'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -3689,7 +3648,6 @@ int lua_cocos2dx_Node_setRotation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setRotation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3702,7 +3660,8 @@ int lua_cocos2dx_Node_setRotation(lua_State* tolua_S)
             return 0;
         }
         cobj->setRotation(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setRotation",argc, 1);
     return 0;
@@ -3739,7 +3698,6 @@ int lua_cocos2dx_Node_setScaleZ(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setScaleZ'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3752,7 +3710,8 @@ int lua_cocos2dx_Node_setScaleZ(lua_State* tolua_S)
             return 0;
         }
         cobj->setScaleZ(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setScaleZ",argc, 1);
     return 0;
@@ -3789,7 +3748,6 @@ int lua_cocos2dx_Node_setScaleY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setScaleY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3802,7 +3760,8 @@ int lua_cocos2dx_Node_setScaleY(lua_State* tolua_S)
             return 0;
         }
         cobj->setScaleY(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setScaleY",argc, 1);
     return 0;
@@ -3839,7 +3798,6 @@ int lua_cocos2dx_Node_setScaleX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setScaleX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3852,7 +3810,8 @@ int lua_cocos2dx_Node_setScaleX(lua_State* tolua_S)
             return 0;
         }
         cobj->setScaleX(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setScaleX",argc, 1);
     return 0;
@@ -3889,7 +3848,6 @@ int lua_cocos2dx_Node_setRotationSkewX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setRotationSkewX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3902,7 +3860,8 @@ int lua_cocos2dx_Node_setRotationSkewX(lua_State* tolua_S)
             return 0;
         }
         cobj->setRotationSkewX(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setRotationSkewX",argc, 1);
     return 0;
@@ -3939,7 +3898,6 @@ int lua_cocos2dx_Node_setonEnterTransitionDidFinishCallback(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setonEnterTransitionDidFinishCallback'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -3956,7 +3914,8 @@ int lua_cocos2dx_Node_setonEnterTransitionDidFinishCallback(lua_State* tolua_S)
             return 0;
         }
         cobj->setonEnterTransitionDidFinishCallback(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setonEnterTransitionDidFinishCallback",argc, 1);
     return 0;
@@ -3993,7 +3952,6 @@ int lua_cocos2dx_Node_removeAllComponents(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_removeAllComponents'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -4003,7 +3961,8 @@ int lua_cocos2dx_Node_removeAllComponents(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAllComponents();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:removeAllComponents",argc, 0);
     return 0;
@@ -4040,7 +3999,6 @@ int lua_cocos2dx_Node_getOpacity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getOpacity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -4088,7 +4046,6 @@ int lua_cocos2dx_Node_setCameraMask(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setCameraMask'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -4101,7 +4058,8 @@ int lua_cocos2dx_Node_setCameraMask(lua_State* tolua_S)
             return 0;
         }
         cobj->setCameraMask(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -4117,7 +4075,8 @@ int lua_cocos2dx_Node_setCameraMask(lua_State* tolua_S)
             return 0;
         }
         cobj->setCameraMask(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setCameraMask",argc, 1);
     return 0;
@@ -4154,7 +4113,6 @@ int lua_cocos2dx_Node_getTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -4202,7 +4160,6 @@ int lua_cocos2dx_Node_getGLProgram(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getGLProgram'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -4250,7 +4207,6 @@ int lua_cocos2dx_Node_getNodeToWorldTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getNodeToWorldTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -4298,7 +4254,6 @@ int lua_cocos2dx_Node_getPosition3D(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getPosition3D'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -4346,7 +4301,6 @@ int lua_cocos2dx_Node_removeChild(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_removeChild'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -4359,7 +4313,8 @@ int lua_cocos2dx_Node_removeChild(lua_State* tolua_S)
             return 0;
         }
         cobj->removeChild(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -4375,7 +4330,8 @@ int lua_cocos2dx_Node_removeChild(lua_State* tolua_S)
             return 0;
         }
         cobj->removeChild(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:removeChild",argc, 1);
     return 0;
@@ -4412,7 +4368,6 @@ int lua_cocos2dx_Node_convertToWorldSpace(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_convertToWorldSpace'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -4463,7 +4418,6 @@ int lua_cocos2dx_Node_getScene(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getScene'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -4511,7 +4465,6 @@ int lua_cocos2dx_Node_getEventDispatcher(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getEventDispatcher'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -4559,7 +4512,6 @@ int lua_cocos2dx_Node_setSkewX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setSkewX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -4572,7 +4524,8 @@ int lua_cocos2dx_Node_setSkewX(lua_State* tolua_S)
             return 0;
         }
         cobj->setSkewX(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setSkewX",argc, 1);
     return 0;
@@ -4609,7 +4562,6 @@ int lua_cocos2dx_Node_setGLProgramState(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setGLProgramState'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -4622,7 +4574,8 @@ int lua_cocos2dx_Node_setGLProgramState(lua_State* tolua_S)
             return 0;
         }
         cobj->setGLProgramState(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setGLProgramState",argc, 1);
     return 0;
@@ -4659,7 +4612,6 @@ int lua_cocos2dx_Node_setOnEnterCallback(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setOnEnterCallback'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -4676,7 +4628,8 @@ int lua_cocos2dx_Node_setOnEnterCallback(lua_State* tolua_S)
             return 0;
         }
         cobj->setOnEnterCallback(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setOnEnterCallback",argc, 1);
     return 0;
@@ -4713,7 +4666,6 @@ int lua_cocos2dx_Node_setNormalizedPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setNormalizedPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -4726,7 +4678,8 @@ int lua_cocos2dx_Node_setNormalizedPosition(lua_State* tolua_S)
             return 0;
         }
         cobj->setNormalizedPosition(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setNormalizedPosition",argc, 1);
     return 0;
@@ -4763,7 +4716,6 @@ int lua_cocos2dx_Node_setonExitTransitionDidStartCallback(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setonExitTransitionDidStartCallback'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -4780,7 +4732,8 @@ int lua_cocos2dx_Node_setonExitTransitionDidStartCallback(lua_State* tolua_S)
             return 0;
         }
         cobj->setonExitTransitionDidStartCallback(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setonExitTransitionDidStartCallback",argc, 1);
     return 0;
@@ -4817,7 +4770,6 @@ int lua_cocos2dx_Node_convertTouchToNodeSpace(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_convertTouchToNodeSpace'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -4863,7 +4815,6 @@ int lua_cocos2dx_Node_removeAllChildrenWithCleanup(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_removeAllChildrenWithCleanup'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 1) {
@@ -4872,14 +4823,16 @@ int lua_cocos2dx_Node_removeAllChildrenWithCleanup(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->removeAllChildrenWithCleanup(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
     do{
         if (argc == 0) {
             cobj->removeAllChildren();
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -4918,7 +4871,6 @@ int lua_cocos2dx_Node_getNodeToParentAffineTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getNodeToParentAffineTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -4966,7 +4918,6 @@ int lua_cocos2dx_Node_isCascadeOpacityEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_isCascadeOpacityEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -5014,7 +4965,6 @@ int lua_cocos2dx_Node_setParent(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setParent'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -5027,7 +4977,8 @@ int lua_cocos2dx_Node_setParent(lua_State* tolua_S)
             return 0;
         }
         cobj->setParent(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setParent",argc, 1);
     return 0;
@@ -5064,7 +5015,6 @@ int lua_cocos2dx_Node_getName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -5112,7 +5062,6 @@ int lua_cocos2dx_Node_resume(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_resume'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -5122,7 +5071,8 @@ int lua_cocos2dx_Node_resume(lua_State* tolua_S)
             return 0;
         }
         cobj->resume();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:resume",argc, 0);
     return 0;
@@ -5159,7 +5109,6 @@ int lua_cocos2dx_Node_getRotation3D(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getRotation3D'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -5207,7 +5156,6 @@ int lua_cocos2dx_Node_getNodeToParentTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getNodeToParentTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -5255,7 +5203,6 @@ int lua_cocos2dx_Node_convertTouchToNodeSpaceAR(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_convertTouchToNodeSpaceAR'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -5306,7 +5253,6 @@ int lua_cocos2dx_Node_convertToNodeSpace(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_convertToNodeSpace'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -5352,7 +5298,6 @@ int lua_cocos2dx_Node_setPosition(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setPosition'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -5365,7 +5310,8 @@ int lua_cocos2dx_Node_setPosition(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setPosition(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -5376,7 +5322,8 @@ int lua_cocos2dx_Node_setPosition(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setPosition(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -5415,7 +5362,6 @@ int lua_cocos2dx_Node_stopActionByTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_stopActionByTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -5428,7 +5374,8 @@ int lua_cocos2dx_Node_stopActionByTag(lua_State* tolua_S)
             return 0;
         }
         cobj->stopActionByTag(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:stopActionByTag",argc, 1);
     return 0;
@@ -5465,7 +5412,6 @@ int lua_cocos2dx_Node_reorderChild(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_reorderChild'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -5481,7 +5427,8 @@ int lua_cocos2dx_Node_reorderChild(lua_State* tolua_S)
             return 0;
         }
         cobj->reorderChild(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:reorderChild",argc, 2);
     return 0;
@@ -5518,7 +5465,6 @@ int lua_cocos2dx_Node_ignoreAnchorPointForPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_ignoreAnchorPointForPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -5531,7 +5477,8 @@ int lua_cocos2dx_Node_ignoreAnchorPointForPosition(lua_State* tolua_S)
             return 0;
         }
         cobj->ignoreAnchorPointForPosition(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:ignoreAnchorPointForPosition",argc, 1);
     return 0;
@@ -5568,7 +5515,6 @@ int lua_cocos2dx_Node_setSkewY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setSkewY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -5581,7 +5527,8 @@ int lua_cocos2dx_Node_setSkewY(lua_State* tolua_S)
             return 0;
         }
         cobj->setSkewY(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setSkewY",argc, 1);
     return 0;
@@ -5618,7 +5565,6 @@ int lua_cocos2dx_Node_setPositionZ(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setPositionZ'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -5631,7 +5577,8 @@ int lua_cocos2dx_Node_setPositionZ(lua_State* tolua_S)
             return 0;
         }
         cobj->setPositionZ(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setPositionZ",argc, 1);
     return 0;
@@ -5668,7 +5615,6 @@ int lua_cocos2dx_Node_setRotation3D(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setRotation3D'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -5681,7 +5627,8 @@ int lua_cocos2dx_Node_setRotation3D(lua_State* tolua_S)
             return 0;
         }
         cobj->setRotation3D(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setRotation3D",argc, 1);
     return 0;
@@ -5718,7 +5665,6 @@ int lua_cocos2dx_Node_setPositionX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setPositionX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -5731,7 +5677,8 @@ int lua_cocos2dx_Node_setPositionX(lua_State* tolua_S)
             return 0;
         }
         cobj->setPositionX(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setPositionX",argc, 1);
     return 0;
@@ -5768,7 +5715,6 @@ int lua_cocos2dx_Node_setNodeToParentTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setNodeToParentTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -5781,7 +5727,8 @@ int lua_cocos2dx_Node_setNodeToParentTransform(lua_State* tolua_S)
             return 0;
         }
         cobj->setNodeToParentTransform(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setNodeToParentTransform",argc, 1);
     return 0;
@@ -5818,7 +5765,6 @@ int lua_cocos2dx_Node_getAnchorPoint(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getAnchorPoint'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -5866,7 +5812,6 @@ int lua_cocos2dx_Node_getNumberOfRunningActions(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getNumberOfRunningActions'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -5914,7 +5859,6 @@ int lua_cocos2dx_Node_updateTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_updateTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -5924,7 +5868,8 @@ int lua_cocos2dx_Node_updateTransform(lua_State* tolua_S)
             return 0;
         }
         cobj->updateTransform();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:updateTransform",argc, 0);
     return 0;
@@ -5961,7 +5906,6 @@ int lua_cocos2dx_Node_isVisible(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_isVisible'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6009,7 +5953,6 @@ int lua_cocos2dx_Node_getChildrenCount(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getChildrenCount'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6057,7 +6000,6 @@ int lua_cocos2dx_Node_convertToNodeSpaceAR(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_convertToNodeSpaceAR'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -6108,7 +6050,6 @@ int lua_cocos2dx_Node_addComponent(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_addComponent'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -6159,7 +6100,6 @@ int lua_cocos2dx_Node_runAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_runAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -6210,7 +6150,6 @@ int lua_cocos2dx_Node_isOpacityModifyRGB(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_isOpacityModifyRGB'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6258,7 +6197,6 @@ int lua_cocos2dx_Node_getRotation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getRotation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6306,7 +6244,6 @@ int lua_cocos2dx_Node_getAnchorPointInPoints(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getAnchorPointInPoints'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6349,12 +6286,12 @@ int lua_cocos2dx_Node_visit(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_visit'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
             cobj->visit();
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -6373,7 +6310,8 @@ int lua_cocos2dx_Node_visit(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->visit(arg0, arg1, arg2);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -6412,7 +6350,6 @@ int lua_cocos2dx_Node_removeChildByName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_removeChildByName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -6425,7 +6362,8 @@ int lua_cocos2dx_Node_removeChildByName(lua_State* tolua_S)
             return 0;
         }
         cobj->removeChildByName(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -6441,7 +6379,8 @@ int lua_cocos2dx_Node_removeChildByName(lua_State* tolua_S)
             return 0;
         }
         cobj->removeChildByName(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:removeChildByName",argc, 1);
     return 0;
@@ -6478,7 +6417,6 @@ int lua_cocos2dx_Node_getGLProgramState(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getGLProgramState'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6526,7 +6464,6 @@ int lua_cocos2dx_Node_setScheduler(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setScheduler'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -6539,7 +6476,8 @@ int lua_cocos2dx_Node_setScheduler(lua_State* tolua_S)
             return 0;
         }
         cobj->setScheduler(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setScheduler",argc, 1);
     return 0;
@@ -6576,7 +6514,6 @@ int lua_cocos2dx_Node_stopAllActions(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_stopAllActions'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6586,7 +6523,8 @@ int lua_cocos2dx_Node_stopAllActions(lua_State* tolua_S)
             return 0;
         }
         cobj->stopAllActions();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:stopAllActions",argc, 0);
     return 0;
@@ -6623,7 +6561,6 @@ int lua_cocos2dx_Node_getSkewX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getSkewX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6671,7 +6608,6 @@ int lua_cocos2dx_Node_getSkewY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getSkewY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6719,7 +6655,6 @@ int lua_cocos2dx_Node_getDisplayedColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getDisplayedColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6767,7 +6702,6 @@ int lua_cocos2dx_Node_getActionByTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getActionByTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -6818,7 +6752,6 @@ int lua_cocos2dx_Node_setName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -6831,7 +6764,8 @@ int lua_cocos2dx_Node_setName(lua_State* tolua_S)
             return 0;
         }
         cobj->setName(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setName",argc, 1);
     return 0;
@@ -6868,7 +6802,6 @@ int lua_cocos2dx_Node_getDisplayedOpacity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getDisplayedOpacity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6916,7 +6849,6 @@ int lua_cocos2dx_Node_getLocalZOrder(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getLocalZOrder'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -6959,7 +6891,6 @@ int lua_cocos2dx_Node_getScheduler(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getScheduler'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -7012,7 +6943,6 @@ int lua_cocos2dx_Node_getParentToNodeAffineTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getParentToNodeAffineTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -7060,7 +6990,6 @@ int lua_cocos2dx_Node_getOrderOfArrival(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getOrderOfArrival'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -7108,7 +7037,6 @@ int lua_cocos2dx_Node_setActionManager(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setActionManager'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -7121,7 +7049,8 @@ int lua_cocos2dx_Node_setActionManager(lua_State* tolua_S)
             return 0;
         }
         cobj->setActionManager(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setActionManager",argc, 1);
     return 0;
@@ -7158,7 +7087,6 @@ int lua_cocos2dx_Node_setColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -7171,7 +7099,8 @@ int lua_cocos2dx_Node_setColor(lua_State* tolua_S)
             return 0;
         }
         cobj->setColor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setColor",argc, 1);
     return 0;
@@ -7208,7 +7137,6 @@ int lua_cocos2dx_Node_isRunning(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_isRunning'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -7251,7 +7179,6 @@ int lua_cocos2dx_Node_getParent(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getParent'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -7304,7 +7231,6 @@ int lua_cocos2dx_Node_getPositionZ(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getPositionZ'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -7352,7 +7278,6 @@ int lua_cocos2dx_Node_getPositionY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getPositionY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -7400,7 +7325,6 @@ int lua_cocos2dx_Node_getPositionX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getPositionX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -7448,7 +7372,6 @@ int lua_cocos2dx_Node_removeChildByTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_removeChildByTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -7461,7 +7384,8 @@ int lua_cocos2dx_Node_removeChildByTag(lua_State* tolua_S)
             return 0;
         }
         cobj->removeChildByTag(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -7477,7 +7401,8 @@ int lua_cocos2dx_Node_removeChildByTag(lua_State* tolua_S)
             return 0;
         }
         cobj->removeChildByTag(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:removeChildByTag",argc, 1);
     return 0;
@@ -7514,7 +7439,6 @@ int lua_cocos2dx_Node_setPositionY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setPositionY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -7527,7 +7451,8 @@ int lua_cocos2dx_Node_setPositionY(lua_State* tolua_S)
             return 0;
         }
         cobj->setPositionY(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setPositionY",argc, 1);
     return 0;
@@ -7564,7 +7489,6 @@ int lua_cocos2dx_Node_getNodeToWorldAffineTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getNodeToWorldAffineTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -7612,7 +7536,6 @@ int lua_cocos2dx_Node_updateDisplayedColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_updateDisplayedColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -7625,7 +7548,8 @@ int lua_cocos2dx_Node_updateDisplayedColor(lua_State* tolua_S)
             return 0;
         }
         cobj->updateDisplayedColor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:updateDisplayedColor",argc, 1);
     return 0;
@@ -7662,7 +7586,6 @@ int lua_cocos2dx_Node_setVisible(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setVisible'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -7675,7 +7598,8 @@ int lua_cocos2dx_Node_setVisible(lua_State* tolua_S)
             return 0;
         }
         cobj->setVisible(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setVisible",argc, 1);
     return 0;
@@ -7712,7 +7636,6 @@ int lua_cocos2dx_Node_getParentToNodeTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getParentToNodeTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -7760,7 +7683,6 @@ int lua_cocos2dx_Node_isScheduled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_isScheduled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -7811,7 +7733,6 @@ int lua_cocos2dx_Node_setGlobalZOrder(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setGlobalZOrder'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -7824,7 +7745,8 @@ int lua_cocos2dx_Node_setGlobalZOrder(lua_State* tolua_S)
             return 0;
         }
         cobj->setGlobalZOrder(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setGlobalZOrder",argc, 1);
     return 0;
@@ -7856,7 +7778,6 @@ int lua_cocos2dx_Node_setScale(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setScale'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -7869,7 +7790,8 @@ int lua_cocos2dx_Node_setScale(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setScale(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -7880,7 +7802,8 @@ int lua_cocos2dx_Node_setScale(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setScale(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -7919,7 +7842,6 @@ int lua_cocos2dx_Node_getChildByTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getChildByTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -7970,7 +7892,6 @@ int lua_cocos2dx_Node_setOrderOfArrival(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setOrderOfArrival'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -7983,7 +7904,8 @@ int lua_cocos2dx_Node_setOrderOfArrival(lua_State* tolua_S)
             return 0;
         }
         cobj->setOrderOfArrival(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setOrderOfArrival",argc, 1);
     return 0;
@@ -8020,7 +7942,6 @@ int lua_cocos2dx_Node_getScaleZ(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getScaleZ'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -8068,7 +7989,6 @@ int lua_cocos2dx_Node_getScaleY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getScaleY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -8116,7 +8036,6 @@ int lua_cocos2dx_Node_getScaleX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getScaleX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -8164,7 +8083,6 @@ int lua_cocos2dx_Node_setLocalZOrder(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setLocalZOrder'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -8177,7 +8095,8 @@ int lua_cocos2dx_Node_setLocalZOrder(lua_State* tolua_S)
             return 0;
         }
         cobj->setLocalZOrder(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setLocalZOrder",argc, 1);
     return 0;
@@ -8214,7 +8133,6 @@ int lua_cocos2dx_Node_getWorldToNodeAffineTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getWorldToNodeAffineTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -8262,7 +8180,6 @@ int lua_cocos2dx_Node_setCascadeColorEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setCascadeColorEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -8275,7 +8192,8 @@ int lua_cocos2dx_Node_setCascadeColorEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setCascadeColorEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setCascadeColorEnabled",argc, 1);
     return 0;
@@ -8312,7 +8230,6 @@ int lua_cocos2dx_Node_setOpacity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setOpacity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -8325,7 +8242,8 @@ int lua_cocos2dx_Node_setOpacity(lua_State* tolua_S)
             return 0;
         }
         cobj->setOpacity(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setOpacity",argc, 1);
     return 0;
@@ -8362,7 +8280,6 @@ int lua_cocos2dx_Node_cleanup(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_cleanup'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -8372,7 +8289,8 @@ int lua_cocos2dx_Node_cleanup(lua_State* tolua_S)
             return 0;
         }
         cobj->cleanup();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:cleanup",argc, 0);
     return 0;
@@ -8409,7 +8327,6 @@ int lua_cocos2dx_Node_getComponent(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getComponent'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -8460,7 +8377,6 @@ int lua_cocos2dx_Node_getContentSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getContentSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -8508,7 +8424,6 @@ int lua_cocos2dx_Node_stopAllActionsByTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_stopAllActionsByTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -8521,7 +8436,8 @@ int lua_cocos2dx_Node_stopAllActionsByTag(lua_State* tolua_S)
             return 0;
         }
         cobj->stopAllActionsByTag(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:stopAllActionsByTag",argc, 1);
     return 0;
@@ -8558,7 +8474,6 @@ int lua_cocos2dx_Node_getColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -8606,7 +8521,6 @@ int lua_cocos2dx_Node_getBoundingBox(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getBoundingBox'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -8654,7 +8568,6 @@ int lua_cocos2dx_Node_setEventDispatcher(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setEventDispatcher'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -8667,7 +8580,8 @@ int lua_cocos2dx_Node_setEventDispatcher(lua_State* tolua_S)
             return 0;
         }
         cobj->setEventDispatcher(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setEventDispatcher",argc, 1);
     return 0;
@@ -8704,7 +8618,6 @@ int lua_cocos2dx_Node_getGlobalZOrder(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getGlobalZOrder'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -8747,12 +8660,12 @@ int lua_cocos2dx_Node_draw(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_draw'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
             cobj->draw();
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -8771,7 +8684,8 @@ int lua_cocos2dx_Node_draw(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->draw(arg0, arg1, arg2);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -8810,7 +8724,6 @@ int lua_cocos2dx_Node_setUserObject(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setUserObject'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -8823,7 +8736,8 @@ int lua_cocos2dx_Node_setUserObject(lua_State* tolua_S)
             return 0;
         }
         cobj->setUserObject(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setUserObject",argc, 1);
     return 0;
@@ -8855,7 +8769,6 @@ int lua_cocos2dx_Node_removeFromParentAndCleanup(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_removeFromParentAndCleanup'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 1) {
@@ -8864,14 +8777,16 @@ int lua_cocos2dx_Node_removeFromParentAndCleanup(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->removeFromParentAndCleanup(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
     do{
         if (argc == 0) {
             cobj->removeFromParent();
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -8910,7 +8825,6 @@ int lua_cocos2dx_Node_setPosition3D(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setPosition3D'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -8923,7 +8837,8 @@ int lua_cocos2dx_Node_setPosition3D(lua_State* tolua_S)
             return 0;
         }
         cobj->setPosition3D(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setPosition3D",argc, 1);
     return 0;
@@ -8960,7 +8875,6 @@ int lua_cocos2dx_Node_update(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_update'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -8973,7 +8887,8 @@ int lua_cocos2dx_Node_update(lua_State* tolua_S)
             return 0;
         }
         cobj->update(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:update",argc, 1);
     return 0;
@@ -9010,7 +8925,6 @@ int lua_cocos2dx_Node_sortAllChildren(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_sortAllChildren'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -9020,7 +8934,8 @@ int lua_cocos2dx_Node_sortAllChildren(lua_State* tolua_S)
             return 0;
         }
         cobj->sortAllChildren();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:sortAllChildren",argc, 0);
     return 0;
@@ -9057,7 +8972,6 @@ int lua_cocos2dx_Node_getWorldToNodeTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getWorldToNodeTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -9105,7 +9019,6 @@ int lua_cocos2dx_Node_setGLProgram(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setGLProgram'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -9118,7 +9031,8 @@ int lua_cocos2dx_Node_setGLProgram(lua_State* tolua_S)
             return 0;
         }
         cobj->setGLProgram(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setGLProgram",argc, 1);
     return 0;
@@ -9155,7 +9069,6 @@ int lua_cocos2dx_Node_getScale(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getScale'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -9203,7 +9116,6 @@ int lua_cocos2dx_Node_getNormalizedPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getNormalizedPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -9251,7 +9163,6 @@ int lua_cocos2dx_Node_getRotationSkewX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getRotationSkewX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -9299,7 +9210,6 @@ int lua_cocos2dx_Node_getRotationSkewY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getRotationSkewY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -9347,7 +9257,6 @@ int lua_cocos2dx_Node_setTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_setTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -9360,7 +9269,8 @@ int lua_cocos2dx_Node_setTag(lua_State* tolua_S)
             return 0;
         }
         cobj->setTag(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:setTag",argc, 1);
     return 0;
@@ -9397,7 +9307,6 @@ int lua_cocos2dx_Node_isCascadeColorEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_isCascadeColorEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -9445,7 +9354,6 @@ int lua_cocos2dx_Node_stopAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_stopAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -9458,7 +9366,8 @@ int lua_cocos2dx_Node_stopAction(lua_State* tolua_S)
             return 0;
         }
         cobj->stopAction(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Node:stopAction",argc, 1);
     return 0;
@@ -9490,7 +9399,6 @@ int lua_cocos2dx_Node_getActionManager(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_getActionManager'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -9531,7 +9439,6 @@ int lua_cocos2dx_Node_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Node",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Node_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -9729,7 +9636,6 @@ int lua_cocos2dx_Scene_render(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Scene_render'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -9742,7 +9648,8 @@ int lua_cocos2dx_Scene_render(lua_State* tolua_S)
             return 0;
         }
         cobj->render(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Scene:render",argc, 1);
     return 0;
@@ -9767,7 +9674,6 @@ int lua_cocos2dx_Scene_createWithSize(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Scene",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Scene_createWithSize'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -9804,7 +9710,6 @@ int lua_cocos2dx_Scene_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Scene",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Scene_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -9873,7 +9778,6 @@ int lua_cocos2dx_GLView_setFrameSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_setFrameSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -9889,7 +9793,8 @@ int lua_cocos2dx_GLView_setFrameSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setFrameSize(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLView:setFrameSize",argc, 2);
     return 0;
@@ -9926,7 +9831,6 @@ int lua_cocos2dx_GLView_getViewPortRect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getViewPortRect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -9974,7 +9878,6 @@ int lua_cocos2dx_GLView_setContentScaleFactor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_setContentScaleFactor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -10025,7 +9928,6 @@ int lua_cocos2dx_GLView_getContentScaleFactor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getContentScaleFactor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10073,7 +9975,6 @@ int lua_cocos2dx_GLView_setIMEKeyboardState(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_setIMEKeyboardState'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -10086,7 +9987,8 @@ int lua_cocos2dx_GLView_setIMEKeyboardState(lua_State* tolua_S)
             return 0;
         }
         cobj->setIMEKeyboardState(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLView:setIMEKeyboardState",argc, 1);
     return 0;
@@ -10123,7 +10025,6 @@ int lua_cocos2dx_GLView_setScissorInPoints(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_setScissorInPoints'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 4) 
     {
@@ -10145,7 +10046,8 @@ int lua_cocos2dx_GLView_setScissorInPoints(lua_State* tolua_S)
             return 0;
         }
         cobj->setScissorInPoints(arg0, arg1, arg2, arg3);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLView:setScissorInPoints",argc, 4);
     return 0;
@@ -10182,7 +10084,6 @@ int lua_cocos2dx_GLView_getViewName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getViewName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10230,7 +10131,6 @@ int lua_cocos2dx_GLView_isOpenGLReady(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_isOpenGLReady'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10278,7 +10178,6 @@ int lua_cocos2dx_GLView_end(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_end'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10288,7 +10187,8 @@ int lua_cocos2dx_GLView_end(lua_State* tolua_S)
             return 0;
         }
         cobj->end();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLView:end",argc, 0);
     return 0;
@@ -10325,7 +10225,6 @@ int lua_cocos2dx_GLView_getScaleY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getScaleY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10373,7 +10272,6 @@ int lua_cocos2dx_GLView_getScaleX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getScaleX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10421,7 +10319,6 @@ int lua_cocos2dx_GLView_getVisibleOrigin(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getVisibleOrigin'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10469,7 +10366,6 @@ int lua_cocos2dx_GLView_getFrameSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getFrameSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10517,7 +10413,6 @@ int lua_cocos2dx_GLView_setFrameZoomFactor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_setFrameZoomFactor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -10530,7 +10425,8 @@ int lua_cocos2dx_GLView_setFrameZoomFactor(lua_State* tolua_S)
             return 0;
         }
         cobj->setFrameZoomFactor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLView:setFrameZoomFactor",argc, 1);
     return 0;
@@ -10567,7 +10463,6 @@ int lua_cocos2dx_GLView_getFrameZoomFactor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getFrameZoomFactor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10615,7 +10510,6 @@ int lua_cocos2dx_GLView_getDesignResolutionSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getDesignResolutionSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10663,7 +10557,6 @@ int lua_cocos2dx_GLView_windowShouldClose(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_windowShouldClose'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10711,7 +10604,6 @@ int lua_cocos2dx_GLView_swapBuffers(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_swapBuffers'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10721,7 +10613,8 @@ int lua_cocos2dx_GLView_swapBuffers(lua_State* tolua_S)
             return 0;
         }
         cobj->swapBuffers();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLView:swapBuffers",argc, 0);
     return 0;
@@ -10758,7 +10651,6 @@ int lua_cocos2dx_GLView_setDesignResolutionSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_setDesignResolutionSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -10777,7 +10669,8 @@ int lua_cocos2dx_GLView_setDesignResolutionSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setDesignResolutionSize(arg0, arg1, arg2);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLView:setDesignResolutionSize",argc, 3);
     return 0;
@@ -10814,7 +10707,6 @@ int lua_cocos2dx_GLView_getResolutionPolicy(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getResolutionPolicy'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10862,7 +10754,6 @@ int lua_cocos2dx_GLView_isRetinaDisplay(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_isRetinaDisplay'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -10910,7 +10801,6 @@ int lua_cocos2dx_GLView_setViewPortInPoints(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_setViewPortInPoints'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 4) 
     {
@@ -10932,7 +10822,8 @@ int lua_cocos2dx_GLView_setViewPortInPoints(lua_State* tolua_S)
             return 0;
         }
         cobj->setViewPortInPoints(arg0, arg1, arg2, arg3);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLView:setViewPortInPoints",argc, 4);
     return 0;
@@ -10969,7 +10860,6 @@ int lua_cocos2dx_GLView_getScissorRect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getScissorRect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11017,7 +10907,6 @@ int lua_cocos2dx_GLView_getRetinaFactor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getRetinaFactor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11065,7 +10954,6 @@ int lua_cocos2dx_GLView_setViewName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_setViewName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -11078,7 +10966,8 @@ int lua_cocos2dx_GLView_setViewName(lua_State* tolua_S)
             return 0;
         }
         cobj->setViewName(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLView:setViewName",argc, 1);
     return 0;
@@ -11115,7 +11004,6 @@ int lua_cocos2dx_GLView_getVisibleRect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getVisibleRect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11163,7 +11051,6 @@ int lua_cocos2dx_GLView_getVisibleSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getVisibleSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11211,7 +11098,6 @@ int lua_cocos2dx_GLView_isScissorEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_isScissorEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11259,7 +11145,6 @@ int lua_cocos2dx_GLView_pollEvents(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_pollEvents'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11269,7 +11154,8 @@ int lua_cocos2dx_GLView_pollEvents(lua_State* tolua_S)
             return 0;
         }
         cobj->pollEvents();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLView:pollEvents",argc, 0);
     return 0;
@@ -11294,7 +11180,6 @@ int lua_cocos2dx_GLView_setGLContextAttrs(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLView",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_setGLContextAttrs'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -11308,7 +11193,8 @@ int lua_cocos2dx_GLView_setGLContextAttrs(lua_State* tolua_S)
             return 0;
         }
         cocos2d::GLView::setGLContextAttrs(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.GLView:setGLContextAttrs",argc, 1);
     return 0;
@@ -11331,7 +11217,6 @@ int lua_cocos2dx_GLView_getGLContextAttrs(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLView",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLView_getGLContextAttrs'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -11428,7 +11313,6 @@ int lua_cocos2dx_Director_pause(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_pause'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11438,7 +11322,8 @@ int lua_cocos2dx_Director_pause(lua_State* tolua_S)
             return 0;
         }
         cobj->pause();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:pause",argc, 0);
     return 0;
@@ -11475,7 +11360,6 @@ int lua_cocos2dx_Director_setEventDispatcher(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setEventDispatcher'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -11488,7 +11372,8 @@ int lua_cocos2dx_Director_setEventDispatcher(lua_State* tolua_S)
             return 0;
         }
         cobj->setEventDispatcher(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setEventDispatcher",argc, 1);
     return 0;
@@ -11525,7 +11410,6 @@ int lua_cocos2dx_Director_setContentScaleFactor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setContentScaleFactor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -11538,7 +11422,8 @@ int lua_cocos2dx_Director_setContentScaleFactor(lua_State* tolua_S)
             return 0;
         }
         cobj->setContentScaleFactor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setContentScaleFactor",argc, 1);
     return 0;
@@ -11575,7 +11460,6 @@ int lua_cocos2dx_Director_getContentScaleFactor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getContentScaleFactor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11623,7 +11507,6 @@ int lua_cocos2dx_Director_getWinSizeInPixels(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getWinSizeInPixels'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11671,7 +11554,6 @@ int lua_cocos2dx_Director_getDeltaTime(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getDeltaTime'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11719,7 +11601,6 @@ int lua_cocos2dx_Director_setGLDefaultValues(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setGLDefaultValues'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11729,7 +11610,8 @@ int lua_cocos2dx_Director_setGLDefaultValues(lua_State* tolua_S)
             return 0;
         }
         cobj->setGLDefaultValues();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setGLDefaultValues",argc, 0);
     return 0;
@@ -11766,7 +11648,6 @@ int lua_cocos2dx_Director_setActionManager(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setActionManager'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -11779,7 +11660,8 @@ int lua_cocos2dx_Director_setActionManager(lua_State* tolua_S)
             return 0;
         }
         cobj->setActionManager(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setActionManager",argc, 1);
     return 0;
@@ -11816,7 +11698,6 @@ int lua_cocos2dx_Director_setAlphaBlending(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setAlphaBlending'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -11829,7 +11710,8 @@ int lua_cocos2dx_Director_setAlphaBlending(lua_State* tolua_S)
             return 0;
         }
         cobj->setAlphaBlending(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setAlphaBlending",argc, 1);
     return 0;
@@ -11866,7 +11748,6 @@ int lua_cocos2dx_Director_popToRootScene(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_popToRootScene'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -11876,7 +11757,8 @@ int lua_cocos2dx_Director_popToRootScene(lua_State* tolua_S)
             return 0;
         }
         cobj->popToRootScene();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:popToRootScene",argc, 0);
     return 0;
@@ -11913,7 +11795,6 @@ int lua_cocos2dx_Director_loadMatrix(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_loadMatrix'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -11929,7 +11810,8 @@ int lua_cocos2dx_Director_loadMatrix(lua_State* tolua_S)
             return 0;
         }
         cobj->loadMatrix(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:loadMatrix",argc, 2);
     return 0;
@@ -11966,7 +11848,6 @@ int lua_cocos2dx_Director_getNotificationNode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getNotificationNode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12014,7 +11895,6 @@ int lua_cocos2dx_Director_getWinSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getWinSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12062,7 +11942,6 @@ int lua_cocos2dx_Director_getTextureCache(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getTextureCache'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12110,7 +11989,6 @@ int lua_cocos2dx_Director_isSendCleanupToScene(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_isSendCleanupToScene'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12158,7 +12036,6 @@ int lua_cocos2dx_Director_getVisibleOrigin(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getVisibleOrigin'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12206,7 +12083,6 @@ int lua_cocos2dx_Director_mainLoop(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_mainLoop'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12216,7 +12092,8 @@ int lua_cocos2dx_Director_mainLoop(lua_State* tolua_S)
             return 0;
         }
         cobj->mainLoop();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:mainLoop",argc, 0);
     return 0;
@@ -12253,7 +12130,6 @@ int lua_cocos2dx_Director_setDepthTest(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setDepthTest'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -12266,7 +12142,8 @@ int lua_cocos2dx_Director_setDepthTest(lua_State* tolua_S)
             return 0;
         }
         cobj->setDepthTest(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setDepthTest",argc, 1);
     return 0;
@@ -12303,7 +12180,6 @@ int lua_cocos2dx_Director_getFrameRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getFrameRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12351,7 +12227,6 @@ int lua_cocos2dx_Director_getSecondsPerFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getSecondsPerFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12399,7 +12274,6 @@ int lua_cocos2dx_Director_resetMatrixStack(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_resetMatrixStack'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12409,7 +12283,8 @@ int lua_cocos2dx_Director_resetMatrixStack(lua_State* tolua_S)
             return 0;
         }
         cobj->resetMatrixStack();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:resetMatrixStack",argc, 0);
     return 0;
@@ -12446,7 +12321,6 @@ int lua_cocos2dx_Director_convertToUI(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_convertToUI'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -12497,7 +12371,6 @@ int lua_cocos2dx_Director_pushMatrix(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_pushMatrix'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -12510,7 +12383,8 @@ int lua_cocos2dx_Director_pushMatrix(lua_State* tolua_S)
             return 0;
         }
         cobj->pushMatrix(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:pushMatrix",argc, 1);
     return 0;
@@ -12547,7 +12421,6 @@ int lua_cocos2dx_Director_setDefaultValues(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setDefaultValues'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12557,7 +12430,8 @@ int lua_cocos2dx_Director_setDefaultValues(lua_State* tolua_S)
             return 0;
         }
         cobj->setDefaultValues();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setDefaultValues",argc, 0);
     return 0;
@@ -12594,7 +12468,6 @@ int lua_cocos2dx_Director_init(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_init'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12642,7 +12515,6 @@ int lua_cocos2dx_Director_setScheduler(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setScheduler'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -12655,7 +12527,8 @@ int lua_cocos2dx_Director_setScheduler(lua_State* tolua_S)
             return 0;
         }
         cobj->setScheduler(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setScheduler",argc, 1);
     return 0;
@@ -12692,7 +12565,6 @@ int lua_cocos2dx_Director_startAnimation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_startAnimation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12702,7 +12574,8 @@ int lua_cocos2dx_Director_startAnimation(lua_State* tolua_S)
             return 0;
         }
         cobj->startAnimation();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:startAnimation",argc, 0);
     return 0;
@@ -12739,7 +12612,6 @@ int lua_cocos2dx_Director_getOpenGLView(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getOpenGLView'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12787,7 +12659,6 @@ int lua_cocos2dx_Director_getRunningScene(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getRunningScene'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12835,7 +12706,6 @@ int lua_cocos2dx_Director_setViewport(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setViewport'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12845,7 +12715,8 @@ int lua_cocos2dx_Director_setViewport(lua_State* tolua_S)
             return 0;
         }
         cobj->setViewport();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setViewport",argc, 0);
     return 0;
@@ -12882,7 +12753,6 @@ int lua_cocos2dx_Director_stopAnimation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_stopAnimation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12892,7 +12762,8 @@ int lua_cocos2dx_Director_stopAnimation(lua_State* tolua_S)
             return 0;
         }
         cobj->stopAnimation();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:stopAnimation",argc, 0);
     return 0;
@@ -12929,7 +12800,6 @@ int lua_cocos2dx_Director_popToSceneStackLevel(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_popToSceneStackLevel'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -12942,7 +12812,8 @@ int lua_cocos2dx_Director_popToSceneStackLevel(lua_State* tolua_S)
             return 0;
         }
         cobj->popToSceneStackLevel(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:popToSceneStackLevel",argc, 1);
     return 0;
@@ -12979,7 +12850,6 @@ int lua_cocos2dx_Director_resume(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_resume'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -12989,7 +12859,8 @@ int lua_cocos2dx_Director_resume(lua_State* tolua_S)
             return 0;
         }
         cobj->resume();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:resume",argc, 0);
     return 0;
@@ -13026,7 +12897,6 @@ int lua_cocos2dx_Director_isNextDeltaTimeZero(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_isNextDeltaTimeZero'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -13074,7 +12944,6 @@ int lua_cocos2dx_Director_end(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_end'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -13084,7 +12953,8 @@ int lua_cocos2dx_Director_end(lua_State* tolua_S)
             return 0;
         }
         cobj->end();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:end",argc, 0);
     return 0;
@@ -13121,7 +12991,6 @@ int lua_cocos2dx_Director_setOpenGLView(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setOpenGLView'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -13134,7 +13003,8 @@ int lua_cocos2dx_Director_setOpenGLView(lua_State* tolua_S)
             return 0;
         }
         cobj->setOpenGLView(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setOpenGLView",argc, 1);
     return 0;
@@ -13171,7 +13041,6 @@ int lua_cocos2dx_Director_convertToGL(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_convertToGL'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -13222,7 +13091,6 @@ int lua_cocos2dx_Director_purgeCachedData(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_purgeCachedData'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -13232,7 +13100,8 @@ int lua_cocos2dx_Director_purgeCachedData(lua_State* tolua_S)
             return 0;
         }
         cobj->purgeCachedData();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:purgeCachedData",argc, 0);
     return 0;
@@ -13269,7 +13138,6 @@ int lua_cocos2dx_Director_getTotalFrames(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getTotalFrames'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -13317,7 +13185,6 @@ int lua_cocos2dx_Director_runWithScene(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_runWithScene'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -13330,7 +13197,8 @@ int lua_cocos2dx_Director_runWithScene(lua_State* tolua_S)
             return 0;
         }
         cobj->runWithScene(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:runWithScene",argc, 1);
     return 0;
@@ -13367,7 +13235,6 @@ int lua_cocos2dx_Director_setNotificationNode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setNotificationNode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -13380,7 +13247,8 @@ int lua_cocos2dx_Director_setNotificationNode(lua_State* tolua_S)
             return 0;
         }
         cobj->setNotificationNode(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setNotificationNode",argc, 1);
     return 0;
@@ -13417,7 +13285,6 @@ int lua_cocos2dx_Director_drawScene(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_drawScene'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -13427,7 +13294,8 @@ int lua_cocos2dx_Director_drawScene(lua_State* tolua_S)
             return 0;
         }
         cobj->drawScene();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:drawScene",argc, 0);
     return 0;
@@ -13464,7 +13332,6 @@ int lua_cocos2dx_Director_getMatrix(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getMatrix'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -13515,7 +13382,6 @@ int lua_cocos2dx_Director_popScene(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_popScene'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -13525,7 +13391,8 @@ int lua_cocos2dx_Director_popScene(lua_State* tolua_S)
             return 0;
         }
         cobj->popScene();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:popScene",argc, 0);
     return 0;
@@ -13562,7 +13429,6 @@ int lua_cocos2dx_Director_loadIdentityMatrix(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_loadIdentityMatrix'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -13575,7 +13441,8 @@ int lua_cocos2dx_Director_loadIdentityMatrix(lua_State* tolua_S)
             return 0;
         }
         cobj->loadIdentityMatrix(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:loadIdentityMatrix",argc, 1);
     return 0;
@@ -13612,7 +13479,6 @@ int lua_cocos2dx_Director_isDisplayStats(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_isDisplayStats'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -13660,7 +13526,6 @@ int lua_cocos2dx_Director_setProjection(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setProjection'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -13673,7 +13538,8 @@ int lua_cocos2dx_Director_setProjection(lua_State* tolua_S)
             return 0;
         }
         cobj->setProjection(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setProjection",argc, 1);
     return 0;
@@ -13710,7 +13576,6 @@ int lua_cocos2dx_Director_getConsole(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getConsole'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -13758,7 +13623,6 @@ int lua_cocos2dx_Director_multiplyMatrix(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_multiplyMatrix'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -13774,7 +13638,8 @@ int lua_cocos2dx_Director_multiplyMatrix(lua_State* tolua_S)
             return 0;
         }
         cobj->multiplyMatrix(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:multiplyMatrix",argc, 2);
     return 0;
@@ -13811,7 +13676,6 @@ int lua_cocos2dx_Director_getZEye(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getZEye'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -13859,7 +13723,6 @@ int lua_cocos2dx_Director_setNextDeltaTimeZero(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setNextDeltaTimeZero'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -13872,7 +13735,8 @@ int lua_cocos2dx_Director_setNextDeltaTimeZero(lua_State* tolua_S)
             return 0;
         }
         cobj->setNextDeltaTimeZero(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setNextDeltaTimeZero",argc, 1);
     return 0;
@@ -13909,7 +13773,6 @@ int lua_cocos2dx_Director_popMatrix(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_popMatrix'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -13922,7 +13785,8 @@ int lua_cocos2dx_Director_popMatrix(lua_State* tolua_S)
             return 0;
         }
         cobj->popMatrix(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:popMatrix",argc, 1);
     return 0;
@@ -13959,7 +13823,6 @@ int lua_cocos2dx_Director_getVisibleSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getVisibleSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -14007,7 +13870,6 @@ int lua_cocos2dx_Director_getScheduler(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getScheduler'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -14055,7 +13917,6 @@ int lua_cocos2dx_Director_pushScene(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_pushScene'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -14068,7 +13929,8 @@ int lua_cocos2dx_Director_pushScene(lua_State* tolua_S)
             return 0;
         }
         cobj->pushScene(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:pushScene",argc, 1);
     return 0;
@@ -14105,7 +13967,6 @@ int lua_cocos2dx_Director_getAnimationInterval(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getAnimationInterval'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -14153,7 +14014,6 @@ int lua_cocos2dx_Director_isPaused(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_isPaused'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -14201,7 +14061,6 @@ int lua_cocos2dx_Director_setDisplayStats(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setDisplayStats'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -14214,7 +14073,8 @@ int lua_cocos2dx_Director_setDisplayStats(lua_State* tolua_S)
             return 0;
         }
         cobj->setDisplayStats(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setDisplayStats",argc, 1);
     return 0;
@@ -14251,7 +14111,6 @@ int lua_cocos2dx_Director_getEventDispatcher(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getEventDispatcher'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -14299,7 +14158,6 @@ int lua_cocos2dx_Director_replaceScene(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_replaceScene'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -14312,7 +14170,8 @@ int lua_cocos2dx_Director_replaceScene(lua_State* tolua_S)
             return 0;
         }
         cobj->replaceScene(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:replaceScene",argc, 1);
     return 0;
@@ -14349,7 +14208,6 @@ int lua_cocos2dx_Director_setAnimationInterval(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_setAnimationInterval'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -14362,7 +14220,8 @@ int lua_cocos2dx_Director_setAnimationInterval(lua_State* tolua_S)
             return 0;
         }
         cobj->setAnimationInterval(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Director:setAnimationInterval",argc, 1);
     return 0;
@@ -14399,7 +14258,6 @@ int lua_cocos2dx_Director_getActionManager(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getActionManager'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -14435,7 +14293,6 @@ int lua_cocos2dx_Director_getInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Director",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Director_getInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -14564,7 +14421,6 @@ int lua_cocos2dx_Timer_getInterval(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Timer_getInterval'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -14612,7 +14468,6 @@ int lua_cocos2dx_Timer_setupTimerWithInterval(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Timer_setupTimerWithInterval'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -14631,7 +14486,8 @@ int lua_cocos2dx_Timer_setupTimerWithInterval(lua_State* tolua_S)
             return 0;
         }
         cobj->setupTimerWithInterval(arg0, arg1, arg2);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Timer:setupTimerWithInterval",argc, 3);
     return 0;
@@ -14668,7 +14524,6 @@ int lua_cocos2dx_Timer_setInterval(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Timer_setInterval'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -14681,7 +14536,8 @@ int lua_cocos2dx_Timer_setInterval(lua_State* tolua_S)
             return 0;
         }
         cobj->setInterval(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Timer:setInterval",argc, 1);
     return 0;
@@ -14718,7 +14574,6 @@ int lua_cocos2dx_Timer_update(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Timer_update'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -14731,7 +14586,8 @@ int lua_cocos2dx_Timer_update(lua_State* tolua_S)
             return 0;
         }
         cobj->update(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Timer:update",argc, 1);
     return 0;
@@ -14768,7 +14624,6 @@ int lua_cocos2dx_Timer_trigger(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Timer_trigger'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -14778,7 +14633,8 @@ int lua_cocos2dx_Timer_trigger(lua_State* tolua_S)
             return 0;
         }
         cobj->trigger();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Timer:trigger",argc, 0);
     return 0;
@@ -14815,7 +14671,6 @@ int lua_cocos2dx_Timer_cancel(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Timer_cancel'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -14825,7 +14680,8 @@ int lua_cocos2dx_Timer_cancel(lua_State* tolua_S)
             return 0;
         }
         cobj->cancel();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Timer:cancel",argc, 0);
     return 0;
@@ -14887,7 +14743,6 @@ int lua_cocos2dx_Scheduler_setTimeScale(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Scheduler_setTimeScale'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -14900,7 +14755,8 @@ int lua_cocos2dx_Scheduler_setTimeScale(lua_State* tolua_S)
             return 0;
         }
         cobj->setTimeScale(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Scheduler:setTimeScale",argc, 1);
     return 0;
@@ -14937,7 +14793,6 @@ int lua_cocos2dx_Scheduler_getTimeScale(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Scheduler_getTimeScale'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -14972,7 +14827,6 @@ int lua_cocos2dx_Scheduler_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Scheduler_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -15045,7 +14899,6 @@ int lua_cocos2dx_FileUtils_fullPathForFilename(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_fullPathForFilename'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15096,7 +14949,6 @@ int lua_cocos2dx_FileUtils_getStringFromFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_getStringFromFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15147,7 +14999,6 @@ int lua_cocos2dx_FileUtils_setFilenameLookupDictionary(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_setFilenameLookupDictionary'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15160,7 +15011,8 @@ int lua_cocos2dx_FileUtils_setFilenameLookupDictionary(lua_State* tolua_S)
             return 0;
         }
         cobj->setFilenameLookupDictionary(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FileUtils:setFilenameLookupDictionary",argc, 1);
     return 0;
@@ -15197,7 +15049,6 @@ int lua_cocos2dx_FileUtils_removeFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_removeFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15248,7 +15099,6 @@ int lua_cocos2dx_FileUtils_isAbsolutePath(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_isAbsolutePath'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15299,7 +15149,6 @@ int lua_cocos2dx_FileUtils_renameFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_renameFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -15356,7 +15205,6 @@ int lua_cocos2dx_FileUtils_setSearchRootPath(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_setSearchRootPath'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15369,7 +15217,8 @@ int lua_cocos2dx_FileUtils_setSearchRootPath(lua_State* tolua_S)
             return 0;
         }
         cobj->setSearchRootPath(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FileUtils:setSearchRootPath",argc, 1);
     return 0;
@@ -15406,7 +15255,6 @@ int lua_cocos2dx_FileUtils_loadFilenameLookupDictionaryFromFile(lua_State* tolua
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_loadFilenameLookupDictionaryFromFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15419,7 +15267,8 @@ int lua_cocos2dx_FileUtils_loadFilenameLookupDictionaryFromFile(lua_State* tolua
             return 0;
         }
         cobj->loadFilenameLookupDictionaryFromFile(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FileUtils:loadFilenameLookupDictionaryFromFile",argc, 1);
     return 0;
@@ -15456,7 +15305,6 @@ int lua_cocos2dx_FileUtils_isPopupNotify(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_isPopupNotify'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -15504,7 +15352,6 @@ int lua_cocos2dx_FileUtils_getValueVectorFromFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_getValueVectorFromFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15555,7 +15402,6 @@ int lua_cocos2dx_FileUtils_getSearchPaths(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_getSearchPaths'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -15603,7 +15449,6 @@ int lua_cocos2dx_FileUtils_writeToFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_writeToFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -15657,7 +15502,6 @@ int lua_cocos2dx_FileUtils_getValueMapFromFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_getValueMapFromFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15708,7 +15552,6 @@ int lua_cocos2dx_FileUtils_getValueMapFromData(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_getValueMapFromData'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -15762,7 +15605,6 @@ int lua_cocos2dx_FileUtils_removeDirectory(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_removeDirectory'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15813,7 +15655,6 @@ int lua_cocos2dx_FileUtils_setSearchPaths(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_setSearchPaths'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15826,7 +15667,8 @@ int lua_cocos2dx_FileUtils_setSearchPaths(lua_State* tolua_S)
             return 0;
         }
         cobj->setSearchPaths(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FileUtils:setSearchPaths",argc, 1);
     return 0;
@@ -15863,7 +15705,6 @@ int lua_cocos2dx_FileUtils_getFileSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_getFileSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15914,7 +15755,6 @@ int lua_cocos2dx_FileUtils_setSearchResolutionsOrder(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_setSearchResolutionsOrder'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15927,7 +15767,8 @@ int lua_cocos2dx_FileUtils_setSearchResolutionsOrder(lua_State* tolua_S)
             return 0;
         }
         cobj->setSearchResolutionsOrder(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FileUtils:setSearchResolutionsOrder",argc, 1);
     return 0;
@@ -15964,7 +15805,6 @@ int lua_cocos2dx_FileUtils_addSearchResolutionsOrder(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_addSearchResolutionsOrder'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -15977,7 +15817,8 @@ int lua_cocos2dx_FileUtils_addSearchResolutionsOrder(lua_State* tolua_S)
             return 0;
         }
         cobj->addSearchResolutionsOrder(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -15993,7 +15834,8 @@ int lua_cocos2dx_FileUtils_addSearchResolutionsOrder(lua_State* tolua_S)
             return 0;
         }
         cobj->addSearchResolutionsOrder(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FileUtils:addSearchResolutionsOrder",argc, 1);
     return 0;
@@ -16030,7 +15872,6 @@ int lua_cocos2dx_FileUtils_addSearchPath(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_addSearchPath'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -16043,7 +15884,8 @@ int lua_cocos2dx_FileUtils_addSearchPath(lua_State* tolua_S)
             return 0;
         }
         cobj->addSearchPath(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -16059,7 +15901,8 @@ int lua_cocos2dx_FileUtils_addSearchPath(lua_State* tolua_S)
             return 0;
         }
         cobj->addSearchPath(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FileUtils:addSearchPath",argc, 1);
     return 0;
@@ -16096,7 +15939,6 @@ int lua_cocos2dx_FileUtils_isFileExist(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_isFileExist'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -16147,7 +15989,6 @@ int lua_cocos2dx_FileUtils_purgeCachedEntries(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_purgeCachedEntries'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -16157,7 +15998,8 @@ int lua_cocos2dx_FileUtils_purgeCachedEntries(lua_State* tolua_S)
             return 0;
         }
         cobj->purgeCachedEntries();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FileUtils:purgeCachedEntries",argc, 0);
     return 0;
@@ -16194,7 +16036,6 @@ int lua_cocos2dx_FileUtils_fullPathFromRelativeFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_fullPathFromRelativeFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -16248,7 +16089,6 @@ int lua_cocos2dx_FileUtils_setWritablePath(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_setWritablePath'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -16261,7 +16101,8 @@ int lua_cocos2dx_FileUtils_setWritablePath(lua_State* tolua_S)
             return 0;
         }
         cobj->setWritablePath(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FileUtils:setWritablePath",argc, 1);
     return 0;
@@ -16298,7 +16139,6 @@ int lua_cocos2dx_FileUtils_setPopupNotify(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_setPopupNotify'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -16311,7 +16151,8 @@ int lua_cocos2dx_FileUtils_setPopupNotify(lua_State* tolua_S)
             return 0;
         }
         cobj->setPopupNotify(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FileUtils:setPopupNotify",argc, 1);
     return 0;
@@ -16348,7 +16189,6 @@ int lua_cocos2dx_FileUtils_isDirectoryExist(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_isDirectoryExist'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -16399,7 +16239,6 @@ int lua_cocos2dx_FileUtils_getSearchResolutionsOrder(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_getSearchResolutionsOrder'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -16447,7 +16286,6 @@ int lua_cocos2dx_FileUtils_createDirectory(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_createDirectory'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -16498,7 +16336,6 @@ int lua_cocos2dx_FileUtils_getWritablePath(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_getWritablePath'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -16534,7 +16371,6 @@ int lua_cocos2dx_FileUtils_destroyInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FileUtils",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_destroyInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -16545,7 +16381,8 @@ int lua_cocos2dx_FileUtils_destroyInstance(lua_State* tolua_S)
             return 0;
         }
         cocos2d::FileUtils::destroyInstance();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.FileUtils:destroyInstance",argc, 0);
     return 0;
@@ -16568,7 +16405,6 @@ int lua_cocos2dx_FileUtils_getInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FileUtils",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FileUtils_getInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -16665,7 +16501,6 @@ int lua_cocos2dx_UserDefault_setIntegerForKey(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_setIntegerForKey'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -16681,7 +16516,8 @@ int lua_cocos2dx_UserDefault_setIntegerForKey(lua_State* tolua_S)
             return 0;
         }
         cobj->setIntegerForKey(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.UserDefault:setIntegerForKey",argc, 2);
     return 0;
@@ -16713,7 +16549,6 @@ int lua_cocos2dx_UserDefault_getFloatForKey(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_getFloatForKey'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -16773,7 +16608,6 @@ int lua_cocos2dx_UserDefault_getBoolForKey(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_getBoolForKey'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -16838,7 +16672,6 @@ int lua_cocos2dx_UserDefault_setDoubleForKey(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_setDoubleForKey'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -16854,7 +16687,8 @@ int lua_cocos2dx_UserDefault_setDoubleForKey(lua_State* tolua_S)
             return 0;
         }
         cobj->setDoubleForKey(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.UserDefault:setDoubleForKey",argc, 2);
     return 0;
@@ -16891,7 +16725,6 @@ int lua_cocos2dx_UserDefault_setFloatForKey(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_setFloatForKey'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -16907,7 +16740,8 @@ int lua_cocos2dx_UserDefault_setFloatForKey(lua_State* tolua_S)
             return 0;
         }
         cobj->setFloatForKey(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.UserDefault:setFloatForKey",argc, 2);
     return 0;
@@ -16939,7 +16773,6 @@ int lua_cocos2dx_UserDefault_getStringForKey(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_getStringForKey'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -17004,7 +16837,6 @@ int lua_cocos2dx_UserDefault_setStringForKey(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_setStringForKey'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -17020,7 +16852,8 @@ int lua_cocos2dx_UserDefault_setStringForKey(lua_State* tolua_S)
             return 0;
         }
         cobj->setStringForKey(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.UserDefault:setStringForKey",argc, 2);
     return 0;
@@ -17057,7 +16890,6 @@ int lua_cocos2dx_UserDefault_flush(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_flush'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -17067,7 +16899,8 @@ int lua_cocos2dx_UserDefault_flush(lua_State* tolua_S)
             return 0;
         }
         cobj->flush();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.UserDefault:flush",argc, 0);
     return 0;
@@ -17099,7 +16932,6 @@ int lua_cocos2dx_UserDefault_getIntegerForKey(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_getIntegerForKey'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -17159,7 +16991,6 @@ int lua_cocos2dx_UserDefault_getDoubleForKey(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_getDoubleForKey'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -17224,7 +17055,6 @@ int lua_cocos2dx_UserDefault_setBoolForKey(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_setBoolForKey'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -17240,7 +17070,8 @@ int lua_cocos2dx_UserDefault_setBoolForKey(lua_State* tolua_S)
             return 0;
         }
         cobj->setBoolForKey(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.UserDefault:setBoolForKey",argc, 2);
     return 0;
@@ -17265,7 +17096,6 @@ int lua_cocos2dx_UserDefault_destroyInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.UserDefault",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_destroyInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -17276,7 +17106,8 @@ int lua_cocos2dx_UserDefault_destroyInstance(lua_State* tolua_S)
             return 0;
         }
         cocos2d::UserDefault::destroyInstance();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.UserDefault:destroyInstance",argc, 0);
     return 0;
@@ -17299,7 +17130,6 @@ int lua_cocos2dx_UserDefault_getXMLFilePath(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.UserDefault",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_getXMLFilePath'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -17334,7 +17164,6 @@ int lua_cocos2dx_UserDefault_isXMLFileExist(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.UserDefault",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_UserDefault_isXMLFileExist'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -17414,7 +17243,6 @@ int lua_cocos2dx_EventListener_setEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventListener_setEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -17427,7 +17255,8 @@ int lua_cocos2dx_EventListener_setEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventListener:setEnabled",argc, 1);
     return 0;
@@ -17464,7 +17293,6 @@ int lua_cocos2dx_EventListener_clone(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventListener_clone'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -17512,7 +17340,6 @@ int lua_cocos2dx_EventListener_isEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventListener_isEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -17560,7 +17387,6 @@ int lua_cocos2dx_EventListener_checkAvailable(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventListener_checkAvailable'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -17631,7 +17457,6 @@ int lua_cocos2dx_EventDispatcher_pauseEventListenersForTarget(lua_State* tolua_S
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_pauseEventListenersForTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -17644,7 +17469,8 @@ int lua_cocos2dx_EventDispatcher_pauseEventListenersForTarget(lua_State* tolua_S
             return 0;
         }
         cobj->pauseEventListenersForTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -17660,7 +17486,8 @@ int lua_cocos2dx_EventDispatcher_pauseEventListenersForTarget(lua_State* tolua_S
             return 0;
         }
         cobj->pauseEventListenersForTarget(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:pauseEventListenersForTarget",argc, 1);
     return 0;
@@ -17697,7 +17524,6 @@ int lua_cocos2dx_EventDispatcher_addEventListenerWithSceneGraphPriority(lua_Stat
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_addEventListenerWithSceneGraphPriority'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -17713,7 +17539,8 @@ int lua_cocos2dx_EventDispatcher_addEventListenerWithSceneGraphPriority(lua_Stat
             return 0;
         }
         cobj->addEventListenerWithSceneGraphPriority(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:addEventListenerWithSceneGraphPriority",argc, 2);
     return 0;
@@ -17750,7 +17577,6 @@ int lua_cocos2dx_EventDispatcher_setEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_setEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -17763,7 +17589,8 @@ int lua_cocos2dx_EventDispatcher_setEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:setEnabled",argc, 1);
     return 0;
@@ -17800,7 +17627,6 @@ int lua_cocos2dx_EventDispatcher_addEventListenerWithFixedPriority(lua_State* to
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_addEventListenerWithFixedPriority'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -17816,7 +17642,8 @@ int lua_cocos2dx_EventDispatcher_addEventListenerWithFixedPriority(lua_State* to
             return 0;
         }
         cobj->addEventListenerWithFixedPriority(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:addEventListenerWithFixedPriority",argc, 2);
     return 0;
@@ -17853,7 +17680,6 @@ int lua_cocos2dx_EventDispatcher_removeEventListener(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_removeEventListener'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -17866,7 +17692,8 @@ int lua_cocos2dx_EventDispatcher_removeEventListener(lua_State* tolua_S)
             return 0;
         }
         cobj->removeEventListener(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:removeEventListener",argc, 1);
     return 0;
@@ -17903,7 +17730,6 @@ int lua_cocos2dx_EventDispatcher_resumeEventListenersForTarget(lua_State* tolua_
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_resumeEventListenersForTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -17916,7 +17742,8 @@ int lua_cocos2dx_EventDispatcher_resumeEventListenersForTarget(lua_State* tolua_
             return 0;
         }
         cobj->resumeEventListenersForTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -17932,7 +17759,8 @@ int lua_cocos2dx_EventDispatcher_resumeEventListenersForTarget(lua_State* tolua_
             return 0;
         }
         cobj->resumeEventListenersForTarget(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:resumeEventListenersForTarget",argc, 1);
     return 0;
@@ -17969,7 +17797,6 @@ int lua_cocos2dx_EventDispatcher_removeEventListenersForTarget(lua_State* tolua_
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_removeEventListenersForTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -17982,7 +17809,8 @@ int lua_cocos2dx_EventDispatcher_removeEventListenersForTarget(lua_State* tolua_
             return 0;
         }
         cobj->removeEventListenersForTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -17998,7 +17826,8 @@ int lua_cocos2dx_EventDispatcher_removeEventListenersForTarget(lua_State* tolua_
             return 0;
         }
         cobj->removeEventListenersForTarget(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:removeEventListenersForTarget",argc, 1);
     return 0;
@@ -18035,7 +17864,6 @@ int lua_cocos2dx_EventDispatcher_setPriority(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_setPriority'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -18051,7 +17879,8 @@ int lua_cocos2dx_EventDispatcher_setPriority(lua_State* tolua_S)
             return 0;
         }
         cobj->setPriority(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:setPriority",argc, 2);
     return 0;
@@ -18088,7 +17917,6 @@ int lua_cocos2dx_EventDispatcher_addCustomEventListener(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_addCustomEventListener'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -18146,7 +17974,6 @@ int lua_cocos2dx_EventDispatcher_dispatchEvent(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_dispatchEvent'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -18159,7 +17986,8 @@ int lua_cocos2dx_EventDispatcher_dispatchEvent(lua_State* tolua_S)
             return 0;
         }
         cobj->dispatchEvent(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:dispatchEvent",argc, 1);
     return 0;
@@ -18196,7 +18024,6 @@ int lua_cocos2dx_EventDispatcher_removeAllEventListeners(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_removeAllEventListeners'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -18206,7 +18033,8 @@ int lua_cocos2dx_EventDispatcher_removeAllEventListeners(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAllEventListeners();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:removeAllEventListeners",argc, 0);
     return 0;
@@ -18243,7 +18071,6 @@ int lua_cocos2dx_EventDispatcher_removeCustomEventListeners(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_removeCustomEventListeners'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -18256,7 +18083,8 @@ int lua_cocos2dx_EventDispatcher_removeCustomEventListeners(lua_State* tolua_S)
             return 0;
         }
         cobj->removeCustomEventListeners(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:removeCustomEventListeners",argc, 1);
     return 0;
@@ -18293,7 +18121,6 @@ int lua_cocos2dx_EventDispatcher_isEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_isEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -18341,7 +18168,6 @@ int lua_cocos2dx_EventDispatcher_removeEventListenersForType(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_removeEventListenersForType'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -18354,7 +18180,8 @@ int lua_cocos2dx_EventDispatcher_removeEventListenersForType(lua_State* tolua_S)
             return 0;
         }
         cobj->removeEventListenersForType(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventDispatcher:removeEventListenersForType",argc, 1);
     return 0;
@@ -18378,7 +18205,6 @@ int lua_cocos2dx_EventDispatcher_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventDispatcher_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -18463,7 +18289,6 @@ int lua_cocos2dx_EventListenerTouchOneByOne_isSwallowTouches(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventListenerTouchOneByOne_isSwallowTouches'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -18511,7 +18336,6 @@ int lua_cocos2dx_EventListenerTouchOneByOne_setSwallowTouches(lua_State* tolua_S
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventListenerTouchOneByOne_setSwallowTouches'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -18524,7 +18348,8 @@ int lua_cocos2dx_EventListenerTouchOneByOne_setSwallowTouches(lua_State* tolua_S
             return 0;
         }
         cobj->setSwallowTouches(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventListenerTouchOneByOne:setSwallowTouches",argc, 1);
     return 0;
@@ -18620,7 +18445,6 @@ int lua_cocos2dx_EventMouse_getPreviousLocationInView(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getPreviousLocationInView'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -18668,7 +18492,6 @@ int lua_cocos2dx_EventMouse_getLocation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getLocation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -18716,7 +18539,6 @@ int lua_cocos2dx_EventMouse_getMouseButton(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getMouseButton'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -18764,7 +18586,6 @@ int lua_cocos2dx_EventMouse_getPreviousLocation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getPreviousLocation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -18812,7 +18633,6 @@ int lua_cocos2dx_EventMouse_getDelta(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getDelta'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -18860,7 +18680,6 @@ int lua_cocos2dx_EventMouse_setScrollData(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_setScrollData'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -18876,7 +18695,8 @@ int lua_cocos2dx_EventMouse_setScrollData(lua_State* tolua_S)
             return 0;
         }
         cobj->setScrollData(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventMouse:setScrollData",argc, 2);
     return 0;
@@ -18913,7 +18733,6 @@ int lua_cocos2dx_EventMouse_getStartLocationInView(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getStartLocationInView'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -18961,7 +18780,6 @@ int lua_cocos2dx_EventMouse_getStartLocation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getStartLocation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -19009,7 +18827,6 @@ int lua_cocos2dx_EventMouse_setMouseButton(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_setMouseButton'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -19022,7 +18839,8 @@ int lua_cocos2dx_EventMouse_setMouseButton(lua_State* tolua_S)
             return 0;
         }
         cobj->setMouseButton(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventMouse:setMouseButton",argc, 1);
     return 0;
@@ -19059,7 +18877,6 @@ int lua_cocos2dx_EventMouse_getLocationInView(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getLocationInView'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -19107,7 +18924,6 @@ int lua_cocos2dx_EventMouse_getScrollY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getScrollY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -19155,7 +18971,6 @@ int lua_cocos2dx_EventMouse_getScrollX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getScrollX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -19203,7 +19018,6 @@ int lua_cocos2dx_EventMouse_getCursorX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getCursorX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -19251,7 +19065,6 @@ int lua_cocos2dx_EventMouse_getCursorY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_getCursorY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -19299,7 +19112,6 @@ int lua_cocos2dx_EventMouse_setCursorPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_setCursorPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -19315,7 +19127,8 @@ int lua_cocos2dx_EventMouse_setCursorPosition(lua_State* tolua_S)
             return 0;
         }
         cobj->setCursorPosition(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventMouse:setCursorPosition",argc, 2);
     return 0;
@@ -19339,7 +19152,6 @@ int lua_cocos2dx_EventMouse_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventMouse_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -19485,7 +19297,6 @@ int lua_cocos2dx_EventCustom_getDataString(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventCustom_getDataString'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -19533,7 +19344,6 @@ int lua_cocos2dx_EventCustom_setDataString(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventCustom_setDataString'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -19546,7 +19356,8 @@ int lua_cocos2dx_EventCustom_setDataString(lua_State* tolua_S)
             return 0;
         }
         cobj->setDataString(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventCustom:setDataString",argc, 1);
     return 0;
@@ -19583,7 +19394,6 @@ int lua_cocos2dx_EventCustom_getEventName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventCustom_getEventName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -19618,7 +19428,6 @@ int lua_cocos2dx_EventCustom_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventCustom_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -19701,7 +19510,6 @@ int lua_cocos2dx_EventFocus_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EventFocus_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -19797,7 +19605,6 @@ int lua_cocos2dx_Action_startWithTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_startWithTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -19810,7 +19617,8 @@ int lua_cocos2dx_Action_startWithTarget(lua_State* tolua_S)
             return 0;
         }
         cobj->startWithTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Action:startWithTarget",argc, 1);
     return 0;
@@ -19847,7 +19655,6 @@ int lua_cocos2dx_Action_setOriginalTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_setOriginalTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -19860,7 +19667,8 @@ int lua_cocos2dx_Action_setOriginalTarget(lua_State* tolua_S)
             return 0;
         }
         cobj->setOriginalTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Action:setOriginalTarget",argc, 1);
     return 0;
@@ -19897,7 +19705,6 @@ int lua_cocos2dx_Action_clone(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_clone'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -19945,7 +19752,6 @@ int lua_cocos2dx_Action_getOriginalTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_getOriginalTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -19993,7 +19799,6 @@ int lua_cocos2dx_Action_stop(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_stop'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -20003,7 +19808,8 @@ int lua_cocos2dx_Action_stop(lua_State* tolua_S)
             return 0;
         }
         cobj->stop();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Action:stop",argc, 0);
     return 0;
@@ -20040,7 +19846,6 @@ int lua_cocos2dx_Action_update(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_update'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -20053,7 +19858,8 @@ int lua_cocos2dx_Action_update(lua_State* tolua_S)
             return 0;
         }
         cobj->update(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Action:update",argc, 1);
     return 0;
@@ -20090,7 +19896,6 @@ int lua_cocos2dx_Action_getTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_getTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -20138,7 +19943,6 @@ int lua_cocos2dx_Action_step(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_step'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -20151,7 +19955,8 @@ int lua_cocos2dx_Action_step(lua_State* tolua_S)
             return 0;
         }
         cobj->step(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Action:step",argc, 1);
     return 0;
@@ -20188,7 +19993,6 @@ int lua_cocos2dx_Action_setTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_setTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -20201,7 +20005,8 @@ int lua_cocos2dx_Action_setTag(lua_State* tolua_S)
             return 0;
         }
         cobj->setTag(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Action:setTag",argc, 1);
     return 0;
@@ -20238,7 +20043,6 @@ int lua_cocos2dx_Action_getTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_getTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -20286,7 +20090,6 @@ int lua_cocos2dx_Action_setTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_setTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -20299,7 +20102,8 @@ int lua_cocos2dx_Action_setTarget(lua_State* tolua_S)
             return 0;
         }
         cobj->setTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Action:setTarget",argc, 1);
     return 0;
@@ -20336,7 +20140,6 @@ int lua_cocos2dx_Action_isDone(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_isDone'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -20384,7 +20187,6 @@ int lua_cocos2dx_Action_reverse(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Action_reverse'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -20464,7 +20266,6 @@ int lua_cocos2dx_FiniteTimeAction_setDuration(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FiniteTimeAction_setDuration'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -20477,7 +20278,8 @@ int lua_cocos2dx_FiniteTimeAction_setDuration(lua_State* tolua_S)
             return 0;
         }
         cobj->setDuration(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FiniteTimeAction:setDuration",argc, 1);
     return 0;
@@ -20514,7 +20316,6 @@ int lua_cocos2dx_FiniteTimeAction_getDuration(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FiniteTimeAction_getDuration'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -20583,7 +20384,6 @@ int lua_cocos2dx_Speed_setInnerAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Speed_setInnerAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -20596,7 +20396,8 @@ int lua_cocos2dx_Speed_setInnerAction(lua_State* tolua_S)
             return 0;
         }
         cobj->setInnerAction(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Speed:setInnerAction",argc, 1);
     return 0;
@@ -20633,7 +20434,6 @@ int lua_cocos2dx_Speed_setSpeed(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Speed_setSpeed'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -20646,7 +20446,8 @@ int lua_cocos2dx_Speed_setSpeed(lua_State* tolua_S)
             return 0;
         }
         cobj->setSpeed(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Speed:setSpeed",argc, 1);
     return 0;
@@ -20683,7 +20484,6 @@ int lua_cocos2dx_Speed_getInnerAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Speed_getInnerAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -20731,7 +20531,6 @@ int lua_cocos2dx_Speed_getSpeed(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Speed_getSpeed'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -20767,7 +20566,6 @@ int lua_cocos2dx_Speed_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Speed",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Speed_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -20842,7 +20640,6 @@ int lua_cocos2dx_Follow_setBoundarySet(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Follow_setBoundarySet'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -20855,7 +20652,8 @@ int lua_cocos2dx_Follow_setBoundarySet(lua_State* tolua_S)
             return 0;
         }
         cobj->setBoundarySet(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Follow:setBoundarySet",argc, 1);
     return 0;
@@ -20892,7 +20690,6 @@ int lua_cocos2dx_Follow_isBoundarySet(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Follow_isBoundarySet'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -20928,7 +20725,6 @@ int lua_cocos2dx_Follow_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Follow",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Follow_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -21014,7 +20810,6 @@ int lua_cocos2dx_SpriteFrame_clone(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_clone'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -21062,7 +20857,6 @@ int lua_cocos2dx_SpriteFrame_setRotated(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_setRotated'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -21075,7 +20869,8 @@ int lua_cocos2dx_SpriteFrame_setRotated(lua_State* tolua_S)
             return 0;
         }
         cobj->setRotated(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrame:setRotated",argc, 1);
     return 0;
@@ -21112,7 +20907,6 @@ int lua_cocos2dx_SpriteFrame_setTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_setTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -21125,7 +20919,8 @@ int lua_cocos2dx_SpriteFrame_setTexture(lua_State* tolua_S)
             return 0;
         }
         cobj->setTexture(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrame:setTexture",argc, 1);
     return 0;
@@ -21162,7 +20957,6 @@ int lua_cocos2dx_SpriteFrame_getOffset(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_getOffset'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -21210,7 +21004,6 @@ int lua_cocos2dx_SpriteFrame_setRectInPixels(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_setRectInPixels'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -21223,7 +21016,8 @@ int lua_cocos2dx_SpriteFrame_setRectInPixels(lua_State* tolua_S)
             return 0;
         }
         cobj->setRectInPixels(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrame:setRectInPixels",argc, 1);
     return 0;
@@ -21260,7 +21054,6 @@ int lua_cocos2dx_SpriteFrame_getTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_getTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -21308,7 +21101,6 @@ int lua_cocos2dx_SpriteFrame_getRect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_getRect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -21356,7 +21148,6 @@ int lua_cocos2dx_SpriteFrame_setOffsetInPixels(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_setOffsetInPixels'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -21369,7 +21160,8 @@ int lua_cocos2dx_SpriteFrame_setOffsetInPixels(lua_State* tolua_S)
             return 0;
         }
         cobj->setOffsetInPixels(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrame:setOffsetInPixels",argc, 1);
     return 0;
@@ -21406,7 +21198,6 @@ int lua_cocos2dx_SpriteFrame_getRectInPixels(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_getRectInPixels'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -21454,7 +21245,6 @@ int lua_cocos2dx_SpriteFrame_setOriginalSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_setOriginalSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -21467,7 +21257,8 @@ int lua_cocos2dx_SpriteFrame_setOriginalSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setOriginalSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrame:setOriginalSize",argc, 1);
     return 0;
@@ -21504,7 +21295,6 @@ int lua_cocos2dx_SpriteFrame_getOriginalSizeInPixels(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_getOriginalSizeInPixels'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -21552,7 +21342,6 @@ int lua_cocos2dx_SpriteFrame_setOriginalSizeInPixels(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_setOriginalSizeInPixels'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -21565,7 +21354,8 @@ int lua_cocos2dx_SpriteFrame_setOriginalSizeInPixels(lua_State* tolua_S)
             return 0;
         }
         cobj->setOriginalSizeInPixels(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrame:setOriginalSizeInPixels",argc, 1);
     return 0;
@@ -21602,7 +21392,6 @@ int lua_cocos2dx_SpriteFrame_setOffset(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_setOffset'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -21615,7 +21404,8 @@ int lua_cocos2dx_SpriteFrame_setOffset(lua_State* tolua_S)
             return 0;
         }
         cobj->setOffset(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrame:setOffset",argc, 1);
     return 0;
@@ -21652,7 +21442,6 @@ int lua_cocos2dx_SpriteFrame_isRotated(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_isRotated'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -21700,7 +21489,6 @@ int lua_cocos2dx_SpriteFrame_setRect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_setRect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -21713,7 +21501,8 @@ int lua_cocos2dx_SpriteFrame_setRect(lua_State* tolua_S)
             return 0;
         }
         cobj->setRect(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrame:setRect",argc, 1);
     return 0;
@@ -21750,7 +21539,6 @@ int lua_cocos2dx_SpriteFrame_getOffsetInPixels(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_getOffsetInPixels'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -21798,7 +21586,6 @@ int lua_cocos2dx_SpriteFrame_getOriginalSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_getOriginalSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -21833,7 +21620,6 @@ int lua_cocos2dx_SpriteFrame_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SpriteFrame",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -21897,7 +21683,6 @@ int lua_cocos2dx_SpriteFrame_createWithTexture(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SpriteFrame",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrame_createWithTexture'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -22012,7 +21797,6 @@ int lua_cocos2dx_AnimationFrame_setSpriteFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationFrame_setSpriteFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -22025,7 +21809,8 @@ int lua_cocos2dx_AnimationFrame_setSpriteFrame(lua_State* tolua_S)
             return 0;
         }
         cobj->setSpriteFrame(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AnimationFrame:setSpriteFrame",argc, 1);
     return 0;
@@ -22057,7 +21842,6 @@ int lua_cocos2dx_AnimationFrame_getUserInfo(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationFrame_getUserInfo'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -22110,7 +21894,6 @@ int lua_cocos2dx_AnimationFrame_setDelayUnits(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationFrame_setDelayUnits'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -22123,7 +21906,8 @@ int lua_cocos2dx_AnimationFrame_setDelayUnits(lua_State* tolua_S)
             return 0;
         }
         cobj->setDelayUnits(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AnimationFrame:setDelayUnits",argc, 1);
     return 0;
@@ -22160,7 +21944,6 @@ int lua_cocos2dx_AnimationFrame_clone(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationFrame_clone'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -22208,7 +21991,6 @@ int lua_cocos2dx_AnimationFrame_getSpriteFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationFrame_getSpriteFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -22256,7 +22038,6 @@ int lua_cocos2dx_AnimationFrame_getDelayUnits(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationFrame_getDelayUnits'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -22304,7 +22085,6 @@ int lua_cocos2dx_AnimationFrame_setUserInfo(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationFrame_setUserInfo'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -22317,7 +22097,8 @@ int lua_cocos2dx_AnimationFrame_setUserInfo(lua_State* tolua_S)
             return 0;
         }
         cobj->setUserInfo(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AnimationFrame:setUserInfo",argc, 1);
     return 0;
@@ -22342,7 +22123,6 @@ int lua_cocos2dx_AnimationFrame_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.AnimationFrame",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationFrame_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 3)
@@ -22422,7 +22202,6 @@ int lua_cocos2dx_Animation_getLoops(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_getLoops'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -22470,7 +22249,6 @@ int lua_cocos2dx_Animation_addSpriteFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_addSpriteFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -22483,7 +22261,8 @@ int lua_cocos2dx_Animation_addSpriteFrame(lua_State* tolua_S)
             return 0;
         }
         cobj->addSpriteFrame(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:addSpriteFrame",argc, 1);
     return 0;
@@ -22520,7 +22299,6 @@ int lua_cocos2dx_Animation_setRestoreOriginalFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_setRestoreOriginalFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -22533,7 +22311,8 @@ int lua_cocos2dx_Animation_setRestoreOriginalFrame(lua_State* tolua_S)
             return 0;
         }
         cobj->setRestoreOriginalFrame(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:setRestoreOriginalFrame",argc, 1);
     return 0;
@@ -22570,7 +22349,6 @@ int lua_cocos2dx_Animation_clone(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_clone'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -22618,7 +22396,6 @@ int lua_cocos2dx_Animation_getDuration(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_getDuration'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -22666,7 +22443,6 @@ int lua_cocos2dx_Animation_setFrames(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_setFrames'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -22679,7 +22455,8 @@ int lua_cocos2dx_Animation_setFrames(lua_State* tolua_S)
             return 0;
         }
         cobj->setFrames(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:setFrames",argc, 1);
     return 0;
@@ -22716,7 +22493,6 @@ int lua_cocos2dx_Animation_getFrames(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_getFrames'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -22764,7 +22540,6 @@ int lua_cocos2dx_Animation_setLoops(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_setLoops'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -22777,7 +22552,8 @@ int lua_cocos2dx_Animation_setLoops(lua_State* tolua_S)
             return 0;
         }
         cobj->setLoops(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:setLoops",argc, 1);
     return 0;
@@ -22814,7 +22590,6 @@ int lua_cocos2dx_Animation_setDelayPerUnit(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_setDelayPerUnit'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -22827,7 +22602,8 @@ int lua_cocos2dx_Animation_setDelayPerUnit(lua_State* tolua_S)
             return 0;
         }
         cobj->setDelayPerUnit(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:setDelayPerUnit",argc, 1);
     return 0;
@@ -22864,7 +22640,6 @@ int lua_cocos2dx_Animation_addSpriteFrameWithFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_addSpriteFrameWithFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -22877,7 +22652,8 @@ int lua_cocos2dx_Animation_addSpriteFrameWithFile(lua_State* tolua_S)
             return 0;
         }
         cobj->addSpriteFrameWithFile(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:addSpriteFrameWithFile",argc, 1);
     return 0;
@@ -22914,7 +22690,6 @@ int lua_cocos2dx_Animation_getTotalDelayUnits(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_getTotalDelayUnits'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -22962,7 +22737,6 @@ int lua_cocos2dx_Animation_getDelayPerUnit(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_getDelayPerUnit'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -23010,7 +22784,6 @@ int lua_cocos2dx_Animation_getRestoreOriginalFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_getRestoreOriginalFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -23058,7 +22831,6 @@ int lua_cocos2dx_Animation_addSpriteFrameWithTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_addSpriteFrameWithTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -23074,7 +22846,8 @@ int lua_cocos2dx_Animation_addSpriteFrameWithTexture(lua_State* tolua_S)
             return 0;
         }
         cobj->addSpriteFrameWithTexture(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:addSpriteFrameWithTexture",argc, 2);
     return 0;
@@ -23098,7 +22871,6 @@ int lua_cocos2dx_Animation_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -23167,7 +22939,6 @@ int lua_cocos2dx_Animation_createWithSpriteFrames(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animation_createWithSpriteFrames'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -23283,7 +23054,6 @@ int lua_cocos2dx_ActionInterval_getAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionInterval_getAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -23331,7 +23101,6 @@ int lua_cocos2dx_ActionInterval_setAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionInterval_setAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -23344,7 +23113,8 @@ int lua_cocos2dx_ActionInterval_setAmplitudeRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitudeRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionInterval:setAmplitudeRate",argc, 1);
     return 0;
@@ -23381,7 +23151,6 @@ int lua_cocos2dx_ActionInterval_getElapsed(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionInterval_getElapsed'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -23470,7 +23239,6 @@ int lua_cocos2dx_Repeat_setInnerAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Repeat_setInnerAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -23483,7 +23251,8 @@ int lua_cocos2dx_Repeat_setInnerAction(lua_State* tolua_S)
             return 0;
         }
         cobj->setInnerAction(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Repeat:setInnerAction",argc, 1);
     return 0;
@@ -23520,7 +23289,6 @@ int lua_cocos2dx_Repeat_getInnerAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Repeat_getInnerAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -23556,7 +23324,6 @@ int lua_cocos2dx_Repeat_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Repeat",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Repeat_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -23629,7 +23396,6 @@ int lua_cocos2dx_RepeatForever_setInnerAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RepeatForever_setInnerAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -23642,7 +23408,8 @@ int lua_cocos2dx_RepeatForever_setInnerAction(lua_State* tolua_S)
             return 0;
         }
         cobj->setInnerAction(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RepeatForever:setInnerAction",argc, 1);
     return 0;
@@ -23679,7 +23446,6 @@ int lua_cocos2dx_RepeatForever_getInnerAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RepeatForever_getInnerAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -23715,7 +23481,6 @@ int lua_cocos2dx_RepeatForever_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.RepeatForever",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RepeatForever_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -23792,7 +23557,6 @@ int lua_cocos2dx_RotateTo_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.RotateTo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RotateTo_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -23886,7 +23650,6 @@ int lua_cocos2dx_RotateBy_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.RotateBy",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RotateBy_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -23981,7 +23744,6 @@ int lua_cocos2dx_MoveBy_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.MoveBy",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MoveBy_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -24040,7 +23802,6 @@ int lua_cocos2dx_MoveTo_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.MoveTo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MoveTo_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -24099,7 +23860,6 @@ int lua_cocos2dx_SkewTo_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SkewTo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SkewTo_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 3)
@@ -24160,7 +23920,6 @@ int lua_cocos2dx_SkewBy_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SkewBy",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SkewBy_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 3)
@@ -24221,7 +23980,6 @@ int lua_cocos2dx_JumpBy_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.JumpBy",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_JumpBy_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -24284,7 +24042,6 @@ int lua_cocos2dx_JumpTo_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.JumpTo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_JumpTo_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -24384,7 +24141,6 @@ int lua_cocos2dx_ScaleTo_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ScaleTo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ScaleTo_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -24484,7 +24240,6 @@ int lua_cocos2dx_ScaleBy_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ScaleBy",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ScaleBy_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -24585,7 +24340,6 @@ int lua_cocos2dx_Blink_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Blink",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Blink_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -24644,7 +24398,6 @@ int lua_cocos2dx_FadeTo_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FadeTo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeTo_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -24715,7 +24468,6 @@ int lua_cocos2dx_FadeIn_setReverseAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeIn_setReverseAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -24728,7 +24480,8 @@ int lua_cocos2dx_FadeIn_setReverseAction(lua_State* tolua_S)
             return 0;
         }
         cobj->setReverseAction(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FadeIn:setReverseAction",argc, 1);
     return 0;
@@ -24753,7 +24506,6 @@ int lua_cocos2dx_FadeIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FadeIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -24823,7 +24575,6 @@ int lua_cocos2dx_FadeOut_setReverseAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOut_setReverseAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -24836,7 +24587,8 @@ int lua_cocos2dx_FadeOut_setReverseAction(lua_State* tolua_S)
             return 0;
         }
         cobj->setReverseAction(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FadeOut:setReverseAction",argc, 1);
     return 0;
@@ -24861,7 +24613,6 @@ int lua_cocos2dx_FadeOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FadeOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -24919,7 +24670,6 @@ int lua_cocos2dx_TintTo_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TintTo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TintTo_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -24982,7 +24732,6 @@ int lua_cocos2dx_TintBy_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TintBy",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TintBy_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -25045,7 +24794,6 @@ int lua_cocos2dx_DelayTime_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.DelayTime",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DelayTime_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -25109,7 +24857,6 @@ int lua_cocos2dx_Animate_getAnimation(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animate_getAnimation'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -25162,7 +24909,6 @@ int lua_cocos2dx_Animate_setAnimation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animate_setAnimation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -25175,7 +24921,8 @@ int lua_cocos2dx_Animate_setAnimation(lua_State* tolua_S)
             return 0;
         }
         cobj->setAnimation(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animate:setAnimation",argc, 1);
     return 0;
@@ -25200,7 +24947,6 @@ int lua_cocos2dx_Animate_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Animate",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Animate_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -25266,7 +25012,6 @@ int lua_cocos2dx_TargetedAction_getForcedTarget(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TargetedAction_getForcedTarget'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -25319,7 +25064,6 @@ int lua_cocos2dx_TargetedAction_setForcedTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TargetedAction_setForcedTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -25332,7 +25076,8 @@ int lua_cocos2dx_TargetedAction_setForcedTarget(lua_State* tolua_S)
             return 0;
         }
         cobj->setForcedTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TargetedAction:setForcedTarget",argc, 1);
     return 0;
@@ -25357,7 +25102,6 @@ int lua_cocos2dx_TargetedAction_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TargetedAction",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TargetedAction_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -25425,7 +25169,6 @@ int lua_cocos2dx_ActionCamera_setEye(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionCamera_setEye'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 3) {
@@ -25442,7 +25185,8 @@ int lua_cocos2dx_ActionCamera_setEye(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setEye(arg0, arg1, arg2);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -25453,7 +25197,8 @@ int lua_cocos2dx_ActionCamera_setEye(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setEye(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -25492,7 +25237,6 @@ int lua_cocos2dx_ActionCamera_getEye(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionCamera_getEye'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -25540,7 +25284,6 @@ int lua_cocos2dx_ActionCamera_setUp(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionCamera_setUp'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -25553,7 +25296,8 @@ int lua_cocos2dx_ActionCamera_setUp(lua_State* tolua_S)
             return 0;
         }
         cobj->setUp(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionCamera:setUp",argc, 1);
     return 0;
@@ -25590,7 +25334,6 @@ int lua_cocos2dx_ActionCamera_getCenter(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionCamera_getCenter'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -25638,7 +25381,6 @@ int lua_cocos2dx_ActionCamera_setCenter(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionCamera_setCenter'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -25651,7 +25393,8 @@ int lua_cocos2dx_ActionCamera_setCenter(lua_State* tolua_S)
             return 0;
         }
         cobj->setCenter(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionCamera:setCenter",argc, 1);
     return 0;
@@ -25688,7 +25431,6 @@ int lua_cocos2dx_ActionCamera_getUp(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionCamera_getUp'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -25723,7 +25465,6 @@ int lua_cocos2dx_ActionCamera_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionCamera_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -25788,7 +25529,6 @@ int lua_cocos2dx_OrbitCamera_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.OrbitCamera",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_OrbitCamera_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 7)
@@ -25869,7 +25609,6 @@ int lua_cocos2dx_ActionManager_getActionByTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_getActionByTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -25923,7 +25662,6 @@ int lua_cocos2dx_ActionManager_removeActionByTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_removeActionByTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -25939,7 +25677,8 @@ int lua_cocos2dx_ActionManager_removeActionByTag(lua_State* tolua_S)
             return 0;
         }
         cobj->removeActionByTag(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionManager:removeActionByTag",argc, 2);
     return 0;
@@ -25976,7 +25715,6 @@ int lua_cocos2dx_ActionManager_removeAllActions(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_removeAllActions'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -25986,7 +25724,8 @@ int lua_cocos2dx_ActionManager_removeAllActions(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAllActions();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionManager:removeAllActions",argc, 0);
     return 0;
@@ -26023,7 +25762,6 @@ int lua_cocos2dx_ActionManager_addAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_addAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -26042,7 +25780,8 @@ int lua_cocos2dx_ActionManager_addAction(lua_State* tolua_S)
             return 0;
         }
         cobj->addAction(arg0, arg1, arg2);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionManager:addAction",argc, 3);
     return 0;
@@ -26079,7 +25818,6 @@ int lua_cocos2dx_ActionManager_resumeTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_resumeTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -26092,7 +25830,8 @@ int lua_cocos2dx_ActionManager_resumeTarget(lua_State* tolua_S)
             return 0;
         }
         cobj->resumeTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionManager:resumeTarget",argc, 1);
     return 0;
@@ -26129,7 +25868,6 @@ int lua_cocos2dx_ActionManager_update(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_update'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -26142,7 +25880,8 @@ int lua_cocos2dx_ActionManager_update(lua_State* tolua_S)
             return 0;
         }
         cobj->update(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionManager:update",argc, 1);
     return 0;
@@ -26179,7 +25918,6 @@ int lua_cocos2dx_ActionManager_pauseTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_pauseTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -26192,7 +25930,8 @@ int lua_cocos2dx_ActionManager_pauseTarget(lua_State* tolua_S)
             return 0;
         }
         cobj->pauseTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionManager:pauseTarget",argc, 1);
     return 0;
@@ -26229,7 +25968,6 @@ int lua_cocos2dx_ActionManager_getNumberOfRunningActionsInTarget(lua_State* tolu
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_getNumberOfRunningActionsInTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -26280,7 +26018,6 @@ int lua_cocos2dx_ActionManager_removeAllActionsFromTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_removeAllActionsFromTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -26293,7 +26030,8 @@ int lua_cocos2dx_ActionManager_removeAllActionsFromTarget(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAllActionsFromTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionManager:removeAllActionsFromTarget",argc, 1);
     return 0;
@@ -26330,7 +26068,6 @@ int lua_cocos2dx_ActionManager_resumeTargets(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_resumeTargets'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -26343,7 +26080,8 @@ int lua_cocos2dx_ActionManager_resumeTargets(lua_State* tolua_S)
             return 0;
         }
         cobj->resumeTargets(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionManager:resumeTargets",argc, 1);
     return 0;
@@ -26380,7 +26118,6 @@ int lua_cocos2dx_ActionManager_removeAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_removeAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -26393,7 +26130,8 @@ int lua_cocos2dx_ActionManager_removeAction(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAction(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionManager:removeAction",argc, 1);
     return 0;
@@ -26430,7 +26168,6 @@ int lua_cocos2dx_ActionManager_removeAllActionsByTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_removeAllActionsByTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -26446,7 +26183,8 @@ int lua_cocos2dx_ActionManager_removeAllActionsByTag(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAllActionsByTag(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ActionManager:removeAllActionsByTag",argc, 2);
     return 0;
@@ -26483,7 +26221,6 @@ int lua_cocos2dx_ActionManager_pauseAllRunningActions(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_pauseAllRunningActions'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -26518,7 +26255,6 @@ int lua_cocos2dx_ActionManager_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionManager_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -26602,7 +26338,6 @@ int lua_cocos2dx_ActionEase_getInnerAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionEase_getInnerAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -26670,7 +26405,6 @@ int lua_cocos2dx_EaseRateAction_setRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseRateAction_setRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -26683,7 +26417,8 @@ int lua_cocos2dx_EaseRateAction_setRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EaseRateAction:setRate",argc, 1);
     return 0;
@@ -26720,7 +26455,6 @@ int lua_cocos2dx_EaseRateAction_getRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseRateAction_getRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -26777,7 +26511,6 @@ int lua_cocos2dx_EaseIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -26836,7 +26569,6 @@ int lua_cocos2dx_EaseOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -26895,7 +26627,6 @@ int lua_cocos2dx_EaseInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -26954,7 +26685,6 @@ int lua_cocos2dx_EaseExponentialIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseExponentialIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseExponentialIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27011,7 +26741,6 @@ int lua_cocos2dx_EaseExponentialOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseExponentialOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseExponentialOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27068,7 +26797,6 @@ int lua_cocos2dx_EaseExponentialInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseExponentialInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseExponentialInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27125,7 +26853,6 @@ int lua_cocos2dx_EaseSineIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseSineIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseSineIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27182,7 +26909,6 @@ int lua_cocos2dx_EaseSineOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseSineOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseSineOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27239,7 +26965,6 @@ int lua_cocos2dx_EaseSineInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseSineInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseSineInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27308,7 +27033,6 @@ int lua_cocos2dx_EaseElastic_setPeriod(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseElastic_setPeriod'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -27321,7 +27045,8 @@ int lua_cocos2dx_EaseElastic_setPeriod(lua_State* tolua_S)
             return 0;
         }
         cobj->setPeriod(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EaseElastic:setPeriod",argc, 1);
     return 0;
@@ -27358,7 +27083,6 @@ int lua_cocos2dx_EaseElastic_getPeriod(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseElastic_getPeriod'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -27414,7 +27138,6 @@ int lua_cocos2dx_EaseElasticIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseElasticIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseElasticIn_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -27486,7 +27209,6 @@ int lua_cocos2dx_EaseElasticOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseElasticOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseElasticOut_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -27558,7 +27280,6 @@ int lua_cocos2dx_EaseElasticInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseElasticInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseElasticInOut_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -27650,7 +27371,6 @@ int lua_cocos2dx_EaseBounceIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseBounceIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseBounceIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27707,7 +27427,6 @@ int lua_cocos2dx_EaseBounceOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseBounceOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseBounceOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27764,7 +27483,6 @@ int lua_cocos2dx_EaseBounceInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseBounceInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseBounceInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27821,7 +27539,6 @@ int lua_cocos2dx_EaseBackIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseBackIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseBackIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27878,7 +27595,6 @@ int lua_cocos2dx_EaseBackOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseBackOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseBackOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -27935,7 +27651,6 @@ int lua_cocos2dx_EaseBackInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseBackInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseBackInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28004,7 +27719,6 @@ int lua_cocos2dx_EaseBezierAction_setBezierParamer(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseBezierAction_setBezierParamer'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 4) 
     {
@@ -28026,7 +27740,8 @@ int lua_cocos2dx_EaseBezierAction_setBezierParamer(lua_State* tolua_S)
             return 0;
         }
         cobj->setBezierParamer(arg0, arg1, arg2, arg3);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EaseBezierAction:setBezierParamer",argc, 4);
     return 0;
@@ -28051,7 +27766,6 @@ int lua_cocos2dx_EaseBezierAction_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseBezierAction",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseBezierAction_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28109,7 +27823,6 @@ int lua_cocos2dx_EaseQuadraticActionIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseQuadraticActionIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseQuadraticActionIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28166,7 +27879,6 @@ int lua_cocos2dx_EaseQuadraticActionOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseQuadraticActionOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseQuadraticActionOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28223,7 +27935,6 @@ int lua_cocos2dx_EaseQuadraticActionInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseQuadraticActionInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseQuadraticActionInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28280,7 +27991,6 @@ int lua_cocos2dx_EaseQuarticActionIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseQuarticActionIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseQuarticActionIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28337,7 +28047,6 @@ int lua_cocos2dx_EaseQuarticActionOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseQuarticActionOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseQuarticActionOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28394,7 +28103,6 @@ int lua_cocos2dx_EaseQuarticActionInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseQuarticActionInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseQuarticActionInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28451,7 +28159,6 @@ int lua_cocos2dx_EaseQuinticActionIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseQuinticActionIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseQuinticActionIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28508,7 +28215,6 @@ int lua_cocos2dx_EaseQuinticActionOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseQuinticActionOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseQuinticActionOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28565,7 +28271,6 @@ int lua_cocos2dx_EaseQuinticActionInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseQuinticActionInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseQuinticActionInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28622,7 +28327,6 @@ int lua_cocos2dx_EaseCircleActionIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseCircleActionIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseCircleActionIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28679,7 +28383,6 @@ int lua_cocos2dx_EaseCircleActionOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseCircleActionOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseCircleActionOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28736,7 +28439,6 @@ int lua_cocos2dx_EaseCircleActionInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseCircleActionInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseCircleActionInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28793,7 +28495,6 @@ int lua_cocos2dx_EaseCubicActionIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseCubicActionIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseCubicActionIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28850,7 +28551,6 @@ int lua_cocos2dx_EaseCubicActionOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseCubicActionOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseCubicActionOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28907,7 +28607,6 @@ int lua_cocos2dx_EaseCubicActionInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EaseCubicActionInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_EaseCubicActionInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -28983,7 +28682,6 @@ int lua_cocos2dx_Show_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Show",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Show_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -29038,7 +28736,6 @@ int lua_cocos2dx_Hide_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Hide",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Hide_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -29093,7 +28790,6 @@ int lua_cocos2dx_ToggleVisibility_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ToggleVisibility",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ToggleVisibility_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -29148,7 +28844,6 @@ int lua_cocos2dx_RemoveSelf_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.RemoveSelf",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RemoveSelf_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -29216,7 +28911,6 @@ int lua_cocos2dx_FlipX_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FlipX",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FlipX_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -29273,7 +28967,6 @@ int lua_cocos2dx_FlipY_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FlipY",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FlipY_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -29330,7 +29023,6 @@ int lua_cocos2dx_Place_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Place",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Place_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -29399,7 +29091,6 @@ int lua_cocos2dx_CallFunc_execute(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_CallFunc_execute'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -29409,7 +29100,8 @@ int lua_cocos2dx_CallFunc_execute(lua_State* tolua_S)
             return 0;
         }
         cobj->execute();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.CallFunc:execute",argc, 0);
     return 0;
@@ -29446,7 +29138,6 @@ int lua_cocos2dx_CallFunc_getTargetCallback(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_CallFunc_getTargetCallback'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -29494,7 +29185,6 @@ int lua_cocos2dx_CallFunc_setTargetCallback(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_CallFunc_setTargetCallback'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -29507,7 +29197,8 @@ int lua_cocos2dx_CallFunc_setTargetCallback(lua_State* tolua_S)
             return 0;
         }
         cobj->setTargetCallback(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.CallFunc:setTargetCallback",argc, 1);
     return 0;
@@ -29566,7 +29257,6 @@ int lua_cocos2dx_GridAction_getGrid(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridAction_getGrid'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -29634,7 +29324,6 @@ int lua_cocos2dx_Grid3DAction_getGrid(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Grid3DAction_getGrid'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -29702,7 +29391,6 @@ int lua_cocos2dx_TiledGrid3DAction_getGrid(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TiledGrid3DAction_getGrid'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -29758,7 +29446,6 @@ int lua_cocos2dx_StopGrid_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.StopGrid",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_StopGrid_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -29813,7 +29500,6 @@ int lua_cocos2dx_ReuseGrid_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ReuseGrid",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ReuseGrid_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -29882,7 +29568,6 @@ int lua_cocos2dx_Waves3D_getAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Waves3D_getAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -29930,7 +29615,6 @@ int lua_cocos2dx_Waves3D_setAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Waves3D_setAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -29943,7 +29627,8 @@ int lua_cocos2dx_Waves3D_setAmplitude(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitude(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Waves3D:setAmplitude",argc, 1);
     return 0;
@@ -29980,7 +29665,6 @@ int lua_cocos2dx_Waves3D_setAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Waves3D_setAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -29993,7 +29677,8 @@ int lua_cocos2dx_Waves3D_setAmplitudeRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitudeRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Waves3D:setAmplitudeRate",argc, 1);
     return 0;
@@ -30030,7 +29715,6 @@ int lua_cocos2dx_Waves3D_getAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Waves3D_getAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -30066,7 +29750,6 @@ int lua_cocos2dx_Waves3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Waves3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Waves3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -30133,7 +29816,6 @@ int lua_cocos2dx_FlipX3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FlipX3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FlipX3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -30190,7 +29872,6 @@ int lua_cocos2dx_FlipY3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FlipY3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FlipY3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -30259,7 +29940,6 @@ int lua_cocos2dx_Lens3D_setPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Lens3D_setPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -30272,7 +29952,8 @@ int lua_cocos2dx_Lens3D_setPosition(lua_State* tolua_S)
             return 0;
         }
         cobj->setPosition(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Lens3D:setPosition",argc, 1);
     return 0;
@@ -30309,7 +29990,6 @@ int lua_cocos2dx_Lens3D_setConcave(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Lens3D_setConcave'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -30322,7 +30002,8 @@ int lua_cocos2dx_Lens3D_setConcave(lua_State* tolua_S)
             return 0;
         }
         cobj->setConcave(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Lens3D:setConcave",argc, 1);
     return 0;
@@ -30359,7 +30040,6 @@ int lua_cocos2dx_Lens3D_setLensEffect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Lens3D_setLensEffect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -30372,7 +30052,8 @@ int lua_cocos2dx_Lens3D_setLensEffect(lua_State* tolua_S)
             return 0;
         }
         cobj->setLensEffect(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Lens3D:setLensEffect",argc, 1);
     return 0;
@@ -30409,7 +30090,6 @@ int lua_cocos2dx_Lens3D_getPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Lens3D_getPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -30457,7 +30137,6 @@ int lua_cocos2dx_Lens3D_getLensEffect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Lens3D_getLensEffect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -30493,7 +30172,6 @@ int lua_cocos2dx_Lens3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Lens3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Lens3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -30573,7 +30251,6 @@ int lua_cocos2dx_Ripple3D_setAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Ripple3D_setAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -30586,7 +30263,8 @@ int lua_cocos2dx_Ripple3D_setAmplitudeRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitudeRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Ripple3D:setAmplitudeRate",argc, 1);
     return 0;
@@ -30623,7 +30301,6 @@ int lua_cocos2dx_Ripple3D_getAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Ripple3D_getAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -30671,7 +30348,6 @@ int lua_cocos2dx_Ripple3D_setAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Ripple3D_setAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -30684,7 +30360,8 @@ int lua_cocos2dx_Ripple3D_setAmplitude(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitude(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Ripple3D:setAmplitude",argc, 1);
     return 0;
@@ -30721,7 +30398,6 @@ int lua_cocos2dx_Ripple3D_getAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Ripple3D_getAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -30769,7 +30445,6 @@ int lua_cocos2dx_Ripple3D_setPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Ripple3D_setPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -30782,7 +30457,8 @@ int lua_cocos2dx_Ripple3D_setPosition(lua_State* tolua_S)
             return 0;
         }
         cobj->setPosition(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Ripple3D:setPosition",argc, 1);
     return 0;
@@ -30819,7 +30495,6 @@ int lua_cocos2dx_Ripple3D_getPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Ripple3D_getPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -30855,7 +30530,6 @@ int lua_cocos2dx_Ripple3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Ripple3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Ripple3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 6)
@@ -30928,7 +30602,6 @@ int lua_cocos2dx_Shaky3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Shaky3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Shaky3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -31003,7 +30676,6 @@ int lua_cocos2dx_Liquid_getAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Liquid_getAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -31051,7 +30723,6 @@ int lua_cocos2dx_Liquid_setAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Liquid_setAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -31064,7 +30735,8 @@ int lua_cocos2dx_Liquid_setAmplitude(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitude(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Liquid:setAmplitude",argc, 1);
     return 0;
@@ -31101,7 +30773,6 @@ int lua_cocos2dx_Liquid_setAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Liquid_setAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -31114,7 +30785,8 @@ int lua_cocos2dx_Liquid_setAmplitudeRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitudeRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Liquid:setAmplitudeRate",argc, 1);
     return 0;
@@ -31151,7 +30823,6 @@ int lua_cocos2dx_Liquid_getAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Liquid_getAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -31187,7 +30858,6 @@ int lua_cocos2dx_Liquid_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Liquid",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Liquid_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -31266,7 +30936,6 @@ int lua_cocos2dx_Waves_getAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Waves_getAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -31314,7 +30983,6 @@ int lua_cocos2dx_Waves_setAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Waves_setAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -31327,7 +30995,8 @@ int lua_cocos2dx_Waves_setAmplitude(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitude(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Waves:setAmplitude",argc, 1);
     return 0;
@@ -31364,7 +31033,6 @@ int lua_cocos2dx_Waves_setAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Waves_setAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -31377,7 +31045,8 @@ int lua_cocos2dx_Waves_setAmplitudeRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitudeRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Waves:setAmplitudeRate",argc, 1);
     return 0;
@@ -31414,7 +31083,6 @@ int lua_cocos2dx_Waves_getAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Waves_getAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -31450,7 +31118,6 @@ int lua_cocos2dx_Waves_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Waves",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Waves_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 6)
@@ -31533,7 +31200,6 @@ int lua_cocos2dx_Twirl_setAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Twirl_setAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -31546,7 +31212,8 @@ int lua_cocos2dx_Twirl_setAmplitudeRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitudeRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Twirl:setAmplitudeRate",argc, 1);
     return 0;
@@ -31583,7 +31250,6 @@ int lua_cocos2dx_Twirl_getAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Twirl_getAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -31631,7 +31297,6 @@ int lua_cocos2dx_Twirl_setAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Twirl_setAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -31644,7 +31309,8 @@ int lua_cocos2dx_Twirl_setAmplitude(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitude(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Twirl:setAmplitude",argc, 1);
     return 0;
@@ -31681,7 +31347,6 @@ int lua_cocos2dx_Twirl_getAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Twirl_getAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -31729,7 +31394,6 @@ int lua_cocos2dx_Twirl_setPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Twirl_setPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -31742,7 +31406,8 @@ int lua_cocos2dx_Twirl_setPosition(lua_State* tolua_S)
             return 0;
         }
         cobj->setPosition(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Twirl:setPosition",argc, 1);
     return 0;
@@ -31779,7 +31444,6 @@ int lua_cocos2dx_Twirl_getPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Twirl_getPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -31815,7 +31479,6 @@ int lua_cocos2dx_Twirl_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Twirl",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Twirl_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 5)
@@ -31898,7 +31561,6 @@ int lua_cocos2dx_PageTurn3D_getGrid(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_PageTurn3D_getGrid'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -31934,7 +31596,6 @@ int lua_cocos2dx_PageTurn3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.PageTurn3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_PageTurn3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -31994,7 +31655,6 @@ int lua_cocos2dx_ProgressTo_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ProgressTo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTo_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -32053,7 +31713,6 @@ int lua_cocos2dx_ProgressFromTo_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ProgressFromTo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressFromTo_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 3)
@@ -32114,7 +31773,6 @@ int lua_cocos2dx_ShakyTiles3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ShakyTiles3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ShakyTiles3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -32177,7 +31835,6 @@ int lua_cocos2dx_ShatteredTiles3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ShatteredTiles3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ShatteredTiles3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -32252,7 +31909,6 @@ int lua_cocos2dx_ShuffleTiles_getDelta(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ShuffleTiles_getDelta'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -32291,7 +31947,6 @@ int lua_cocos2dx_ShuffleTiles_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ShuffleTiles",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ShuffleTiles_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 3)
@@ -32365,7 +32020,6 @@ int lua_cocos2dx_FadeOutTRTiles_turnOnTile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOutTRTiles_turnOnTile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -32378,7 +32032,8 @@ int lua_cocos2dx_FadeOutTRTiles_turnOnTile(lua_State* tolua_S)
             return 0;
         }
         cobj->turnOnTile(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FadeOutTRTiles:turnOnTile",argc, 1);
     return 0;
@@ -32415,7 +32070,6 @@ int lua_cocos2dx_FadeOutTRTiles_turnOffTile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOutTRTiles_turnOffTile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -32428,7 +32082,8 @@ int lua_cocos2dx_FadeOutTRTiles_turnOffTile(lua_State* tolua_S)
             return 0;
         }
         cobj->turnOffTile(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FadeOutTRTiles:turnOffTile",argc, 1);
     return 0;
@@ -32465,7 +32120,6 @@ int lua_cocos2dx_FadeOutTRTiles_transformTile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOutTRTiles_transformTile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -32481,7 +32135,8 @@ int lua_cocos2dx_FadeOutTRTiles_transformTile(lua_State* tolua_S)
             return 0;
         }
         cobj->transformTile(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FadeOutTRTiles:transformTile",argc, 2);
     return 0;
@@ -32518,7 +32173,6 @@ int lua_cocos2dx_FadeOutTRTiles_testFunc(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOutTRTiles_testFunc'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -32560,7 +32214,6 @@ int lua_cocos2dx_FadeOutTRTiles_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FadeOutTRTiles",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOutTRTiles_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -32623,7 +32276,6 @@ int lua_cocos2dx_FadeOutBLTiles_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FadeOutBLTiles",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOutBLTiles_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -32694,7 +32346,6 @@ int lua_cocos2dx_FadeOutUpTiles_transformTile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOutUpTiles_transformTile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -32710,7 +32361,8 @@ int lua_cocos2dx_FadeOutUpTiles_transformTile(lua_State* tolua_S)
             return 0;
         }
         cobj->transformTile(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.FadeOutUpTiles:transformTile",argc, 2);
     return 0;
@@ -32735,7 +32387,6 @@ int lua_cocos2dx_FadeOutUpTiles_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FadeOutUpTiles",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOutUpTiles_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -32795,7 +32446,6 @@ int lua_cocos2dx_FadeOutDownTiles_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.FadeOutDownTiles",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_FadeOutDownTiles_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -32866,7 +32516,6 @@ int lua_cocos2dx_TurnOffTiles_turnOnTile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TurnOffTiles_turnOnTile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -32879,7 +32528,8 @@ int lua_cocos2dx_TurnOffTiles_turnOnTile(lua_State* tolua_S)
             return 0;
         }
         cobj->turnOnTile(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TurnOffTiles:turnOnTile",argc, 1);
     return 0;
@@ -32916,7 +32566,6 @@ int lua_cocos2dx_TurnOffTiles_turnOffTile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TurnOffTiles_turnOffTile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -32929,7 +32578,8 @@ int lua_cocos2dx_TurnOffTiles_turnOffTile(lua_State* tolua_S)
             return 0;
         }
         cobj->turnOffTile(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TurnOffTiles:turnOffTile",argc, 1);
     return 0;
@@ -32953,7 +32603,6 @@ int lua_cocos2dx_TurnOffTiles_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TurnOffTiles",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TurnOffTiles_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -33046,7 +32695,6 @@ int lua_cocos2dx_WavesTiles3D_getAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_WavesTiles3D_getAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -33094,7 +32742,6 @@ int lua_cocos2dx_WavesTiles3D_setAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_WavesTiles3D_setAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -33107,7 +32754,8 @@ int lua_cocos2dx_WavesTiles3D_setAmplitude(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitude(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.WavesTiles3D:setAmplitude",argc, 1);
     return 0;
@@ -33144,7 +32792,6 @@ int lua_cocos2dx_WavesTiles3D_setAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_WavesTiles3D_setAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -33157,7 +32804,8 @@ int lua_cocos2dx_WavesTiles3D_setAmplitudeRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitudeRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.WavesTiles3D:setAmplitudeRate",argc, 1);
     return 0;
@@ -33194,7 +32842,6 @@ int lua_cocos2dx_WavesTiles3D_getAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_WavesTiles3D_getAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -33230,7 +32877,6 @@ int lua_cocos2dx_WavesTiles3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.WavesTiles3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_WavesTiles3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -33309,7 +32955,6 @@ int lua_cocos2dx_JumpTiles3D_getAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_JumpTiles3D_getAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -33357,7 +33002,6 @@ int lua_cocos2dx_JumpTiles3D_setAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_JumpTiles3D_setAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -33370,7 +33014,8 @@ int lua_cocos2dx_JumpTiles3D_setAmplitude(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitude(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.JumpTiles3D:setAmplitude",argc, 1);
     return 0;
@@ -33407,7 +33052,6 @@ int lua_cocos2dx_JumpTiles3D_setAmplitudeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_JumpTiles3D_setAmplitudeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -33420,7 +33064,8 @@ int lua_cocos2dx_JumpTiles3D_setAmplitudeRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setAmplitudeRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.JumpTiles3D:setAmplitudeRate",argc, 1);
     return 0;
@@ -33457,7 +33102,6 @@ int lua_cocos2dx_JumpTiles3D_getAmplitude(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_JumpTiles3D_getAmplitude'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -33493,7 +33137,6 @@ int lua_cocos2dx_JumpTiles3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.JumpTiles3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_JumpTiles3D_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -33560,7 +33203,6 @@ int lua_cocos2dx_SplitRows_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SplitRows",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SplitRows_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -33619,7 +33261,6 @@ int lua_cocos2dx_SplitCols_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SplitCols",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SplitCols_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -33678,7 +33319,6 @@ int lua_cocos2dx_ActionTween_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ActionTween",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ActionTween_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -33753,7 +33393,6 @@ int lua_cocos2dx_CardinalSplineTo_getPoints(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_CardinalSplineTo_getPoints'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -33801,7 +33440,6 @@ int lua_cocos2dx_CardinalSplineTo_updatePosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_CardinalSplineTo_updatePosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -33814,7 +33452,8 @@ int lua_cocos2dx_CardinalSplineTo_updatePosition(lua_State* tolua_S)
             return 0;
         }
         cobj->updatePosition(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.CardinalSplineTo:updatePosition",argc, 1);
     return 0;
@@ -33851,7 +33490,6 @@ int lua_cocos2dx_CardinalSplineTo_initWithDuration(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_CardinalSplineTo_initWithDuration'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -33895,7 +33533,6 @@ int lua_cocos2dx_CardinalSplineTo_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_CardinalSplineTo_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -33956,7 +33593,6 @@ int lua_cocos2dx_CardinalSplineBy_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_CardinalSplineBy_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -34027,7 +33663,6 @@ int lua_cocos2dx_CatmullRomTo_initWithDuration(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_CatmullRomTo_initWithDuration'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -34101,7 +33736,6 @@ int lua_cocos2dx_CatmullRomBy_initWithDuration(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_CatmullRomBy_initWithDuration'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -34170,7 +33804,6 @@ int lua_cocos2dx_ProtectedNode_addProtectedChild(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_addProtectedChild'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -34183,7 +33816,8 @@ int lua_cocos2dx_ProtectedNode_addProtectedChild(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->addProtectedChild(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -34194,7 +33828,8 @@ int lua_cocos2dx_ProtectedNode_addProtectedChild(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->addProtectedChild(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -34213,7 +33848,8 @@ int lua_cocos2dx_ProtectedNode_addProtectedChild(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->addProtectedChild(arg0, arg1, arg2);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -34252,7 +33888,6 @@ int lua_cocos2dx_ProtectedNode_disableCascadeColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_disableCascadeColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -34262,7 +33897,8 @@ int lua_cocos2dx_ProtectedNode_disableCascadeColor(lua_State* tolua_S)
             return 0;
         }
         cobj->disableCascadeColor();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProtectedNode:disableCascadeColor",argc, 0);
     return 0;
@@ -34299,7 +33935,6 @@ int lua_cocos2dx_ProtectedNode_removeProtectedChildByTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_removeProtectedChildByTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -34312,7 +33947,8 @@ int lua_cocos2dx_ProtectedNode_removeProtectedChildByTag(lua_State* tolua_S)
             return 0;
         }
         cobj->removeProtectedChildByTag(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -34328,7 +33964,8 @@ int lua_cocos2dx_ProtectedNode_removeProtectedChildByTag(lua_State* tolua_S)
             return 0;
         }
         cobj->removeProtectedChildByTag(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProtectedNode:removeProtectedChildByTag",argc, 1);
     return 0;
@@ -34365,7 +34002,6 @@ int lua_cocos2dx_ProtectedNode_reorderProtectedChild(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_reorderProtectedChild'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -34381,7 +34017,8 @@ int lua_cocos2dx_ProtectedNode_reorderProtectedChild(lua_State* tolua_S)
             return 0;
         }
         cobj->reorderProtectedChild(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProtectedNode:reorderProtectedChild",argc, 2);
     return 0;
@@ -34418,7 +34055,6 @@ int lua_cocos2dx_ProtectedNode_removeAllProtectedChildrenWithCleanup(lua_State* 
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_removeAllProtectedChildrenWithCleanup'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -34431,7 +34067,8 @@ int lua_cocos2dx_ProtectedNode_removeAllProtectedChildrenWithCleanup(lua_State* 
             return 0;
         }
         cobj->removeAllProtectedChildrenWithCleanup(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProtectedNode:removeAllProtectedChildrenWithCleanup",argc, 1);
     return 0;
@@ -34468,7 +34105,6 @@ int lua_cocos2dx_ProtectedNode_disableCascadeOpacity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_disableCascadeOpacity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -34478,7 +34114,8 @@ int lua_cocos2dx_ProtectedNode_disableCascadeOpacity(lua_State* tolua_S)
             return 0;
         }
         cobj->disableCascadeOpacity();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProtectedNode:disableCascadeOpacity",argc, 0);
     return 0;
@@ -34515,7 +34152,6 @@ int lua_cocos2dx_ProtectedNode_sortAllProtectedChildren(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_sortAllProtectedChildren'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -34525,7 +34161,8 @@ int lua_cocos2dx_ProtectedNode_sortAllProtectedChildren(lua_State* tolua_S)
             return 0;
         }
         cobj->sortAllProtectedChildren();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProtectedNode:sortAllProtectedChildren",argc, 0);
     return 0;
@@ -34562,7 +34199,6 @@ int lua_cocos2dx_ProtectedNode_getProtectedChildByTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_getProtectedChildByTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -34613,7 +34249,6 @@ int lua_cocos2dx_ProtectedNode_removeProtectedChild(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_removeProtectedChild'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -34626,7 +34261,8 @@ int lua_cocos2dx_ProtectedNode_removeProtectedChild(lua_State* tolua_S)
             return 0;
         }
         cobj->removeProtectedChild(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -34642,7 +34278,8 @@ int lua_cocos2dx_ProtectedNode_removeProtectedChild(lua_State* tolua_S)
             return 0;
         }
         cobj->removeProtectedChild(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProtectedNode:removeProtectedChild",argc, 1);
     return 0;
@@ -34679,7 +34316,6 @@ int lua_cocos2dx_ProtectedNode_removeAllProtectedChildren(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_removeAllProtectedChildren'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -34689,7 +34325,8 @@ int lua_cocos2dx_ProtectedNode_removeAllProtectedChildren(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAllProtectedChildren();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProtectedNode:removeAllProtectedChildren",argc, 0);
     return 0;
@@ -34714,7 +34351,6 @@ int lua_cocos2dx_ProtectedNode_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ProtectedNode",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProtectedNode_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -34786,7 +34422,6 @@ int lua_cocos2dx_GLProgramState_setUniformTexture(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_setUniformTexture'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -34799,7 +34434,8 @@ int lua_cocos2dx_GLProgramState_setUniformTexture(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformTexture(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -34814,7 +34450,8 @@ int lua_cocos2dx_GLProgramState_setUniformTexture(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformTexture(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -34829,7 +34466,8 @@ int lua_cocos2dx_GLProgramState_setUniformTexture(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformTexture(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -34844,7 +34482,8 @@ int lua_cocos2dx_GLProgramState_setUniformTexture(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformTexture(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -34878,7 +34517,6 @@ int lua_cocos2dx_GLProgramState_setUniformMat4(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_setUniformMat4'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -34891,7 +34529,8 @@ int lua_cocos2dx_GLProgramState_setUniformMat4(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformMat4(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -34906,7 +34545,8 @@ int lua_cocos2dx_GLProgramState_setUniformMat4(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformMat4(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -34945,7 +34585,6 @@ int lua_cocos2dx_GLProgramState_applyUniforms(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_applyUniforms'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -34955,7 +34594,8 @@ int lua_cocos2dx_GLProgramState_applyUniforms(lua_State* tolua_S)
             return 0;
         }
         cobj->applyUniforms();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgramState:applyUniforms",argc, 0);
     return 0;
@@ -34992,7 +34632,6 @@ int lua_cocos2dx_GLProgramState_applyGLProgram(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_applyGLProgram'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -35005,7 +34644,8 @@ int lua_cocos2dx_GLProgramState_applyGLProgram(lua_State* tolua_S)
             return 0;
         }
         cobj->applyGLProgram(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgramState:applyGLProgram",argc, 1);
     return 0;
@@ -35042,7 +34682,6 @@ int lua_cocos2dx_GLProgramState_getUniformCount(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_getUniformCount'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -35090,7 +34729,6 @@ int lua_cocos2dx_GLProgramState_applyAttributes(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_applyAttributes'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -35100,7 +34738,8 @@ int lua_cocos2dx_GLProgramState_applyAttributes(lua_State* tolua_S)
             return 0;
         }
         cobj->applyAttributes();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 1) 
     {
@@ -35113,7 +34752,8 @@ int lua_cocos2dx_GLProgramState_applyAttributes(lua_State* tolua_S)
             return 0;
         }
         cobj->applyAttributes(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgramState:applyAttributes",argc, 0);
     return 0;
@@ -35145,7 +34785,6 @@ int lua_cocos2dx_GLProgramState_setUniformFloat(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_setUniformFloat'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -35158,7 +34797,8 @@ int lua_cocos2dx_GLProgramState_setUniformFloat(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformFloat(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -35173,7 +34813,8 @@ int lua_cocos2dx_GLProgramState_setUniformFloat(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformFloat(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -35207,7 +34848,6 @@ int lua_cocos2dx_GLProgramState_setUniformVec3(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_setUniformVec3'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -35220,7 +34860,8 @@ int lua_cocos2dx_GLProgramState_setUniformVec3(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformVec3(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -35235,7 +34876,8 @@ int lua_cocos2dx_GLProgramState_setUniformVec3(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformVec3(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -35269,7 +34911,6 @@ int lua_cocos2dx_GLProgramState_setUniformInt(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_setUniformInt'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -35282,7 +34923,8 @@ int lua_cocos2dx_GLProgramState_setUniformInt(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformInt(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -35297,7 +34939,8 @@ int lua_cocos2dx_GLProgramState_setUniformInt(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformInt(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -35336,7 +34979,6 @@ int lua_cocos2dx_GLProgramState_getVertexAttribCount(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_getVertexAttribCount'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -35379,7 +35021,6 @@ int lua_cocos2dx_GLProgramState_setUniformVec4(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_setUniformVec4'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -35392,7 +35033,8 @@ int lua_cocos2dx_GLProgramState_setUniformVec4(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformVec4(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -35407,7 +35049,8 @@ int lua_cocos2dx_GLProgramState_setUniformVec4(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformVec4(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -35446,7 +35089,6 @@ int lua_cocos2dx_GLProgramState_setGLProgram(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_setGLProgram'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -35459,7 +35101,8 @@ int lua_cocos2dx_GLProgramState_setGLProgram(lua_State* tolua_S)
             return 0;
         }
         cobj->setGLProgram(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgramState:setGLProgram",argc, 1);
     return 0;
@@ -35491,7 +35134,6 @@ int lua_cocos2dx_GLProgramState_setUniformVec2(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_setUniformVec2'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -35504,7 +35146,8 @@ int lua_cocos2dx_GLProgramState_setUniformVec2(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformVec2(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -35519,7 +35162,8 @@ int lua_cocos2dx_GLProgramState_setUniformVec2(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformVec2(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -35558,7 +35202,6 @@ int lua_cocos2dx_GLProgramState_getVertexAttribsFlags(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_getVertexAttribsFlags'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -35606,7 +35249,6 @@ int lua_cocos2dx_GLProgramState_apply(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_apply'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -35619,7 +35261,8 @@ int lua_cocos2dx_GLProgramState_apply(lua_State* tolua_S)
             return 0;
         }
         cobj->apply(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgramState:apply",argc, 1);
     return 0;
@@ -35656,7 +35299,6 @@ int lua_cocos2dx_GLProgramState_getGLProgram(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_getGLProgram'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -35692,7 +35334,6 @@ int lua_cocos2dx_GLProgramState_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLProgramState",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -35729,7 +35370,6 @@ int lua_cocos2dx_GLProgramState_getOrCreateWithGLProgramName(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLProgramState",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_getOrCreateWithGLProgramName'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -35766,7 +35406,6 @@ int lua_cocos2dx_GLProgramState_getOrCreateWithGLProgram(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLProgramState",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramState_getOrCreateWithGLProgram'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -35853,7 +35492,6 @@ int lua_cocos2dx_AtlasNode_updateAtlasValues(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AtlasNode_updateAtlasValues'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -35863,7 +35501,8 @@ int lua_cocos2dx_AtlasNode_updateAtlasValues(lua_State* tolua_S)
             return 0;
         }
         cobj->updateAtlasValues();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AtlasNode:updateAtlasValues",argc, 0);
     return 0;
@@ -35900,7 +35539,6 @@ int lua_cocos2dx_AtlasNode_getTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AtlasNode_getTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -35948,7 +35586,6 @@ int lua_cocos2dx_AtlasNode_setTextureAtlas(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AtlasNode_setTextureAtlas'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -35961,7 +35598,8 @@ int lua_cocos2dx_AtlasNode_setTextureAtlas(lua_State* tolua_S)
             return 0;
         }
         cobj->setTextureAtlas(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AtlasNode:setTextureAtlas",argc, 1);
     return 0;
@@ -35998,7 +35636,6 @@ int lua_cocos2dx_AtlasNode_getTextureAtlas(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AtlasNode_getTextureAtlas'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -36046,7 +35683,6 @@ int lua_cocos2dx_AtlasNode_getQuadsToDraw(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AtlasNode_getQuadsToDraw'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -36094,7 +35730,6 @@ int lua_cocos2dx_AtlasNode_setTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AtlasNode_setTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -36107,7 +35742,8 @@ int lua_cocos2dx_AtlasNode_setTexture(lua_State* tolua_S)
             return 0;
         }
         cobj->setTexture(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AtlasNode:setTexture",argc, 1);
     return 0;
@@ -36144,7 +35780,6 @@ int lua_cocos2dx_AtlasNode_setQuadsToDraw(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AtlasNode_setQuadsToDraw'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -36157,7 +35792,8 @@ int lua_cocos2dx_AtlasNode_setQuadsToDraw(lua_State* tolua_S)
             return 0;
         }
         cobj->setQuadsToDraw(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AtlasNode:setQuadsToDraw",argc, 1);
     return 0;
@@ -36182,7 +35818,6 @@ int lua_cocos2dx_AtlasNode_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.AtlasNode",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AtlasNode_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -36264,7 +35899,6 @@ int lua_cocos2dx_DrawNode_drawLine(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawLine'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -36283,7 +35917,8 @@ int lua_cocos2dx_DrawNode_drawLine(lua_State* tolua_S)
             return 0;
         }
         cobj->drawLine(arg0, arg1, arg2);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:drawLine",argc, 3);
     return 0;
@@ -36315,7 +35950,6 @@ int lua_cocos2dx_DrawNode_drawRect(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawRect'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 5) {
@@ -36340,7 +35974,8 @@ int lua_cocos2dx_DrawNode_drawRect(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->drawRect(arg0, arg1, arg2, arg3, arg4);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -36359,7 +35994,8 @@ int lua_cocos2dx_DrawNode_drawRect(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->drawRect(arg0, arg1, arg2);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -36393,7 +36029,6 @@ int lua_cocos2dx_DrawNode_drawSolidCircle(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawSolidCircle'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 5) {
@@ -36418,7 +36053,8 @@ int lua_cocos2dx_DrawNode_drawSolidCircle(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->drawSolidCircle(arg0, arg1, arg2, arg3, arg4);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -36453,7 +36089,8 @@ int lua_cocos2dx_DrawNode_drawSolidCircle(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->drawSolidCircle(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -36492,7 +36129,6 @@ int lua_cocos2dx_DrawNode_onDrawGLPoint(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_onDrawGLPoint'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -36508,7 +36144,8 @@ int lua_cocos2dx_DrawNode_onDrawGLPoint(lua_State* tolua_S)
             return 0;
         }
         cobj->onDrawGLPoint(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:onDrawGLPoint",argc, 2);
     return 0;
@@ -36545,7 +36182,6 @@ int lua_cocos2dx_DrawNode_drawDot(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawDot'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -36564,7 +36200,8 @@ int lua_cocos2dx_DrawNode_drawDot(lua_State* tolua_S)
             return 0;
         }
         cobj->drawDot(arg0, arg1, arg2);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:drawDot",argc, 3);
     return 0;
@@ -36601,7 +36238,6 @@ int lua_cocos2dx_DrawNode_drawSegment(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawSegment'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 4) 
     {
@@ -36623,7 +36259,8 @@ int lua_cocos2dx_DrawNode_drawSegment(lua_State* tolua_S)
             return 0;
         }
         cobj->drawSegment(arg0, arg1, arg2, arg3);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:drawSegment",argc, 4);
     return 0;
@@ -36660,7 +36297,6 @@ int lua_cocos2dx_DrawNode_onDraw(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_onDraw'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -36676,7 +36312,8 @@ int lua_cocos2dx_DrawNode_onDraw(lua_State* tolua_S)
             return 0;
         }
         cobj->onDraw(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:onDraw",argc, 2);
     return 0;
@@ -36708,7 +36345,6 @@ int lua_cocos2dx_DrawNode_drawCircle(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawCircle'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 6) {
@@ -36737,7 +36373,8 @@ int lua_cocos2dx_DrawNode_drawCircle(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->drawCircle(arg0, arg1, arg2, arg3, arg4, arg5);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -36776,7 +36413,8 @@ int lua_cocos2dx_DrawNode_drawCircle(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->drawCircle(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -36815,7 +36453,6 @@ int lua_cocos2dx_DrawNode_drawQuadBezier(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawQuadBezier'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 5) 
     {
@@ -36840,7 +36477,8 @@ int lua_cocos2dx_DrawNode_drawQuadBezier(lua_State* tolua_S)
             return 0;
         }
         cobj->drawQuadBezier(arg0, arg1, arg2, arg3, arg4);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:drawQuadBezier",argc, 5);
     return 0;
@@ -36877,7 +36515,6 @@ int lua_cocos2dx_DrawNode_onDrawGLLine(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_onDrawGLLine'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -36893,7 +36530,8 @@ int lua_cocos2dx_DrawNode_onDrawGLLine(lua_State* tolua_S)
             return 0;
         }
         cobj->onDrawGLLine(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:onDrawGLLine",argc, 2);
     return 0;
@@ -36930,7 +36568,6 @@ int lua_cocos2dx_DrawNode_drawTriangle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawTriangle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 4) 
     {
@@ -36952,7 +36589,8 @@ int lua_cocos2dx_DrawNode_drawTriangle(lua_State* tolua_S)
             return 0;
         }
         cobj->drawTriangle(arg0, arg1, arg2, arg3);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:drawTriangle",argc, 4);
     return 0;
@@ -36989,7 +36627,6 @@ int lua_cocos2dx_DrawNode_clear(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_clear'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -36999,7 +36636,8 @@ int lua_cocos2dx_DrawNode_clear(lua_State* tolua_S)
             return 0;
         }
         cobj->clear();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:clear",argc, 0);
     return 0;
@@ -37036,7 +36674,6 @@ int lua_cocos2dx_DrawNode_drawSolidRect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawSolidRect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -37055,7 +36692,8 @@ int lua_cocos2dx_DrawNode_drawSolidRect(lua_State* tolua_S)
             return 0;
         }
         cobj->drawSolidRect(arg0, arg1, arg2);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:drawSolidRect",argc, 3);
     return 0;
@@ -37092,7 +36730,6 @@ int lua_cocos2dx_DrawNode_drawPoint(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawPoint'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -37111,7 +36748,8 @@ int lua_cocos2dx_DrawNode_drawPoint(lua_State* tolua_S)
             return 0;
         }
         cobj->drawPoint(arg0, arg1, arg2);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:drawPoint",argc, 3);
     return 0;
@@ -37148,7 +36786,6 @@ int lua_cocos2dx_DrawNode_drawCubicBezier(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_drawCubicBezier'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 6) 
     {
@@ -37176,7 +36813,8 @@ int lua_cocos2dx_DrawNode_drawCubicBezier(lua_State* tolua_S)
             return 0;
         }
         cobj->drawCubicBezier(arg0, arg1, arg2, arg3, arg4, arg5);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DrawNode:drawCubicBezier",argc, 6);
     return 0;
@@ -37201,7 +36839,6 @@ int lua_cocos2dx_DrawNode_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.DrawNode",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DrawNode_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -37283,7 +36920,6 @@ int lua_cocos2dx_LabelAtlas_setString(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LabelAtlas_setString'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -37296,7 +36932,8 @@ int lua_cocos2dx_LabelAtlas_setString(lua_State* tolua_S)
             return 0;
         }
         cobj->setString(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LabelAtlas:setString",argc, 1);
     return 0;
@@ -37328,7 +36965,6 @@ int lua_cocos2dx_LabelAtlas_initWithString(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LabelAtlas_initWithString'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -37437,7 +37073,6 @@ int lua_cocos2dx_LabelAtlas_updateAtlasValues(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LabelAtlas_updateAtlasValues'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -37447,7 +37082,8 @@ int lua_cocos2dx_LabelAtlas_updateAtlasValues(lua_State* tolua_S)
             return 0;
         }
         cobj->updateAtlasValues();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LabelAtlas:updateAtlasValues",argc, 0);
     return 0;
@@ -37484,7 +37120,6 @@ int lua_cocos2dx_LabelAtlas_getString(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LabelAtlas_getString'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -37519,7 +37154,6 @@ int lua_cocos2dx_LabelAtlas_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.LabelAtlas",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LabelAtlas_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -37630,7 +37264,6 @@ int lua_cocos2dx_SpriteBatchNode_appendChild(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_appendChild'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -37643,7 +37276,8 @@ int lua_cocos2dx_SpriteBatchNode_appendChild(lua_State* tolua_S)
             return 0;
         }
         cobj->appendChild(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteBatchNode:appendChild",argc, 1);
     return 0;
@@ -37680,7 +37314,6 @@ int lua_cocos2dx_SpriteBatchNode_addSpriteWithoutQuad(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_addSpriteWithoutQuad'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -37737,7 +37370,6 @@ int lua_cocos2dx_SpriteBatchNode_reorderBatch(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_reorderBatch'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -37750,7 +37382,8 @@ int lua_cocos2dx_SpriteBatchNode_reorderBatch(lua_State* tolua_S)
             return 0;
         }
         cobj->reorderBatch(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteBatchNode:reorderBatch",argc, 1);
     return 0;
@@ -37787,7 +37420,6 @@ int lua_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup(lua_State* tolua_S
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -37800,7 +37432,8 @@ int lua_cocos2dx_SpriteBatchNode_removeAllChildrenWithCleanup(lua_State* tolua_S
             return 0;
         }
         cobj->removeAllChildrenWithCleanup(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteBatchNode:removeAllChildrenWithCleanup",argc, 1);
     return 0;
@@ -37837,7 +37470,6 @@ int lua_cocos2dx_SpriteBatchNode_lowestAtlasIndexInChild(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_lowestAtlasIndexInChild'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -37888,7 +37520,6 @@ int lua_cocos2dx_SpriteBatchNode_atlasIndexForChild(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_atlasIndexForChild'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -37942,7 +37573,6 @@ int lua_cocos2dx_SpriteBatchNode_setTextureAtlas(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_setTextureAtlas'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -37955,7 +37585,8 @@ int lua_cocos2dx_SpriteBatchNode_setTextureAtlas(lua_State* tolua_S)
             return 0;
         }
         cobj->setTextureAtlas(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteBatchNode:setTextureAtlas",argc, 1);
     return 0;
@@ -37992,7 +37623,6 @@ int lua_cocos2dx_SpriteBatchNode_getTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_getTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -38040,7 +37670,6 @@ int lua_cocos2dx_SpriteBatchNode_increaseAtlasCapacity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_increaseAtlasCapacity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -38050,7 +37679,8 @@ int lua_cocos2dx_SpriteBatchNode_increaseAtlasCapacity(lua_State* tolua_S)
             return 0;
         }
         cobj->increaseAtlasCapacity();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteBatchNode:increaseAtlasCapacity",argc, 0);
     return 0;
@@ -38087,7 +37717,6 @@ int lua_cocos2dx_SpriteBatchNode_getTextureAtlas(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_getTextureAtlas'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -38135,7 +37764,6 @@ int lua_cocos2dx_SpriteBatchNode_insertQuadFromSprite(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_insertQuadFromSprite'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -38151,7 +37779,8 @@ int lua_cocos2dx_SpriteBatchNode_insertQuadFromSprite(lua_State* tolua_S)
             return 0;
         }
         cobj->insertQuadFromSprite(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteBatchNode:insertQuadFromSprite",argc, 2);
     return 0;
@@ -38188,7 +37817,6 @@ int lua_cocos2dx_SpriteBatchNode_setTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_setTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -38201,7 +37829,8 @@ int lua_cocos2dx_SpriteBatchNode_setTexture(lua_State* tolua_S)
             return 0;
         }
         cobj->setTexture(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteBatchNode:setTexture",argc, 1);
     return 0;
@@ -38238,7 +37867,6 @@ int lua_cocos2dx_SpriteBatchNode_rebuildIndexInOrder(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_rebuildIndexInOrder'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -38292,7 +37920,6 @@ int lua_cocos2dx_SpriteBatchNode_highestAtlasIndexInChild(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_highestAtlasIndexInChild'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -38343,7 +37970,6 @@ int lua_cocos2dx_SpriteBatchNode_removeChildAtIndex(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_removeChildAtIndex'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -38359,7 +37985,8 @@ int lua_cocos2dx_SpriteBatchNode_removeChildAtIndex(lua_State* tolua_S)
             return 0;
         }
         cobj->removeChildAtIndex(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteBatchNode:removeChildAtIndex",argc, 2);
     return 0;
@@ -38396,7 +38023,6 @@ int lua_cocos2dx_SpriteBatchNode_removeSpriteFromAtlas(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_removeSpriteFromAtlas'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -38409,7 +38035,8 @@ int lua_cocos2dx_SpriteBatchNode_removeSpriteFromAtlas(lua_State* tolua_S)
             return 0;
         }
         cobj->removeSpriteFromAtlas(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteBatchNode:removeSpriteFromAtlas",argc, 1);
     return 0;
@@ -38434,7 +38061,6 @@ int lua_cocos2dx_SpriteBatchNode_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SpriteBatchNode",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -38486,7 +38112,6 @@ int lua_cocos2dx_SpriteBatchNode_createWithTexture(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SpriteBatchNode",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteBatchNode_createWithTexture'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -38587,7 +38212,6 @@ int lua_cocos2dx_Label_isClipMarginEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_isClipMarginEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -38635,7 +38259,6 @@ int lua_cocos2dx_Label_enableShadow(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_enableShadow'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -38645,7 +38268,8 @@ int lua_cocos2dx_Label_enableShadow(lua_State* tolua_S)
             return 0;
         }
         cobj->enableShadow();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 1) 
     {
@@ -38658,7 +38282,8 @@ int lua_cocos2dx_Label_enableShadow(lua_State* tolua_S)
             return 0;
         }
         cobj->enableShadow(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -38674,7 +38299,8 @@ int lua_cocos2dx_Label_enableShadow(lua_State* tolua_S)
             return 0;
         }
         cobj->enableShadow(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 3) 
     {
@@ -38693,7 +38319,8 @@ int lua_cocos2dx_Label_enableShadow(lua_State* tolua_S)
             return 0;
         }
         cobj->enableShadow(arg0, arg1, arg2);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:enableShadow",argc, 0);
     return 0;
@@ -38730,7 +38357,6 @@ int lua_cocos2dx_Label_setDimensions(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setDimensions'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -38746,7 +38372,8 @@ int lua_cocos2dx_Label_setDimensions(lua_State* tolua_S)
             return 0;
         }
         cobj->setDimensions(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setDimensions",argc, 2);
     return 0;
@@ -38783,7 +38410,6 @@ int lua_cocos2dx_Label_getString(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getString'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -38831,7 +38457,6 @@ int lua_cocos2dx_Label_getHeight(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getHeight'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -38879,7 +38504,6 @@ int lua_cocos2dx_Label_disableEffect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_disableEffect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -38889,7 +38513,8 @@ int lua_cocos2dx_Label_disableEffect(lua_State* tolua_S)
             return 0;
         }
         cobj->disableEffect();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:disableEffect",argc, 0);
     return 0;
@@ -38926,7 +38551,6 @@ int lua_cocos2dx_Label_setTTFConfig(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setTTFConfig'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -38977,7 +38601,6 @@ int lua_cocos2dx_Label_getTextColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getTextColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -39025,7 +38648,6 @@ int lua_cocos2dx_Label_setWidth(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setWidth'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -39038,7 +38660,8 @@ int lua_cocos2dx_Label_setWidth(lua_State* tolua_S)
             return 0;
         }
         cobj->setWidth(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setWidth",argc, 1);
     return 0;
@@ -39075,7 +38698,6 @@ int lua_cocos2dx_Label_getMaxLineWidth(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getMaxLineWidth'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -39123,7 +38745,6 @@ int lua_cocos2dx_Label_getHorizontalAlignment(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getHorizontalAlignment'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -39171,7 +38792,6 @@ int lua_cocos2dx_Label_setClipMarginEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setClipMarginEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -39184,7 +38804,8 @@ int lua_cocos2dx_Label_setClipMarginEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setClipMarginEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setClipMarginEnabled",argc, 1);
     return 0;
@@ -39221,7 +38842,6 @@ int lua_cocos2dx_Label_setString(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setString'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -39234,7 +38854,8 @@ int lua_cocos2dx_Label_setString(lua_State* tolua_S)
             return 0;
         }
         cobj->setString(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setString",argc, 1);
     return 0;
@@ -39271,7 +38892,6 @@ int lua_cocos2dx_Label_setSystemFontName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setSystemFontName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -39284,7 +38904,8 @@ int lua_cocos2dx_Label_setSystemFontName(lua_State* tolua_S)
             return 0;
         }
         cobj->setSystemFontName(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setSystemFontName",argc, 1);
     return 0;
@@ -39321,7 +38942,6 @@ int lua_cocos2dx_Label_setBMFontFilePath(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setBMFontFilePath'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -39389,7 +39009,6 @@ int lua_cocos2dx_Label_getFontAtlas(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getFontAtlas'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -39437,7 +39056,6 @@ int lua_cocos2dx_Label_setLineHeight(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setLineHeight'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -39450,7 +39068,8 @@ int lua_cocos2dx_Label_setLineHeight(lua_State* tolua_S)
             return 0;
         }
         cobj->setLineHeight(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setLineHeight",argc, 1);
     return 0;
@@ -39487,7 +39106,6 @@ int lua_cocos2dx_Label_setSystemFontSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setSystemFontSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -39500,7 +39118,8 @@ int lua_cocos2dx_Label_setSystemFontSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setSystemFontSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setSystemFontSize",argc, 1);
     return 0;
@@ -39537,7 +39156,6 @@ int lua_cocos2dx_Label_updateContent(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_updateContent'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -39547,7 +39165,8 @@ int lua_cocos2dx_Label_updateContent(lua_State* tolua_S)
             return 0;
         }
         cobj->updateContent();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:updateContent",argc, 0);
     return 0;
@@ -39584,7 +39203,6 @@ int lua_cocos2dx_Label_getStringLength(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getStringLength'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -39632,7 +39250,6 @@ int lua_cocos2dx_Label_setLineBreakWithoutSpace(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setLineBreakWithoutSpace'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -39645,7 +39262,8 @@ int lua_cocos2dx_Label_setLineBreakWithoutSpace(lua_State* tolua_S)
             return 0;
         }
         cobj->setLineBreakWithoutSpace(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setLineBreakWithoutSpace",argc, 1);
     return 0;
@@ -39682,7 +39300,6 @@ int lua_cocos2dx_Label_getStringNumLines(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getStringNumLines'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -39730,7 +39347,6 @@ int lua_cocos2dx_Label_enableOutline(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_enableOutline'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -39743,7 +39359,8 @@ int lua_cocos2dx_Label_enableOutline(lua_State* tolua_S)
             return 0;
         }
         cobj->enableOutline(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     if (argc == 2) 
     {
@@ -39759,7 +39376,8 @@ int lua_cocos2dx_Label_enableOutline(lua_State* tolua_S)
             return 0;
         }
         cobj->enableOutline(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:enableOutline",argc, 1);
     return 0;
@@ -39796,7 +39414,6 @@ int lua_cocos2dx_Label_getAdditionalKerning(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getAdditionalKerning'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -39839,7 +39456,6 @@ int lua_cocos2dx_Label_setCharMap(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setCharMap'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 4) {
@@ -39936,7 +39552,6 @@ int lua_cocos2dx_Label_getDimensions(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getDimensions'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -39984,7 +39599,6 @@ int lua_cocos2dx_Label_setMaxLineWidth(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setMaxLineWidth'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -39997,7 +39611,8 @@ int lua_cocos2dx_Label_setMaxLineWidth(lua_State* tolua_S)
             return 0;
         }
         cobj->setMaxLineWidth(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setMaxLineWidth",argc, 1);
     return 0;
@@ -40034,7 +39649,6 @@ int lua_cocos2dx_Label_getSystemFontName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getSystemFontName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -40082,7 +39696,6 @@ int lua_cocos2dx_Label_setVerticalAlignment(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setVerticalAlignment'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -40095,7 +39708,8 @@ int lua_cocos2dx_Label_setVerticalAlignment(lua_State* tolua_S)
             return 0;
         }
         cobj->setVerticalAlignment(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setVerticalAlignment",argc, 1);
     return 0;
@@ -40132,7 +39746,6 @@ int lua_cocos2dx_Label_getLineHeight(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getLineHeight'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -40180,7 +39793,6 @@ int lua_cocos2dx_Label_getTTFConfig(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getTTFConfig'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -40228,7 +39840,6 @@ int lua_cocos2dx_Label_getVerticalAlignment(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getVerticalAlignment'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -40276,7 +39887,6 @@ int lua_cocos2dx_Label_setTextColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setTextColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -40289,7 +39899,8 @@ int lua_cocos2dx_Label_setTextColor(lua_State* tolua_S)
             return 0;
         }
         cobj->setTextColor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setTextColor",argc, 1);
     return 0;
@@ -40326,7 +39937,6 @@ int lua_cocos2dx_Label_setHeight(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setHeight'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -40339,7 +39949,8 @@ int lua_cocos2dx_Label_setHeight(lua_State* tolua_S)
             return 0;
         }
         cobj->setHeight(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setHeight",argc, 1);
     return 0;
@@ -40376,7 +39987,6 @@ int lua_cocos2dx_Label_getWidth(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getWidth'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -40424,7 +40034,6 @@ int lua_cocos2dx_Label_enableGlow(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_enableGlow'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -40437,7 +40046,8 @@ int lua_cocos2dx_Label_enableGlow(lua_State* tolua_S)
             return 0;
         }
         cobj->enableGlow(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:enableGlow",argc, 1);
     return 0;
@@ -40474,7 +40084,6 @@ int lua_cocos2dx_Label_getLetter(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getLetter'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -40525,7 +40134,6 @@ int lua_cocos2dx_Label_setAdditionalKerning(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setAdditionalKerning'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -40538,7 +40146,8 @@ int lua_cocos2dx_Label_setAdditionalKerning(lua_State* tolua_S)
             return 0;
         }
         cobj->setAdditionalKerning(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setAdditionalKerning",argc, 1);
     return 0;
@@ -40575,7 +40184,6 @@ int lua_cocos2dx_Label_getSystemFontSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getSystemFontSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -40623,7 +40231,6 @@ int lua_cocos2dx_Label_getTextAlignment(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getTextAlignment'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -40671,7 +40278,6 @@ int lua_cocos2dx_Label_getBMFontFilePath(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_getBMFontFilePath'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -40719,7 +40325,6 @@ int lua_cocos2dx_Label_setHorizontalAlignment(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setHorizontalAlignment'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -40732,7 +40337,8 @@ int lua_cocos2dx_Label_setHorizontalAlignment(lua_State* tolua_S)
             return 0;
         }
         cobj->setHorizontalAlignment(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:setHorizontalAlignment",argc, 1);
     return 0;
@@ -40764,7 +40370,6 @@ int lua_cocos2dx_Label_setAlignment(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_setAlignment'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -40777,7 +40382,8 @@ int lua_cocos2dx_Label_setAlignment(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setAlignment(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -40788,7 +40394,8 @@ int lua_cocos2dx_Label_setAlignment(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setAlignment(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -40827,7 +40434,6 @@ int lua_cocos2dx_Label_requestSystemFontRefresh(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_requestSystemFontRefresh'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -40837,7 +40443,8 @@ int lua_cocos2dx_Label_requestSystemFontRefresh(lua_State* tolua_S)
             return 0;
         }
         cobj->requestSystemFontRefresh();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Label:requestSystemFontRefresh",argc, 0);
     return 0;
@@ -40862,7 +40469,6 @@ int lua_cocos2dx_Label_createWithBMFont(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Label",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_createWithBMFont'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -40958,7 +40564,6 @@ int lua_cocos2dx_Label_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Label",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -40992,7 +40597,6 @@ int lua_cocos2dx_Label_createWithCharMap(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Label",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_createWithCharMap'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -41073,7 +40677,6 @@ int lua_cocos2dx_Label_createWithSystemFont(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Label",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Label_createWithSystemFont'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 3)
@@ -41244,7 +40847,6 @@ int lua_cocos2dx_Layer_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Layer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Layer_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -41311,7 +40913,6 @@ int lua_cocos2dx_LayerColor_changeWidthAndHeight(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerColor_changeWidthAndHeight'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -41327,7 +40928,8 @@ int lua_cocos2dx_LayerColor_changeWidthAndHeight(lua_State* tolua_S)
             return 0;
         }
         cobj->changeWidthAndHeight(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerColor:changeWidthAndHeight",argc, 2);
     return 0;
@@ -41364,7 +40966,6 @@ int lua_cocos2dx_LayerColor_changeHeight(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerColor_changeHeight'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -41377,7 +40978,8 @@ int lua_cocos2dx_LayerColor_changeHeight(lua_State* tolua_S)
             return 0;
         }
         cobj->changeHeight(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerColor:changeHeight",argc, 1);
     return 0;
@@ -41414,7 +41016,6 @@ int lua_cocos2dx_LayerColor_changeWidth(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerColor_changeWidth'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -41427,7 +41028,8 @@ int lua_cocos2dx_LayerColor_changeWidth(lua_State* tolua_S)
             return 0;
         }
         cobj->changeWidth(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerColor:changeWidth",argc, 1);
     return 0;
@@ -41451,7 +41053,6 @@ int lua_cocos2dx_LayerColor_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.LayerColor",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerColor_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -41552,7 +41153,6 @@ int lua_cocos2dx_LayerGradient_getStartColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_getStartColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -41600,7 +41200,6 @@ int lua_cocos2dx_LayerGradient_isCompressedInterpolation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_isCompressedInterpolation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -41648,7 +41247,6 @@ int lua_cocos2dx_LayerGradient_getStartOpacity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_getStartOpacity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -41696,7 +41294,6 @@ int lua_cocos2dx_LayerGradient_setVector(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_setVector'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -41709,7 +41306,8 @@ int lua_cocos2dx_LayerGradient_setVector(lua_State* tolua_S)
             return 0;
         }
         cobj->setVector(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerGradient:setVector",argc, 1);
     return 0;
@@ -41746,7 +41344,6 @@ int lua_cocos2dx_LayerGradient_setStartOpacity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_setStartOpacity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -41759,7 +41356,8 @@ int lua_cocos2dx_LayerGradient_setStartOpacity(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartOpacity(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerGradient:setStartOpacity",argc, 1);
     return 0;
@@ -41796,7 +41394,6 @@ int lua_cocos2dx_LayerGradient_setCompressedInterpolation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_setCompressedInterpolation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -41809,7 +41406,8 @@ int lua_cocos2dx_LayerGradient_setCompressedInterpolation(lua_State* tolua_S)
             return 0;
         }
         cobj->setCompressedInterpolation(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerGradient:setCompressedInterpolation",argc, 1);
     return 0;
@@ -41846,7 +41444,6 @@ int lua_cocos2dx_LayerGradient_setEndOpacity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_setEndOpacity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -41859,7 +41456,8 @@ int lua_cocos2dx_LayerGradient_setEndOpacity(lua_State* tolua_S)
             return 0;
         }
         cobj->setEndOpacity(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerGradient:setEndOpacity",argc, 1);
     return 0;
@@ -41896,7 +41494,6 @@ int lua_cocos2dx_LayerGradient_getVector(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_getVector'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -41944,7 +41541,6 @@ int lua_cocos2dx_LayerGradient_setEndColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_setEndColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -41957,7 +41553,8 @@ int lua_cocos2dx_LayerGradient_setEndColor(lua_State* tolua_S)
             return 0;
         }
         cobj->setEndColor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerGradient:setEndColor",argc, 1);
     return 0;
@@ -41994,7 +41591,6 @@ int lua_cocos2dx_LayerGradient_getEndColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_getEndColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -42042,7 +41638,6 @@ int lua_cocos2dx_LayerGradient_getEndOpacity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_getEndOpacity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -42090,7 +41685,6 @@ int lua_cocos2dx_LayerGradient_setStartColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_setStartColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -42103,7 +41697,8 @@ int lua_cocos2dx_LayerGradient_setStartColor(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartColor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerGradient:setStartColor",argc, 1);
     return 0;
@@ -42127,7 +41722,6 @@ int lua_cocos2dx_LayerGradient_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.LayerGradient",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerGradient_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -42240,7 +41834,6 @@ int lua_cocos2dx_LayerMultiplex_switchToAndReleaseMe(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerMultiplex_switchToAndReleaseMe'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -42253,7 +41846,8 @@ int lua_cocos2dx_LayerMultiplex_switchToAndReleaseMe(lua_State* tolua_S)
             return 0;
         }
         cobj->switchToAndReleaseMe(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerMultiplex:switchToAndReleaseMe",argc, 1);
     return 0;
@@ -42290,7 +41884,6 @@ int lua_cocos2dx_LayerMultiplex_addLayer(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerMultiplex_addLayer'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -42303,7 +41896,8 @@ int lua_cocos2dx_LayerMultiplex_addLayer(lua_State* tolua_S)
             return 0;
         }
         cobj->addLayer(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerMultiplex:addLayer",argc, 1);
     return 0;
@@ -42340,7 +41934,6 @@ int lua_cocos2dx_LayerMultiplex_switchTo(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_LayerMultiplex_switchTo'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -42353,7 +41946,8 @@ int lua_cocos2dx_LayerMultiplex_switchTo(lua_State* tolua_S)
             return 0;
         }
         cobj->switchTo(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.LayerMultiplex:switchTo",argc, 1);
     return 0;
@@ -42412,7 +42006,6 @@ int lua_cocos2dx_TransitionEaseScene_easeActionWithAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionEaseScene_easeActionWithAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -42483,7 +42076,6 @@ int lua_cocos2dx_TransitionScene_finish(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionScene_finish'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -42493,7 +42085,8 @@ int lua_cocos2dx_TransitionScene_finish(lua_State* tolua_S)
             return 0;
         }
         cobj->finish();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TransitionScene:finish",argc, 0);
     return 0;
@@ -42530,7 +42123,6 @@ int lua_cocos2dx_TransitionScene_hideOutShowIn(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionScene_hideOutShowIn'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -42540,7 +42132,8 @@ int lua_cocos2dx_TransitionScene_hideOutShowIn(lua_State* tolua_S)
             return 0;
         }
         cobj->hideOutShowIn();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TransitionScene:hideOutShowIn",argc, 0);
     return 0;
@@ -42565,7 +42158,6 @@ int lua_cocos2dx_TransitionScene_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionScene",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionScene_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -42626,7 +42218,6 @@ int lua_cocos2dx_TransitionSceneOriented_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionSceneOriented",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSceneOriented_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 3)
@@ -42687,7 +42278,6 @@ int lua_cocos2dx_TransitionRotoZoom_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionRotoZoom",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionRotoZoom_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -42746,7 +42336,6 @@ int lua_cocos2dx_TransitionJumpZoom_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionJumpZoom",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionJumpZoom_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -42817,7 +42406,6 @@ int lua_cocos2dx_TransitionMoveInL_action(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionMoveInL_action'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -42865,7 +42453,6 @@ int lua_cocos2dx_TransitionMoveInL_easeActionWithAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionMoveInL_easeActionWithAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -42904,7 +42491,6 @@ int lua_cocos2dx_TransitionMoveInL_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionMoveInL",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionMoveInL_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -42965,7 +42551,6 @@ int lua_cocos2dx_TransitionMoveInR_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionMoveInR",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionMoveInR_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -43024,7 +42609,6 @@ int lua_cocos2dx_TransitionMoveInT_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionMoveInT",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionMoveInT_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -43083,7 +42667,6 @@ int lua_cocos2dx_TransitionMoveInB_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionMoveInB",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionMoveInB_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -43154,7 +42737,6 @@ int lua_cocos2dx_TransitionSlideInL_action(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSlideInL_action'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -43202,7 +42784,6 @@ int lua_cocos2dx_TransitionSlideInL_easeActionWithAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSlideInL_easeActionWithAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -43241,7 +42822,6 @@ int lua_cocos2dx_TransitionSlideInL_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionSlideInL",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSlideInL_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -43314,7 +42894,6 @@ int lua_cocos2dx_TransitionSlideInR_action(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSlideInR_action'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -43350,7 +42929,6 @@ int lua_cocos2dx_TransitionSlideInR_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionSlideInR",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSlideInR_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -43422,7 +43000,6 @@ int lua_cocos2dx_TransitionSlideInB_action(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSlideInB_action'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -43458,7 +43035,6 @@ int lua_cocos2dx_TransitionSlideInB_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionSlideInB",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSlideInB_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -43530,7 +43106,6 @@ int lua_cocos2dx_TransitionSlideInT_action(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSlideInT_action'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -43566,7 +43141,6 @@ int lua_cocos2dx_TransitionSlideInT_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionSlideInT",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSlideInT_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -43638,7 +43212,6 @@ int lua_cocos2dx_TransitionShrinkGrow_easeActionWithAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionShrinkGrow_easeActionWithAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -43677,7 +43250,6 @@ int lua_cocos2dx_TransitionShrinkGrow_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionShrinkGrow",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionShrinkGrow_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -43736,7 +43308,6 @@ int lua_cocos2dx_TransitionFlipX_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionFlipX",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionFlipX_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -43814,7 +43385,6 @@ int lua_cocos2dx_TransitionFlipY_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionFlipY",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionFlipY_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -43892,7 +43462,6 @@ int lua_cocos2dx_TransitionFlipAngular_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionFlipAngular",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionFlipAngular_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -43970,7 +43539,6 @@ int lua_cocos2dx_TransitionZoomFlipX_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionZoomFlipX",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionZoomFlipX_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -44048,7 +43616,6 @@ int lua_cocos2dx_TransitionZoomFlipY_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionZoomFlipY",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionZoomFlipY_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -44126,7 +43693,6 @@ int lua_cocos2dx_TransitionZoomFlipAngular_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionZoomFlipAngular",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionZoomFlipAngular_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -44204,7 +43770,6 @@ int lua_cocos2dx_TransitionFade_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionFade",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionFade_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -44283,7 +43848,6 @@ int lua_cocos2dx_TransitionCrossFade_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionCrossFade",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionCrossFade_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -44354,7 +43918,6 @@ int lua_cocos2dx_TransitionTurnOffTiles_easeActionWithAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionTurnOffTiles_easeActionWithAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -44393,7 +43956,6 @@ int lua_cocos2dx_TransitionTurnOffTiles_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionTurnOffTiles",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionTurnOffTiles_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -44465,7 +44027,6 @@ int lua_cocos2dx_TransitionSplitCols_action(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSplitCols_action'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -44513,7 +44074,6 @@ int lua_cocos2dx_TransitionSplitCols_easeActionWithAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSplitCols_easeActionWithAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -44552,7 +44112,6 @@ int lua_cocos2dx_TransitionSplitCols_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionSplitCols",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSplitCols_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -44613,7 +44172,6 @@ int lua_cocos2dx_TransitionSplitRows_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionSplitRows",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionSplitRows_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -44684,7 +44242,6 @@ int lua_cocos2dx_TransitionFadeTR_easeActionWithAction(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionFadeTR_easeActionWithAction'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -44735,7 +44292,6 @@ int lua_cocos2dx_TransitionFadeTR_actionWithSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionFadeTR_actionWithSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -44774,7 +44330,6 @@ int lua_cocos2dx_TransitionFadeTR_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionFadeTR",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionFadeTR_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -44835,7 +44390,6 @@ int lua_cocos2dx_TransitionFadeBL_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionFadeBL",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionFadeBL_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -44894,7 +44448,6 @@ int lua_cocos2dx_TransitionFadeUp_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionFadeUp",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionFadeUp_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -44953,7 +44506,6 @@ int lua_cocos2dx_TransitionFadeDown_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionFadeDown",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionFadeDown_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -45024,7 +44576,6 @@ int lua_cocos2dx_TransitionPageTurn_actionWithSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionPageTurn_actionWithSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -45075,7 +44626,6 @@ int lua_cocos2dx_TransitionPageTurn_initWithDuration(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionPageTurn_initWithDuration'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -45120,7 +44670,6 @@ int lua_cocos2dx_TransitionPageTurn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionPageTurn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionPageTurn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 3)
@@ -45183,7 +44732,6 @@ int lua_cocos2dx_TransitionProgress_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionProgress",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionProgress_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -45242,7 +44790,6 @@ int lua_cocos2dx_TransitionProgressRadialCCW_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionProgressRadialCCW",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionProgressRadialCCW_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -45301,7 +44848,6 @@ int lua_cocos2dx_TransitionProgressRadialCW_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionProgressRadialCW",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionProgressRadialCW_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -45360,7 +44906,6 @@ int lua_cocos2dx_TransitionProgressHorizontal_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionProgressHorizontal",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionProgressHorizontal_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -45419,7 +44964,6 @@ int lua_cocos2dx_TransitionProgressVertical_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionProgressVertical",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionProgressVertical_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -45478,7 +45022,6 @@ int lua_cocos2dx_TransitionProgressInOut_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionProgressInOut",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionProgressInOut_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -45537,7 +45080,6 @@ int lua_cocos2dx_TransitionProgressOutIn_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TransitionProgressOutIn",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TransitionProgressOutIn_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -45608,7 +45150,6 @@ int lua_cocos2dx_MenuItem_setEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItem_setEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -45621,7 +45162,8 @@ int lua_cocos2dx_MenuItem_setEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItem:setEnabled",argc, 1);
     return 0;
@@ -45658,7 +45200,6 @@ int lua_cocos2dx_MenuItem_activate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItem_activate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -45668,7 +45209,8 @@ int lua_cocos2dx_MenuItem_activate(lua_State* tolua_S)
             return 0;
         }
         cobj->activate();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItem:activate",argc, 0);
     return 0;
@@ -45705,7 +45247,6 @@ int lua_cocos2dx_MenuItem_isEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItem_isEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -45753,7 +45294,6 @@ int lua_cocos2dx_MenuItem_selected(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItem_selected'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -45763,7 +45303,8 @@ int lua_cocos2dx_MenuItem_selected(lua_State* tolua_S)
             return 0;
         }
         cobj->selected();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItem:selected",argc, 0);
     return 0;
@@ -45800,7 +45341,6 @@ int lua_cocos2dx_MenuItem_isSelected(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItem_isSelected'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -45848,7 +45388,6 @@ int lua_cocos2dx_MenuItem_unselected(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItem_unselected'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -45858,7 +45397,8 @@ int lua_cocos2dx_MenuItem_unselected(lua_State* tolua_S)
             return 0;
         }
         cobj->unselected();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItem:unselected",argc, 0);
     return 0;
@@ -45895,7 +45435,6 @@ int lua_cocos2dx_MenuItem_rect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItem_rect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -45969,7 +45508,6 @@ int lua_cocos2dx_MenuItemLabel_getDisabledColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemLabel_getDisabledColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -46017,7 +45555,6 @@ int lua_cocos2dx_MenuItemLabel_setString(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemLabel_setString'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -46030,7 +45567,8 @@ int lua_cocos2dx_MenuItemLabel_setString(lua_State* tolua_S)
             return 0;
         }
         cobj->setString(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemLabel:setString",argc, 1);
     return 0;
@@ -46067,7 +45605,6 @@ int lua_cocos2dx_MenuItemLabel_setLabel(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemLabel_setLabel'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -46080,7 +45617,8 @@ int lua_cocos2dx_MenuItemLabel_setLabel(lua_State* tolua_S)
             return 0;
         }
         cobj->setLabel(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemLabel:setLabel",argc, 1);
     return 0;
@@ -46117,7 +45655,6 @@ int lua_cocos2dx_MenuItemLabel_setDisabledColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemLabel_setDisabledColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -46130,7 +45667,8 @@ int lua_cocos2dx_MenuItemLabel_setDisabledColor(lua_State* tolua_S)
             return 0;
         }
         cobj->setDisabledColor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemLabel:setDisabledColor",argc, 1);
     return 0;
@@ -46167,7 +45705,6 @@ int lua_cocos2dx_MenuItemLabel_getLabel(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemLabel_getLabel'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -46258,7 +45795,6 @@ int lua_cocos2dx_MenuItemFont_getFontSizeObj(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemFont_getFontSizeObj'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -46306,7 +45842,6 @@ int lua_cocos2dx_MenuItemFont_getFontNameObj(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemFont_getFontNameObj'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -46354,7 +45889,6 @@ int lua_cocos2dx_MenuItemFont_setFontSizeObj(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemFont_setFontSizeObj'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -46367,7 +45901,8 @@ int lua_cocos2dx_MenuItemFont_setFontSizeObj(lua_State* tolua_S)
             return 0;
         }
         cobj->setFontSizeObj(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemFont:setFontSizeObj",argc, 1);
     return 0;
@@ -46404,7 +45939,6 @@ int lua_cocos2dx_MenuItemFont_setFontNameObj(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemFont_setFontNameObj'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -46417,7 +45951,8 @@ int lua_cocos2dx_MenuItemFont_setFontNameObj(lua_State* tolua_S)
             return 0;
         }
         cobj->setFontNameObj(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemFont:setFontNameObj",argc, 1);
     return 0;
@@ -46442,7 +45977,6 @@ int lua_cocos2dx_MenuItemFont_setFontName(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.MenuItemFont",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemFont_setFontName'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -46455,7 +45989,8 @@ int lua_cocos2dx_MenuItemFont_setFontName(lua_State* tolua_S)
             return 0;
         }
         cocos2d::MenuItemFont::setFontName(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.MenuItemFont:setFontName",argc, 1);
     return 0;
@@ -46478,7 +46013,6 @@ int lua_cocos2dx_MenuItemFont_getFontSize(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.MenuItemFont",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemFont_getFontSize'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -46513,7 +46047,6 @@ int lua_cocos2dx_MenuItemFont_getFontName(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.MenuItemFont",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemFont_getFontName'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -46548,7 +46081,6 @@ int lua_cocos2dx_MenuItemFont_setFontSize(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.MenuItemFont",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemFont_setFontSize'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -46561,7 +46093,8 @@ int lua_cocos2dx_MenuItemFont_setFontSize(lua_State* tolua_S)
             return 0;
         }
         cocos2d::MenuItemFont::setFontSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.MenuItemFont:setFontSize",argc, 1);
     return 0;
@@ -46623,7 +46156,6 @@ int lua_cocos2dx_MenuItemSprite_setEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemSprite_setEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -46636,7 +46168,8 @@ int lua_cocos2dx_MenuItemSprite_setEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemSprite:setEnabled",argc, 1);
     return 0;
@@ -46673,7 +46206,6 @@ int lua_cocos2dx_MenuItemSprite_selected(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemSprite_selected'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -46683,7 +46215,8 @@ int lua_cocos2dx_MenuItemSprite_selected(lua_State* tolua_S)
             return 0;
         }
         cobj->selected();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemSprite:selected",argc, 0);
     return 0;
@@ -46720,7 +46253,6 @@ int lua_cocos2dx_MenuItemSprite_setNormalImage(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemSprite_setNormalImage'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -46733,7 +46265,8 @@ int lua_cocos2dx_MenuItemSprite_setNormalImage(lua_State* tolua_S)
             return 0;
         }
         cobj->setNormalImage(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemSprite:setNormalImage",argc, 1);
     return 0;
@@ -46770,7 +46303,6 @@ int lua_cocos2dx_MenuItemSprite_setDisabledImage(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemSprite_setDisabledImage'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -46783,7 +46315,8 @@ int lua_cocos2dx_MenuItemSprite_setDisabledImage(lua_State* tolua_S)
             return 0;
         }
         cobj->setDisabledImage(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemSprite:setDisabledImage",argc, 1);
     return 0;
@@ -46820,7 +46353,6 @@ int lua_cocos2dx_MenuItemSprite_setSelectedImage(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemSprite_setSelectedImage'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -46833,7 +46365,8 @@ int lua_cocos2dx_MenuItemSprite_setSelectedImage(lua_State* tolua_S)
             return 0;
         }
         cobj->setSelectedImage(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemSprite:setSelectedImage",argc, 1);
     return 0;
@@ -46870,7 +46403,6 @@ int lua_cocos2dx_MenuItemSprite_getDisabledImage(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemSprite_getDisabledImage'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -46918,7 +46450,6 @@ int lua_cocos2dx_MenuItemSprite_getSelectedImage(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemSprite_getSelectedImage'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -46966,7 +46497,6 @@ int lua_cocos2dx_MenuItemSprite_getNormalImage(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemSprite_getNormalImage'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -47014,7 +46544,6 @@ int lua_cocos2dx_MenuItemSprite_unselected(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemSprite_unselected'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -47024,7 +46553,8 @@ int lua_cocos2dx_MenuItemSprite_unselected(lua_State* tolua_S)
             return 0;
         }
         cobj->unselected();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemSprite:unselected",argc, 0);
     return 0;
@@ -47089,7 +46619,6 @@ int lua_cocos2dx_MenuItemImage_setDisabledSpriteFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemImage_setDisabledSpriteFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47102,7 +46631,8 @@ int lua_cocos2dx_MenuItemImage_setDisabledSpriteFrame(lua_State* tolua_S)
             return 0;
         }
         cobj->setDisabledSpriteFrame(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemImage:setDisabledSpriteFrame",argc, 1);
     return 0;
@@ -47139,7 +46669,6 @@ int lua_cocos2dx_MenuItemImage_setSelectedSpriteFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemImage_setSelectedSpriteFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47152,7 +46681,8 @@ int lua_cocos2dx_MenuItemImage_setSelectedSpriteFrame(lua_State* tolua_S)
             return 0;
         }
         cobj->setSelectedSpriteFrame(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemImage:setSelectedSpriteFrame",argc, 1);
     return 0;
@@ -47189,7 +46719,6 @@ int lua_cocos2dx_MenuItemImage_setNormalSpriteFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemImage_setNormalSpriteFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47202,7 +46731,8 @@ int lua_cocos2dx_MenuItemImage_setNormalSpriteFrame(lua_State* tolua_S)
             return 0;
         }
         cobj->setNormalSpriteFrame(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemImage:setNormalSpriteFrame",argc, 1);
     return 0;
@@ -47261,7 +46791,6 @@ int lua_cocos2dx_MenuItemToggle_setSubItems(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemToggle_setSubItems'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47274,7 +46803,8 @@ int lua_cocos2dx_MenuItemToggle_setSubItems(lua_State* tolua_S)
             return 0;
         }
         cobj->setSubItems(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemToggle:setSubItems",argc, 1);
     return 0;
@@ -47311,7 +46841,6 @@ int lua_cocos2dx_MenuItemToggle_getSelectedIndex(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemToggle_getSelectedIndex'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -47359,7 +46888,6 @@ int lua_cocos2dx_MenuItemToggle_addSubItem(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemToggle_addSubItem'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47372,7 +46900,8 @@ int lua_cocos2dx_MenuItemToggle_addSubItem(lua_State* tolua_S)
             return 0;
         }
         cobj->addSubItem(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemToggle:addSubItem",argc, 1);
     return 0;
@@ -47409,7 +46938,6 @@ int lua_cocos2dx_MenuItemToggle_getSelectedItem(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemToggle_getSelectedItem'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -47457,7 +46985,6 @@ int lua_cocos2dx_MenuItemToggle_setSelectedIndex(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MenuItemToggle_setSelectedIndex'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47470,7 +46997,8 @@ int lua_cocos2dx_MenuItemToggle_setSelectedIndex(lua_State* tolua_S)
             return 0;
         }
         cobj->setSelectedIndex(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MenuItemToggle:setSelectedIndex",argc, 1);
     return 0;
@@ -47531,7 +47059,6 @@ int lua_cocos2dx_Menu_setEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Menu_setEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47544,7 +47071,8 @@ int lua_cocos2dx_Menu_setEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Menu:setEnabled",argc, 1);
     return 0;
@@ -47581,7 +47109,6 @@ int lua_cocos2dx_Menu_alignItemsVertically(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Menu_alignItemsVertically'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -47591,7 +47118,8 @@ int lua_cocos2dx_Menu_alignItemsVertically(lua_State* tolua_S)
             return 0;
         }
         cobj->alignItemsVertically();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Menu:alignItemsVertically",argc, 0);
     return 0;
@@ -47628,7 +47156,6 @@ int lua_cocos2dx_Menu_isEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Menu_isEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -47676,7 +47203,6 @@ int lua_cocos2dx_Menu_alignItemsHorizontallyWithPadding(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Menu_alignItemsHorizontallyWithPadding'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47689,7 +47215,8 @@ int lua_cocos2dx_Menu_alignItemsHorizontallyWithPadding(lua_State* tolua_S)
             return 0;
         }
         cobj->alignItemsHorizontallyWithPadding(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Menu:alignItemsHorizontallyWithPadding",argc, 1);
     return 0;
@@ -47726,7 +47253,6 @@ int lua_cocos2dx_Menu_alignItemsVerticallyWithPadding(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Menu_alignItemsVerticallyWithPadding'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47739,7 +47265,8 @@ int lua_cocos2dx_Menu_alignItemsVerticallyWithPadding(lua_State* tolua_S)
             return 0;
         }
         cobj->alignItemsVerticallyWithPadding(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Menu:alignItemsVerticallyWithPadding",argc, 1);
     return 0;
@@ -47776,7 +47303,6 @@ int lua_cocos2dx_Menu_alignItemsHorizontally(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Menu_alignItemsHorizontally'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -47786,7 +47312,8 @@ int lua_cocos2dx_Menu_alignItemsHorizontally(lua_State* tolua_S)
             return 0;
         }
         cobj->alignItemsHorizontally();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Menu:alignItemsHorizontally",argc, 0);
     return 0;
@@ -47848,7 +47375,6 @@ int lua_cocos2dx_ClippingNode_hasContent(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingNode_hasContent'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -47896,7 +47422,6 @@ int lua_cocos2dx_ClippingNode_setInverted(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingNode_setInverted'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47909,7 +47434,8 @@ int lua_cocos2dx_ClippingNode_setInverted(lua_State* tolua_S)
             return 0;
         }
         cobj->setInverted(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ClippingNode:setInverted",argc, 1);
     return 0;
@@ -47946,7 +47472,6 @@ int lua_cocos2dx_ClippingNode_setStencil(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingNode_setStencil'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -47959,7 +47484,8 @@ int lua_cocos2dx_ClippingNode_setStencil(lua_State* tolua_S)
             return 0;
         }
         cobj->setStencil(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ClippingNode:setStencil",argc, 1);
     return 0;
@@ -47996,7 +47522,6 @@ int lua_cocos2dx_ClippingNode_getAlphaThreshold(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingNode_getAlphaThreshold'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -48044,7 +47569,6 @@ int lua_cocos2dx_ClippingNode_getStencil(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingNode_getStencil'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -48092,7 +47616,6 @@ int lua_cocos2dx_ClippingNode_setAlphaThreshold(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingNode_setAlphaThreshold'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -48105,7 +47628,8 @@ int lua_cocos2dx_ClippingNode_setAlphaThreshold(lua_State* tolua_S)
             return 0;
         }
         cobj->setAlphaThreshold(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ClippingNode:setAlphaThreshold",argc, 1);
     return 0;
@@ -48142,7 +47666,6 @@ int lua_cocos2dx_ClippingNode_isInverted(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingNode_isInverted'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -48177,7 +47700,6 @@ int lua_cocos2dx_ClippingNode_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ClippingNode",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingNode_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -48263,7 +47785,6 @@ int lua_cocos2dx_ClippingRectangleNode_isClippingEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingRectangleNode_isClippingEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -48311,7 +47832,6 @@ int lua_cocos2dx_ClippingRectangleNode_setClippingEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingRectangleNode_setClippingEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -48324,7 +47844,8 @@ int lua_cocos2dx_ClippingRectangleNode_setClippingEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setClippingEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ClippingRectangleNode:setClippingEnabled",argc, 1);
     return 0;
@@ -48361,7 +47882,6 @@ int lua_cocos2dx_ClippingRectangleNode_getClippingRegion(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingRectangleNode_getClippingRegion'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -48409,7 +47929,6 @@ int lua_cocos2dx_ClippingRectangleNode_setClippingRegion(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingRectangleNode_setClippingRegion'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -48422,7 +47941,8 @@ int lua_cocos2dx_ClippingRectangleNode_setClippingRegion(lua_State* tolua_S)
             return 0;
         }
         cobj->setClippingRegion(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ClippingRectangleNode:setClippingRegion",argc, 1);
     return 0;
@@ -48446,7 +47966,6 @@ int lua_cocos2dx_ClippingRectangleNode_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ClippingRectangleNode",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ClippingRectangleNode_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -48529,7 +48048,6 @@ int lua_cocos2dx_MotionStreak_reset(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MotionStreak_reset'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -48539,7 +48057,8 @@ int lua_cocos2dx_MotionStreak_reset(lua_State* tolua_S)
             return 0;
         }
         cobj->reset();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MotionStreak:reset",argc, 0);
     return 0;
@@ -48576,7 +48095,6 @@ int lua_cocos2dx_MotionStreak_setTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MotionStreak_setTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -48589,7 +48107,8 @@ int lua_cocos2dx_MotionStreak_setTexture(lua_State* tolua_S)
             return 0;
         }
         cobj->setTexture(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MotionStreak:setTexture",argc, 1);
     return 0;
@@ -48626,7 +48145,6 @@ int lua_cocos2dx_MotionStreak_getTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MotionStreak_getTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -48674,7 +48192,6 @@ int lua_cocos2dx_MotionStreak_tintWithColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MotionStreak_tintWithColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -48687,7 +48204,8 @@ int lua_cocos2dx_MotionStreak_tintWithColor(lua_State* tolua_S)
             return 0;
         }
         cobj->tintWithColor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MotionStreak:tintWithColor",argc, 1);
     return 0;
@@ -48724,7 +48242,6 @@ int lua_cocos2dx_MotionStreak_setStartingPositionInitialized(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MotionStreak_setStartingPositionInitialized'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -48737,7 +48254,8 @@ int lua_cocos2dx_MotionStreak_setStartingPositionInitialized(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartingPositionInitialized(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MotionStreak:setStartingPositionInitialized",argc, 1);
     return 0;
@@ -48774,7 +48292,6 @@ int lua_cocos2dx_MotionStreak_isStartingPositionInitialized(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MotionStreak_isStartingPositionInitialized'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -48822,7 +48339,6 @@ int lua_cocos2dx_MotionStreak_isFastMode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MotionStreak_isFastMode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -48870,7 +48386,6 @@ int lua_cocos2dx_MotionStreak_setFastMode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MotionStreak_setFastMode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -48883,7 +48398,8 @@ int lua_cocos2dx_MotionStreak_setFastMode(lua_State* tolua_S)
             return 0;
         }
         cobj->setFastMode(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.MotionStreak:setFastMode",argc, 1);
     return 0;
@@ -48907,7 +48423,6 @@ int lua_cocos2dx_MotionStreak_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.MotionStreak",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_MotionStreak_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -49021,7 +48536,6 @@ int lua_cocos2dx_ProgressTimer_isReverseDirection(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_isReverseDirection'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -49069,7 +48583,6 @@ int lua_cocos2dx_ProgressTimer_setBarChangeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_setBarChangeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -49082,7 +48595,8 @@ int lua_cocos2dx_ProgressTimer_setBarChangeRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setBarChangeRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProgressTimer:setBarChangeRate",argc, 1);
     return 0;
@@ -49119,7 +48633,6 @@ int lua_cocos2dx_ProgressTimer_getPercentage(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_getPercentage'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -49167,7 +48680,6 @@ int lua_cocos2dx_ProgressTimer_setSprite(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_setSprite'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -49180,7 +48692,8 @@ int lua_cocos2dx_ProgressTimer_setSprite(lua_State* tolua_S)
             return 0;
         }
         cobj->setSprite(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProgressTimer:setSprite",argc, 1);
     return 0;
@@ -49217,7 +48730,6 @@ int lua_cocos2dx_ProgressTimer_getType(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_getType'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -49265,7 +48777,6 @@ int lua_cocos2dx_ProgressTimer_getSprite(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_getSprite'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -49313,7 +48824,6 @@ int lua_cocos2dx_ProgressTimer_setMidpoint(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_setMidpoint'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -49326,7 +48836,8 @@ int lua_cocos2dx_ProgressTimer_setMidpoint(lua_State* tolua_S)
             return 0;
         }
         cobj->setMidpoint(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProgressTimer:setMidpoint",argc, 1);
     return 0;
@@ -49363,7 +48874,6 @@ int lua_cocos2dx_ProgressTimer_getBarChangeRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_getBarChangeRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -49406,7 +48916,6 @@ int lua_cocos2dx_ProgressTimer_setReverseDirection(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_setReverseDirection'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 1) {
@@ -49415,7 +48924,8 @@ int lua_cocos2dx_ProgressTimer_setReverseDirection(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setReverseDirection(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -49426,7 +48936,8 @@ int lua_cocos2dx_ProgressTimer_setReverseDirection(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setReverseProgress(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -49465,7 +48976,6 @@ int lua_cocos2dx_ProgressTimer_getMidpoint(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_getMidpoint'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -49513,7 +49023,6 @@ int lua_cocos2dx_ProgressTimer_setPercentage(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_setPercentage'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -49526,7 +49035,8 @@ int lua_cocos2dx_ProgressTimer_setPercentage(lua_State* tolua_S)
             return 0;
         }
         cobj->setPercentage(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProgressTimer:setPercentage",argc, 1);
     return 0;
@@ -49563,7 +49073,6 @@ int lua_cocos2dx_ProgressTimer_setType(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_setType'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -49576,7 +49085,8 @@ int lua_cocos2dx_ProgressTimer_setType(lua_State* tolua_S)
             return 0;
         }
         cobj->setType(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ProgressTimer:setType",argc, 1);
     return 0;
@@ -49601,7 +49111,6 @@ int lua_cocos2dx_ProgressTimer_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ProgressTimer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ProgressTimer_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -49677,7 +49186,6 @@ int lua_cocos2dx_Sprite_setSpriteFrame(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setSpriteFrame'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 1) {
@@ -49686,7 +49194,8 @@ int lua_cocos2dx_Sprite_setSpriteFrame(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setSpriteFrame(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -49697,7 +49206,8 @@ int lua_cocos2dx_Sprite_setSpriteFrame(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setSpriteFrame(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -49731,7 +49241,6 @@ int lua_cocos2dx_Sprite_setTexture(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setTexture'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 1) {
@@ -49740,7 +49249,8 @@ int lua_cocos2dx_Sprite_setTexture(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setTexture(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -49751,7 +49261,8 @@ int lua_cocos2dx_Sprite_setTexture(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setTexture(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -49790,7 +49301,6 @@ int lua_cocos2dx_Sprite_getTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_getTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -49838,7 +49348,6 @@ int lua_cocos2dx_Sprite_setFlippedY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setFlippedY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -49851,7 +49360,8 @@ int lua_cocos2dx_Sprite_setFlippedY(lua_State* tolua_S)
             return 0;
         }
         cobj->setFlippedY(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Sprite:setFlippedY",argc, 1);
     return 0;
@@ -49888,7 +49398,6 @@ int lua_cocos2dx_Sprite_setFlippedX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setFlippedX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -49901,7 +49410,8 @@ int lua_cocos2dx_Sprite_setFlippedX(lua_State* tolua_S)
             return 0;
         }
         cobj->setFlippedX(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Sprite:setFlippedX",argc, 1);
     return 0;
@@ -49938,7 +49448,6 @@ int lua_cocos2dx_Sprite_getBatchNode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_getBatchNode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -49986,7 +49495,6 @@ int lua_cocos2dx_Sprite_getOffsetPosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_getOffsetPosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -50034,7 +49542,6 @@ int lua_cocos2dx_Sprite_removeAllChildrenWithCleanup(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_removeAllChildrenWithCleanup'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -50047,7 +49554,8 @@ int lua_cocos2dx_Sprite_removeAllChildrenWithCleanup(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAllChildrenWithCleanup(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Sprite:removeAllChildrenWithCleanup",argc, 1);
     return 0;
@@ -50084,7 +49592,6 @@ int lua_cocos2dx_Sprite_updateTransform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_updateTransform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -50094,7 +49601,8 @@ int lua_cocos2dx_Sprite_updateTransform(lua_State* tolua_S)
             return 0;
         }
         cobj->updateTransform();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Sprite:updateTransform",argc, 0);
     return 0;
@@ -50126,7 +49634,6 @@ int lua_cocos2dx_Sprite_setTextureRect(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setTextureRect'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 3) {
@@ -50143,7 +49650,8 @@ int lua_cocos2dx_Sprite_setTextureRect(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setTextureRect(arg0, arg1, arg2);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -50154,7 +49662,8 @@ int lua_cocos2dx_Sprite_setTextureRect(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setTextureRect(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -50193,7 +49702,6 @@ int lua_cocos2dx_Sprite_isFrameDisplayed(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_isFrameDisplayed'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -50244,7 +49752,6 @@ int lua_cocos2dx_Sprite_getAtlasIndex(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_getAtlasIndex'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -50292,7 +49799,6 @@ int lua_cocos2dx_Sprite_setBatchNode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setBatchNode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -50305,7 +49811,8 @@ int lua_cocos2dx_Sprite_setBatchNode(lua_State* tolua_S)
             return 0;
         }
         cobj->setBatchNode(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Sprite:setBatchNode",argc, 1);
     return 0;
@@ -50342,7 +49849,6 @@ int lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -50358,7 +49864,8 @@ int lua_cocos2dx_Sprite_setDisplayFrameWithAnimationName(lua_State* tolua_S)
             return 0;
         }
         cobj->setDisplayFrameWithAnimationName(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Sprite:setDisplayFrameWithAnimationName",argc, 2);
     return 0;
@@ -50395,7 +49902,6 @@ int lua_cocos2dx_Sprite_setTextureAtlas(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setTextureAtlas'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -50408,7 +49914,8 @@ int lua_cocos2dx_Sprite_setTextureAtlas(lua_State* tolua_S)
             return 0;
         }
         cobj->setTextureAtlas(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Sprite:setTextureAtlas",argc, 1);
     return 0;
@@ -50445,7 +49952,6 @@ int lua_cocos2dx_Sprite_getSpriteFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_getSpriteFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -50493,7 +49999,6 @@ int lua_cocos2dx_Sprite_isDirty(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_isDirty'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -50541,7 +50046,6 @@ int lua_cocos2dx_Sprite_setAtlasIndex(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setAtlasIndex'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -50554,7 +50058,8 @@ int lua_cocos2dx_Sprite_setAtlasIndex(lua_State* tolua_S)
             return 0;
         }
         cobj->setAtlasIndex(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Sprite:setAtlasIndex",argc, 1);
     return 0;
@@ -50591,7 +50096,6 @@ int lua_cocos2dx_Sprite_setDirty(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setDirty'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -50604,7 +50108,8 @@ int lua_cocos2dx_Sprite_setDirty(lua_State* tolua_S)
             return 0;
         }
         cobj->setDirty(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Sprite:setDirty",argc, 1);
     return 0;
@@ -50641,7 +50146,6 @@ int lua_cocos2dx_Sprite_isTextureRectRotated(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_isTextureRectRotated'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -50689,7 +50193,6 @@ int lua_cocos2dx_Sprite_getTextureRect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_getTextureRect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -50737,7 +50240,6 @@ int lua_cocos2dx_Sprite_getTextureAtlas(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_getTextureAtlas'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -50785,7 +50287,6 @@ int lua_cocos2dx_Sprite_isFlippedX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_isFlippedX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -50833,7 +50334,6 @@ int lua_cocos2dx_Sprite_isFlippedY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_isFlippedY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -50881,7 +50381,6 @@ int lua_cocos2dx_Sprite_setVertexRect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_setVertexRect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -50894,7 +50393,8 @@ int lua_cocos2dx_Sprite_setVertexRect(lua_State* tolua_S)
             return 0;
         }
         cobj->setVertexRect(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Sprite:setVertexRect",argc, 1);
     return 0;
@@ -50918,7 +50418,6 @@ int lua_cocos2dx_Sprite_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Sprite",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -50980,7 +50479,6 @@ int lua_cocos2dx_Sprite_createWithTexture(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Sprite",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_createWithTexture'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -51052,7 +50550,6 @@ int lua_cocos2dx_Sprite_createWithSpriteFrameName(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Sprite",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_createWithSpriteFrameName'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -51089,7 +50586,6 @@ int lua_cocos2dx_Sprite_createWithSpriteFrame(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Sprite",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Sprite_createWithSpriteFrame'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -51186,7 +50682,6 @@ int lua_cocos2dx_Image_hasPremultipliedAlpha(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_hasPremultipliedAlpha'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51234,7 +50729,6 @@ int lua_cocos2dx_Image_saveToFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_saveToFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -51302,7 +50796,6 @@ int lua_cocos2dx_Image_hasAlpha(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_hasAlpha'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51350,7 +50843,6 @@ int lua_cocos2dx_Image_isCompressed(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_isCompressed'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51398,7 +50890,6 @@ int lua_cocos2dx_Image_getHeight(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_getHeight'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51446,7 +50937,6 @@ int lua_cocos2dx_Image_initWithImageFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_initWithImageFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -51497,7 +50987,6 @@ int lua_cocos2dx_Image_getWidth(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_getWidth'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51545,7 +51034,6 @@ int lua_cocos2dx_Image_getBitPerPixel(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_getBitPerPixel'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51593,7 +51081,6 @@ int lua_cocos2dx_Image_getFileType(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_getFileType'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51641,7 +51128,6 @@ int lua_cocos2dx_Image_getNumberOfMipmaps(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_getNumberOfMipmaps'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51689,7 +51175,6 @@ int lua_cocos2dx_Image_getRenderFormat(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_getRenderFormat'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51725,7 +51210,6 @@ int lua_cocos2dx_Image_setPVRImagesHavePremultipliedAlpha(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Image",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_setPVRImagesHavePremultipliedAlpha'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -51738,7 +51222,8 @@ int lua_cocos2dx_Image_setPVRImagesHavePremultipliedAlpha(lua_State* tolua_S)
             return 0;
         }
         cocos2d::Image::setPVRImagesHavePremultipliedAlpha(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.Image:setPVRImagesHavePremultipliedAlpha",argc, 1);
     return 0;
@@ -51760,7 +51245,6 @@ int lua_cocos2dx_Image_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Image_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51843,7 +51327,6 @@ int lua_cocos2dx_RenderTexture_setVirtualViewport(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_setVirtualViewport'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -51862,7 +51345,8 @@ int lua_cocos2dx_RenderTexture_setVirtualViewport(lua_State* tolua_S)
             return 0;
         }
         cobj->setVirtualViewport(arg0, arg1, arg2);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:setVirtualViewport",argc, 3);
     return 0;
@@ -51899,7 +51383,6 @@ int lua_cocos2dx_RenderTexture_clearStencil(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_clearStencil'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -51912,7 +51395,8 @@ int lua_cocos2dx_RenderTexture_clearStencil(lua_State* tolua_S)
             return 0;
         }
         cobj->clearStencil(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:clearStencil",argc, 1);
     return 0;
@@ -51949,7 +51433,6 @@ int lua_cocos2dx_RenderTexture_getClearDepth(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_getClearDepth'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -51997,7 +51480,6 @@ int lua_cocos2dx_RenderTexture_getClearStencil(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_getClearStencil'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -52045,7 +51527,6 @@ int lua_cocos2dx_RenderTexture_end(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_end'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -52055,7 +51536,8 @@ int lua_cocos2dx_RenderTexture_end(lua_State* tolua_S)
             return 0;
         }
         cobj->end();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:end",argc, 0);
     return 0;
@@ -52092,7 +51574,6 @@ int lua_cocos2dx_RenderTexture_setClearStencil(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_setClearStencil'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -52105,7 +51586,8 @@ int lua_cocos2dx_RenderTexture_setClearStencil(lua_State* tolua_S)
             return 0;
         }
         cobj->setClearStencil(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:setClearStencil",argc, 1);
     return 0;
@@ -52142,7 +51624,6 @@ int lua_cocos2dx_RenderTexture_setSprite(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_setSprite'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -52155,7 +51636,8 @@ int lua_cocos2dx_RenderTexture_setSprite(lua_State* tolua_S)
             return 0;
         }
         cobj->setSprite(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:setSprite",argc, 1);
     return 0;
@@ -52192,7 +51674,6 @@ int lua_cocos2dx_RenderTexture_getSprite(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_getSprite'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -52240,7 +51721,6 @@ int lua_cocos2dx_RenderTexture_isAutoDraw(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_isAutoDraw'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -52288,7 +51768,6 @@ int lua_cocos2dx_RenderTexture_setKeepMatrix(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_setKeepMatrix'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -52301,7 +51780,8 @@ int lua_cocos2dx_RenderTexture_setKeepMatrix(lua_State* tolua_S)
             return 0;
         }
         cobj->setKeepMatrix(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:setKeepMatrix",argc, 1);
     return 0;
@@ -52338,7 +51818,6 @@ int lua_cocos2dx_RenderTexture_setClearFlags(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_setClearFlags'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -52351,7 +51830,8 @@ int lua_cocos2dx_RenderTexture_setClearFlags(lua_State* tolua_S)
             return 0;
         }
         cobj->setClearFlags(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:setClearFlags",argc, 1);
     return 0;
@@ -52388,7 +51868,6 @@ int lua_cocos2dx_RenderTexture_begin(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_begin'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -52398,7 +51877,8 @@ int lua_cocos2dx_RenderTexture_begin(lua_State* tolua_S)
             return 0;
         }
         cobj->begin();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:begin",argc, 0);
     return 0;
@@ -52430,7 +51910,6 @@ int lua_cocos2dx_RenderTexture_saveToFile(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_saveToFile'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -52583,7 +52062,6 @@ int lua_cocos2dx_RenderTexture_setAutoDraw(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_setAutoDraw'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -52596,7 +52074,8 @@ int lua_cocos2dx_RenderTexture_setAutoDraw(lua_State* tolua_S)
             return 0;
         }
         cobj->setAutoDraw(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:setAutoDraw",argc, 1);
     return 0;
@@ -52633,7 +52112,6 @@ int lua_cocos2dx_RenderTexture_setClearColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_setClearColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -52646,7 +52124,8 @@ int lua_cocos2dx_RenderTexture_setClearColor(lua_State* tolua_S)
             return 0;
         }
         cobj->setClearColor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:setClearColor",argc, 1);
     return 0;
@@ -52683,7 +52162,6 @@ int lua_cocos2dx_RenderTexture_endToLua(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_endToLua'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -52693,7 +52171,8 @@ int lua_cocos2dx_RenderTexture_endToLua(lua_State* tolua_S)
             return 0;
         }
         cobj->endToLua();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:endToLua",argc, 0);
     return 0;
@@ -52725,7 +52204,6 @@ int lua_cocos2dx_RenderTexture_beginWithClear(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_beginWithClear'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 5) {
@@ -52750,7 +52228,8 @@ int lua_cocos2dx_RenderTexture_beginWithClear(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->beginWithClear(arg0, arg1, arg2, arg3, arg4);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -52773,7 +52252,8 @@ int lua_cocos2dx_RenderTexture_beginWithClear(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->beginWithClear(arg0, arg1, arg2, arg3);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -52804,7 +52284,8 @@ int lua_cocos2dx_RenderTexture_beginWithClear(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->beginWithClear(arg0, arg1, arg2, arg3, arg4, arg5);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -52843,7 +52324,6 @@ int lua_cocos2dx_RenderTexture_clearDepth(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_clearDepth'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -52856,7 +52336,8 @@ int lua_cocos2dx_RenderTexture_clearDepth(lua_State* tolua_S)
             return 0;
         }
         cobj->clearDepth(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:clearDepth",argc, 1);
     return 0;
@@ -52893,7 +52374,6 @@ int lua_cocos2dx_RenderTexture_getClearColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_getClearColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -52941,7 +52421,6 @@ int lua_cocos2dx_RenderTexture_clear(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_clear'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 4) 
     {
@@ -52963,7 +52442,8 @@ int lua_cocos2dx_RenderTexture_clear(lua_State* tolua_S)
             return 0;
         }
         cobj->clear(arg0, arg1, arg2, arg3);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:clear",argc, 4);
     return 0;
@@ -53000,7 +52480,6 @@ int lua_cocos2dx_RenderTexture_getClearFlags(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_getClearFlags'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -53048,7 +52527,6 @@ int lua_cocos2dx_RenderTexture_newImage(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_newImage'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -53110,7 +52588,6 @@ int lua_cocos2dx_RenderTexture_setClearDepth(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_setClearDepth'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -53123,7 +52600,8 @@ int lua_cocos2dx_RenderTexture_setClearDepth(lua_State* tolua_S)
             return 0;
         }
         cobj->setClearDepth(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.RenderTexture:setClearDepth",argc, 1);
     return 0;
@@ -53155,7 +52633,6 @@ int lua_cocos2dx_RenderTexture_initWithWidthAndHeight(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_initWithWidthAndHeight'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 4) {
@@ -53223,7 +52700,6 @@ int lua_cocos2dx_RenderTexture_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.RenderTexture",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -53303,7 +52779,6 @@ int lua_cocos2dx_RenderTexture_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_RenderTexture_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -53399,7 +52874,6 @@ int lua_cocos2dx_NodeGrid_setTarget(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_NodeGrid_setTarget'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -53412,7 +52886,8 @@ int lua_cocos2dx_NodeGrid_setTarget(lua_State* tolua_S)
             return 0;
         }
         cobj->setTarget(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.NodeGrid:setTarget",argc, 1);
     return 0;
@@ -53444,7 +52919,6 @@ int lua_cocos2dx_NodeGrid_getGrid(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_NodeGrid_getGrid'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -53497,7 +52971,6 @@ int lua_cocos2dx_NodeGrid_setGrid(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_NodeGrid_setGrid'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -53510,7 +52983,8 @@ int lua_cocos2dx_NodeGrid_setGrid(lua_State* tolua_S)
             return 0;
         }
         cobj->setGrid(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.NodeGrid:setGrid",argc, 1);
     return 0;
@@ -53535,7 +53009,6 @@ int lua_cocos2dx_NodeGrid_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.NodeGrid",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_NodeGrid_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -53605,7 +53078,6 @@ int lua_cocos2dx_ParticleBatchNode_setTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleBatchNode_setTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -53618,7 +53090,8 @@ int lua_cocos2dx_ParticleBatchNode_setTexture(lua_State* tolua_S)
             return 0;
         }
         cobj->setTexture(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleBatchNode:setTexture",argc, 1);
     return 0;
@@ -53655,7 +53128,6 @@ int lua_cocos2dx_ParticleBatchNode_disableParticle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleBatchNode_disableParticle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -53668,7 +53140,8 @@ int lua_cocos2dx_ParticleBatchNode_disableParticle(lua_State* tolua_S)
             return 0;
         }
         cobj->disableParticle(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleBatchNode:disableParticle",argc, 1);
     return 0;
@@ -53705,7 +53178,6 @@ int lua_cocos2dx_ParticleBatchNode_getTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleBatchNode_getTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -53753,7 +53225,6 @@ int lua_cocos2dx_ParticleBatchNode_setTextureAtlas(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleBatchNode_setTextureAtlas'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -53766,7 +53237,8 @@ int lua_cocos2dx_ParticleBatchNode_setTextureAtlas(lua_State* tolua_S)
             return 0;
         }
         cobj->setTextureAtlas(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleBatchNode:setTextureAtlas",argc, 1);
     return 0;
@@ -53803,7 +53275,6 @@ int lua_cocos2dx_ParticleBatchNode_removeAllChildrenWithCleanup(lua_State* tolua
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleBatchNode_removeAllChildrenWithCleanup'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -53816,7 +53287,8 @@ int lua_cocos2dx_ParticleBatchNode_removeAllChildrenWithCleanup(lua_State* tolua
             return 0;
         }
         cobj->removeAllChildrenWithCleanup(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleBatchNode:removeAllChildrenWithCleanup",argc, 1);
     return 0;
@@ -53853,7 +53325,6 @@ int lua_cocos2dx_ParticleBatchNode_getTextureAtlas(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleBatchNode_getTextureAtlas'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -53901,7 +53372,6 @@ int lua_cocos2dx_ParticleBatchNode_insertChild(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleBatchNode_insertChild'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -53917,7 +53387,8 @@ int lua_cocos2dx_ParticleBatchNode_insertChild(lua_State* tolua_S)
             return 0;
         }
         cobj->insertChild(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleBatchNode:insertChild",argc, 2);
     return 0;
@@ -53954,7 +53425,6 @@ int lua_cocos2dx_ParticleBatchNode_removeChildAtIndex(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleBatchNode_removeChildAtIndex'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -53970,7 +53440,8 @@ int lua_cocos2dx_ParticleBatchNode_removeChildAtIndex(lua_State* tolua_S)
             return 0;
         }
         cobj->removeChildAtIndex(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleBatchNode:removeChildAtIndex",argc, 2);
     return 0;
@@ -53995,7 +53466,6 @@ int lua_cocos2dx_ParticleBatchNode_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleBatchNode",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleBatchNode_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -54047,7 +53517,6 @@ int lua_cocos2dx_ParticleBatchNode_createWithTexture(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleBatchNode",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleBatchNode_createWithTexture'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -54140,7 +53609,6 @@ int lua_cocos2dx_ParticleSystem_getStartSizeVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getStartSizeVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54188,7 +53656,6 @@ int lua_cocos2dx_ParticleSystem_getTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54236,7 +53703,6 @@ int lua_cocos2dx_ParticleSystem_isFull(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_isFull'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54284,7 +53750,6 @@ int lua_cocos2dx_ParticleSystem_getBatchNode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getBatchNode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54332,7 +53797,6 @@ int lua_cocos2dx_ParticleSystem_getStartColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getStartColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54380,7 +53844,6 @@ int lua_cocos2dx_ParticleSystem_getPositionType(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getPositionType'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54428,7 +53891,6 @@ int lua_cocos2dx_ParticleSystem_setPosVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setPosVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -54441,7 +53903,8 @@ int lua_cocos2dx_ParticleSystem_setPosVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setPosVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setPosVar",argc, 1);
     return 0;
@@ -54478,7 +53941,6 @@ int lua_cocos2dx_ParticleSystem_getEndSpin(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getEndSpin'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54526,7 +53988,6 @@ int lua_cocos2dx_ParticleSystem_setRotatePerSecondVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setRotatePerSecondVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -54539,7 +54000,8 @@ int lua_cocos2dx_ParticleSystem_setRotatePerSecondVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setRotatePerSecondVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setRotatePerSecondVar",argc, 1);
     return 0;
@@ -54576,7 +54038,6 @@ int lua_cocos2dx_ParticleSystem_getStartSpinVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getStartSpinVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54624,7 +54085,6 @@ int lua_cocos2dx_ParticleSystem_getRadialAccelVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getRadialAccelVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54672,7 +54132,6 @@ int lua_cocos2dx_ParticleSystem_getEndSizeVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getEndSizeVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54720,7 +54179,6 @@ int lua_cocos2dx_ParticleSystem_setRotation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setRotation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -54733,7 +54191,8 @@ int lua_cocos2dx_ParticleSystem_setRotation(lua_State* tolua_S)
             return 0;
         }
         cobj->setRotation(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setRotation",argc, 1);
     return 0;
@@ -54770,7 +54229,6 @@ int lua_cocos2dx_ParticleSystem_setTangentialAccel(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setTangentialAccel'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -54783,7 +54241,8 @@ int lua_cocos2dx_ParticleSystem_setTangentialAccel(lua_State* tolua_S)
             return 0;
         }
         cobj->setTangentialAccel(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setTangentialAccel",argc, 1);
     return 0;
@@ -54820,7 +54279,6 @@ int lua_cocos2dx_ParticleSystem_setScaleY(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setScaleY'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -54833,7 +54291,8 @@ int lua_cocos2dx_ParticleSystem_setScaleY(lua_State* tolua_S)
             return 0;
         }
         cobj->setScaleY(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setScaleY",argc, 1);
     return 0;
@@ -54870,7 +54329,6 @@ int lua_cocos2dx_ParticleSystem_setScaleX(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setScaleX'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -54883,7 +54341,8 @@ int lua_cocos2dx_ParticleSystem_setScaleX(lua_State* tolua_S)
             return 0;
         }
         cobj->setScaleX(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setScaleX",argc, 1);
     return 0;
@@ -54920,7 +54379,6 @@ int lua_cocos2dx_ParticleSystem_getRadialAccel(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getRadialAccel'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -54968,7 +54426,6 @@ int lua_cocos2dx_ParticleSystem_setStartRadius(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setStartRadius'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -54981,7 +54438,8 @@ int lua_cocos2dx_ParticleSystem_setStartRadius(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartRadius(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setStartRadius",argc, 1);
     return 0;
@@ -55018,7 +54476,6 @@ int lua_cocos2dx_ParticleSystem_setRotatePerSecond(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setRotatePerSecond'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -55031,7 +54488,8 @@ int lua_cocos2dx_ParticleSystem_setRotatePerSecond(lua_State* tolua_S)
             return 0;
         }
         cobj->setRotatePerSecond(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setRotatePerSecond",argc, 1);
     return 0;
@@ -55068,7 +54526,6 @@ int lua_cocos2dx_ParticleSystem_setEndSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setEndSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -55081,7 +54538,8 @@ int lua_cocos2dx_ParticleSystem_setEndSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setEndSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setEndSize",argc, 1);
     return 0;
@@ -55118,7 +54576,6 @@ int lua_cocos2dx_ParticleSystem_getGravity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getGravity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -55166,7 +54623,6 @@ int lua_cocos2dx_ParticleSystem_getTangentialAccel(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getTangentialAccel'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -55214,7 +54670,6 @@ int lua_cocos2dx_ParticleSystem_setEndRadius(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setEndRadius'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -55227,7 +54682,8 @@ int lua_cocos2dx_ParticleSystem_setEndRadius(lua_State* tolua_S)
             return 0;
         }
         cobj->setEndRadius(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setEndRadius",argc, 1);
     return 0;
@@ -55264,7 +54720,6 @@ int lua_cocos2dx_ParticleSystem_getSpeed(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getSpeed'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -55312,7 +54767,6 @@ int lua_cocos2dx_ParticleSystem_getAngle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getAngle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -55360,7 +54814,6 @@ int lua_cocos2dx_ParticleSystem_setEndColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setEndColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -55373,7 +54826,8 @@ int lua_cocos2dx_ParticleSystem_setEndColor(lua_State* tolua_S)
             return 0;
         }
         cobj->setEndColor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setEndColor",argc, 1);
     return 0;
@@ -55410,7 +54864,6 @@ int lua_cocos2dx_ParticleSystem_setStartSpin(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setStartSpin'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -55423,7 +54876,8 @@ int lua_cocos2dx_ParticleSystem_setStartSpin(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartSpin(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setStartSpin",argc, 1);
     return 0;
@@ -55460,7 +54914,6 @@ int lua_cocos2dx_ParticleSystem_setDuration(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setDuration'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -55473,7 +54926,8 @@ int lua_cocos2dx_ParticleSystem_setDuration(lua_State* tolua_S)
             return 0;
         }
         cobj->setDuration(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setDuration",argc, 1);
     return 0;
@@ -55510,7 +54964,6 @@ int lua_cocos2dx_ParticleSystem_setTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -55523,7 +54976,8 @@ int lua_cocos2dx_ParticleSystem_setTexture(lua_State* tolua_S)
             return 0;
         }
         cobj->setTexture(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setTexture",argc, 1);
     return 0;
@@ -55560,7 +55014,6 @@ int lua_cocos2dx_ParticleSystem_getPosVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getPosVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -55608,7 +55061,6 @@ int lua_cocos2dx_ParticleSystem_updateWithNoTime(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_updateWithNoTime'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -55618,7 +55070,8 @@ int lua_cocos2dx_ParticleSystem_updateWithNoTime(lua_State* tolua_S)
             return 0;
         }
         cobj->updateWithNoTime();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:updateWithNoTime",argc, 0);
     return 0;
@@ -55655,7 +55108,6 @@ int lua_cocos2dx_ParticleSystem_isBlendAdditive(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_isBlendAdditive'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -55703,7 +55155,6 @@ int lua_cocos2dx_ParticleSystem_getSpeedVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getSpeedVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -55751,7 +55202,6 @@ int lua_cocos2dx_ParticleSystem_setPositionType(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setPositionType'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -55764,7 +55214,8 @@ int lua_cocos2dx_ParticleSystem_setPositionType(lua_State* tolua_S)
             return 0;
         }
         cobj->setPositionType(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setPositionType",argc, 1);
     return 0;
@@ -55801,7 +55252,6 @@ int lua_cocos2dx_ParticleSystem_stopSystem(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_stopSystem'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -55811,7 +55261,8 @@ int lua_cocos2dx_ParticleSystem_stopSystem(lua_State* tolua_S)
             return 0;
         }
         cobj->stopSystem();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:stopSystem",argc, 0);
     return 0;
@@ -55848,7 +55299,6 @@ int lua_cocos2dx_ParticleSystem_getSourcePosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getSourcePosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -55896,7 +55346,6 @@ int lua_cocos2dx_ParticleSystem_setLifeVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setLifeVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -55909,7 +55358,8 @@ int lua_cocos2dx_ParticleSystem_setLifeVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setLifeVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setLifeVar",argc, 1);
     return 0;
@@ -55946,7 +55396,6 @@ int lua_cocos2dx_ParticleSystem_setTotalParticles(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setTotalParticles'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -55959,7 +55408,8 @@ int lua_cocos2dx_ParticleSystem_setTotalParticles(lua_State* tolua_S)
             return 0;
         }
         cobj->setTotalParticles(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setTotalParticles",argc, 1);
     return 0;
@@ -55996,7 +55446,6 @@ int lua_cocos2dx_ParticleSystem_setEndColorVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setEndColorVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56009,7 +55458,8 @@ int lua_cocos2dx_ParticleSystem_setEndColorVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setEndColorVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setEndColorVar",argc, 1);
     return 0;
@@ -56046,7 +55496,6 @@ int lua_cocos2dx_ParticleSystem_getAtlasIndex(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getAtlasIndex'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -56094,7 +55543,6 @@ int lua_cocos2dx_ParticleSystem_getStartSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getStartSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -56142,7 +55590,6 @@ int lua_cocos2dx_ParticleSystem_setStartSpinVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setStartSpinVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56155,7 +55602,8 @@ int lua_cocos2dx_ParticleSystem_setStartSpinVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartSpinVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setStartSpinVar",argc, 1);
     return 0;
@@ -56192,7 +55640,6 @@ int lua_cocos2dx_ParticleSystem_resetSystem(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_resetSystem'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -56202,7 +55649,8 @@ int lua_cocos2dx_ParticleSystem_resetSystem(lua_State* tolua_S)
             return 0;
         }
         cobj->resetSystem();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:resetSystem",argc, 0);
     return 0;
@@ -56239,7 +55687,6 @@ int lua_cocos2dx_ParticleSystem_setAtlasIndex(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setAtlasIndex'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56252,7 +55699,8 @@ int lua_cocos2dx_ParticleSystem_setAtlasIndex(lua_State* tolua_S)
             return 0;
         }
         cobj->setAtlasIndex(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setAtlasIndex",argc, 1);
     return 0;
@@ -56289,7 +55737,6 @@ int lua_cocos2dx_ParticleSystem_setTangentialAccelVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setTangentialAccelVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56302,7 +55749,8 @@ int lua_cocos2dx_ParticleSystem_setTangentialAccelVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setTangentialAccelVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setTangentialAccelVar",argc, 1);
     return 0;
@@ -56339,7 +55787,6 @@ int lua_cocos2dx_ParticleSystem_setEndRadiusVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setEndRadiusVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56352,7 +55799,8 @@ int lua_cocos2dx_ParticleSystem_setEndRadiusVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setEndRadiusVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setEndRadiusVar",argc, 1);
     return 0;
@@ -56389,7 +55837,6 @@ int lua_cocos2dx_ParticleSystem_getEndRadius(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getEndRadius'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -56437,7 +55884,6 @@ int lua_cocos2dx_ParticleSystem_isOpacityModifyRGB(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_isOpacityModifyRGB'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -56485,7 +55931,6 @@ int lua_cocos2dx_ParticleSystem_isActive(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_isActive'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -56533,7 +55978,6 @@ int lua_cocos2dx_ParticleSystem_setRadialAccelVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setRadialAccelVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56546,7 +55990,8 @@ int lua_cocos2dx_ParticleSystem_setRadialAccelVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setRadialAccelVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setRadialAccelVar",argc, 1);
     return 0;
@@ -56583,7 +56028,6 @@ int lua_cocos2dx_ParticleSystem_setStartSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setStartSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56596,7 +56040,8 @@ int lua_cocos2dx_ParticleSystem_setStartSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setStartSize",argc, 1);
     return 0;
@@ -56633,7 +56078,6 @@ int lua_cocos2dx_ParticleSystem_setSpeed(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setSpeed'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56646,7 +56090,8 @@ int lua_cocos2dx_ParticleSystem_setSpeed(lua_State* tolua_S)
             return 0;
         }
         cobj->setSpeed(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setSpeed",argc, 1);
     return 0;
@@ -56683,7 +56128,6 @@ int lua_cocos2dx_ParticleSystem_getStartSpin(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getStartSpin'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -56731,7 +56175,6 @@ int lua_cocos2dx_ParticleSystem_getRotatePerSecond(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getRotatePerSecond'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -56779,7 +56222,6 @@ int lua_cocos2dx_ParticleSystem_setEmitterMode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setEmitterMode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56792,7 +56234,8 @@ int lua_cocos2dx_ParticleSystem_setEmitterMode(lua_State* tolua_S)
             return 0;
         }
         cobj->setEmitterMode(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setEmitterMode",argc, 1);
     return 0;
@@ -56829,7 +56272,6 @@ int lua_cocos2dx_ParticleSystem_getDuration(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getDuration'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -56877,7 +56319,6 @@ int lua_cocos2dx_ParticleSystem_setSourcePosition(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setSourcePosition'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56890,7 +56331,8 @@ int lua_cocos2dx_ParticleSystem_setSourcePosition(lua_State* tolua_S)
             return 0;
         }
         cobj->setSourcePosition(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setSourcePosition",argc, 1);
     return 0;
@@ -56927,7 +56369,6 @@ int lua_cocos2dx_ParticleSystem_getEndSpinVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getEndSpinVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -56975,7 +56416,6 @@ int lua_cocos2dx_ParticleSystem_setBlendAdditive(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setBlendAdditive'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -56988,7 +56428,8 @@ int lua_cocos2dx_ParticleSystem_setBlendAdditive(lua_State* tolua_S)
             return 0;
         }
         cobj->setBlendAdditive(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setBlendAdditive",argc, 1);
     return 0;
@@ -57025,7 +56466,6 @@ int lua_cocos2dx_ParticleSystem_setLife(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setLife'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57038,7 +56478,8 @@ int lua_cocos2dx_ParticleSystem_setLife(lua_State* tolua_S)
             return 0;
         }
         cobj->setLife(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setLife",argc, 1);
     return 0;
@@ -57075,7 +56516,6 @@ int lua_cocos2dx_ParticleSystem_setAngleVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setAngleVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57088,7 +56528,8 @@ int lua_cocos2dx_ParticleSystem_setAngleVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setAngleVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setAngleVar",argc, 1);
     return 0;
@@ -57125,7 +56566,6 @@ int lua_cocos2dx_ParticleSystem_setRotationIsDir(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setRotationIsDir'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57138,7 +56578,8 @@ int lua_cocos2dx_ParticleSystem_setRotationIsDir(lua_State* tolua_S)
             return 0;
         }
         cobj->setRotationIsDir(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setRotationIsDir",argc, 1);
     return 0;
@@ -57175,7 +56616,6 @@ int lua_cocos2dx_ParticleSystem_setEndSizeVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setEndSizeVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57188,7 +56628,8 @@ int lua_cocos2dx_ParticleSystem_setEndSizeVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setEndSizeVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setEndSizeVar",argc, 1);
     return 0;
@@ -57225,7 +56666,6 @@ int lua_cocos2dx_ParticleSystem_setAngle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setAngle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57238,7 +56678,8 @@ int lua_cocos2dx_ParticleSystem_setAngle(lua_State* tolua_S)
             return 0;
         }
         cobj->setAngle(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setAngle",argc, 1);
     return 0;
@@ -57275,7 +56716,6 @@ int lua_cocos2dx_ParticleSystem_setBatchNode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setBatchNode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57288,7 +56728,8 @@ int lua_cocos2dx_ParticleSystem_setBatchNode(lua_State* tolua_S)
             return 0;
         }
         cobj->setBatchNode(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setBatchNode",argc, 1);
     return 0;
@@ -57325,7 +56766,6 @@ int lua_cocos2dx_ParticleSystem_getTangentialAccelVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getTangentialAccelVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -57373,7 +56813,6 @@ int lua_cocos2dx_ParticleSystem_getEmitterMode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getEmitterMode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -57421,7 +56860,6 @@ int lua_cocos2dx_ParticleSystem_setEndSpinVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setEndSpinVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57434,7 +56872,8 @@ int lua_cocos2dx_ParticleSystem_setEndSpinVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setEndSpinVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setEndSpinVar",argc, 1);
     return 0;
@@ -57471,7 +56910,6 @@ int lua_cocos2dx_ParticleSystem_getAngleVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getAngleVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -57519,7 +56957,6 @@ int lua_cocos2dx_ParticleSystem_setStartColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setStartColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57532,7 +56969,8 @@ int lua_cocos2dx_ParticleSystem_setStartColor(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartColor(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setStartColor",argc, 1);
     return 0;
@@ -57569,7 +57007,6 @@ int lua_cocos2dx_ParticleSystem_getRotatePerSecondVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getRotatePerSecondVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -57617,7 +57054,6 @@ int lua_cocos2dx_ParticleSystem_getEndSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getEndSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -57665,7 +57101,6 @@ int lua_cocos2dx_ParticleSystem_getLife(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getLife'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -57713,7 +57148,6 @@ int lua_cocos2dx_ParticleSystem_setSpeedVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setSpeedVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57726,7 +57160,8 @@ int lua_cocos2dx_ParticleSystem_setSpeedVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setSpeedVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setSpeedVar",argc, 1);
     return 0;
@@ -57763,7 +57198,6 @@ int lua_cocos2dx_ParticleSystem_setAutoRemoveOnFinish(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setAutoRemoveOnFinish'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57776,7 +57210,8 @@ int lua_cocos2dx_ParticleSystem_setAutoRemoveOnFinish(lua_State* tolua_S)
             return 0;
         }
         cobj->setAutoRemoveOnFinish(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setAutoRemoveOnFinish",argc, 1);
     return 0;
@@ -57813,7 +57248,6 @@ int lua_cocos2dx_ParticleSystem_setGravity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setGravity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57826,7 +57260,8 @@ int lua_cocos2dx_ParticleSystem_setGravity(lua_State* tolua_S)
             return 0;
         }
         cobj->setGravity(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setGravity",argc, 1);
     return 0;
@@ -57863,7 +57298,6 @@ int lua_cocos2dx_ParticleSystem_postStep(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_postStep'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -57873,7 +57307,8 @@ int lua_cocos2dx_ParticleSystem_postStep(lua_State* tolua_S)
             return 0;
         }
         cobj->postStep();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:postStep",argc, 0);
     return 0;
@@ -57910,7 +57345,6 @@ int lua_cocos2dx_ParticleSystem_setEmissionRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setEmissionRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -57923,7 +57357,8 @@ int lua_cocos2dx_ParticleSystem_setEmissionRate(lua_State* tolua_S)
             return 0;
         }
         cobj->setEmissionRate(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setEmissionRate",argc, 1);
     return 0;
@@ -57960,7 +57395,6 @@ int lua_cocos2dx_ParticleSystem_getEndColorVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getEndColorVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58008,7 +57442,6 @@ int lua_cocos2dx_ParticleSystem_getRotationIsDir(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getRotationIsDir'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58056,7 +57489,6 @@ int lua_cocos2dx_ParticleSystem_setScale(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setScale'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -58069,7 +57501,8 @@ int lua_cocos2dx_ParticleSystem_setScale(lua_State* tolua_S)
             return 0;
         }
         cobj->setScale(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setScale",argc, 1);
     return 0;
@@ -58106,7 +57539,6 @@ int lua_cocos2dx_ParticleSystem_getEmissionRate(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getEmissionRate'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58154,7 +57586,6 @@ int lua_cocos2dx_ParticleSystem_getEndColor(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getEndColor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58202,7 +57633,6 @@ int lua_cocos2dx_ParticleSystem_getLifeVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getLifeVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58250,7 +57680,6 @@ int lua_cocos2dx_ParticleSystem_setStartSizeVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setStartSizeVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -58263,7 +57692,8 @@ int lua_cocos2dx_ParticleSystem_setStartSizeVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartSizeVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setStartSizeVar",argc, 1);
     return 0;
@@ -58300,7 +57730,6 @@ int lua_cocos2dx_ParticleSystem_setOpacityModifyRGB(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setOpacityModifyRGB'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -58313,7 +57742,8 @@ int lua_cocos2dx_ParticleSystem_setOpacityModifyRGB(lua_State* tolua_S)
             return 0;
         }
         cobj->setOpacityModifyRGB(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setOpacityModifyRGB",argc, 1);
     return 0;
@@ -58350,7 +57780,6 @@ int lua_cocos2dx_ParticleSystem_addParticle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_addParticle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58398,7 +57827,6 @@ int lua_cocos2dx_ParticleSystem_getStartRadius(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getStartRadius'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58446,7 +57874,6 @@ int lua_cocos2dx_ParticleSystem_getParticleCount(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getParticleCount'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58494,7 +57921,6 @@ int lua_cocos2dx_ParticleSystem_getStartRadiusVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getStartRadiusVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58542,7 +57968,6 @@ int lua_cocos2dx_ParticleSystem_setStartColorVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setStartColorVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -58555,7 +57980,8 @@ int lua_cocos2dx_ParticleSystem_setStartColorVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartColorVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setStartColorVar",argc, 1);
     return 0;
@@ -58592,7 +58018,6 @@ int lua_cocos2dx_ParticleSystem_setEndSpin(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setEndSpin'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -58605,7 +58030,8 @@ int lua_cocos2dx_ParticleSystem_setEndSpin(lua_State* tolua_S)
             return 0;
         }
         cobj->setEndSpin(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setEndSpin",argc, 1);
     return 0;
@@ -58642,7 +58068,6 @@ int lua_cocos2dx_ParticleSystem_setRadialAccel(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setRadialAccel'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -58655,7 +58080,8 @@ int lua_cocos2dx_ParticleSystem_setRadialAccel(lua_State* tolua_S)
             return 0;
         }
         cobj->setRadialAccel(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setRadialAccel",argc, 1);
     return 0;
@@ -58692,7 +58118,6 @@ int lua_cocos2dx_ParticleSystem_isAutoRemoveOnFinish(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_isAutoRemoveOnFinish'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58740,7 +58165,6 @@ int lua_cocos2dx_ParticleSystem_getTotalParticles(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getTotalParticles'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58788,7 +58212,6 @@ int lua_cocos2dx_ParticleSystem_setStartRadiusVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_setStartRadiusVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -58801,7 +58224,8 @@ int lua_cocos2dx_ParticleSystem_setStartRadiusVar(lua_State* tolua_S)
             return 0;
         }
         cobj->setStartRadiusVar(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystem:setStartRadiusVar",argc, 1);
     return 0;
@@ -58838,7 +58262,6 @@ int lua_cocos2dx_ParticleSystem_getEndRadiusVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getEndRadiusVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58886,7 +58309,6 @@ int lua_cocos2dx_ParticleSystem_getStartColorVar(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_getStartColorVar'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -58922,7 +58344,6 @@ int lua_cocos2dx_ParticleSystem_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSystem",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -58959,7 +58380,6 @@ int lua_cocos2dx_ParticleSystem_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSystem",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystem_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -59127,7 +58547,6 @@ int lua_cocos2dx_ParticleSystemQuad_setDisplayFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystemQuad_setDisplayFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -59140,7 +58559,8 @@ int lua_cocos2dx_ParticleSystemQuad_setDisplayFrame(lua_State* tolua_S)
             return 0;
         }
         cobj->setDisplayFrame(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystemQuad:setDisplayFrame",argc, 1);
     return 0;
@@ -59177,7 +58597,6 @@ int lua_cocos2dx_ParticleSystemQuad_setTextureWithRect(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystemQuad_setTextureWithRect'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -59193,7 +58612,8 @@ int lua_cocos2dx_ParticleSystemQuad_setTextureWithRect(lua_State* tolua_S)
             return 0;
         }
         cobj->setTextureWithRect(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystemQuad:setTextureWithRect",argc, 2);
     return 0;
@@ -59230,7 +58650,6 @@ int lua_cocos2dx_ParticleSystemQuad_listenRendererRecreated(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystemQuad_listenRendererRecreated'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -59243,7 +58662,8 @@ int lua_cocos2dx_ParticleSystemQuad_listenRendererRecreated(lua_State* tolua_S)
             return 0;
         }
         cobj->listenRendererRecreated(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParticleSystemQuad:listenRendererRecreated",argc, 1);
     return 0;
@@ -59267,7 +58687,6 @@ int lua_cocos2dx_ParticleSystemQuad_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSystemQuad",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystemQuad_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -59327,7 +58746,6 @@ int lua_cocos2dx_ParticleSystemQuad_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSystemQuad",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSystemQuad_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -59388,7 +58806,6 @@ int lua_cocos2dx_ParticleFire_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleFire",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleFire_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -59423,7 +58840,6 @@ int lua_cocos2dx_ParticleFire_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleFire",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleFire_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -59481,7 +58897,6 @@ int lua_cocos2dx_ParticleFireworks_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleFireworks",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleFireworks_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -59516,7 +58931,6 @@ int lua_cocos2dx_ParticleFireworks_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleFireworks",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleFireworks_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -59574,7 +58988,6 @@ int lua_cocos2dx_ParticleSun_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSun",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSun_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -59609,7 +59022,6 @@ int lua_cocos2dx_ParticleSun_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSun",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSun_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -59667,7 +59079,6 @@ int lua_cocos2dx_ParticleGalaxy_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleGalaxy",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleGalaxy_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -59702,7 +59113,6 @@ int lua_cocos2dx_ParticleGalaxy_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleGalaxy",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleGalaxy_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -59760,7 +59170,6 @@ int lua_cocos2dx_ParticleFlower_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleFlower",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleFlower_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -59795,7 +59204,6 @@ int lua_cocos2dx_ParticleFlower_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleFlower",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleFlower_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -59853,7 +59261,6 @@ int lua_cocos2dx_ParticleMeteor_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleMeteor",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleMeteor_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -59888,7 +59295,6 @@ int lua_cocos2dx_ParticleMeteor_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleMeteor",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleMeteor_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -59946,7 +59352,6 @@ int lua_cocos2dx_ParticleSpiral_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSpiral",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSpiral_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -59981,7 +59386,6 @@ int lua_cocos2dx_ParticleSpiral_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSpiral",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSpiral_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -60039,7 +59443,6 @@ int lua_cocos2dx_ParticleExplosion_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleExplosion",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleExplosion_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -60074,7 +59477,6 @@ int lua_cocos2dx_ParticleExplosion_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleExplosion",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleExplosion_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -60132,7 +59534,6 @@ int lua_cocos2dx_ParticleSmoke_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSmoke",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSmoke_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -60167,7 +59568,6 @@ int lua_cocos2dx_ParticleSmoke_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSmoke",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSmoke_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -60225,7 +59625,6 @@ int lua_cocos2dx_ParticleSnow_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSnow",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSnow_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -60260,7 +59659,6 @@ int lua_cocos2dx_ParticleSnow_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleSnow",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleSnow_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -60318,7 +59716,6 @@ int lua_cocos2dx_ParticleRain_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleRain",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleRain_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -60353,7 +59750,6 @@ int lua_cocos2dx_ParticleRain_createWithTotalParticles(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParticleRain",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParticleRain_createWithTotalParticles'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -60423,7 +59819,6 @@ int lua_cocos2dx_GridBase_setGridSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_setGridSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -60436,7 +59831,8 @@ int lua_cocos2dx_GridBase_setGridSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setGridSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:setGridSize",argc, 1);
     return 0;
@@ -60473,7 +59869,6 @@ int lua_cocos2dx_GridBase_afterBlit(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_afterBlit'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -60483,7 +59878,8 @@ int lua_cocos2dx_GridBase_afterBlit(lua_State* tolua_S)
             return 0;
         }
         cobj->afterBlit();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:afterBlit",argc, 0);
     return 0;
@@ -60520,7 +59916,6 @@ int lua_cocos2dx_GridBase_afterDraw(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_afterDraw'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -60533,7 +59928,8 @@ int lua_cocos2dx_GridBase_afterDraw(lua_State* tolua_S)
             return 0;
         }
         cobj->afterDraw(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:afterDraw",argc, 1);
     return 0;
@@ -60570,7 +59966,6 @@ int lua_cocos2dx_GridBase_beforeDraw(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_beforeDraw'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -60580,7 +59975,8 @@ int lua_cocos2dx_GridBase_beforeDraw(lua_State* tolua_S)
             return 0;
         }
         cobj->beforeDraw();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:beforeDraw",argc, 0);
     return 0;
@@ -60617,7 +60013,6 @@ int lua_cocos2dx_GridBase_calculateVertexPoints(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_calculateVertexPoints'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -60627,7 +60022,8 @@ int lua_cocos2dx_GridBase_calculateVertexPoints(lua_State* tolua_S)
             return 0;
         }
         cobj->calculateVertexPoints();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:calculateVertexPoints",argc, 0);
     return 0;
@@ -60664,7 +60060,6 @@ int lua_cocos2dx_GridBase_isTextureFlipped(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_isTextureFlipped'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -60712,7 +60107,6 @@ int lua_cocos2dx_GridBase_getGridSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_getGridSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -60760,7 +60154,6 @@ int lua_cocos2dx_GridBase_getStep(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_getStep'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -60808,7 +60201,6 @@ int lua_cocos2dx_GridBase_set2DProjection(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_set2DProjection'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -60818,7 +60210,8 @@ int lua_cocos2dx_GridBase_set2DProjection(lua_State* tolua_S)
             return 0;
         }
         cobj->set2DProjection();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:set2DProjection",argc, 0);
     return 0;
@@ -60855,7 +60248,6 @@ int lua_cocos2dx_GridBase_setStep(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_setStep'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -60868,7 +60260,8 @@ int lua_cocos2dx_GridBase_setStep(lua_State* tolua_S)
             return 0;
         }
         cobj->setStep(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:setStep",argc, 1);
     return 0;
@@ -60905,7 +60298,6 @@ int lua_cocos2dx_GridBase_setTextureFlipped(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_setTextureFlipped'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -60918,7 +60310,8 @@ int lua_cocos2dx_GridBase_setTextureFlipped(lua_State* tolua_S)
             return 0;
         }
         cobj->setTextureFlipped(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:setTextureFlipped",argc, 1);
     return 0;
@@ -60955,7 +60348,6 @@ int lua_cocos2dx_GridBase_blit(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_blit'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -60965,7 +60357,8 @@ int lua_cocos2dx_GridBase_blit(lua_State* tolua_S)
             return 0;
         }
         cobj->blit();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:blit",argc, 0);
     return 0;
@@ -61002,7 +60395,6 @@ int lua_cocos2dx_GridBase_setActive(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_setActive'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -61015,7 +60407,8 @@ int lua_cocos2dx_GridBase_setActive(lua_State* tolua_S)
             return 0;
         }
         cobj->setActive(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:setActive",argc, 1);
     return 0;
@@ -61052,7 +60445,6 @@ int lua_cocos2dx_GridBase_getReuseGrid(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_getReuseGrid'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61095,7 +60487,6 @@ int lua_cocos2dx_GridBase_initWithSize(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_initWithSize'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 1) {
@@ -61164,7 +60555,6 @@ int lua_cocos2dx_GridBase_beforeBlit(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_beforeBlit'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61174,7 +60564,8 @@ int lua_cocos2dx_GridBase_beforeBlit(lua_State* tolua_S)
             return 0;
         }
         cobj->beforeBlit();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:beforeBlit",argc, 0);
     return 0;
@@ -61211,7 +60602,6 @@ int lua_cocos2dx_GridBase_setReuseGrid(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_setReuseGrid'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -61224,7 +60614,8 @@ int lua_cocos2dx_GridBase_setReuseGrid(lua_State* tolua_S)
             return 0;
         }
         cobj->setReuseGrid(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:setReuseGrid",argc, 1);
     return 0;
@@ -61261,7 +60652,6 @@ int lua_cocos2dx_GridBase_isActive(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_isActive'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61309,7 +60699,6 @@ int lua_cocos2dx_GridBase_reuse(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_reuse'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61319,7 +60708,8 @@ int lua_cocos2dx_GridBase_reuse(lua_State* tolua_S)
             return 0;
         }
         cobj->reuse();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GridBase:reuse",argc, 0);
     return 0;
@@ -61343,7 +60733,6 @@ int lua_cocos2dx_GridBase_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GridBase",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GridBase_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -61450,7 +60839,6 @@ int lua_cocos2dx_Grid3D_getNeedDepthTestForBlit(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Grid3D_getNeedDepthTestForBlit'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61498,7 +60886,6 @@ int lua_cocos2dx_Grid3D_setNeedDepthTestForBlit(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Grid3D_setNeedDepthTestForBlit'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -61511,7 +60898,8 @@ int lua_cocos2dx_Grid3D_setNeedDepthTestForBlit(lua_State* tolua_S)
             return 0;
         }
         cobj->setNeedDepthTestForBlit(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Grid3D:setNeedDepthTestForBlit",argc, 1);
     return 0;
@@ -61535,7 +60923,6 @@ int lua_cocos2dx_Grid3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Grid3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Grid3D_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -61590,7 +60977,6 @@ int lua_cocos2dx_Grid3D_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Grid3D_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61651,7 +61037,6 @@ int lua_cocos2dx_TiledGrid3D_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TiledGrid3D",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TiledGrid3D_create'");
     argc = lua_gettop(tolua_S)-1;
 
     do 
@@ -61706,7 +61091,6 @@ int lua_cocos2dx_TiledGrid3D_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TiledGrid3D_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61778,7 +61162,6 @@ int lua_cocos2dx_Camera_getProjectionMatrix(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_getProjectionMatrix'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61826,7 +61209,6 @@ int lua_cocos2dx_Camera_getViewProjectionMatrix(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_getViewProjectionMatrix'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61874,7 +61256,6 @@ int lua_cocos2dx_Camera_getViewMatrix(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_getViewMatrix'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61922,7 +61303,6 @@ int lua_cocos2dx_Camera_getCameraFlag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_getCameraFlag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -61970,7 +61350,6 @@ int lua_cocos2dx_Camera_getType(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_getType'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -62018,7 +61397,6 @@ int lua_cocos2dx_Camera_lookAt(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_lookAt'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -62034,7 +61412,8 @@ int lua_cocos2dx_Camera_lookAt(lua_State* tolua_S)
             return 0;
         }
         cobj->lookAt(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Camera:lookAt",argc, 2);
     return 0;
@@ -62071,7 +61450,6 @@ int lua_cocos2dx_Camera_setCameraFlag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_setCameraFlag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -62084,7 +61462,8 @@ int lua_cocos2dx_Camera_setCameraFlag(lua_State* tolua_S)
             return 0;
         }
         cobj->setCameraFlag(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Camera:setCameraFlag",argc, 1);
     return 0;
@@ -62109,7 +61488,6 @@ int lua_cocos2dx_Camera_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Camera",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -62144,7 +61522,6 @@ int lua_cocos2dx_Camera_createPerspective(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Camera",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_createPerspective'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -62187,7 +61564,6 @@ int lua_cocos2dx_Camera_createOrthographic(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Camera",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_createOrthographic'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -62230,7 +61606,6 @@ int lua_cocos2dx_Camera_getVisitingCamera(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Camera",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Camera_getVisitingCamera'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -62307,7 +61682,6 @@ int lua_cocos2dx_BaseLight_setEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_BaseLight_setEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -62320,7 +61694,8 @@ int lua_cocos2dx_BaseLight_setEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.BaseLight:setEnabled",argc, 1);
     return 0;
@@ -62357,7 +61732,6 @@ int lua_cocos2dx_BaseLight_getIntensity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_BaseLight_getIntensity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -62405,7 +61779,6 @@ int lua_cocos2dx_BaseLight_isEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_BaseLight_isEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -62453,7 +61826,6 @@ int lua_cocos2dx_BaseLight_getLightType(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_BaseLight_getLightType'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -62501,7 +61873,6 @@ int lua_cocos2dx_BaseLight_setLightFlag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_BaseLight_setLightFlag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -62514,7 +61885,8 @@ int lua_cocos2dx_BaseLight_setLightFlag(lua_State* tolua_S)
             return 0;
         }
         cobj->setLightFlag(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.BaseLight:setLightFlag",argc, 1);
     return 0;
@@ -62551,7 +61923,6 @@ int lua_cocos2dx_BaseLight_setIntensity(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_BaseLight_setIntensity'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -62564,7 +61935,8 @@ int lua_cocos2dx_BaseLight_setIntensity(lua_State* tolua_S)
             return 0;
         }
         cobj->setIntensity(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.BaseLight:setIntensity",argc, 1);
     return 0;
@@ -62601,7 +61973,6 @@ int lua_cocos2dx_BaseLight_getLightFlag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_BaseLight_getLightFlag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -62675,7 +62046,6 @@ int lua_cocos2dx_DirectionLight_getDirection(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DirectionLight_getDirection'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -62723,7 +62093,6 @@ int lua_cocos2dx_DirectionLight_getDirectionInWorld(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DirectionLight_getDirectionInWorld'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -62771,7 +62140,6 @@ int lua_cocos2dx_DirectionLight_setDirection(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DirectionLight_setDirection'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -62784,7 +62152,8 @@ int lua_cocos2dx_DirectionLight_setDirection(lua_State* tolua_S)
             return 0;
         }
         cobj->setDirection(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.DirectionLight:setDirection",argc, 1);
     return 0;
@@ -62809,7 +62178,6 @@ int lua_cocos2dx_DirectionLight_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.DirectionLight",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_DirectionLight_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -62883,7 +62251,6 @@ int lua_cocos2dx_PointLight_getRange(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_PointLight_getRange'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -62931,7 +62298,6 @@ int lua_cocos2dx_PointLight_setRange(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_PointLight_setRange'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -62944,7 +62310,8 @@ int lua_cocos2dx_PointLight_setRange(lua_State* tolua_S)
             return 0;
         }
         cobj->setRange(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.PointLight:setRange",argc, 1);
     return 0;
@@ -62969,7 +62336,6 @@ int lua_cocos2dx_PointLight_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.PointLight",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_PointLight_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 3)
@@ -63044,7 +62410,6 @@ int lua_cocos2dx_SpotLight_getRange(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_getRange'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -63092,7 +62457,6 @@ int lua_cocos2dx_SpotLight_setDirection(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_setDirection'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -63105,7 +62469,8 @@ int lua_cocos2dx_SpotLight_setDirection(lua_State* tolua_S)
             return 0;
         }
         cobj->setDirection(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpotLight:setDirection",argc, 1);
     return 0;
@@ -63142,7 +62507,6 @@ int lua_cocos2dx_SpotLight_getCosInnerAngle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_getCosInnerAngle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -63190,7 +62554,6 @@ int lua_cocos2dx_SpotLight_getOuterAngle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_getOuterAngle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -63238,7 +62601,6 @@ int lua_cocos2dx_SpotLight_getInnerAngle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_getInnerAngle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -63286,7 +62648,6 @@ int lua_cocos2dx_SpotLight_getDirection(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_getDirection'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -63334,7 +62695,6 @@ int lua_cocos2dx_SpotLight_getCosOuterAngle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_getCosOuterAngle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -63382,7 +62742,6 @@ int lua_cocos2dx_SpotLight_setOuterAngle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_setOuterAngle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -63395,7 +62754,8 @@ int lua_cocos2dx_SpotLight_setOuterAngle(lua_State* tolua_S)
             return 0;
         }
         cobj->setOuterAngle(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpotLight:setOuterAngle",argc, 1);
     return 0;
@@ -63432,7 +62792,6 @@ int lua_cocos2dx_SpotLight_setInnerAngle(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_setInnerAngle'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -63445,7 +62804,8 @@ int lua_cocos2dx_SpotLight_setInnerAngle(lua_State* tolua_S)
             return 0;
         }
         cobj->setInnerAngle(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpotLight:setInnerAngle",argc, 1);
     return 0;
@@ -63482,7 +62842,6 @@ int lua_cocos2dx_SpotLight_getDirectionInWorld(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_getDirectionInWorld'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -63530,7 +62889,6 @@ int lua_cocos2dx_SpotLight_setRange(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_setRange'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -63543,7 +62901,8 @@ int lua_cocos2dx_SpotLight_setRange(lua_State* tolua_S)
             return 0;
         }
         cobj->setRange(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpotLight:setRange",argc, 1);
     return 0;
@@ -63568,7 +62927,6 @@ int lua_cocos2dx_SpotLight_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SpotLight",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpotLight_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 6)
@@ -63646,7 +63004,6 @@ int lua_cocos2dx_AmbientLight_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.AmbientLight",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AmbientLight_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -63715,7 +63072,6 @@ int lua_cocos2dx_GLProgram_getFragmentShaderLog(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_getFragmentShaderLog'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -63763,7 +63119,6 @@ int lua_cocos2dx_GLProgram_initWithByteArrays(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_initWithByteArrays'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -63817,7 +63172,6 @@ int lua_cocos2dx_GLProgram_initWithFilenames(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_initWithFilenames'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -63871,7 +63225,6 @@ int lua_cocos2dx_GLProgram_use(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_use'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -63881,7 +63234,8 @@ int lua_cocos2dx_GLProgram_use(lua_State* tolua_S)
             return 0;
         }
         cobj->use();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgram:use",argc, 0);
     return 0;
@@ -63918,7 +63272,6 @@ int lua_cocos2dx_GLProgram_getVertexShaderLog(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_getVertexShaderLog'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -63961,7 +63314,6 @@ int lua_cocos2dx_GLProgram_setUniformsForBuiltins(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_setUniformsForBuiltins'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 1) {
@@ -63970,14 +63322,16 @@ int lua_cocos2dx_GLProgram_setUniformsForBuiltins(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setUniformsForBuiltins(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
     do{
         if (argc == 0) {
             cobj->setUniformsForBuiltins();
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -64016,7 +63370,6 @@ int lua_cocos2dx_GLProgram_updateUniforms(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_updateUniforms'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -64026,7 +63379,8 @@ int lua_cocos2dx_GLProgram_updateUniforms(lua_State* tolua_S)
             return 0;
         }
         cobj->updateUniforms();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgram:updateUniforms",argc, 0);
     return 0;
@@ -64063,7 +63417,6 @@ int lua_cocos2dx_GLProgram_setUniformLocationWith1i(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_setUniformLocationWith1i'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -64079,7 +63432,8 @@ int lua_cocos2dx_GLProgram_setUniformLocationWith1i(lua_State* tolua_S)
             return 0;
         }
         cobj->setUniformLocationWith1i(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgram:setUniformLocationWith1i",argc, 2);
     return 0;
@@ -64116,7 +63470,6 @@ int lua_cocos2dx_GLProgram_reset(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_reset'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -64126,7 +63479,8 @@ int lua_cocos2dx_GLProgram_reset(lua_State* tolua_S)
             return 0;
         }
         cobj->reset();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgram:reset",argc, 0);
     return 0;
@@ -64163,7 +63517,6 @@ int lua_cocos2dx_GLProgram_bindAttribLocation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_bindAttribLocation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -64179,7 +63532,8 @@ int lua_cocos2dx_GLProgram_bindAttribLocation(lua_State* tolua_S)
             return 0;
         }
         cobj->bindAttribLocation(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgram:bindAttribLocation",argc, 2);
     return 0;
@@ -64216,7 +63570,6 @@ int lua_cocos2dx_GLProgram_getAttribLocation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_getAttribLocation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -64267,7 +63620,6 @@ int lua_cocos2dx_GLProgram_link(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_link'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -64303,7 +63655,6 @@ int lua_cocos2dx_GLProgram_createWithByteArrays(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLProgram",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_createWithByteArrays'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -64342,7 +63693,6 @@ int lua_cocos2dx_GLProgram_createWithFilenames(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLProgram",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_createWithFilenames'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -64380,7 +63730,6 @@ int lua_cocos2dx_GLProgram_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgram_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -64465,7 +63814,6 @@ int lua_cocos2dx_GLProgramCache_addGLProgram(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramCache_addGLProgram'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -64481,7 +63829,8 @@ int lua_cocos2dx_GLProgramCache_addGLProgram(lua_State* tolua_S)
             return 0;
         }
         cobj->addGLProgram(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgramCache:addGLProgram",argc, 2);
     return 0;
@@ -64518,7 +63867,6 @@ int lua_cocos2dx_GLProgramCache_getGLProgram(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramCache_getGLProgram'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -64569,7 +63917,6 @@ int lua_cocos2dx_GLProgramCache_reloadDefaultGLPrograms(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramCache_reloadDefaultGLPrograms'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -64579,7 +63926,8 @@ int lua_cocos2dx_GLProgramCache_reloadDefaultGLPrograms(lua_State* tolua_S)
             return 0;
         }
         cobj->reloadDefaultGLPrograms();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgramCache:reloadDefaultGLPrograms",argc, 0);
     return 0;
@@ -64616,7 +63964,6 @@ int lua_cocos2dx_GLProgramCache_loadDefaultGLPrograms(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramCache_loadDefaultGLPrograms'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -64626,7 +63973,8 @@ int lua_cocos2dx_GLProgramCache_loadDefaultGLPrograms(lua_State* tolua_S)
             return 0;
         }
         cobj->loadDefaultGLPrograms();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.GLProgramCache:loadDefaultGLPrograms",argc, 0);
     return 0;
@@ -64651,7 +63999,6 @@ int lua_cocos2dx_GLProgramCache_destroyInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLProgramCache",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramCache_destroyInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -64662,7 +64009,8 @@ int lua_cocos2dx_GLProgramCache_destroyInstance(lua_State* tolua_S)
             return 0;
         }
         cocos2d::GLProgramCache::destroyInstance();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.GLProgramCache:destroyInstance",argc, 0);
     return 0;
@@ -64685,7 +64033,6 @@ int lua_cocos2dx_GLProgramCache_getInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLProgramCache",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramCache_getInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -64719,7 +64066,6 @@ int lua_cocos2dx_GLProgramCache_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLProgramCache_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -64796,7 +64142,6 @@ int lua_cocos2dx_TextureCache_reloadTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_reloadTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -64847,7 +64192,6 @@ int lua_cocos2dx_TextureCache_unbindAllImageAsync(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_unbindAllImageAsync'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -64857,7 +64201,8 @@ int lua_cocos2dx_TextureCache_unbindAllImageAsync(lua_State* tolua_S)
             return 0;
         }
         cobj->unbindAllImageAsync();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TextureCache:unbindAllImageAsync",argc, 0);
     return 0;
@@ -64894,7 +64239,6 @@ int lua_cocos2dx_TextureCache_removeTextureForKey(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_removeTextureForKey'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -64907,7 +64251,8 @@ int lua_cocos2dx_TextureCache_removeTextureForKey(lua_State* tolua_S)
             return 0;
         }
         cobj->removeTextureForKey(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TextureCache:removeTextureForKey",argc, 1);
     return 0;
@@ -64944,7 +64289,6 @@ int lua_cocos2dx_TextureCache_removeAllTextures(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_removeAllTextures'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -64954,7 +64298,8 @@ int lua_cocos2dx_TextureCache_removeAllTextures(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAllTextures();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TextureCache:removeAllTextures",argc, 0);
     return 0;
@@ -64991,7 +64336,6 @@ int lua_cocos2dx_TextureCache_getDescription(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_getDescription'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -65039,7 +64383,6 @@ int lua_cocos2dx_TextureCache_getCachedTextureInfo(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_getCachedTextureInfo'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -65082,7 +64425,6 @@ int lua_cocos2dx_TextureCache_addImage(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_addImage'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -65147,7 +64489,6 @@ int lua_cocos2dx_TextureCache_unbindImageAsync(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_unbindImageAsync'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -65160,7 +64501,8 @@ int lua_cocos2dx_TextureCache_unbindImageAsync(lua_State* tolua_S)
             return 0;
         }
         cobj->unbindImageAsync(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TextureCache:unbindImageAsync",argc, 1);
     return 0;
@@ -65197,7 +64539,6 @@ int lua_cocos2dx_TextureCache_getTextureForKey(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_getTextureForKey'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -65248,7 +64589,6 @@ int lua_cocos2dx_TextureCache_removeUnusedTextures(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_removeUnusedTextures'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -65258,7 +64598,8 @@ int lua_cocos2dx_TextureCache_removeUnusedTextures(lua_State* tolua_S)
             return 0;
         }
         cobj->removeUnusedTextures();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TextureCache:removeUnusedTextures",argc, 0);
     return 0;
@@ -65295,7 +64636,6 @@ int lua_cocos2dx_TextureCache_removeTexture(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_removeTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -65308,7 +64648,8 @@ int lua_cocos2dx_TextureCache_removeTexture(lua_State* tolua_S)
             return 0;
         }
         cobj->removeTexture(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TextureCache:removeTexture",argc, 1);
     return 0;
@@ -65345,7 +64686,6 @@ int lua_cocos2dx_TextureCache_waitForQuit(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_waitForQuit'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -65355,7 +64695,8 @@ int lua_cocos2dx_TextureCache_waitForQuit(lua_State* tolua_S)
             return 0;
         }
         cobj->waitForQuit();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TextureCache:waitForQuit",argc, 0);
     return 0;
@@ -65379,7 +64720,6 @@ int lua_cocos2dx_TextureCache_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TextureCache_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -65450,7 +64790,6 @@ int lua_cocos2dx_Device_setAccelerometerEnabled(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Device",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Device_setAccelerometerEnabled'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -65463,7 +64802,8 @@ int lua_cocos2dx_Device_setAccelerometerEnabled(lua_State* tolua_S)
             return 0;
         }
         cocos2d::Device::setAccelerometerEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.Device:setAccelerometerEnabled",argc, 1);
     return 0;
@@ -65486,7 +64826,6 @@ int lua_cocos2dx_Device_setKeepScreenOn(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Device",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Device_setKeepScreenOn'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -65499,7 +64838,8 @@ int lua_cocos2dx_Device_setKeepScreenOn(lua_State* tolua_S)
             return 0;
         }
         cocos2d::Device::setKeepScreenOn(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.Device:setKeepScreenOn",argc, 1);
     return 0;
@@ -65522,7 +64862,6 @@ int lua_cocos2dx_Device_setAccelerometerInterval(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Device",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Device_setAccelerometerInterval'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -65535,7 +64874,8 @@ int lua_cocos2dx_Device_setAccelerometerInterval(lua_State* tolua_S)
             return 0;
         }
         cocos2d::Device::setAccelerometerInterval(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.Device:setAccelerometerInterval",argc, 1);
     return 0;
@@ -65558,7 +64898,6 @@ int lua_cocos2dx_Device_getDPI(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Device",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Device_getDPI'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -65628,7 +64967,6 @@ int lua_cocos2dx_Application_openURL(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Application_openURL'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -65679,7 +65017,6 @@ int lua_cocos2dx_Application_getTargetPlatform(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Application_getTargetPlatform'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -65727,7 +65064,6 @@ int lua_cocos2dx_Application_getCurrentLanguage(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Application_getCurrentLanguage'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -65775,7 +65111,6 @@ int lua_cocos2dx_Application_getCurrentLanguageCode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Application_getCurrentLanguageCode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -65823,7 +65158,6 @@ int lua_cocos2dx_Application_setAnimationInterval(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Application_setAnimationInterval'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -65836,7 +65170,8 @@ int lua_cocos2dx_Application_setAnimationInterval(lua_State* tolua_S)
             return 0;
         }
         cobj->setAnimationInterval(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Application:setAnimationInterval",argc, 1);
     return 0;
@@ -65861,7 +65196,6 @@ int lua_cocos2dx_Application_getInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Application",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Application_getInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -65921,7 +65255,6 @@ int lua_cocos2dx_GLViewImpl_createWithRect(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLViewImpl",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLViewImpl_createWithRect'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -65977,7 +65310,6 @@ int lua_cocos2dx_GLViewImpl_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLViewImpl",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLViewImpl_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -66014,7 +65346,6 @@ int lua_cocos2dx_GLViewImpl_createWithFullScreen(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.GLViewImpl",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_GLViewImpl_createWithFullScreen'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -66085,7 +65416,6 @@ int lua_cocos2dx_AnimationCache_getAnimation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationCache_getAnimation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -66136,7 +65466,6 @@ int lua_cocos2dx_AnimationCache_addAnimation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationCache_addAnimation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -66152,7 +65481,8 @@ int lua_cocos2dx_AnimationCache_addAnimation(lua_State* tolua_S)
             return 0;
         }
         cobj->addAnimation(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AnimationCache:addAnimation",argc, 2);
     return 0;
@@ -66189,7 +65519,6 @@ int lua_cocos2dx_AnimationCache_init(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationCache_init'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -66237,7 +65566,6 @@ int lua_cocos2dx_AnimationCache_addAnimationsWithDictionary(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationCache_addAnimationsWithDictionary'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -66253,7 +65581,8 @@ int lua_cocos2dx_AnimationCache_addAnimationsWithDictionary(lua_State* tolua_S)
             return 0;
         }
         cobj->addAnimationsWithDictionary(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AnimationCache:addAnimationsWithDictionary",argc, 2);
     return 0;
@@ -66290,7 +65619,6 @@ int lua_cocos2dx_AnimationCache_removeAnimation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationCache_removeAnimation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -66303,7 +65631,8 @@ int lua_cocos2dx_AnimationCache_removeAnimation(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAnimation(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AnimationCache:removeAnimation",argc, 1);
     return 0;
@@ -66340,7 +65669,6 @@ int lua_cocos2dx_AnimationCache_addAnimationsWithFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationCache_addAnimationsWithFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -66353,7 +65681,8 @@ int lua_cocos2dx_AnimationCache_addAnimationsWithFile(lua_State* tolua_S)
             return 0;
         }
         cobj->addAnimationsWithFile(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.AnimationCache:addAnimationsWithFile",argc, 1);
     return 0;
@@ -66378,7 +65707,6 @@ int lua_cocos2dx_AnimationCache_destroyInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.AnimationCache",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationCache_destroyInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -66389,7 +65717,8 @@ int lua_cocos2dx_AnimationCache_destroyInstance(lua_State* tolua_S)
             return 0;
         }
         cocos2d::AnimationCache::destroyInstance();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.AnimationCache:destroyInstance",argc, 0);
     return 0;
@@ -66412,7 +65741,6 @@ int lua_cocos2dx_AnimationCache_getInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.AnimationCache",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationCache_getInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -66446,7 +65774,6 @@ int lua_cocos2dx_AnimationCache_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_AnimationCache_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -66525,7 +65852,6 @@ int lua_cocos2dx_SpriteFrameCache_addSpriteFramesWithFileContent(lua_State* tolu
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_addSpriteFramesWithFileContent'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -66541,7 +65867,8 @@ int lua_cocos2dx_SpriteFrameCache_addSpriteFramesWithFileContent(lua_State* tolu
             return 0;
         }
         cobj->addSpriteFramesWithFileContent(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrameCache:addSpriteFramesWithFileContent",argc, 2);
     return 0;
@@ -66573,7 +65900,6 @@ int lua_cocos2dx_SpriteFrameCache_addSpriteFramesWithFile(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_addSpriteFramesWithFile'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
@@ -66586,7 +65912,8 @@ int lua_cocos2dx_SpriteFrameCache_addSpriteFramesWithFile(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->addSpriteFramesWithFile(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -66597,7 +65924,8 @@ int lua_cocos2dx_SpriteFrameCache_addSpriteFramesWithFile(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->addSpriteFramesWithFile(arg0);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -66612,7 +65940,8 @@ int lua_cocos2dx_SpriteFrameCache_addSpriteFramesWithFile(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->addSpriteFramesWithFile(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -66651,7 +65980,6 @@ int lua_cocos2dx_SpriteFrameCache_addSpriteFrame(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_addSpriteFrame'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -66667,7 +65995,8 @@ int lua_cocos2dx_SpriteFrameCache_addSpriteFrame(lua_State* tolua_S)
             return 0;
         }
         cobj->addSpriteFrame(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrameCache:addSpriteFrame",argc, 2);
     return 0;
@@ -66704,7 +66033,6 @@ int lua_cocos2dx_SpriteFrameCache_removeUnusedSpriteFrames(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_removeUnusedSpriteFrames'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -66714,7 +66042,8 @@ int lua_cocos2dx_SpriteFrameCache_removeUnusedSpriteFrames(lua_State* tolua_S)
             return 0;
         }
         cobj->removeUnusedSpriteFrames();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrameCache:removeUnusedSpriteFrames",argc, 0);
     return 0;
@@ -66751,7 +66080,6 @@ int lua_cocos2dx_SpriteFrameCache_getSpriteFrameByName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_getSpriteFrameByName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -66802,7 +66130,6 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFramesFromFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_removeSpriteFramesFromFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -66815,7 +66142,8 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFramesFromFile(lua_State* tolua_S)
             return 0;
         }
         cobj->removeSpriteFramesFromFile(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrameCache:removeSpriteFramesFromFile",argc, 1);
     return 0;
@@ -66852,7 +66180,6 @@ int lua_cocos2dx_SpriteFrameCache_init(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_init'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -66900,7 +66227,6 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFrames(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_removeSpriteFrames'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -66910,7 +66236,8 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFrames(lua_State* tolua_S)
             return 0;
         }
         cobj->removeSpriteFrames();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrameCache:removeSpriteFrames",argc, 0);
     return 0;
@@ -66947,7 +66274,6 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFramesFromTexture(lua_State* tolua
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_removeSpriteFramesFromTexture'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -66960,7 +66286,8 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFramesFromTexture(lua_State* tolua
             return 0;
         }
         cobj->removeSpriteFramesFromTexture(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrameCache:removeSpriteFramesFromTexture",argc, 1);
     return 0;
@@ -66997,7 +66324,6 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFramesFromFileContent(lua_State* t
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_removeSpriteFramesFromFileContent'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -67010,7 +66336,8 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFramesFromFileContent(lua_State* t
             return 0;
         }
         cobj->removeSpriteFramesFromFileContent(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrameCache:removeSpriteFramesFromFileContent",argc, 1);
     return 0;
@@ -67047,7 +66374,6 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFrameByName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_removeSpriteFrameByName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -67060,7 +66386,8 @@ int lua_cocos2dx_SpriteFrameCache_removeSpriteFrameByName(lua_State* tolua_S)
             return 0;
         }
         cobj->removeSpriteFrameByName(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.SpriteFrameCache:removeSpriteFrameByName",argc, 1);
     return 0;
@@ -67085,7 +66412,6 @@ int lua_cocos2dx_SpriteFrameCache_destroyInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SpriteFrameCache",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_destroyInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -67096,7 +66422,8 @@ int lua_cocos2dx_SpriteFrameCache_destroyInstance(lua_State* tolua_S)
             return 0;
         }
         cocos2d::SpriteFrameCache::destroyInstance();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.SpriteFrameCache:destroyInstance",argc, 0);
     return 0;
@@ -67119,7 +66446,6 @@ int lua_cocos2dx_SpriteFrameCache_getInstance(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.SpriteFrameCache",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_SpriteFrameCache_getInstance'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -67198,7 +66524,6 @@ int lua_cocos2dx_ParallaxNode_addChild(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParallaxNode_addChild'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 4) 
     {
@@ -67220,7 +66545,8 @@ int lua_cocos2dx_ParallaxNode_addChild(lua_State* tolua_S)
             return 0;
         }
         cobj->addChild(arg0, arg1, arg2, arg3);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParallaxNode:addChild",argc, 4);
     return 0;
@@ -67257,7 +66583,6 @@ int lua_cocos2dx_ParallaxNode_removeAllChildrenWithCleanup(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParallaxNode_removeAllChildrenWithCleanup'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -67270,7 +66595,8 @@ int lua_cocos2dx_ParallaxNode_removeAllChildrenWithCleanup(lua_State* tolua_S)
             return 0;
         }
         cobj->removeAllChildrenWithCleanup(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.ParallaxNode:removeAllChildrenWithCleanup",argc, 1);
     return 0;
@@ -67295,7 +66621,6 @@ int lua_cocos2dx_ParallaxNode_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.ParallaxNode",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_ParallaxNode_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -67364,7 +66689,6 @@ int lua_cocos2dx_TMXObjectGroup_setPositionOffset(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_setPositionOffset'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -67377,7 +66701,8 @@ int lua_cocos2dx_TMXObjectGroup_setPositionOffset(lua_State* tolua_S)
             return 0;
         }
         cobj->setPositionOffset(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXObjectGroup:setPositionOffset",argc, 1);
     return 0;
@@ -67414,7 +66739,6 @@ int lua_cocos2dx_TMXObjectGroup_getProperty(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_getProperty'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -67465,7 +66789,6 @@ int lua_cocos2dx_TMXObjectGroup_getPositionOffset(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_getPositionOffset'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -67513,7 +66836,6 @@ int lua_cocos2dx_TMXObjectGroup_getObject(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_getObject'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -67559,7 +66881,6 @@ int lua_cocos2dx_TMXObjectGroup_getObjects(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_getObjects'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -67612,7 +66933,6 @@ int lua_cocos2dx_TMXObjectGroup_setGroupName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_setGroupName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -67625,7 +66945,8 @@ int lua_cocos2dx_TMXObjectGroup_setGroupName(lua_State* tolua_S)
             return 0;
         }
         cobj->setGroupName(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXObjectGroup:setGroupName",argc, 1);
     return 0;
@@ -67657,7 +66978,6 @@ int lua_cocos2dx_TMXObjectGroup_getProperties(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_getProperties'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -67710,7 +67030,6 @@ int lua_cocos2dx_TMXObjectGroup_getGroupName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_getGroupName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -67758,7 +67077,6 @@ int lua_cocos2dx_TMXObjectGroup_setProperties(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_setProperties'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -67771,7 +67089,8 @@ int lua_cocos2dx_TMXObjectGroup_setProperties(lua_State* tolua_S)
             return 0;
         }
         cobj->setProperties(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXObjectGroup:setProperties",argc, 1);
     return 0;
@@ -67808,7 +67127,6 @@ int lua_cocos2dx_TMXObjectGroup_setObjects(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_setObjects'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -67821,7 +67139,8 @@ int lua_cocos2dx_TMXObjectGroup_setObjects(lua_State* tolua_S)
             return 0;
         }
         cobj->setObjects(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXObjectGroup:setObjects",argc, 1);
     return 0;
@@ -67845,7 +67164,6 @@ int lua_cocos2dx_TMXObjectGroup_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXObjectGroup_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -67926,7 +67244,6 @@ int lua_cocos2dx_TMXLayerInfo_setProperties(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayerInfo_setProperties'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -67939,7 +67256,8 @@ int lua_cocos2dx_TMXLayerInfo_setProperties(lua_State* tolua_S)
             return 0;
         }
         cobj->setProperties(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXLayerInfo:setProperties",argc, 1);
     return 0;
@@ -67976,7 +67294,6 @@ int lua_cocos2dx_TMXLayerInfo_getProperties(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayerInfo_getProperties'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -68011,7 +67328,6 @@ int lua_cocos2dx_TMXLayerInfo_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayerInfo_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -68084,7 +67400,6 @@ int lua_cocos2dx_TMXTilesetInfo_getRectForGID(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTilesetInfo_getRectForGID'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -68122,7 +67437,6 @@ int lua_cocos2dx_TMXTilesetInfo_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTilesetInfo_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -68194,7 +67508,6 @@ int lua_cocos2dx_TMXMapInfo_setObjectGroups(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setObjectGroups'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -68207,7 +67520,8 @@ int lua_cocos2dx_TMXMapInfo_setObjectGroups(lua_State* tolua_S)
             return 0;
         }
         cobj->setObjectGroups(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setObjectGroups",argc, 1);
     return 0;
@@ -68244,7 +67558,6 @@ int lua_cocos2dx_TMXMapInfo_setTileSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setTileSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -68257,7 +67570,8 @@ int lua_cocos2dx_TMXMapInfo_setTileSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setTileSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setTileSize",argc, 1);
     return 0;
@@ -68294,7 +67608,6 @@ int lua_cocos2dx_TMXMapInfo_initWithTMXFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_initWithTMXFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -68345,7 +67658,6 @@ int lua_cocos2dx_TMXMapInfo_getOrientation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getOrientation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -68393,7 +67705,6 @@ int lua_cocos2dx_TMXMapInfo_isStoringCharacters(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_isStoringCharacters'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -68441,7 +67752,6 @@ int lua_cocos2dx_TMXMapInfo_setLayers(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setLayers'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -68454,7 +67764,8 @@ int lua_cocos2dx_TMXMapInfo_setLayers(lua_State* tolua_S)
             return 0;
         }
         cobj->setLayers(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setLayers",argc, 1);
     return 0;
@@ -68491,7 +67802,6 @@ int lua_cocos2dx_TMXMapInfo_parseXMLFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_parseXMLFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -68542,7 +67852,6 @@ int lua_cocos2dx_TMXMapInfo_getParentElement(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getParentElement'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -68590,7 +67899,6 @@ int lua_cocos2dx_TMXMapInfo_setTMXFileName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setTMXFileName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -68603,7 +67911,8 @@ int lua_cocos2dx_TMXMapInfo_setTMXFileName(lua_State* tolua_S)
             return 0;
         }
         cobj->setTMXFileName(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setTMXFileName",argc, 1);
     return 0;
@@ -68640,7 +67949,6 @@ int lua_cocos2dx_TMXMapInfo_parseXMLString(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_parseXMLString'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -68686,7 +67994,6 @@ int lua_cocos2dx_TMXMapInfo_getLayers(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getLayers'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -68734,7 +68041,6 @@ int lua_cocos2dx_TMXMapInfo_getTilesets(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getTilesets'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -68787,7 +68093,6 @@ int lua_cocos2dx_TMXMapInfo_getParentGID(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getParentGID'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -68835,7 +68140,6 @@ int lua_cocos2dx_TMXMapInfo_setParentElement(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setParentElement'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -68848,7 +68152,8 @@ int lua_cocos2dx_TMXMapInfo_setParentElement(lua_State* tolua_S)
             return 0;
         }
         cobj->setParentElement(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setParentElement",argc, 1);
     return 0;
@@ -68885,7 +68190,6 @@ int lua_cocos2dx_TMXMapInfo_initWithXML(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_initWithXML'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -68939,7 +68243,6 @@ int lua_cocos2dx_TMXMapInfo_setParentGID(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setParentGID'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -68952,7 +68255,8 @@ int lua_cocos2dx_TMXMapInfo_setParentGID(lua_State* tolua_S)
             return 0;
         }
         cobj->setParentGID(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setParentGID",argc, 1);
     return 0;
@@ -68989,7 +68293,6 @@ int lua_cocos2dx_TMXMapInfo_getLayerAttribs(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getLayerAttribs'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -69037,7 +68340,6 @@ int lua_cocos2dx_TMXMapInfo_getTileSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getTileSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -69085,7 +68387,6 @@ int lua_cocos2dx_TMXMapInfo_getTileProperties(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getTileProperties'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -69128,7 +68429,6 @@ int lua_cocos2dx_TMXMapInfo_getObjectGroups(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getObjectGroups'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -69181,7 +68481,6 @@ int lua_cocos2dx_TMXMapInfo_getTMXFileName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getTMXFileName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -69229,7 +68528,6 @@ int lua_cocos2dx_TMXMapInfo_setCurrentString(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setCurrentString'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -69242,7 +68540,8 @@ int lua_cocos2dx_TMXMapInfo_setCurrentString(lua_State* tolua_S)
             return 0;
         }
         cobj->setCurrentString(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setCurrentString",argc, 1);
     return 0;
@@ -69279,7 +68578,6 @@ int lua_cocos2dx_TMXMapInfo_setProperties(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setProperties'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -69292,7 +68590,8 @@ int lua_cocos2dx_TMXMapInfo_setProperties(lua_State* tolua_S)
             return 0;
         }
         cobj->setProperties(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setProperties",argc, 1);
     return 0;
@@ -69329,7 +68628,6 @@ int lua_cocos2dx_TMXMapInfo_setOrientation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setOrientation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -69342,7 +68640,8 @@ int lua_cocos2dx_TMXMapInfo_setOrientation(lua_State* tolua_S)
             return 0;
         }
         cobj->setOrientation(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setOrientation",argc, 1);
     return 0;
@@ -69379,7 +68678,6 @@ int lua_cocos2dx_TMXMapInfo_setTileProperties(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setTileProperties'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -69392,7 +68690,8 @@ int lua_cocos2dx_TMXMapInfo_setTileProperties(lua_State* tolua_S)
             return 0;
         }
         cobj->setTileProperties(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setTileProperties",argc, 1);
     return 0;
@@ -69429,7 +68728,6 @@ int lua_cocos2dx_TMXMapInfo_setMapSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setMapSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -69442,7 +68740,8 @@ int lua_cocos2dx_TMXMapInfo_setMapSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setMapSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setMapSize",argc, 1);
     return 0;
@@ -69479,7 +68778,6 @@ int lua_cocos2dx_TMXMapInfo_setStoringCharacters(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setStoringCharacters'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -69492,7 +68790,8 @@ int lua_cocos2dx_TMXMapInfo_setStoringCharacters(lua_State* tolua_S)
             return 0;
         }
         cobj->setStoringCharacters(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setStoringCharacters",argc, 1);
     return 0;
@@ -69529,7 +68828,6 @@ int lua_cocos2dx_TMXMapInfo_getMapSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getMapSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -69577,7 +68875,6 @@ int lua_cocos2dx_TMXMapInfo_setTilesets(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setTilesets'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -69590,7 +68887,8 @@ int lua_cocos2dx_TMXMapInfo_setTilesets(lua_State* tolua_S)
             return 0;
         }
         cobj->setTilesets(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setTilesets",argc, 1);
     return 0;
@@ -69622,7 +68920,6 @@ int lua_cocos2dx_TMXMapInfo_getProperties(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getProperties'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -69675,7 +68972,6 @@ int lua_cocos2dx_TMXMapInfo_getCurrentString(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_getCurrentString'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -69723,7 +69019,6 @@ int lua_cocos2dx_TMXMapInfo_setLayerAttribs(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_setLayerAttribs'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -69736,7 +69031,8 @@ int lua_cocos2dx_TMXMapInfo_setLayerAttribs(lua_State* tolua_S)
             return 0;
         }
         cobj->setLayerAttribs(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXMapInfo:setLayerAttribs",argc, 1);
     return 0;
@@ -69761,7 +69057,6 @@ int lua_cocos2dx_TMXMapInfo_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TMXMapInfo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -69798,7 +69093,6 @@ int lua_cocos2dx_TMXMapInfo_createWithXML(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TMXMapInfo",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_createWithXML'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -69836,7 +69130,6 @@ int lua_cocos2dx_TMXMapInfo_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXMapInfo_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -69941,7 +69234,6 @@ int lua_cocos2dx_TMXLayer_getPositionAt(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_getPositionAt'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -69992,7 +69284,6 @@ int lua_cocos2dx_TMXLayer_setLayerOrientation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_setLayerOrientation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -70005,7 +69296,8 @@ int lua_cocos2dx_TMXLayer_setLayerOrientation(lua_State* tolua_S)
             return 0;
         }
         cobj->setLayerOrientation(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXLayer:setLayerOrientation",argc, 1);
     return 0;
@@ -70042,7 +69334,6 @@ int lua_cocos2dx_TMXLayer_releaseMap(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_releaseMap'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -70052,7 +69343,8 @@ int lua_cocos2dx_TMXLayer_releaseMap(lua_State* tolua_S)
             return 0;
         }
         cobj->releaseMap();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXLayer:releaseMap",argc, 0);
     return 0;
@@ -70089,7 +69381,6 @@ int lua_cocos2dx_TMXLayer_getLayerSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_getLayerSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -70137,7 +69428,6 @@ int lua_cocos2dx_TMXLayer_setMapTileSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_setMapTileSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -70150,7 +69440,8 @@ int lua_cocos2dx_TMXLayer_setMapTileSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setMapTileSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXLayer:setMapTileSize",argc, 1);
     return 0;
@@ -70187,7 +69478,6 @@ int lua_cocos2dx_TMXLayer_getLayerOrientation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_getLayerOrientation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -70235,7 +69525,6 @@ int lua_cocos2dx_TMXLayer_setProperties(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_setProperties'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -70248,7 +69537,8 @@ int lua_cocos2dx_TMXLayer_setProperties(lua_State* tolua_S)
             return 0;
         }
         cobj->setProperties(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXLayer:setProperties",argc, 1);
     return 0;
@@ -70285,7 +69575,6 @@ int lua_cocos2dx_TMXLayer_setLayerName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_setLayerName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -70298,7 +69587,8 @@ int lua_cocos2dx_TMXLayer_setLayerName(lua_State* tolua_S)
             return 0;
         }
         cobj->setLayerName(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXLayer:setLayerName",argc, 1);
     return 0;
@@ -70335,7 +69625,6 @@ int lua_cocos2dx_TMXLayer_removeTileAt(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_removeTileAt'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -70348,7 +69637,8 @@ int lua_cocos2dx_TMXLayer_removeTileAt(lua_State* tolua_S)
             return 0;
         }
         cobj->removeTileAt(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXLayer:removeTileAt",argc, 1);
     return 0;
@@ -70385,7 +69675,6 @@ int lua_cocos2dx_TMXLayer_initWithTilesetInfo(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_initWithTilesetInfo'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 3) 
     {
@@ -70442,7 +69731,6 @@ int lua_cocos2dx_TMXLayer_setupTiles(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_setupTiles'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -70452,7 +69740,8 @@ int lua_cocos2dx_TMXLayer_setupTiles(lua_State* tolua_S)
             return 0;
         }
         cobj->setupTiles();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXLayer:setupTiles",argc, 0);
     return 0;
@@ -70484,7 +69773,6 @@ int lua_cocos2dx_TMXLayer_setTileGID(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_setTileGID'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 3) {
@@ -70501,7 +69789,8 @@ int lua_cocos2dx_TMXLayer_setTileGID(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setTileGID(arg0, arg1, arg2);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -70516,7 +69805,8 @@ int lua_cocos2dx_TMXLayer_setTileGID(lua_State* tolua_S)
 
             if (!ok) { break; }
             cobj->setTileGID(arg0, arg1);
-            return 0;
+            lua_settop(tolua_S, 1);
+            return 1;
         }
     }while(0);
     ok  = true;
@@ -70555,7 +69845,6 @@ int lua_cocos2dx_TMXLayer_getMapTileSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_getMapTileSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -70603,7 +69892,6 @@ int lua_cocos2dx_TMXLayer_getProperty(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_getProperty'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -70654,7 +69942,6 @@ int lua_cocos2dx_TMXLayer_setLayerSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_setLayerSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -70667,7 +69954,8 @@ int lua_cocos2dx_TMXLayer_setLayerSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setLayerSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXLayer:setLayerSize",argc, 1);
     return 0;
@@ -70704,7 +69992,6 @@ int lua_cocos2dx_TMXLayer_getLayerName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_getLayerName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -70752,7 +70039,6 @@ int lua_cocos2dx_TMXLayer_setTileSet(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_setTileSet'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -70765,7 +70051,8 @@ int lua_cocos2dx_TMXLayer_setTileSet(lua_State* tolua_S)
             return 0;
         }
         cobj->setTileSet(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXLayer:setTileSet",argc, 1);
     return 0;
@@ -70802,7 +70089,6 @@ int lua_cocos2dx_TMXLayer_getTileSet(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_getTileSet'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -70845,7 +70131,6 @@ int lua_cocos2dx_TMXLayer_getProperties(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_getProperties'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -70898,7 +70183,6 @@ int lua_cocos2dx_TMXLayer_getTileAt(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_getTileAt'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -70937,7 +70221,6 @@ int lua_cocos2dx_TMXLayer_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TMXLayer",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 3)
@@ -70977,7 +70260,6 @@ int lua_cocos2dx_TMXLayer_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXLayer_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -71069,7 +70351,6 @@ int lua_cocos2dx_TMXTiledMap_setObjectGroups(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_setObjectGroups'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -71082,7 +70363,8 @@ int lua_cocos2dx_TMXTiledMap_setObjectGroups(lua_State* tolua_S)
             return 0;
         }
         cobj->setObjectGroups(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXTiledMap:setObjectGroups",argc, 1);
     return 0;
@@ -71119,7 +70401,6 @@ int lua_cocos2dx_TMXTiledMap_getProperty(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_getProperty'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -71170,7 +70451,6 @@ int lua_cocos2dx_TMXTiledMap_setMapSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_setMapSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -71183,7 +70463,8 @@ int lua_cocos2dx_TMXTiledMap_setMapSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setMapSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXTiledMap:setMapSize",argc, 1);
     return 0;
@@ -71220,7 +70501,6 @@ int lua_cocos2dx_TMXTiledMap_getObjectGroup(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_getObjectGroup'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -71266,7 +70546,6 @@ int lua_cocos2dx_TMXTiledMap_getObjectGroups(lua_State* tolua_S)
         return 0;
     }
 #endif
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_getObjectGroups'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 0) {
@@ -71319,7 +70598,6 @@ int lua_cocos2dx_TMXTiledMap_getTileSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_getTileSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -71367,7 +70645,6 @@ int lua_cocos2dx_TMXTiledMap_getMapSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_getMapSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -71415,7 +70692,6 @@ int lua_cocos2dx_TMXTiledMap_getProperties(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_getProperties'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -71463,7 +70739,6 @@ int lua_cocos2dx_TMXTiledMap_setTileSize(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_setTileSize'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -71476,7 +70751,8 @@ int lua_cocos2dx_TMXTiledMap_setTileSize(lua_State* tolua_S)
             return 0;
         }
         cobj->setTileSize(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXTiledMap:setTileSize",argc, 1);
     return 0;
@@ -71513,7 +70789,6 @@ int lua_cocos2dx_TMXTiledMap_setProperties(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_setProperties'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -71526,7 +70801,8 @@ int lua_cocos2dx_TMXTiledMap_setProperties(lua_State* tolua_S)
             return 0;
         }
         cobj->setProperties(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXTiledMap:setProperties",argc, 1);
     return 0;
@@ -71563,7 +70839,6 @@ int lua_cocos2dx_TMXTiledMap_getLayer(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_getLayer'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -71614,7 +70889,6 @@ int lua_cocos2dx_TMXTiledMap_getMapOrientation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_getMapOrientation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -71662,7 +70936,6 @@ int lua_cocos2dx_TMXTiledMap_setMapOrientation(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_setMapOrientation'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -71675,7 +70948,8 @@ int lua_cocos2dx_TMXTiledMap_setMapOrientation(lua_State* tolua_S)
             return 0;
         }
         cobj->setMapOrientation(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TMXTiledMap:setMapOrientation",argc, 1);
     return 0;
@@ -71700,7 +70974,6 @@ int lua_cocos2dx_TMXTiledMap_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -71737,7 +71010,6 @@ int lua_cocos2dx_TMXTiledMap_createWithXML(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TMXTiledMap",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TMXTiledMap_createWithXML'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 2)
@@ -71822,7 +71094,6 @@ int lua_cocos2dx_TileMapAtlas_initWithTileFile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TileMapAtlas_initWithTileFile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 4) 
     {
@@ -71882,7 +71153,6 @@ int lua_cocos2dx_TileMapAtlas_releaseMap(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TileMapAtlas_releaseMap'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -71892,7 +71162,8 @@ int lua_cocos2dx_TileMapAtlas_releaseMap(lua_State* tolua_S)
             return 0;
         }
         cobj->releaseMap();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TileMapAtlas:releaseMap",argc, 0);
     return 0;
@@ -71929,7 +71200,6 @@ int lua_cocos2dx_TileMapAtlas_getTileAt(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TileMapAtlas_getTileAt'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -71980,7 +71250,6 @@ int lua_cocos2dx_TileMapAtlas_setTile(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TileMapAtlas_setTile'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -71996,7 +71265,8 @@ int lua_cocos2dx_TileMapAtlas_setTile(lua_State* tolua_S)
             return 0;
         }
         cobj->setTile(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.TileMapAtlas:setTile",argc, 2);
     return 0;
@@ -72021,7 +71291,6 @@ int lua_cocos2dx_TileMapAtlas_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.TileMapAtlas",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TileMapAtlas_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 4)
@@ -72063,7 +71332,6 @@ int lua_cocos2dx_TileMapAtlas_constructor(lua_State* tolua_S)
 
 
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_TileMapAtlas_constructor'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -72139,7 +71407,6 @@ int lua_cocos2dx_Component_setEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Component_setEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -72152,7 +71419,8 @@ int lua_cocos2dx_Component_setEnabled(lua_State* tolua_S)
             return 0;
         }
         cobj->setEnabled(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Component:setEnabled",argc, 1);
     return 0;
@@ -72189,7 +71457,6 @@ int lua_cocos2dx_Component_setName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Component_setName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -72202,7 +71469,8 @@ int lua_cocos2dx_Component_setName(lua_State* tolua_S)
             return 0;
         }
         cobj->setName(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Component:setName",argc, 1);
     return 0;
@@ -72239,7 +71507,6 @@ int lua_cocos2dx_Component_isEnabled(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Component_isEnabled'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -72287,7 +71554,6 @@ int lua_cocos2dx_Component_update(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Component_update'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -72300,7 +71566,8 @@ int lua_cocos2dx_Component_update(lua_State* tolua_S)
             return 0;
         }
         cobj->update(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Component:update",argc, 1);
     return 0;
@@ -72337,7 +71604,6 @@ int lua_cocos2dx_Component_getOwner(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Component_getOwner'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -72385,7 +71651,6 @@ int lua_cocos2dx_Component_init(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Component_init'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -72433,7 +71698,6 @@ int lua_cocos2dx_Component_setOwner(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Component_setOwner'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -72446,7 +71710,8 @@ int lua_cocos2dx_Component_setOwner(lua_State* tolua_S)
             return 0;
         }
         cobj->setOwner(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Component:setOwner",argc, 1);
     return 0;
@@ -72483,7 +71748,6 @@ int lua_cocos2dx_Component_getName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Component_getName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -72519,7 +71783,6 @@ int lua_cocos2dx_Component_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Component",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_Component_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)

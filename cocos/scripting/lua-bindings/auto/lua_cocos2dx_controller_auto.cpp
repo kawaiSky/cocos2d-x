@@ -31,7 +31,6 @@ int lua_cocos2dx_controller_Controller_receiveExternalKeyEvent(lua_State* tolua_
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_Controller_receiveExternalKeyEvent'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 2) 
     {
@@ -47,7 +46,8 @@ int lua_cocos2dx_controller_Controller_receiveExternalKeyEvent(lua_State* tolua_
             return 0;
         }
         cobj->receiveExternalKeyEvent(arg0, arg1);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Controller:receiveExternalKeyEvent",argc, 2);
     return 0;
@@ -84,7 +84,6 @@ int lua_cocos2dx_controller_Controller_getDeviceName(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_Controller_getDeviceName'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -132,7 +131,6 @@ int lua_cocos2dx_controller_Controller_isConnected(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_Controller_isConnected'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -180,7 +178,6 @@ int lua_cocos2dx_controller_Controller_getDeviceId(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_Controller_getDeviceId'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -228,7 +225,6 @@ int lua_cocos2dx_controller_Controller_setTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_Controller_setTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -241,7 +237,8 @@ int lua_cocos2dx_controller_Controller_setTag(lua_State* tolua_S)
             return 0;
         }
         cobj->setTag(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Controller:setTag",argc, 1);
     return 0;
@@ -278,7 +275,6 @@ int lua_cocos2dx_controller_Controller_getTag(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_Controller_getTag'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -314,7 +310,6 @@ int lua_cocos2dx_controller_Controller_startDiscoveryController(lua_State* tolua
     if (!tolua_isusertable(tolua_S,1,"cc.Controller",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_Controller_startDiscoveryController'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -325,7 +320,8 @@ int lua_cocos2dx_controller_Controller_startDiscoveryController(lua_State* tolua
             return 0;
         }
         cocos2d::Controller::startDiscoveryController();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.Controller:startDiscoveryController",argc, 0);
     return 0;
@@ -348,7 +344,6 @@ int lua_cocos2dx_controller_Controller_stopDiscoveryController(lua_State* tolua_
     if (!tolua_isusertable(tolua_S,1,"cc.Controller",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_Controller_stopDiscoveryController'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)
@@ -359,7 +354,8 @@ int lua_cocos2dx_controller_Controller_stopDiscoveryController(lua_State* tolua_
             return 0;
         }
         cocos2d::Controller::stopDiscoveryController();
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.Controller:stopDiscoveryController",argc, 0);
     return 0;
@@ -382,7 +378,6 @@ int lua_cocos2dx_controller_Controller_getControllerByTag(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.Controller",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_Controller_getControllerByTag'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 1)
@@ -459,7 +454,6 @@ int lua_cocos2dx_controller_EventController_getControllerEventType(lua_State* to
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_EventController_getControllerEventType'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -507,7 +501,6 @@ int lua_cocos2dx_controller_EventController_setConnectStatus(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_EventController_setConnectStatus'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -520,7 +513,8 @@ int lua_cocos2dx_controller_EventController_setConnectStatus(lua_State* tolua_S)
             return 0;
         }
         cobj->setConnectStatus(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventController:setConnectStatus",argc, 1);
     return 0;
@@ -557,7 +551,6 @@ int lua_cocos2dx_controller_EventController_isConnected(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_EventController_isConnected'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -605,7 +598,6 @@ int lua_cocos2dx_controller_EventController_setKeyCode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_EventController_setKeyCode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 1) 
     {
@@ -618,7 +610,8 @@ int lua_cocos2dx_controller_EventController_setKeyCode(lua_State* tolua_S)
             return 0;
         }
         cobj->setKeyCode(arg0);
-        return 0;
+        lua_settop(tolua_S, 1);
+        return 1;
     }
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.EventController:setKeyCode",argc, 1);
     return 0;
@@ -655,7 +648,6 @@ int lua_cocos2dx_controller_EventController_getController(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_EventController_getController'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -703,7 +695,6 @@ int lua_cocos2dx_controller_EventController_getKeyCode(lua_State* tolua_S)
     }
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_EventController_getKeyCode'");
     argc = lua_gettop(tolua_S)-1;
     if (argc == 0) 
     {
@@ -735,7 +726,6 @@ int lua_cocos2dx_controller_EventController_constructor(lua_State* tolua_S)
     tolua_Error tolua_err;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_EventController_constructor'");
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 3) {
@@ -832,7 +822,6 @@ int lua_cocos2dx_controller_EventListenerController_create(lua_State* tolua_S)
     if (!tolua_isusertable(tolua_S,1,"cc.EventListenerController",0,&tolua_err)) goto tolua_lerror;
 #endif
 
-    toluafix_set_call_msg("Call from function 'lua_cocos2dx_controller_EventListenerController_create'");
     argc = lua_gettop(tolua_S) - 1;
 
     if (argc == 0)

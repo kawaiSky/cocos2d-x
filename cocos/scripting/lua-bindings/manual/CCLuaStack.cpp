@@ -489,21 +489,24 @@ int LuaStack::executeFunctionByHandler(int nHandler, int numArgs)
     return ret;
 }
 
-bool LuaStack::handleAssert(const char *msg)
+bool LuaStack::handleAssert(const char *msg, const char *cond, const char *file, int line)
 {
     if (_callFromLua == 0) return false;
-    
-    lua_pushfstring(_state, "ASSERT FAILED ON LUA EXECUTE: %s -- %s", msg ? msg : "unknown", _callMsg.c_str());
-    lua_error(_state);
-    return true;
-}
-
-void LuaStack::setCallMsg(const char *msg)
-{
-    if (msg)
+    const char *msgErr = msg ? msg : "unknown";
+	lua_pushstring(_state, "__G__TRACKBACK__");
+	lua_rawget(_state, LUA_GLOBALSINDEX);
+	lua_pushstring(_state, msgErr);
+	lua_call(_state, 1, 0);
+    if (cond && file)
     {
-        _callMsg = msg;
+        lua_pushfstring(_state, "\n==============\nASSERT FAILED ON LUA EXECUTE:\n    File: %s\n    Line: %d\n\n    Expression: %s\n==============", file, line, cond);
     }
+    else
+    {
+        lua_pushfstring(_state, "\n==============\nASSERT FAILED ON LUA EXECUTE: %s\n==============", msgErr);
+    }
+	lua_error(_state);
+    return true;
 }
 
 int LuaStack::reallocateScriptHandler(int nHandler)

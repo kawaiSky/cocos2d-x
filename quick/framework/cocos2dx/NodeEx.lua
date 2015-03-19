@@ -88,19 +88,21 @@ end
 测试一个点是否在当前结点区域中
 
 @param tabel point cc.p的点位置,世界坐标
-@param boolean bCascade 是否用结点的所有子结点共同区域计算还是只用本身的区域
+@param boolean isCascade 是否用结点的所有子结点共同区域计算还是只用本身的区域
 
 @return boolean 是否在结点区域中
 
 ]]
-function Node:hitTest(point, bCascade)
+function Node:hitTest(point, isCascade)
     local nsp = self:convertToNodeSpace(point)
     local rect
-    if bCascade then
+    if isCascade then
         rect = self:getCascadeBoundingBox()
     else
         rect = self:getBoundingBox()
     end
+    rect.x = 0
+    rect.y = 0
 
     if cc.rectContainsPoint(rect, nsp) then
         return true
@@ -162,46 +164,50 @@ function Node:setTouchEnabled(enable)
     local func = tolua.getcfunction(self, "setTouchEnabled")
     func(self, enable)
     if not flagNodeTouchInCocos then
-        return
+        return self
     end
     
     self:setBaseNodeEventListener()
+    return self
 end
 
 function Node:setTouchMode(mode)
     local func = tolua.getcfunction(self, "setTouchMode")
     func(self, mode)
     if not flagNodeTouchInCocos then
-        return
+        return self
     end
     
     self:setBaseNodeEventListener()
+    return self
 end
 
 function Node:setTouchSwallowEnabled(enable)
     local func = tolua.getcfunction(self, "setTouchSwallowEnabled")
     func(self, enable)
     if not flagNodeTouchInCocos then
-        return
+        return self
     end
     
     self:setBaseNodeEventListener()
+    return self
 end
 
 function Node:setTouchCaptureEnabled(enable)
     local func = tolua.getcfunction(self, "setTouchCaptureEnabled")
     func(self, enable)
     if not flagNodeTouchInCocos then
-        return
+        return self
     end
     
     self:setBaseNodeEventListener()
+    return self
 end
 
 function Node:setKeypadEnabled(enable)
     if not flagNodeTouchInCocos then
         self:setKeyboardEnabled(enable)
-        return
+        return self
     end
     
     _enable = self._keyboardEnabled or false
@@ -248,7 +254,7 @@ end
 function Node:scheduleUpdate()
     if not flagNodeTouchInCocos then
         tolua.getcfunction(self, "scheduleUpdate")(self)
-        return
+        return self
     end
 
     local listener = function (dt)
@@ -256,6 +262,7 @@ function Node:scheduleUpdate()
     end
 
     self:scheduleUpdateWithPriorityLua(listener, 0) 
+    return self
 end
 
 function Node:setBaseNodeEventListener()
@@ -268,8 +275,7 @@ end
 
 function Node:addNodeEventListener( evt, hdl, tag, priority )
     if not flagNodeTouchInCocos then
-        tolua.getcfunction(self, "addNodeEventListener")(self, evt, hdl, tag, priority)
-        return
+        return tolua.getcfunction(self, "addNodeEventListener")(self, evt, hdl, tag, priority)
     end
 
     priority = priority or 0
@@ -419,7 +425,7 @@ function Node:EventDispatcher( idx, data )
                 end
 
                 if v.enable_ then
-                    listenerRet = v.listener_(event)
+                    local listenerRet = v.listener_(event)
                     if not listenerRet then
                         if idx==cc.NODE_TOUCH_CAPTURE_EVENT then
                             local evtname  = event.name
