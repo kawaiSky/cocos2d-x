@@ -63,7 +63,19 @@ static int tolua_Cocos2d_Node_setTouchEnabled(lua_State* tolua_S)
             if (!lnode) {
                 return 0;
             }
+            /**
+            lua_getglobal(tolua_S, "debug");
+            lua_getfield(tolua_S, -1, "traceback");
+            int iError = lua_pcall( tolua_S,//VMachine
+                                   0,//Argument Count
+                                   1,//Return Value Count
+                                   0);
+            const char* sz = lua_tostring(tolua_S, -1);  
+            
+            CCLog(sz);
+             */
             lnode->setLuaTouchEnabled(value);
+             
         }
     }
     return 0;

@@ -204,7 +204,8 @@ typedef struct unz_file_info_s unz_file_info;
         */
         CC_DEPRECATED_ATTRIBUTE static void ccSetPvrEncryptionKey(unsigned int keyPart1, unsigned int keyPart2, unsigned int keyPart3, unsigned int keyPart4) { setPvrEncryptionKey(keyPart1, keyPart2, keyPart3, keyPart4); }
         static void setPvrEncryptionKey(unsigned int keyPart1, unsigned int keyPart2, unsigned int keyPart3, unsigned int keyPart4);
-
+        
+        static bool uncompressDir(const char* filename,const char* destPath);
     private:
         static int inflateMemoryWithHint(unsigned char *in, ssize_t inLength, unsigned char **out, ssize_t *outLength, ssize_t outLenghtHint);
         static inline void decodeEncodedPvr (unsigned int *data, ssize_t len);

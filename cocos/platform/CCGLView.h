@@ -215,7 +215,7 @@ public:
     const std::string& getViewName() const;
 
     /** Touch events are handled by default; if you want to customize your handlers, please override these functions: */
-    virtual void handleTouchesBegin(int num, intptr_t ids[], float xs[], float ys[]);
+    virtual bool handleTouchesBegin(int num, intptr_t ids[], float xs[], float ys[]);
     virtual void handleTouchesMove(int num, intptr_t ids[], float xs[], float ys[]);
     virtual void handleTouchesEnd(int num, intptr_t ids[], float xs[], float ys[]);
     virtual void handleTouchesCancel(int num, intptr_t ids[], float xs[], float ys[]);

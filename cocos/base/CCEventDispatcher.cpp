@@ -782,7 +782,22 @@ void EventDispatcher::dispatchEventToListeners(EventListenerVector* listeners, c
         }
     }
 }
-
+bool EventDispatcher::dispatchEventTouch(Event* event){
+    if (!_isEnabled)
+        return false;
+    
+    updateDirtyFlagForSceneGraph();
+    
+    
+    DispatchGuard guard(_inDispatch);
+    
+    if (event->getType() == Event::Type::TOUCH)
+    {
+        bool res = dispatchTouchEventWithReturn(static_cast<EventTouch*>(event));
+        return res;
+    }
+    return false;
+}
 void EventDispatcher::dispatchEvent(Event* event)
 {
     if (!_isEnabled)
@@ -1019,6 +1034,206 @@ void EventDispatcher::dispatchTouchEvent(EventTouch* event)
     }
     
     updateListeners(event);
+}
+
+bool EventDispatcher::dispatchTouchEventWithReturn(EventTouch* event)
+{
+    sortEventListeners(EventListenerTouchOneByOne::LISTENER_ID);
+    sortEventListeners(EventListenerTouchAllAtOnce::LISTENER_ID);
+    
+    auto oneByOneListeners = getListeners(EventListenerTouchOneByOne::LISTENER_ID);
+    auto allAtOnceListeners = getListeners(EventListenerTouchAllAtOnce::LISTENER_ID);
+    
+    // If there aren't any touch listeners, return directly. 那么证明该opengl层不需要响应触摸
+    if (nullptr == oneByOneListeners && nullptr == allAtOnceListeners)
+        return false;
+    
+    bool isNeedsMutableSet = (oneByOneListeners && allAtOnceListeners);
+    bool _needSwallow  = false;
+    const std::vector<Touch*>& originalTouches = event->getTouches();
+    std::vector<Touch*> mutableTouches(originalTouches.size());
+    std::copy(originalTouches.begin(), originalTouches.end(), mutableTouches.begin());
+    
+    //
+    // process the target handlers 1st
+    //
+    if (oneByOneListeners)
+    {
+        auto mutableTouchesIter = mutableTouches.begin();
+        auto touchesIter = originalTouches.begin();
+        
+        for (; touchesIter != originalTouches.end(); ++touchesIter)
+        {
+            bool isSwallowed = false;
+            
+            auto onTouchEvent = [&](EventListener* l) -> bool { // Return true to break
+                EventListenerTouchOneByOne* listener = static_cast<EventListenerTouchOneByOne*>(l);
+                
+                // Skip if the listener was removed.
+                if (!listener->_isRegistered)
+                    return false;
+                
+                event->setCurrentTarget(listener->_node);
+                
+                bool isClaimed = false;
+                std::vector<Touch*>::iterator removedIter;
+                
+                EventTouch::EventCode eventCode = event->getEventCode();
+                
+                if (eventCode == EventTouch::EventCode::BEGAN)
+                {
+                    if (listener->onTouchBegan)
+                    {
+                        isClaimed = listener->onTouchBegan(*touchesIter, event);
+                        if (isClaimed && listener->_isRegistered)
+                        {
+                            listener->_claimedTouches.push_back(*touchesIter);
+                        }
+                    }
+                }
+                else if (listener->_claimedTouches.size() > 0
+                         && ((removedIter = std::find(listener->_claimedTouches.begin(), listener->_claimedTouches.end(), *touchesIter)) != listener->_claimedTouches.end()))
+                {
+                    isClaimed = true;
+                    
+                    switch (eventCode)
+                    {
+                        case EventTouch::EventCode::MOVED:
+                            if (listener->onTouchMoved)
+                            {
+                                listener->onTouchMoved(*touchesIter, event);
+                            }
+                            break;
+                        case EventTouch::EventCode::ENDED:
+                            if (listener->onTouchEnded)
+                            {
+                                listener->onTouchEnded(*touchesIter, event);
+                            }
+                            if (listener->_isRegistered)
+                            {
+                                listener->_claimedTouches.erase(removedIter);
+                            }
+                            break;
+                        case EventTouch::EventCode::CANCELLED:
+                            if (listener->onTouchCancelled)
+                            {
+                                listener->onTouchCancelled(*touchesIter, event);
+                            }
+                            if (listener->_isRegistered)
+                            {
+                                listener->_claimedTouches.erase(removedIter);
+                            }
+                            break;
+                        default:
+                            CCASSERT(false, "The eventcode is invalid.");
+                            break;
+                    }
+                }
+                
+                // If the event was stopped, return directly.
+                if (event->isStopped())
+                {
+                    updateListeners(event);
+                    return true;
+                }
+                
+                CCASSERT((*touchesIter)->getID() == (*mutableTouchesIter)->getID(), "");
+                
+                if (isClaimed && listener->_isRegistered && listener->_needSwallow)
+                {
+                    if (isNeedsMutableSet)
+                    {
+                        mutableTouchesIter = mutableTouches.erase(mutableTouchesIter);
+                        isSwallowed = true;
+                    }
+                    _needSwallow = true;
+                    return true;
+                }
+                
+                return false;
+            };
+            
+            //
+            dispatchEventToListeners(oneByOneListeners, onTouchEvent);
+            if (event->isStopped())
+            {
+                _needSwallow = true;
+                return true;
+            }
+            
+            if (!isSwallowed)
+                ++mutableTouchesIter;
+            else _needSwallow = true;
+        }
+    }
+    
+    //
+    // process standard handlers 2nd
+    //
+    if (allAtOnceListeners && mutableTouches.size() > 0)
+    {
+        
+        auto onTouchesEvent = [&](EventListener* l) -> bool{
+            EventListenerTouchAllAtOnce* listener = static_cast<EventListenerTouchAllAtOnce*>(l);
+            // Skip if the listener was removed.
+            if (!listener->_isRegistered)
+                return false;
+            
+            event->setCurrentTarget(listener->_node);
+            
+            switch (event->getEventCode())
+            {
+                case EventTouch::EventCode::BEGAN:
+                    if (listener->onTouchesBegan)
+                    {
+                        listener->onTouchesBegan(mutableTouches, event);
+                    }
+                    break;
+                case EventTouch::EventCode::MOVED:
+                    if (listener->onTouchesMoved)
+                    {
+                        listener->onTouchesMoved(mutableTouches, event);
+                    }
+                    break;
+                case EventTouch::EventCode::ENDED:
+                    if (listener->onTouchesEnded)
+                    {
+                        listener->onTouchesEnded(mutableTouches, event);
+                    }
+                    break;
+                case EventTouch::EventCode::CANCELLED:
+                    if (listener->onTouchesCancelled)
+                    {
+                        listener->onTouchesCancelled(mutableTouches, event);
+                    }
+                    break;
+                default:
+                    CCASSERT(false, "The eventcode is invalid.");
+                    break;
+            }
+            
+            // If the event was stopped, return directly.
+            if (event->isStopped())
+            {
+                updateListeners(event);
+                _needSwallow= true;
+                return true;
+            }
+            
+            return false;
+        };
+        
+        dispatchEventToListeners(allAtOnceListeners, onTouchesEvent);
+        if (event->isStopped())
+        {
+            _needSwallow = true;
+            return true;
+        }
+    }
+    
+    updateListeners(event);
+    //没有 hold touch事件
+    return _needSwallow;
 }
 
 void EventDispatcher::updateListeners(Event* event)

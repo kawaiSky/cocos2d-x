@@ -129,7 +129,7 @@ namespace ui {
         return this->init(sprite, rect, false, capInsets);
     }
     
-    bool Scale9Sprite::init(Sprite* sprite, const Rect& rect, bool rotated, const Rect& capInsets)
+    bool Scale9Sprite::init(Sprite* sprite, const Rect& rect, bool rotated, const Rect& capInsets) 
     {
         return init(sprite, rect, rotated, Vec2::ZERO, rect.size, capInsets);
     }
@@ -739,6 +739,10 @@ y+=ytranslate;         \
         CCASSERT((SpriteFrameCache::getInstance()) != NULL, "SpriteFrameCache::getInstance() must be non-NULL");
         
         SpriteFrame *frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(spriteFrameName);
+        if (frame == NULL) {
+            return false;
+        }
+        
         CCASSERT(frame != NULL, "CCSpriteFrame must be non-NULL");
         
         if (NULL == frame) return false;

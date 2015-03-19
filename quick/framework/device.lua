@@ -140,11 +140,16 @@ printInfo("#")
 ]]
 -- end --
 
-function device.showActivityIndicator()
+function device.showActivityIndicator(msg)
     if DEBUG > 1 then
         printInfo("device.showActivityIndicator()")
     end
-    cc.Native:showActivityIndicator()
+    if msg then
+        cc.Native:showActivityIndicatorEx(msg)
+    else
+        cc.Native:showActivityIndicator()
+    end
+
 end
 
 -- start --

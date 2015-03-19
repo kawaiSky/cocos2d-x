@@ -108,12 +108,23 @@
     if (!self.uiWebView) {
         self.uiWebView = [[[UIWebView alloc] init] autorelease];
         self.uiWebView.delegate = self;
+        //todo 提出方法 调用
+        [self setBounces:true];
+        //todo 是否透明的方法
+        self.uiWebView.backgroundColor = [UIColor clearColor];
+        self.uiWebView.opaque = NO;
+        
+        
     }
     if (!self.uiWebView.superview) {
         auto view = cocos2d::Director::getInstance()->getOpenGLView();
         auto eaglview = (CCEAGLView *) view->getEAGLView();
         [eaglview addSubview:self.uiWebView];
     }
+}
+
+- (void)setBounces:(bool)bounces{
+    self.uiWebView.scrollView.bounces = bounces;
 }
 
 - (void)setVisible:(bool)visible {

@@ -686,4 +686,147 @@ bool ZipFile::initWithBuffer(const void *buffer, uLong size)
     return true;
 }
 
+bool ZipUtils::uncompressDir(const char* filename,const char* destPath)
+{
+    
+    
+    
+    
+    if (filename == NULL || destPath == NULL)
+    {
+        CCLOG("source zip is null or dest path is null!");
+        return false;
+    }
+    
+    const std::string rootPath = std::string(destPath);
+    
+    // Open the zip file
+    unzFile zipfile = unzOpen(filename);
+    if (! zipfile)
+    {
+        CCLOG("AssetsManagerEx : can not open downloaded zip file %s\n", filename);
+        return false;
+    }
+    
+    // Get info about the zip file
+    unz_global_info global_info;
+    if (unzGetGlobalInfo(zipfile, &global_info) != UNZ_OK)
+    {
+        CCLOG("AssetsManagerEx : can not read file global info of %s\n", filename);
+        unzClose(zipfile);
+        return false;
+    }
+    const int BUFFER_SIZE = 8192;
+    const int MAX_FILENAME = 512;
+    // Buffer to hold data read from the zip file
+    char readBuffer[BUFFER_SIZE];
+    // Loop to extract all files.
+    uLong i;
+    for (i = 0; i < global_info.number_entry; ++i)
+    {
+        // Get info about current file.
+        unz_file_info fileInfo;
+        char fileName[MAX_FILENAME];
+        if (unzGetCurrentFileInfo(zipfile,
+                                  &fileInfo,
+                                  fileName,
+                                  MAX_FILENAME,
+                                  NULL,
+                                  0,
+                                  NULL,
+                                  0) != UNZ_OK)
+        {
+            CCLOG("AssetsManagerEx : can not read compressed file info\n");
+            unzClose(zipfile);
+            return false;
+        }
+        FileUtils *_fileUtils = FileUtils::getInstance();
+        const std::string fullPath = rootPath + fileName;
+        
+        // Check if this entry is a directory or a file.
+        const size_t filenameLength = strlen(fileName);
+        if (fileName[filenameLength-1] == '/')
+        {
+            size_t found = fullPath.find_last_of("/\\");
+            std::string foundDir;
+            if (std::string::npos != found)
+            {
+                foundDir =  fullPath.substr(0, found);
+            }
+            else
+            {
+                foundDir = fullPath;
+            }
+
+            //There are not directory entry in some case.
+            //So we need to create directory when decompressing file entry
+            if ( !_fileUtils->createDirectory(foundDir) )
+            {
+                // Failed to create directory
+                CCLOG("AssetsManagerEx : can not create directory %s\n", fullPath.c_str());
+                unzClose(zipfile);
+                return false;
+            }
+        }
+        else
+        {
+            // Entry is a file, so extract it.
+            // Open current file.
+            if (unzOpenCurrentFile(zipfile) != UNZ_OK)
+            {
+                CCLOG("AssetsManagerEx : can not extract file %s\n", fileName);
+                unzClose(zipfile);
+                return false;
+            }
+            
+            // Create a file to store current file.
+            FILE *out = fopen(fullPath.c_str(), "wb");
+            if (!out)
+            {
+                CCLOG("AssetsManagerEx : can not create decompress destination file %s\n", fullPath.c_str());
+                unzCloseCurrentFile(zipfile);
+                unzClose(zipfile);
+                return false;
+            }
+            
+            // Write current file content to destinate file.
+            int error = UNZ_OK;
+            do
+            {
+                error = unzReadCurrentFile(zipfile, readBuffer, BUFFER_SIZE);
+                if (error < 0)
+                {
+                    CCLOG("AssetsManagerEx : can not read zip file %s, error code is %d\n", fileName, error);
+                    fclose(out);
+                    unzCloseCurrentFile(zipfile);
+                    unzClose(zipfile);
+                    return false;
+                }
+                
+                if (error > 0)
+                {
+                    fwrite(readBuffer, error, 1, out);
+                }
+            } while(error > 0);
+            
+            fclose(out);
+        }
+        
+        unzCloseCurrentFile(zipfile);
+        
+        // Goto next entry listed in the zip file.
+        if ((i+1) < global_info.number_entry)
+        {
+            if (unzGoToNextFile(zipfile) != UNZ_OK)
+            {
+                CCLOG("AssetsManagerEx : can not read next file for decompressing\n");
+                unzClose(zipfile);
+                return false;
+            }
+        }
+    }
+    
+    unzClose(zipfile);
+    return true;
+}
 NS_CC_END

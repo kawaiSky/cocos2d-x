@@ -266,7 +266,7 @@ const std::string& GLView::getViewName() const
     return _viewName;
 }
 
-void GLView::handleTouchesBegin(int num, intptr_t ids[], float xs[], float ys[])
+bool GLView::handleTouchesBegin(int num, intptr_t ids[], float xs[], float ys[])
 {
     intptr_t id = 0;
     float x = 0.0f;
@@ -307,12 +307,12 @@ void GLView::handleTouchesBegin(int num, intptr_t ids[], float xs[], float ys[])
     if (touchEvent._touches.size() == 0)
     {
         CCLOG("touchesBegan: size = 0");
-        return;
+        return false;
     }
     
     touchEvent._eventCode = EventTouch::EventCode::BEGAN;
     auto dispatcher = Director::getInstance()->getEventDispatcher();
-    dispatcher->dispatchEvent(&touchEvent);
+    return dispatcher->dispatchEventTouch(&touchEvent);
 }
 
 void GLView::handleTouchesMove(int num, intptr_t ids[], float xs[], float ys[])

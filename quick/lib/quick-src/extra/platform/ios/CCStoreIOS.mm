@@ -309,7 +309,16 @@ static const char* const SANDBOX_RECEIPT_VERIFY_URL = "https://sandbox.itunes.ap
     BOOL verifyOnServer = (receiptVerifyMode_ == CCStoreReceiptVerifyModeServer) && receiptVerifyServerUrl_ && ![receiptVerifyServerUrl_ isEqual:@""];
     if (verifyOnServer)
     {
-        [verifyData setObject:isSandbox_ ? @"true" : @"false" forKey:@"receipt-issandbox"];
+         NSString* nsresponseString = [NSString stringWithCString:(const char*)[transaction.transactionReceipt bytes] encoding:NSUTF8StringEncoding];
+        NSString * str6 = [nsresponseString stringByReplacingOccurrencesOfString:@"\n\t" withString:@""];
+        NSArray * strArr = [str6 componentsSeparatedByString:@"\""];
+        NSMutableDictionary *jsonData = [NSMutableDictionary dictionary];
+        for (int n=1; n<[strArr count]; n=n+4) {
+           // [jsonData setValue:[[strArr objectAtIndex:n+2] stringValue] forKey:[[strArr objectAtIndex:n] stringValue]];
+            [jsonData setValue:[strArr objectAtIndex:n+2] forKey:[strArr objectAtIndex:n]];
+        }
+        
+        [verifyData setObject:([jsonData valueForKey:@"environment"] && [[jsonData valueForKey:@"environment"] isEqual:@"Sandbox"]) ? @"true" : @"false" forKey:@"receipt-issandbox"];
     }
 
     SBJsonWriter *writer = [[SBJsonWriter alloc] init];
@@ -328,8 +337,11 @@ static const char* const SANDBOX_RECEIPT_VERIFY_URL = "https://sandbox.itunes.ap
     }
     CCStoreReceiptVerifyRequestIOS* handler = CCStoreReceiptVerifyRequestIOS::create(self, transaction, url);
 
-    handler->getRequest()->addRequestHeader("Content-Type: application/json");
-    handler->getRequest()->setPOSTData([postData cStringUsingEncoding:NSUTF8StringEncoding]);
+    //handler->getRequest()->addRequestHeader("Content-Type: application/json");
+    handler->getRequest()->addPOSTValue("cmd", "purchase");
+    handler->getRequest()->addPOSTValue("receipe", [postData cStringUsingEncoding:NSUTF8StringEncoding]);
+    //handler->getRequest()->addPOSTValue("cmd", "purchase");
+    //handler->getRequest()->setPOSTData([postData cStringUsingEncoding:NSUTF8StringEncoding]);
     handler->getRequest()->start();
 }
 
@@ -354,10 +366,10 @@ static const char* const SANDBOX_RECEIPT_VERIFY_URL = "https://sandbox.itunes.ap
         // invalid JSON string
         [self transactionFailed:transaction andReceiptVerifyStatus:CCStoreReceiptVerifyStatusInvalidResult];
     }
-    else if ([jsonData objectForKey:@"status"] && [[jsonData objectForKey:@"status"] intValue] == 0)
+    else if ([jsonData objectForKey:@"success"] && [[jsonData objectForKey:@"success"] intValue] == 1)
     {
         // status is ok, do more checks
-        BOOL isValidReceipt = NO;
+        BOOL isValidReceipt = YES;
         /**
          AppStore receipt format, 2012-06-13:
 
@@ -380,6 +392,7 @@ static const char* const SANDBOX_RECEIPT_VERIFY_URL = "https://sandbox.itunes.ap
          "status":0
          }
          */
+        /*
         do
         {
             NSDictionary *receiptData = [jsonData objectForKey:@"receipt"];
@@ -403,9 +416,10 @@ static const char* const SANDBOX_RECEIPT_VERIFY_URL = "https://sandbox.itunes.ap
             }
 
             // receipt is valid
-            isValidReceipt = YES;
+         
         } while (NO);
-
+         */
+        isValidReceipt = YES;
         if (isValidReceipt)
         {
             [self transactionCompleted:transaction
@@ -417,25 +431,32 @@ static const char* const SANDBOX_RECEIPT_VERIFY_URL = "https://sandbox.itunes.ap
              andReceiptVerifyStatus:CCStoreReceiptVerifyStatusInvalidReceipt];
         }
     }
+    //未登录
+    else if ([jsonData objectForKey:@"error"] && [[jsonData objectForKey:@"error"] intValue] == -1000){
+        [self transactionFailed:transaction
+         andReceiptVerifyStatus:CCStoreReceiptVerifyStatusRequestFailed];
+    }
+    //后台访问苹果失败
+    else if ([jsonData objectForKey:@"errorApple"] && [[jsonData objectForKey:@"errorApple"] intValue] == 0){
+        [self transactionFailed:transaction
+         andReceiptVerifyStatus:CCStoreReceiptVerifyStatusRequestFailed];
+    }
     else
     {
         [self transactionFailed:transaction
-         andReceiptVerifyStatus:[[jsonData objectForKey:@"status"] intValue]];
+         andReceiptVerifyStatus:CCStoreReceiptVerifyStatusInvalidReceipt];
     }
 }
 
 - (void)verifyReceiptRequestFailed:(CCStoreReceiptVerifyRequestIOS *)handler
 {
     SKPaymentTransaction* transaction = handler->getTransaction();
-    const string responseString = handler->getRequest()->getResponseString();
+    //const string responseString = handler->getRequest()->getResponseString();
 
-    CCLOG("[CCStore_obj] WARN, verify receipt failed(), pid: %s\n  response:\n%s\n\n",
-          utf8cstr(transaction.payment.productIdentifier),
-          responseString.c_str());
+    //CCLOG("[CCStore_obj] WARN, verify receipt failed(), pid: %s\n  response:\n%s\n\n");
 
     [self transactionFailed:transaction andReceiptVerifyStatus:CCStoreReceiptVerifyStatusRequestFailed];
 }
-
 
 #pragma mark -
 #pragma mark helper

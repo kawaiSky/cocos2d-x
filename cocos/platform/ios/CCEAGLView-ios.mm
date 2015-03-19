@@ -83,9 +83,12 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 @interface CCEAGLView (Private)
 - (BOOL) setupSurfaceWithSharegroup:(EAGLSharegroup*)sharegroup;
 - (unsigned int) convertPixelFormat:(NSString*) pixelFormat;
+
 @end
 
 @implementation CCEAGLView
+//sky chili //是否是opengl和原生地图的混合模式
+unsigned openglLayerWorkAlpha = 150;
 
 @synthesize surfaceSize=size_;
 @synthesize pixelFormat=pixelformat_, depthFormat=depthFormat_;
@@ -93,6 +96,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 @synthesize multiSampling=multiSampling_;
 @synthesize isKeyboardShown=isKeyboardShown_;
 @synthesize keyboardShowNotification = keyboardShowNotification_;
+
 + (Class) layerClass
 {
     return [CAEAGLLayer class];
@@ -153,7 +157,10 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 			self.contentScaleFactor = [[UIScreen mainScreen] scale];
 		}
     }
-        
+    //sky 初始化 handlertouch
+    //_handledTouchSets = [NSMutableSet setWithCapacity:6];
+    //[_handledTouchSets retain];
+    self.isHybrid = false;
     return self;
 }
 
@@ -213,7 +220,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 -(BOOL) setupSurfaceWithSharegroup:(EAGLSharegroup*)sharegroup
 {
     CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
-    
+   
     eaglLayer.opaque = YES;
     eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
                                     [NSNumber numberWithBool:preserveBackbuffer_], kEAGLDrawablePropertyRetainedBacking,
@@ -248,6 +255,8 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
     [[NSNotificationCenter defaultCenter] removeObserver:self]; // remove keyboard notification
     [renderer_ release];
     self.keyboardShowNotification = nullptr; // implicit release
+    //sky chili
+    self.passthroughViews = nil;
     [super dealloc];
 }
 
@@ -411,7 +420,32 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
     }
 
     auto glview = cocos2d::Director::getInstance()->getOpenGLView();
+    //如果glview 不吞噬 事件 则 继续向下传播
     glview->handleTouchesBegin(i, (intptr_t*)ids, xs, ys);
+    /*
+    if (!){
+        //向 下层传播 且 放入 nsset里
+        
+        if(!self.passthroughViews
+           || (self.passthroughViews && self.passthroughViews.count == 0)){
+            return;
+        } else {
+            /*
+            for (UITouch *touch in touches) {
+                [_handledTouchSets addObject:touch];
+            }
+            
+            for(UIResponder *_touch in _passthroughViews){
+                [_touch touchesBegan:touches withEvent:event];
+            }
+            //
+            //[self.nextResponder touchesBegan:touches withEvent:event];
+        }
+        
+        
+        
+    }
+     */
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -419,17 +453,35 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
     UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
     float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
     float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
-    
+    bool stopTouch = false;
     int i = 0;
     for (UITouch *touch in touches) {
         ids[i] = touch;
         xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;;
         ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;;
         ++i;
+        
+        //if (! [_handledTouchSets containsObject:touch]) {
+        //    stopTouch = true;
+       // }
     }
 
     auto glview = cocos2d::Director::getInstance()->getOpenGLView();
     glview->handleTouchesMove(i, (intptr_t*)ids, xs, ys);
+    /*
+    if(!self.passthroughViews
+       || (self.passthroughViews && self.passthroughViews.count == 0) || stopTouch){
+        return;
+    } else {
+        //[_handledTouchSets unionSet:touches];
+        *
+        for(UIResponder *_touch in _passthroughViews){
+            [_touch touchesMoved:touches withEvent:event];
+        }
+        //
+        //[self.nextResponder touchesMoved:touches withEvent:event];
+    }
+    */
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -437,17 +489,44 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
     UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
     float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
     float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
-    
+    bool stopTouch = false;
     int i = 0;
     for (UITouch *touch in touches) {
         ids[i] = touch;
         xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;;
         ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;;
         ++i;
+        /*
+        if ([_handledTouchSets count]!=0){
+            if (![_handledTouchSets containsObject:touch]) {
+                stopTouch = true;
+            }else{
+                //移除掉 从set中
+                [_handledTouchSets removeObject:touch];
+            }
+        }
+         */
+        
+        
     }
 
     auto glview = cocos2d::Director::getInstance()->getOpenGLView();
     glview->handleTouchesEnd(i, (intptr_t*)ids, xs, ys);
+    //NSMutableSet
+    /*
+    if(!self.passthroughViews
+       || (self.passthroughViews && self.passthroughViews.count == 0) || stopTouch){
+        return;
+    } else {
+        
+        //[_handledTouchSets unionSet:touches];
+        for(UIResponder *_touch in _passthroughViews){
+            [_touch touchesEnded:touches withEvent:event];
+            //
+        }
+        //[self.nextResponder touchesEnded:touches withEvent:event];
+    }
+     */
 }
     
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
@@ -455,17 +534,38 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
     UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
     float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
     float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
-    
+    bool stopTouch = false;
     int i = 0;
     for (UITouch *touch in touches) {
         ids[i] = touch;
         xs[i] = [touch locationInView: [touch view]].x * self.contentScaleFactor;;
         ys[i] = [touch locationInView: [touch view]].y * self.contentScaleFactor;;
         ++i;
+        /*
+        if (! [_handledTouchSets containsObject:touch]) {
+            stopTouch = true;
+        }else{
+            //移除掉 从set中
+            [_handledTouchSets removeObject:touch];
+        }
+         */
     }
 
     auto glview = cocos2d::Director::getInstance()->getOpenGLView();
     glview->handleTouchesCancel(i, (intptr_t*)ids, xs, ys);
+    /*
+    if(!self.passthroughViews
+       || (self.passthroughViews && self.passthroughViews.count == 0) || stopTouch){
+        return;
+    } else {
+        
+        for(UIResponder *_touch in _passthroughViews){
+            [_touch touchesCancelled:touches withEvent:event];
+        }
+        
+        //[self.nextResponder touchesCancelled:touches withEvent:event];
+    }
+     */
 }
 
 #pragma mark - UIView - Responder
@@ -893,7 +993,87 @@ UIInterfaceOrientation getFixedOrientation(UIInterfaceOrientation statusBarOrien
         [[NSNotificationCenter defaultCenter]postNotification:self.keyboardShowNotification];
     }
 }
+//sky chili
+//**
+-(UIView*) hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+    
+    //如果不是混合模式 则 调用父类的方法
+    if (!self.isHybrid) return [super hitTest:point withEvent:event];
+    
+    //混合模式则判断 opengl层是否透明的问题
+    //test alpha
+    //判断 是否retina
+    
+    int scale = 1;
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]){
+        scale = [UIScreen mainScreen].scale;
+    }
+    //申请 一个像素点的内存
+    GLuint bufferLength = 1 * 1 * 4;
+    GLubyte *buffer = (GLubyte *)malloc(bufferLength);
+    CGRect rect=[UIScreen mainScreen].bounds;
+    //upside down  （opengl坐标 和 ui 坐标）
+    int opengly = rect.size.height*scale - point.y*scale;
+    glReadPixels(point.x*scale, opengly, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+    unsigned r = (unsigned)buffer[0];
+    unsigned g = (unsigned)buffer[1];
+    unsigned b = (unsigned)buffer[2];
+    unsigned a = (unsigned)buffer[3];
+    free(buffer);
+    glFinish();
+    //添加 位置的判断
+    if (a >=openglLayerWorkAlpha) {
+        return self;
+    }else{
+        return nil;
+    }
+    
+    /**
+    if(point.x<=50 || point.x>= (rect.size.width-50)){
+        return self;
+    }
+    if(testHits){
+        return nil;
+    }
+    
+    if(!self.passthroughViews
+       || (self.passthroughViews && self.passthroughViews.count == 0)){
+        return self;
+    } else {
+        
+        UIView *hitView = [super hitTest:point withEvent:event];
+        
+        if (hitView == self) {
+            //Test whether any of the passthrough views would handle this touch
+            testHits = YES;
+            CGPoint superPoint = [self.superview convertPoint:point fromView:self];
+            UIView *superHitView = [self.superview hitTest:superPoint withEvent:event];
+            testHits = NO;
+            
+            if ([self isPassthroughView:superHitView]) {
+                hitView = superHitView;
+            }
+        }
+        
+        return hitView;
+    }
+    return self;
+     */
+}
 
+- (BOOL)isPassthroughView:(UIView *)view {
+    
+    if (view == nil) {
+        return NO;
+    }
+    
+    if ([self.passthroughViews containsObject:view]) {
+        return YES;
+    }
+    
+    return [self isPassthroughView:view.superview];
+}
+//*/
 @end
 
 #endif // CC_PLATFORM_IOS

@@ -129,7 +129,7 @@ public:
      *  event dispatcher list.
      */
     void dispatchEvent(Event* event);
-
+    bool dispatchEventTouch(Event* event);
     /** Dispatches a Custom Event with a event name an optional user data */
     void dispatchCustomEvent(const std::string &eventName, void *optionalUserData = nullptr);
 
@@ -220,7 +220,7 @@ protected:
 
     /** Touch event needs to be processed different with other events since it needs support ALL_AT_ONCE and ONE_BY_NONE mode. */
     void dispatchTouchEvent(EventTouch* event);
-    
+    bool dispatchTouchEventWithReturn(EventTouch* event);
     /** Associates node with event listener */
     void associateNodeAndEventListener(Node* node, EventListener* listener);
     

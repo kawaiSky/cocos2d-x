@@ -22,7 +22,9 @@ void Native::hideActivityIndicator(void)
 {
     CCLOG("Native::hideActivityIndicator() - not support this platform.");
 }
-
+void Native::showActivityIndicatorWithMsg(char const*){
+    CCLOG("Native::showActivityIndicatorWithMsg() - not support this platform.");
+}
 
 //  alert view
 
