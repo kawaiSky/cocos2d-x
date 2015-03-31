@@ -43,7 +43,8 @@ bool WebViewTest::init()
         _webView = cocos2d::experimental::ui::WebView::create();
         _webView->setPosition(winSize/2);
         _webView->setContentSize(winSize * 0.5);
-        _webView->loadURL("http://www.baidu.com");
+       // _webView->loadURL("http://115.159.37.115/dreamweaver/test.php");
+        _webView->loadHTMLString("<body style=\"font-size:50px;\">Hello World <img src=\"Icon.png\"/> </body>","Images/");
         _webView->setScalesPageToFit(true);
         
         _webView->setOnShouldStartLoading(CC_CALLBACK_2(WebViewTest::onWebViewShouldStartLoading, this));
@@ -51,6 +52,8 @@ bool WebViewTest::init()
         _webView->setOnDidFailLoading(CC_CALLBACK_2(WebViewTest::onWebViewDidFailLoading, this));
         
         this->addChild(_webView);
+        
+        //this->removeChild(_webView);
         
         TextField *urlTextField = TextField::create("Input a URL here", "Arial", 20);
         urlTextField->setPlaceHolderColor(Color3B::RED);
@@ -61,7 +64,7 @@ bool WebViewTest::init()
         Text *httpLabel = Text::create("http:// ", "Arial", 20);
         httpLabel->setTextColor(Color4B::GREEN);
         httpLabel->setAnchorPoint(Vec2(1.0,0.5));
-        httpLabel->setPosition(urlTextField->getPosition() - Vec2(urlTextField->getContentSize().width/2,0));
+        httpLabel->setPosition(winSize/2);
         this->addChild(httpLabel);
         
         
