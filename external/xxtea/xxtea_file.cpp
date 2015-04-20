@@ -21,7 +21,7 @@ extern Data xxtea_file_get_data(const std::string& filename)
         {
             isXXTEA = buf[i] == xxteaSign[i];
         }
-        
+
         if (isXXTEA)
         { // decrypt XXTEA
             xxtea_long len = 0;
@@ -38,5 +38,4 @@ extern Data xxtea_file_get_data(const std::string& filename)
     
     return data;
 }
-
 NS_CC_END
