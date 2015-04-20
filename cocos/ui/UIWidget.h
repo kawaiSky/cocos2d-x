@@ -355,7 +355,7 @@ public:
      *
      * @param point
      *
-     * @return true if the point is in parent's area, flase otherwise.
+     * @return true if the point is in parent's area, false otherwise.
      */
     CC_DEPRECATED_ATTRIBUTE bool clippingParentAreaContainPoint(const Vec2 &pt){return this->isClippingParentContainsPoint(pt);}
     bool isClippingParentContainsPoint(const Vec2& pt);

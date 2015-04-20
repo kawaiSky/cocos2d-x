@@ -13,17 +13,27 @@ else
     define('LUAJIT_BIN', BIN_DIR . '\\win32\\luajit.exe');
     define('LUA_BIN', BIN_DIR . '\\win32\\luac.exe');
 }
-
+$isPng = false;
 // helper functions
 
 function fetchCommandLineArguments($arg, $options, $minNumArgs = 0)
 {
+    global $isPng; 
     if (!is_array($arg) || !is_array($options))
     {
         print("ERR: invalid command line arguments");
         return false;
     }
-
+    //var_dump($arg);
+    $_ispng = array_search("isPng", $arg);
+    var_dump($_ispng);
+    if($_ispng){
+        $isPng = true;
+        array_splice($arg, $_ispng);
+    }else{
+        $isPng = false;
+    }
+    //var_dump($arg);
     $config = array();
     $newOptions = array();
     for ($i = 0; $i < count($options); $i++)
@@ -122,22 +132,36 @@ function dumpConfig($config, $options)
 
 function findFiles($dir, array & $files)
 {
+    global $isPng;
+
     $dir = rtrim($dir, "/\\") . DS;
     $dh = opendir($dir);
     if ($dh == false) return;
 
     while (($file = readdir($dh)) !== false)
     {
-        if ($file == '.' || $file == '..' || $file == ".DS_Store") { continue; }
-
+        if ($file == '.' || $file == '..' || $file == ".DS_Store" ) { continue; }
+        //var_dump($file);
+        
+        //var_dump($fileName);
+        
         $path = $dir . $file;
         if (is_dir($path))
         {
             findFiles($path, $files);
         }
         elseif (is_file($path))
-        {
-            $files[] = $path;
+        {   
+            if ($isPng) {
+                $fileName = explode(".",$file);
+                if ( $fileName[count($fileName)-1] == "png") {
+                    $files[] = $path;
+                }
+            }else{
+                $files[] = $path;
+            }
+            
+            
         }
     }
     closedir($dh);

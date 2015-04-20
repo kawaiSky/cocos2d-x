@@ -1794,6 +1794,9 @@
 		87EB6E561A441CA0009135D3 /* wire_format_lite.cc in Sources */ = {isa = PBXBuildFile; fileRef = 87EB6E2A1A441CA0009135D3 /* wire_format_lite.cc */; };
 		87EB6E571A441CA0009135D3 /* wire_format_lite.h in Headers */ = {isa = PBXBuildFile; fileRef = 87EB6E2B1A441CA0009135D3 /* wire_format_lite.h */; };
 		A07A4CAF1783777C0073F6A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1551A342158F2AB200E66CFE /* Foundation.framework */; };
+		A16C9B351AC95AF300615241 /* xxtea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A16C9B331AC95AF300615241 /* xxtea.cpp */; };
+		A16C9B361AC95AF300615241 /* xxtea.h in Headers */ = {isa = PBXBuildFile; fileRef = A16C9B341AC95AF300615241 /* xxtea.h */; };
+		A16C9B421AC9646A00615241 /* xxtea_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A16C9B371AC95CC100615241 /* xxtea_file.cpp */; };
 		B098D7681A32DF7300EA5CD5 /* ExtensionExport.h in Headers */ = {isa = PBXBuildFile; fileRef = B098D7671A32DF7200EA5CD5 /* ExtensionExport.h */; };
 		B2165EEA19921124000BE3E6 /* CCPrimitiveCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B257B45E198A353E00D9A687 /* CCPrimitiveCommand.cpp */; };
 		B217703C1977ECB4009EE11B /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B217703B1977ECB4009EE11B /* IOKit.framework */; };
@@ -2975,6 +2978,9 @@
 		87EB6E2A1A441CA0009135D3 /* wire_format_lite.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wire_format_lite.cc; path = src/google/protobuf/wire_format_lite.cc; sourceTree = "<group>"; };
 		87EB6E2B1A441CA0009135D3 /* wire_format_lite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wire_format_lite.h; path = src/google/protobuf/wire_format_lite.h; sourceTree = "<group>"; };
 		A07A4D641783777C0073F6A7 /* libcocos2d iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocos2d iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16C9B331AC95AF300615241 /* xxtea.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xxtea.cpp; sourceTree = "<group>"; };
+		A16C9B341AC95AF300615241 /* xxtea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xxtea.h; sourceTree = "<group>"; };
+		A16C9B371AC95CC100615241 /* xxtea_file.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xxtea_file.cpp; sourceTree = "<group>"; };
 		B098D7671A32DF7200EA5CD5 /* ExtensionExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionExport.h; sourceTree = "<group>"; };
 		B217703B1977ECB4009EE11B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		B217703D1977ECC1009EE11B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -3583,6 +3589,7 @@
 		1A57033E180BD0490088DEC7 /* external */ = {
 			isa = PBXGroup;
 			children = (
+				A16C9B321AC95AF300615241 /* xxtea */,
 				87EB6D9B1A441C2F009135D3 /* protobuf-lite */,
 				382383E11A258FA7002C4610 /* flatbuffers */,
 				1AC026971914068200FA920D /* ConvertUTF */,
@@ -5242,6 +5249,17 @@
 			path = src/google/protobuf/stubs;
 			sourceTree = "<group>";
 		};
+		A16C9B321AC95AF300615241 /* xxtea */ = {
+			isa = PBXGroup;
+			children = (
+				A16C9B331AC95AF300615241 /* xxtea.cpp */,
+				A16C9B341AC95AF300615241 /* xxtea.h */,
+				A16C9B371AC95CC100615241 /* xxtea_file.cpp */,
+			);
+			name = xxtea;
+			path = ../external/xxtea;
+			sourceTree = "<group>";
+		};
 		B29594B81926D61F003EEF37 /* 3d */ = {
 			isa = PBXGroup;
 			children = (
@@ -5645,6 +5663,7 @@
 				382383EE1A258FA7002C4610 /* flatbuffers.h in Headers */,
 				15AE1B5619AADA9900C27E9E /* UIScrollView.h in Headers */,
 				50ABBDBB1925AB4100A911A9 /* CCTextureAtlas.h in Headers */,
+				A16C9B361AC95AF300615241 /* xxtea.h in Headers */,
 				1A570302180BCE890088DEC7 /* CCParallaxNode.h in Headers */,
 				50ABBE4B1925AB6F00A911A9 /* CCEventAcceleration.h in Headers */,
 				1A57030E180BCF190088DEC7 /* CCComponent.h in Headers */,
@@ -6695,6 +6714,7 @@
 				15AE1A2619AAD3D500C27E9E /* b2CollideEdge.cpp in Sources */,
 				1A5702EE180BCE750088DEC7 /* CCTMXLayer.cpp in Sources */,
 				15AE1BD619AAE01E00C27E9E /* CCControlSlider.cpp in Sources */,
+				A16C9B351AC95AF300615241 /* xxtea.cpp in Sources */,
 				50ABBE691925AB6F00A911A9 /* CCEventListenerFocus.cpp in Sources */,
 				15AE18EA19AAD35000C27E9E /* CCActionNode.cpp in Sources */,
 				15AE1A7819AAD40300C27E9E /* b2PolygonAndCircleContact.cpp in Sources */,
@@ -7271,6 +7291,7 @@
 				50ABBD841925AB4100A911A9 /* CCBatchCommand.cpp in Sources */,
 				50ABBDA81925AB4100A911A9 /* CCRenderCommand.cpp in Sources */,
 				382383F71A258FA7002C4610 /* idl_gen_fbs.cpp in Sources */,
+				A16C9B421AC9646A00615241 /* xxtea_file.cpp in Sources */,
 				15AE1B7419AADA9A00C27E9E /* UILoadingBar.cpp in Sources */,
 				50ABBEA41925AB6F00A911A9 /* CCScriptSupport.cpp in Sources */,
 				B29A7DD219EE1B7700872B35 /* Skin.c in Sources */,

@@ -23,7 +23,7 @@
 		49C656551A39A1A200603AF5 /* NVGDrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C656481A39A1A200603AF5 /* NVGDrawNode.cpp */; };
 		49C656561A39A1A200603AF5 /* NVGNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C6564A1A39A1A200603AF5 /* NVGNode.cpp */; };
 		49C656571A39A1A200603AF5 /* NVGNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C6564A1A39A1A200603AF5 /* NVGNode.cpp */; };
-		49C656581A39A1A200603AF5 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 49C6564E1A39A1A200603AF5 /* nanovg.c */; };
+		49C656581A39A1A200603AF5 /* nanovg_gl_utils.hovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 49C6564E1A39A1A200603AF5 /* nanovg.c */; };
 		49C656591A39A1A200603AF5 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 49C6564E1A39A1A200603AF5 /* nanovg.c */; };
 		49C6565E1A39A22400603AF5 /* lua_cocos2dx_extension_nanovg_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C6565A1A39A22400603AF5 /* lua_cocos2dx_extension_nanovg_auto.cpp */; };
 		49C6565F1A39A22400603AF5 /* lua_cocos2dx_extension_nanovg_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C6565A1A39A22400603AF5 /* lua_cocos2dx_extension_nanovg_auto.cpp */; };

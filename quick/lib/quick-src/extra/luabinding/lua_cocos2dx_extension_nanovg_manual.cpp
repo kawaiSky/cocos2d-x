@@ -351,25 +351,16 @@ tolua_lerror:
 
 static void extendNVGDrawNode(lua_State* tolua_S)
 {
+    
     lua_pushstring(tolua_S,"cc.NVGDrawNode");
     lua_rawget(tolua_S,LUA_REGISTRYINDEX);
     if (lua_istable(tolua_S,-1))
-    {        
-        lua_pushstring(tolua_S,"drawPoints");
-        lua_pushcfunction(tolua_S,tolua_cocos2dx_NVGDrawNode_drawPoints);
-        lua_rawset(tolua_S,-3);
+    {
+        tolua_function(tolua_S,"drawPoints",tolua_cocos2dx_NVGDrawNode_drawPoints);
         
-        lua_pushstring(tolua_S,"drawPolygon");
-        lua_pushcfunction(tolua_S,tolua_cocos2dx_NVGDrawNode_drawPolygon);
-        lua_rawset(tolua_S,-3);
-        
-        lua_pushstring(tolua_S,"drawSolidPolygon");
-        lua_pushcfunction(tolua_S,tolua_cocos2dx_NVGDrawNode_drawSolidPolygon);
-        lua_rawset(tolua_S,-3);
-        
-        lua_pushstring(tolua_S,"setPoints");
-        lua_pushcfunction(tolua_S,tolua_cocos2dx_NVGDrawNode_setPoints);
-        lua_rawset(tolua_S,-3);
+        tolua_function(tolua_S,"drawPolygon",tolua_cocos2dx_NVGDrawNode_drawPolygon);
+        tolua_function(tolua_S,"drawSolidPolygon",tolua_cocos2dx_NVGDrawNode_drawSolidPolygon);
+        tolua_function(tolua_S,"setPoints",tolua_cocos2dx_NVGDrawNode_setPoints);
     }
     lua_pop(tolua_S, 1);
 }

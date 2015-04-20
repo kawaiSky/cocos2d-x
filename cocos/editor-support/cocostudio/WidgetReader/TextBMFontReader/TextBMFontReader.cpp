@@ -94,6 +94,10 @@ namespace cocostudio
                 std::string tp_c = jsonPath;
                 const char* cmfPath = DICTOOL->getStringValue_json(cmftDic, P_Path);
                 const char* cmf_tp = tp_c.append(cmfPath).c_str();
+                if (FileUtils::getInstance()->isFileExist(cmfPath)) {
+                    cmf_tp = cmfPath;
+                }
+                
                 labelBMFont->setFntFile(cmf_tp);
                 break;
             }

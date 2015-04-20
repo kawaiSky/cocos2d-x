@@ -108,7 +108,7 @@ void LuaTouchEventManager::addTouchableNode(LuaEventNode *node)
     {
         _touchableNodes.pushBack(node);
         _nodeLuaEventNodeMap.insert(std::make_pair(activeNode, node));
-        CCLOG("ADD TOUCHABLE NODE <%p> ,<%s>", node->getActiveNode(),typeid(node->getActiveNode()).name());
+        //CCLOG("ADD TOUCHABLE NODE <%p> ,<%s>", node->getActiveNode(),typeid(node->getActiveNode()).name());
         if (!m_touchDispatchingEnabled)
         {
             enableTouchDispatching();
@@ -127,7 +127,7 @@ void LuaTouchEventManager::removeTouchableNode(LuaEventNode *node)
     {
         _nodeLuaEventNodeMap.erase(found);
     }
-    CCLOG("REMOVE TOUCHABLE NODE <%p> ,<%s>", node->getDetachedNode(),typeid(node->getDetachedNode()).name());
+    //CCLOG("REMOVE TOUCHABLE NODE <%p> ,<%s>", node->getDetachedNode(),typeid(node->getDetachedNode()).name());
     if (_touchableNodes.size() == 0 && m_touchDispatchingEnabled)
     {
         disableTouchDispatching();
