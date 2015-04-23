@@ -28,6 +28,5 @@
 -- 
 -- @function [parent=#RichElementImage] RichElementImage 
 -- @param self
--- @return RichElementImage#RichElementImage self (return value: ccui.RichElementImage)
         
 return nil

@@ -30,6 +30,7 @@ THE SOFTWARE.
 #include "ui/GUIDefine.h"
 #include "ui/GUIExport.h"
 #include "base/CCMap.h"
+#include "platform/CCImage.h"
 
 NS_CC_BEGIN
 
@@ -634,7 +635,9 @@ public:
      */
     void setCallbackType(const std::string& callbackType) { _callbackType = callbackType; }
     const std::string& getCallbackType() const{ return _callbackType; }
-
+    void setPixDataPath(const std::string path );
+    
+    Color4B getPixelColor(cocos2d::Image* image, Point pt,bool upside);
 CC_CONSTRUCTOR_ACCESS:
 
     //initializes state of widget.
@@ -670,6 +673,9 @@ CC_CONSTRUCTOR_ACCESS:
      *@return void
      */
     void  dispatchFocusEvent(Widget* widgetLoseFocus, Widget* widgetGetFocus);
+    
+    
+   
     
 protected:
     //call back function called when size changed.
@@ -719,7 +725,9 @@ protected:
     bool _affectByClipping;
     bool _ignoreSize;
     bool _propagateTouchEvents;
-
+    
+    bool checkPix(Point pt);
+    
     BrightStyle _brightStyle;
     SizeType _sizeType;
     PositionType _positionType;
@@ -771,6 +779,7 @@ protected:
     
     std::string _callbackType;
     std::string _callbackName;
+    Image* _pixData;
 private:
     class FocusNavigationController;
     static FocusNavigationController* _focusNavigationController;

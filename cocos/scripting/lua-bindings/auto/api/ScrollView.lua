@@ -10,7 +10,6 @@
 -- @param self
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Scroll inner container to horizontal percent position of scrollview.
@@ -19,7 +18,6 @@
 -- @param #float percent
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- 
@@ -34,7 +32,6 @@
 -- @param #vec2_table percent
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Gets scroll direction of scrollview.<br>
@@ -50,7 +47,6 @@
 -- @param self
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Gets inner container of scrollview.<br>
@@ -64,7 +60,6 @@
 -- Move inner container to bottom boundary of scrollview.
 -- @function [parent=#ScrollView] jumpToBottom 
 -- @param self
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Changes scroll direction of scrollview.<br>
@@ -73,7 +68,6 @@
 -- @function [parent=#ScrollView] setDirection 
 -- @param self
 -- @param #int dir
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Scroll inner container to top and left boundary of scrollview.
@@ -81,19 +75,16 @@
 -- @param self
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Move inner container to top and right boundary of scrollview.
 -- @function [parent=#ScrollView] jumpToTopRight 
 -- @param self
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Move inner container to bottom and left boundary of scrollview.
 -- @function [parent=#ScrollView] jumpToBottomLeft 
 -- @param self
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Changes inner container size of scrollview.<br>
@@ -102,7 +93,6 @@
 -- @function [parent=#ScrollView] setInnerContainerSize 
 -- @param self
 -- @param #size_table size
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Gets inner container size of scrollview.<br>
@@ -123,53 +113,45 @@
 -- @function [parent=#ScrollView] jumpToPercentVertical 
 -- @param self
 -- @param #float percent
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- 
 -- @function [parent=#ScrollView] addEventListener 
 -- @param self
 -- @param #function callback
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- 
 -- @function [parent=#ScrollView] setInertiaScrollEnabled 
 -- @param self
 -- @param #bool enabled
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Move inner container to top and left boundary of scrollview.
 -- @function [parent=#ScrollView] jumpToTopLeft 
 -- @param self
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Move inner container to horizontal percent position of scrollview.
 -- @function [parent=#ScrollView] jumpToPercentHorizontal 
 -- @param self
 -- @param #float percent
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Move inner container to bottom and right boundary of scrollview.
 -- @function [parent=#ScrollView] jumpToBottomRight 
 -- @param self
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- 
 -- @function [parent=#ScrollView] setBounceEnabled 
 -- @param self
 -- @param #bool enabled
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Move inner container to top boundary of scrollview.
 -- @function [parent=#ScrollView] jumpToTop 
 -- @param self
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Scroll inner container to left boundary of scrollview.
@@ -177,14 +159,12 @@
 -- @param self
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Move inner container to both direction percent position of scrollview.
 -- @function [parent=#ScrollView] jumpToPercentBothDirection 
 -- @param self
 -- @param #vec2_table percent
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Scroll inner container to vertical percent position of scrollview.
@@ -193,7 +173,6 @@
 -- @param #float percent
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Scroll inner container to bottom boundary of scrollview.
@@ -201,7 +180,6 @@
 -- @param self
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Scroll inner container to bottom and right boundary of scrollview.
@@ -209,13 +187,11 @@
 -- @param self
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Move inner container to left boundary of scrollview.
 -- @function [parent=#ScrollView] jumpToLeft 
 -- @param self
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Scroll inner container to right boundary of scrollview.
@@ -223,13 +199,11 @@
 -- @param self
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Move inner container to right boundary of scrollview.
 -- @function [parent=#ScrollView] jumpToRight 
 -- @param self
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Scroll inner container to top and right boundary of scrollview.
@@ -237,7 +211,6 @@
 -- @param self
 -- @param #float time
 -- @param #bool attenuated
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Allocates and initializes.
@@ -261,7 +234,6 @@
 -- @param #cc.Node child
 -- @param #int zOrder
 -- @param #string name
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
 
 --------------------------------
 -- 
@@ -281,7 +253,6 @@
 -- @function [parent=#ScrollView] update 
 -- @param self
 -- @param #float dt
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Gets LayoutType.<br>
@@ -296,13 +267,11 @@
 -- @function [parent=#ScrollView] removeAllChildrenWithCleanup 
 -- @param self
 -- @param #bool cleanup
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- 
 -- @function [parent=#ScrollView] removeAllChildren 
 -- @param self
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- When a widget is in a layout, you could call this method to get the next focused widget within a specified direction.<br>
@@ -322,7 +291,6 @@
 -- @param self
 -- @param #cc.Node child
 -- @param #bool cleaup
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- @overload self         
@@ -342,7 +310,7 @@
 -- 
 -- @function [parent=#ScrollView] getChildrenCount 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return long#long ret (return value: long)
         
 --------------------------------
 -- Sets LayoutType.<br>
@@ -351,12 +319,10 @@
 -- @function [parent=#ScrollView] setLayoutType 
 -- @param self
 -- @param #int type
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 --------------------------------
 -- Default constructor
 -- @function [parent=#ScrollView] ScrollView 
 -- @param self
--- @return ScrollView#ScrollView self (return value: ccui.ScrollView)
         
 return nil

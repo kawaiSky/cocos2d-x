@@ -10,14 +10,12 @@
 -- @function [parent=#Layout] setBackGroundColorVector 
 -- @param self
 -- @param #vec2_table vector
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- 
 -- @function [parent=#Layout] setClippingType 
 -- @param self
 -- @param #int type
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- Sets Color Type for layout.<br>
@@ -25,7 +23,6 @@
 -- @function [parent=#Layout] setBackGroundColorType 
 -- @param self
 -- @param #int type
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- If a layout is loop focused which means that the focus movement will be inside the layout<br>
@@ -33,14 +30,12 @@
 -- @function [parent=#Layout] setLoopFocus 
 -- @param self
 -- @param #bool loop
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- 
 -- @function [parent=#Layout] setBackGroundImageColor 
 -- @param self
 -- @param #color3b_table color
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- 
@@ -64,7 +59,6 @@
 -- Remove the background image of layout.
 -- @function [parent=#Layout] removeBackGroundImage 
 -- @param self
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- 
@@ -84,7 +78,6 @@
 -- @function [parent=#Layout] setBackGroundImageOpacity 
 -- @param self
 -- @param #unsigned char opacity
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- Sets a background image for layout<br>
@@ -94,7 +87,6 @@
 -- @param self
 -- @param #string fileName
 -- @param #int texType
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- @overload self, color3b_table, color3b_table         
@@ -103,13 +95,11 @@
 -- @param self
 -- @param #color3b_table startColor
 -- @param #color3b_table endColor
--- @return Layout#Layout self (return value: ccui.Layout)
 
 --------------------------------
 -- request to refresh widget layout
 -- @function [parent=#Layout] requestDoLayout 
 -- @param self
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- 
@@ -130,7 +120,6 @@
 -- @function [parent=#Layout] setClippingEnabled 
 -- @param self
 -- @param #bool enabled
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- 
@@ -162,7 +151,6 @@
 -- @function [parent=#Layout] setBackGroundColorOpacity 
 -- @param self
 -- @param #unsigned char opacity
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- 
@@ -182,7 +170,6 @@
 -- @function [parent=#Layout] setBackGroundImageCapInsets 
 -- @param self
 -- @param #rect_table capInsets
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- Gets background image texture size.<br>
@@ -195,7 +182,6 @@
 -- force refresh widget layout
 -- @function [parent=#Layout] forceDoLayout 
 -- @param self
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- 
@@ -208,7 +194,6 @@
 -- @function [parent=#Layout] setPassFocusToChild 
 -- @param self
 -- @param #bool pass
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- 
@@ -222,14 +207,12 @@
 -- @function [parent=#Layout] setBackGroundImageScale9Enabled 
 -- @param self
 -- @param #bool enabled
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- 
 -- @function [parent=#Layout] setLayoutType 
 -- @param self
 -- @param #int type
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- Allocates and initializes a layout.
@@ -253,7 +236,6 @@
 -- @param #cc.Node child
 -- @param #int zOrder
 -- @param #string name
--- @return Layout#Layout self (return value: ccui.Layout)
 
 --------------------------------
 -- Returns the "class name" of widget.
@@ -269,14 +251,12 @@
 -- @function [parent=#Layout] removeAllChildrenWithCleanup 
 -- @param self
 -- @param #bool cleanup
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- Removes all children from the container with a cleanup.<br>
 -- see `removeAllChildrenWithCleanup(bool)`
 -- @function [parent=#Layout] removeAllChildren 
 -- @param self
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- When a widget is in a layout, you could call this method to get the next focused widget within a specified direction.<br>
@@ -296,12 +276,10 @@
 -- @param self
 -- @param #cc.Node child
 -- @param #bool cleanup
--- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
 -- Default constructor
 -- @function [parent=#Layout] Layout 
 -- @param self
--- @return Layout#Layout self (return value: ccui.Layout)
         
 return nil

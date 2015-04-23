@@ -29,7 +29,6 @@
 -- @function [parent=#LayoutParameter] copyProperties 
 -- @param self
 -- @param #ccui.LayoutParameter model
--- @return LayoutParameter#LayoutParameter self (return value: ccui.LayoutParameter)
         
 --------------------------------
 -- Allocates and initializes.<br>
@@ -42,6 +41,5 @@
 -- Default constructor
 -- @function [parent=#LayoutParameter] LayoutParameter 
 -- @param self
--- @return LayoutParameter#LayoutParameter self (return value: ccui.LayoutParameter)
         
 return nil

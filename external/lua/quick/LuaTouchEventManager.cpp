@@ -49,7 +49,7 @@ LuaTouchEventManager* LuaTouchEventManager::getInstance()
         {
             delete s_sharedLuaTouchEventManager;
             s_sharedLuaTouchEventManager = nullptr;
-            CCLOG("ERROR: Could not init LuaTouchEventManager");
+           // CCLOG("ERROR: Could not init LuaTouchEventManager");
         }
     }
     return s_sharedLuaTouchEventManager;
@@ -261,7 +261,10 @@ void LuaTouchEventManager::onTouchesBegan(const std::vector<Touch*>& touches, Ev
         {
             ret = node->ccTouchBegan(touchTarget->findTouch(touches), event);
         }
-
+        
+        if (!_running) {
+            return;
+        }
         if (ret)
         {
             _touchingTargets.pushBack(touchTarget);
@@ -298,7 +301,7 @@ void LuaTouchEventManager::onTouchesEnded(const std::vector<Touch*>& touches, Ev
     {
         dispatchingTouchEvent(touches, event, CCTOUCHENDED);
         // remove all touching nodes
-        //CCLOG("TOUCH ENDED, REMOVE ALL TOUCH TARGETS");
+      //  CCLOG("TOUCH ENDED, REMOVE ALL TOUCH TARGETS");
         SAFE_CLEAR(_touchingTargets);
     }
 }
@@ -325,7 +328,7 @@ void LuaTouchEventManager::onTouchesCancelled(const std::vector<Touch*>& touches
 {
     dispatchingTouchEvent(touches, event, CCTOUCHCANCELLED);
     // remove all touching nodes
-    //CCLOG("TOUCH CANCELLED, REMOVE ALL TOUCH TARGETS");
+   // CCLOG("TOUCH CANCELLED, REMOVE ALL TOUCH TARGETS");
 	SAFE_CLEAR(_touchingTargets);
     // clear all touching points
 	SAFE_CLEAR(m_touchingIds);
@@ -333,10 +336,13 @@ void LuaTouchEventManager::onTouchesCancelled(const std::vector<Touch*>& touches
 
 void LuaTouchEventManager::cleanup(void)
 {
-    //CCLOG("LuaEventManager cleanup, REMOVE ALL TOUCH TARGETS");
+   // CCLOG("LuaEventManager cleanup, REMOVE ALL TOUCH TARGETS");
     _nodePriorityMap.clear();
+    //SAFE_CLEAR(_nodePriorityMap);
     _touchableNodes.clear();
+    //SAFE_CLEAR(_touchableNodes);
     _touchingTargets.clear();
+    //SAFE_CLEAR(_touchingTargets);
     if (_touchListener) {
         _eventDispatcher->removeEventListener(_touchListener);
         _touchListener = nullptr;

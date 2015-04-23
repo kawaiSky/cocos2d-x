@@ -32,6 +32,7 @@ THE SOFTWARE.
 #include "base/CCEventDispatcher.h"
 #include "ui/UILayoutComponent.h"
 
+
 NS_CC_BEGIN
 
 namespace ui {
@@ -165,7 +166,8 @@ _touchEventListener(nullptr),
 _touchEventSelector(nullptr),
 _ccEventCallback(nullptr),
 _callbackType(""),
-_callbackName("")
+_callbackName(""),
+_pixData(nullptr)
 {
   
 }
@@ -180,7 +182,7 @@ void Widget::cleanupWidget()
     //clean up _touchListener
     _eventDispatcher->removeEventListener(_touchListener);
     CC_SAFE_RELEASE_NULL(_touchListener);
-    
+    CC_SAFE_RELEASE_NULL(_pixData);
     //cleanup focused widget and focus navigation controller
     if (_focusedWidget == this)
     {
@@ -188,7 +190,6 @@ void Widget::cleanupWidget()
         CC_SAFE_DELETE(_focusNavigationController);
         _focusedWidget = nullptr;
     }
-
 }
 
 Widget* Widget::create()
@@ -882,12 +883,49 @@ void Widget::addCCSEventListener(const ccWidgetEventCallback &callback)
     this->_ccEventCallback = callback;
 }
 
+void Widget::setPixDataPath(const std::string path){
+    if(_pixData) _pixData->release();
+    
+    _pixData = new (std::nothrow) Image();
+    _pixData->initWithImageFile(path);
+    CCAssert(_pixData->getData(),"PIXDATA IS NOT BE NULL");
+    _pixData->retain();
+}
+    
+    Color4B Widget::getPixelColor(cocos2d::Image *image, Point pt, bool upside){
+        
+        if (pt.x >= image->getWidth() || pt.y >= image->getHeight()) {
+            return {0,0,0,0};
+        }
+        unsigned char* data = image->getData();
+        unsigned int *pixel = (unsigned int *)data;
+        int pixelY = pt.y;
+        if (upside) {
+            // start with 0
+            pixelY = image->getHeight()-1 - pt.y;
+        }
+        pixel = pixel + (pixelY *image->getWidth())* 1 + (int)(pt.x) * 1;
+        Color4B c = {0,0,0,0};
+        c.r = *pixel & 0xff;
+        
+        c.g = (*pixel >> 8) & 0xff;
+        
+        c.b = (*pixel >> 16) & 0xff;
+        
+        c.a = (*pixel >> 24) & 0xff;
+        
+        return c;
+    }
+    
+    bool Widget::checkPix(Point pt){
+        return _pixData==nullptr || this->getPixelColor(_pixData,pt,true).a >0 ;
+    }
 bool Widget::hitTest(const Vec2 &pt)
 {
     Vec2 nsp = convertToNodeSpace(pt);
     Rect bb;
     bb.size = _contentSize;
-    if (bb.containsPoint(nsp))
+    if (bb.containsPoint(nsp) && this->checkPix(nsp))
     {
         return true;
     }

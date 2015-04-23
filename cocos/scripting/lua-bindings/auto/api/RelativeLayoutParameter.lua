@@ -11,7 +11,6 @@
 -- @function [parent=#RelativeLayoutParameter] setAlign 
 -- @param self
 -- @param #int align
--- @return RelativeLayoutParameter#RelativeLayoutParameter self (return value: ccui.RelativeLayoutParameter)
         
 --------------------------------
 -- Sets a key for LayoutParameter. Witch widget named this is relative to.<br>
@@ -19,7 +18,6 @@
 -- @function [parent=#RelativeLayoutParameter] setRelativeToWidgetName 
 -- @param self
 -- @param #string name
--- @return RelativeLayoutParameter#RelativeLayoutParameter self (return value: ccui.RelativeLayoutParameter)
         
 --------------------------------
 -- Gets a name in Relative Layout of LayoutParameter.<br>
@@ -41,7 +39,6 @@
 -- @function [parent=#RelativeLayoutParameter] setRelativeName 
 -- @param self
 -- @param #string name
--- @return RelativeLayoutParameter#RelativeLayoutParameter self (return value: ccui.RelativeLayoutParameter)
         
 --------------------------------
 -- Gets RelativeAlign parameter for LayoutParameter.<br>
@@ -69,12 +66,10 @@
 -- @function [parent=#RelativeLayoutParameter] copyProperties 
 -- @param self
 -- @param #ccui.LayoutParameter model
--- @return RelativeLayoutParameter#RelativeLayoutParameter self (return value: ccui.RelativeLayoutParameter)
         
 --------------------------------
 -- Default constructor
 -- @function [parent=#RelativeLayoutParameter] RelativeLayoutParameter 
 -- @param self
--- @return RelativeLayoutParameter#RelativeLayoutParameter self (return value: ccui.RelativeLayoutParameter)
         
 return nil

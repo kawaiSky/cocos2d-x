@@ -16,6 +16,5 @@
 -- Default constructor
 -- @function [parent=#VBox] VBox 
 -- @param self
--- @return VBox#VBox self (return value: ccui.VBox)
         
 return nil
