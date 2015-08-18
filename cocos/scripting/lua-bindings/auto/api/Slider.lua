@@ -5,6 +5,15 @@
 -- @parent_module ccui
 
 --------------------------------
+-- Set a large value could give more control to the precision.<br>
+-- since v3.7<br>
+-- param percent The max percent of Slider.
+-- @function [parent=#Slider] setMaxPercent 
+-- @param self
+-- @param #int percent
+-- @return Slider#Slider self (return value: ccui.Slider)
+        
+--------------------------------
 -- Changes the progress direction of slider.<br>
 -- param percent  Percent value from 1 to 100.
 -- @function [parent=#Slider] setPercent 
@@ -21,6 +30,14 @@
 -- @param #string disabled
 -- @param #int resType
 -- @return Slider#Slider self (return value: ccui.Slider)
+        
+--------------------------------
+-- Query the maximum percent of Slider. The default value is 100.<br>
+-- since v3.7<br>
+-- return The maximum percent of the Slider.
+-- @function [parent=#Slider] getMaxPercent 
+-- @param self
+-- @return int#int ret (return value: int)
         
 --------------------------------
 -- Load normal state texture for slider ball.<br>
@@ -68,7 +85,8 @@
         
 --------------------------------
 -- Sets capinsets for progress bar slider, if slider is using scale9 renderer.<br>
--- param capInsets Capinsets for progress bar slider.
+-- param capInsets Capinsets for progress bar slider.<br>
+-- js NA
 -- @function [parent=#Slider] setCapInsetProgressBarRebderer 
 -- @param self
 -- @param #rect_table capInsets
@@ -84,7 +102,8 @@
         
 --------------------------------
 -- Gets capinsets for progress bar slider, if slider is using scale9 renderer.<br>
--- return Capinsets for progress bar slider.
+-- return Capinsets for progress bar slider.<br>
+-- js NA
 -- @function [parent=#Slider] getCapInsetsProgressBarRebderer 
 -- @param self
 -- @return rect_table#rect_table ret (return value: rect_table)
@@ -122,7 +141,8 @@
 -- @return float#float ret (return value: float)
         
 --------------------------------
--- 
+-- Add call back function called when slider's percent has changed to slider.<br>
+-- param callback An given call back function called when slider's percent has changed to slider.
 -- @function [parent=#Slider] addEventListener 
 -- @param self
 -- @param #function callback
@@ -199,6 +219,14 @@
 -- @function [parent=#Slider] hitTest 
 -- @param self
 -- @param #vec2_table pt
+-- @param #cc.Camera camera
+-- @param #vec3_table p
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
+-- 
+-- @function [parent=#Slider] init 
+-- @param self
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
@@ -208,7 +236,9 @@
 -- @return size_table#size_table ret (return value: size_table)
         
 --------------------------------
--- Default constructor.
+-- Default constructor.<br>
+-- js ctor<br>
+-- lua new
 -- @function [parent=#Slider] Slider 
 -- @param self
 -- @return Slider#Slider self (return value: ccui.Slider)

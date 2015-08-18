@@ -79,11 +79,6 @@ public:
     /** Returns whether or not the item is selected. */
     virtual bool isSelected() const;
 
-    /**
-     * @js NA
-     */
-    virtual void onExit() override;
-
     /** Set the callback to the menu item.
     * @code
     * In js,can contain two params,the second param is jsptr.
@@ -110,7 +105,6 @@ CC_CONSTRUCTOR_ACCESS:
     : _selected(false)
     , _enabled(false)
 	, _callback(nullptr)
-    , _target(nullptr)
     {}
     /**
      * @js NA
@@ -133,8 +127,6 @@ protected:
     bool            _enabled;
     // callback
     ccMenuCallback _callback;
-    // If using the old API, the _target needs to be retained / released
-    Ref		*_target;
 
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(MenuItem);
@@ -496,8 +488,8 @@ public:
      */
     static MenuItemToggle * createWithCallback(const ccMenuCallback& callback, const Vector<MenuItem*>& menuItems);
     /** Creates a menu item from a list of items with a callable object. */
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-    // WP8 in VS2012 does not support nullptr in variable args lists and variadic templates are also not supported.
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+    // VS2013 does not support nullptr in variable args lists and variadic templates are also not supported.
     typedef MenuItem* M;
     static MenuItemToggle* createWithCallback(const ccMenuCallback& callback, M m1, std::nullptr_t listEnd) { return createWithCallbackVA(callback, m1, NULL); }
     static MenuItemToggle* createWithCallback(const ccMenuCallback& callback, M m1, M m2, std::nullptr_t listEnd) { return createWithCallbackVA(callback, m1, m2, NULL); }

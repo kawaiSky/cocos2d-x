@@ -54,10 +54,9 @@
         
 --------------------------------
 -- 
--- @function [parent=#RichText] setAnchorPoint 
+-- @function [parent=#RichText] init 
 -- @param self
--- @param #vec2_table pt
--- @return RichText#RichText self (return value: ccui.RichText)
+-- @return bool#bool ret (return value: bool)
         
 --------------------------------
 -- 
@@ -67,19 +66,15 @@
         
 --------------------------------
 -- 
--- @function [parent=#RichText] getVirtualRendererSize 
--- @param self
--- @return size_table#size_table ret (return value: size_table)
-        
---------------------------------
--- 
 -- @function [parent=#RichText] ignoreContentAdaptWithSize 
 -- @param self
 -- @param #bool ignore
 -- @return RichText#RichText self (return value: ccui.RichText)
         
 --------------------------------
--- brief Default constructor.
+-- brief Default constructor.<br>
+-- js ctor<br>
+-- lua new
 -- @function [parent=#RichText] RichText 
 -- @param self
 -- @return RichText#RichText self (return value: ccui.RichText)

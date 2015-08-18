@@ -124,6 +124,7 @@ static std::string getFixedBaseUrl(const std::string& baseUrl)
 - (void)dealloc {
     self.uiWebView.delegate = nil;
     [self.uiWebView removeFromSuperview];
+    self.uiWebView = nil;
     self.jsScheme = nil;
     [super dealloc];
 }
@@ -166,6 +167,7 @@ static std::string getFixedBaseUrl(const std::string& baseUrl)
 }
 
 - (void)loadHTMLString:(const std::string &)string baseURL:(const std::string &)baseURL {
+    if (!self.uiWebView) {[self setupWebView];}
     [self.uiWebView loadHTMLString:@(string.c_str()) baseURL:[NSURL URLWithString:@(getFixedBaseUrl(baseURL).c_str())]];
 }
 
@@ -213,6 +215,7 @@ static std::string getFixedBaseUrl(const std::string& baseUrl)
 }
 
 - (void)setScalesPageToFit:(const bool)scalesPageToFit {
+    if (!self.uiWebView) {[self setupWebView];}
     self.uiWebView.scalesPageToFit = scalesPageToFit;
 }
 

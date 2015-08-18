@@ -269,7 +269,7 @@
 -- @function [parent=#Layout] addChild
 -- @param self
 -- @param #cc.Node child
--- @param #int zOrder
+-- @param #int localZOrder
 -- @param #string name
 -- @return Layout#Layout self (return value: ccui.Layout)
 
@@ -299,7 +299,7 @@
 --------------------------------
 -- When a widget is in a layout, you could call this method to get the next focused widget within a specified direction.<br>
 -- If the widget is not in a layout, it will return itself<br>
--- param dir the direction to look for the next focused widget in a layout<br>
+-- param direction the direction to look for the next focused widget in a layout<br>
 -- param current  the current focused widget<br>
 -- return the next focused widget in a layout
 -- @function [parent=#Layout] findNextFocusedWidget 
@@ -317,7 +317,25 @@
 -- @return Layout#Layout self (return value: ccui.Layout)
         
 --------------------------------
--- Default constructor
+-- 
+-- @function [parent=#Layout] init 
+-- @param self
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
+-- Override function. Set camera mask, the node is visible by the camera whose camera flag & node's camera mask is true. <br>
+-- param mask Mask being set<br>
+-- param applyChildren If true call this function recursively from this node to its children.
+-- @function [parent=#Layout] setCameraMask 
+-- @param self
+-- @param #unsigned short mask
+-- @param #bool applyChildren
+-- @return Layout#Layout self (return value: ccui.Layout)
+        
+--------------------------------
+-- Default constructor<br>
+-- js ctor<br>
+-- lua new
 -- @function [parent=#Layout] Layout 
 -- @param self
 -- @return Layout#Layout self (return value: ccui.Layout)

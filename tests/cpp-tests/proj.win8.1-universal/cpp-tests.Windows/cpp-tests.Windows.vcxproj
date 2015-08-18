@@ -90,12 +90,21 @@
   <PropertyGroup>
     <PackageCertificateKeyFile>cpp-tests.Windows_TemporaryKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>35C2132BDB64C0DFA54722663D9148FF118E341B</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <Import Project="..\cpp-tests.Shared\cpp-tests.Shared.vcxitems" Label="Shared" />
   <ItemDefinitionGroup Condition="'$(Platform)'=='ARM'">
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <ClCompile>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -115,6 +124,7 @@
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <ClCompile>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -134,6 +144,7 @@
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <ClCompile>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -170,6 +181,9 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\external\Box2D\proj.win8.1-universal\libbox2d.Windows\libbox2d.Windows.vcxproj">
       <Project>{3b26a12d-3a44-47ea-82d2-282660fc844d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\external\bullet\proj.win8.1-universal\libbullet.Windows\libbullet.Windows.vcxproj">
+      <Project>{ec2b1292-2d8c-4feb-a84b-2550b32c1ae7}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

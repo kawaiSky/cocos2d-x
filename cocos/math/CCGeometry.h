@@ -134,6 +134,11 @@ public:
      */
     Rect(float x, float y, float width, float height);
     /**
+     Constructor a rect.
+     * @js NA
+     */
+    Rect(const Vec2& pos, const Size& dimension);
+    /**
     Copy constructor.
      * @js NA
      * @lua NA
@@ -195,6 +200,11 @@ public:
      * @js NA
      */
     bool intersectsRect(const Rect& rect) const;
+    /**
+    Check the intersect status of the rect and a circle.
+     * @js NA
+     */
+    bool intersectsCircle(const Vec2& center, float radius) const;
     /**
     Get the min rect which can contain this and rect.
      * @js NA

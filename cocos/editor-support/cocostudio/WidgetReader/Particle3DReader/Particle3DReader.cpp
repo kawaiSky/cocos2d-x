@@ -68,6 +68,11 @@ namespace cocostudio
         CC_SAFE_DELETE(_instanceParticle3DReader);
     }
     
+    void Particle3DReader::destroyInstance()
+    {
+        CC_SAFE_DELETE(_instanceParticle3DReader);
+    }
+    
     Offset<Table> Particle3DReader::createOptionsWithFlatBuffers(const tinyxml2::XMLElement *objectData,
                                                              flatbuffers::FlatBufferBuilder *builder)
     {
@@ -142,14 +147,10 @@ namespace cocostudio
         auto fileData = options->fileData();
         std::string path = fileData->path()->c_str();
         
-        ParticleSystem3D* ret = NULL;
-        if(!FileUtils::getInstance()->isFileExist(path))
+        PUParticleSystem3D* ret = PUParticleSystem3D::create();
+        if (FileUtils::getInstance()->isFileExist(path))
         {
-            ret = PUParticleSystem3D::create();
-        }
-        else
-        {
-            ret = PUParticleSystem3D::create(path);
+            ret->initWithFilePath(path);
         }
         
         setPropsWithFlatBuffers(ret, particle3DOptions);

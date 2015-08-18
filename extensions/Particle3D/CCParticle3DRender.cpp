@@ -30,6 +30,7 @@
 #include "renderer/CCGLProgramState.h"
 #include "renderer/CCGLProgramCache.h"
 #include "renderer/CCVertexIndexBuffer.h"
+#include "renderer/CCVertexAttribBinding.h"
 #include "base/CCDirector.h"
 #include "3d/CCSprite3D.h"
 #include "2d/CCCamera.h"
@@ -43,8 +44,8 @@ Particle3DQuadRender::Particle3DQuadRender()
 , _indexBuffer(nullptr)
 , _vertexBuffer(nullptr)
 {
-    
 }
+
 Particle3DQuadRender::~Particle3DQuadRender()
 {
     CC_SAFE_DELETE(_meshCommand);
@@ -124,19 +125,19 @@ void Particle3DQuadRender::render(Renderer* renderer, const Mat4 &transform, Par
         position = particle->position;
         _posuvcolors[vertexindex].position = (position + (- halfwidth - halfheight));
         _posuvcolors[vertexindex].color = particle->color;
-        _posuvcolors[vertexindex].uv = Vec2(particle->lb_uv);
+        _posuvcolors[vertexindex].uv.set(particle->lb_uv);
 
         _posuvcolors[vertexindex + 1].position = (position + (halfwidth - halfheight));
         _posuvcolors[vertexindex + 1].color = particle->color;
-        _posuvcolors[vertexindex + 1].uv = Vec2(particle->rt_uv.x, particle->lb_uv.y);
+        _posuvcolors[vertexindex + 1].uv.set(particle->rt_uv.x, particle->lb_uv.y);
         
         _posuvcolors[vertexindex + 2].position = (position + (- halfwidth + halfheight));
         _posuvcolors[vertexindex + 2].color = particle->color;
-        _posuvcolors[vertexindex + 2].uv = Vec2(particle->lb_uv.x, particle->rt_uv.y);
+        _posuvcolors[vertexindex + 2].uv.set(particle->lb_uv.x, particle->rt_uv.y);
         
         _posuvcolors[vertexindex + 3].position = (position + (halfwidth + halfheight));
         _posuvcolors[vertexindex + 3].color = particle->color;
-        _posuvcolors[vertexindex + 3].uv = Vec2(particle->rt_uv);
+        _posuvcolors[vertexindex + 3].uv.set(particle->rt_uv);
         
         
         _indexData[index] = vertexindex;
@@ -158,7 +159,20 @@ void Particle3DQuadRender::render(Renderer* renderer, const Mat4 &transform, Par
     
     GLuint texId = (_texture ? _texture->getName() : 0);
     float depthZ = -(viewMat.m[2] * transform.m[12] + viewMat.m[6] * transform.m[13] + viewMat.m[10] * transform.m[14] + viewMat.m[14]);
-    _meshCommand->init(depthZ, texId, _glProgramState, particleSystem->getBlendFunc(), _vertexBuffer->getVBO(), _indexBuffer->getVBO(), GL_TRIANGLES, GL_UNSIGNED_SHORT, index, transform, 0);
+
+    _meshCommand->init(
+                       depthZ,
+                       texId,
+                       _glProgramState,
+                       _stateBlock,
+                       _vertexBuffer->getVBO(),
+                       _indexBuffer->getVBO(),
+                       GL_TRIANGLES,
+                       GL_UNSIGNED_SHORT,
+                       index,
+                       transform,
+                       0);
+    _glProgramState->setUniformVec4("u_color", Vec4(1,1,1,1));
     renderer->addCommand(_meshCommand);
 }
 
@@ -190,24 +204,13 @@ bool Particle3DQuadRender::initQuadRender( const std::string& texFile )
     //ret->_indexBuffer->retain();
 
     _meshCommand = new (std::nothrow) MeshCommand();
+    _meshCommand->setSkipBatching(true);
     _meshCommand->setTransparent(true);
-    _meshCommand->setDepthTestEnabled(_depthTest);
-    _meshCommand->setDepthWriteEnabled(_depthWrite);
-    _meshCommand->setCullFace(GL_BACK);
-    _meshCommand->setCullFaceEnabled(true);
+    _stateBlock->setDepthTest(_depthTest);
+    _stateBlock->setDepthWrite(_depthWrite);
+    _stateBlock->setCullFace(true);
+    _stateBlock->setCullFaceSide(RenderState::CULL_FACE_SIDE_BACK);
     return true;
-}
-
-void Particle3DQuadRender::setDepthTest( bool isDepthTest )
-{
-    Particle3DRender::setDepthTest(isDepthTest);
-    _meshCommand->setDepthTestEnabled(_depthTest);
-}
-
-void Particle3DQuadRender::setDepthWrite( bool isDepthWrite )
-{
-    Particle3DRender::setDepthWrite(isDepthWrite);
-    _meshCommand->setDepthWriteEnabled(_depthWrite);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -269,8 +272,7 @@ void Particle3DModelRender::render(Renderer* renderer, const Mat4 &transform, Pa
     for (auto iter : activeParticleList)
     {
         auto particle = iter;
-        q *= particle->orientation;
-        Mat4::createRotation(q, &rotMat);
+        Mat4::createRotation(q * particle->orientation, &rotMat);
         sclMat.m[0] = particle->width / _spriteSize.x;
         sclMat.m[5]  = particle->height / _spriteSize.y; 
         sclMat.m[10] = particle->depth / _spriteSize.z;
@@ -282,6 +284,41 @@ void Particle3DModelRender::render(Renderer* renderer, const Mat4 &transform, Pa
     }
 }
 
+// MARK: Particle3DRender
+
+Particle3DRender::Particle3DRender()
+: _particleSystem(nullptr)
+, _isVisible(true)
+, _rendererScale(Vec3::ONE)
+, _depthTest(true)
+, _depthWrite(false)
+{
+    _stateBlock = RenderState::StateBlock::create();
+    _stateBlock->retain();
+
+    _stateBlock->setCullFace(false);
+    _stateBlock->setCullFaceSide(RenderState::CULL_FACE_SIDE_BACK);
+    _stateBlock->setDepthTest(false);
+    _stateBlock->setDepthWrite(false);
+    _stateBlock->setBlend(true);
+};
+
+Particle3DRender::~Particle3DRender()
+{
+    _stateBlock->release();
+}
+
+void Particle3DRender::copyAttributesTo (Particle3DRender *render)
+{
+    CC_SAFE_RELEASE(render->_stateBlock);
+    render->_stateBlock = _stateBlock;
+    CC_SAFE_RETAIN(render->_stateBlock);
+
+    render->_isVisible = _isVisible;
+    render->_rendererScale = _rendererScale;
+    render->_depthTest = _depthTest;
+    render->_depthWrite = _depthWrite;
+}
 
 void Particle3DRender::notifyStart()
 {
@@ -296,6 +333,23 @@ void Particle3DRender::notifyStop()
 void Particle3DRender::notifyRescaled( const Vec3& scale )
 {
     _rendererScale = scale;
+}
+
+void Particle3DRender::setDepthTest( bool isDepthTest )
+{
+    _depthTest = isDepthTest;
+    _stateBlock->setDepthTest(_depthTest);
+}
+
+void Particle3DRender::setDepthWrite( bool isDepthWrite )
+{
+    _depthWrite = isDepthWrite;
+    _stateBlock->setDepthWrite(_depthWrite);
+}
+
+void Particle3DRender::setBlendFunc(const BlendFunc &blendFunc)
+{
+    _stateBlock->setBlendFunc(blendFunc);
 }
 
 NS_CC_END

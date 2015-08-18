@@ -190,6 +190,13 @@
 -- @return ParticleSystem#ParticleSystem self (return value: cc.ParticleSystem)
         
 --------------------------------
+--  Initializes a system with a fixed number of particles
+-- @function [parent=#ParticleSystem] initWithTotalParticles 
+-- @param self
+-- @param #int numberOfParticles
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
 -- 
 -- @function [parent=#ParticleSystem] setTexture 
 -- @param self
@@ -390,7 +397,7 @@
         
 --------------------------------
 --  Sets the source position of the emitter.<br>
--- param The source position of the emitter.
+-- param pos The source position of the emitter.
 -- @function [parent=#ParticleSystem] setSourcePosition 
 -- @param self
 -- @param #vec2_table pos
@@ -482,6 +489,16 @@
 -- @param self
 -- @param #float endSpinVar
 -- @return ParticleSystem#ParticleSystem self (return value: cc.ParticleSystem)
+        
+--------------------------------
+--  initializes a ParticleSystem from a plist file.<br>
+-- This plist files can be created manually or with Particle Designer:<br>
+-- http:particledesigner.71squared.com/<br>
+-- since v0.99.3
+-- @function [parent=#ParticleSystem] initWithFile 
+-- @param self
+-- @param #string plistFile
+-- @return bool#bool ret (return value: bool)
         
 --------------------------------
 --  Gets the angle variance of each particle.<br>
@@ -662,6 +679,15 @@
 -- @return ParticleSystem#ParticleSystem self (return value: cc.ParticleSystem)
         
 --------------------------------
+-- @overload self, map_table, string         
+-- @overload self, map_table         
+-- @function [parent=#ParticleSystem] initWithDictionary
+-- @param self
+-- @param #map_table dictionary
+-- @param #string dirname
+-- @return bool#bool ret (return value: bool)
+
+--------------------------------
 --  Whether or not the particle system removed self on finish.<br>
 -- return True if the particle system removed self on finish.
 -- @function [parent=#ParticleSystem] isAutoRemoveOnFinish 
@@ -713,7 +739,7 @@
 -- This plist files can be created manually or with Particle Designer:<br>
 -- http:particledesigner.71squared.com/<br>
 -- since v2.0<br>
--- param Particle plist file name.<br>
+-- param plistFile Particle plist file name.<br>
 -- return An autoreleased ParticleSystem object.
 -- @function [parent=#ParticleSystem] create 
 -- @param self
@@ -772,10 +798,22 @@
 -- @return ParticleSystem#ParticleSystem self (return value: cc.ParticleSystem)
         
 --------------------------------
+--  initializes a ParticleSystem
+-- @function [parent=#ParticleSystem] init 
+-- @param self
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
 -- 
 -- @function [parent=#ParticleSystem] setRotation 
 -- @param self
 -- @param #float newRotation
+-- @return ParticleSystem#ParticleSystem self (return value: cc.ParticleSystem)
+        
+--------------------------------
+-- js ctor
+-- @function [parent=#ParticleSystem] ParticleSystem 
+-- @param self
 -- @return ParticleSystem#ParticleSystem self (return value: cc.ParticleSystem)
         
 return nil

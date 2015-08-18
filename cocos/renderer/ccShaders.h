@@ -32,7 +32,7 @@ THE SOFTWARE.
 #include "platform/CCPlatformMacros.h"
 
 /**
- * @addtogroup support
+ * @addtogroup renderer
  * @{
  */
 
@@ -66,6 +66,8 @@ extern CC_DLL const GLchar * ccPositionTexture_uColor_vert;
 extern CC_DLL const GLchar * ccPositionColorLengthTexture_frag;
 extern CC_DLL const GLchar * ccPositionColorLengthTexture_vert;
 
+extern CC_DLL const GLchar * ccPositionTexture_GrayScale_frag;
+
 extern CC_DLL const GLchar * ccLabelDistanceFieldNormal_frag;
 extern CC_DLL const GLchar * ccLabelDistanceFieldGlow_frag;
 extern CC_DLL const GLchar * ccLabelNormal_frag;
@@ -86,8 +88,10 @@ extern CC_DLL const GLchar * cc3D_Particle_tex_frag;
 extern CC_DLL const GLchar * cc3D_Particle_color_frag;
 extern CC_DLL const GLchar * cc3D_Skybox_vert;
 extern CC_DLL const GLchar * cc3D_Skybox_frag;
-
-
+extern CC_DLL const GLchar * cc3D_Terrain_vert;
+extern CC_DLL const GLchar * cc3D_Terrain_frag;
+extern CC_DLL const GLchar * ccCameraClearVert;
+extern CC_DLL const GLchar * ccCameraClearFrag;
 NS_CC_END
 /**
  end of support group

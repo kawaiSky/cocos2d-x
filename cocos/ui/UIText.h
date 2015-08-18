@@ -27,6 +27,7 @@ THE SOFTWARE.
 
 #include "ui/UIWidget.h"
 #include "ui/GUIExport.h"
+#include "base/ccTypes.h"
 
 /**
  * @addtogroup ui
@@ -44,9 +45,9 @@ namespace ui {
  */
 class CC_GUI_DLL Text : public Widget
 {
-    
+
     DECLARE_CLASS_GUI_INFO
-    
+
 public:
     /** Type Text type.
      */
@@ -75,12 +76,17 @@ public:
      * @return An autoreleased Text object.
      */
     static Text* create();
-    
+
     /**
      *  Create a Text object with textContent, fontName and fontSize.
      *  The fontName could be a system font name or a TTF file path.
-     *  Usage:  Text *text = Text::create("Hello", "Arial", 20);  //create a system font UIText.
-     *          Text *text = Text::create("Hello", "xxx\xxx.ttf", 20); //create a TTF font UIText.
+     *  Usage:
+     *  @code
+     *       //create a system font UIText.
+     *       Text *text = Text::create("Hello", "Arial", 20);
+     *       //create a TTF font UIText.
+     *       Text *text = Text::create("Hello", "xxx\xxx.ttf", 20);
+     *  @endcode
      *
      * @param textContent Text content string.
      * @param fontName A given font name.
@@ -89,14 +95,17 @@ public:
      */
     static Text* create(const std::string& textContent,
                         const std::string& fontName,
-                        int fontSize);
+                        float fontSize);
 
     /**
      * Changes the string value of label.
      *
      * @param text  String value.
      */
-    CC_DEPRECATED_ATTRIBUTE void setText(const std::string& text){this->setString(text);}
+    CC_DEPRECATED_ATTRIBUTE void setText(const std::string& text)
+    {
+        this->setString(text);
+    }
     void setString(const std::string& text);
 
     /**
@@ -104,13 +113,17 @@ public:
      *
      * @return String value.
      */
-    CC_DEPRECATED_ATTRIBUTE const std::string& getStringValue(){ return this->getString();}
+    CC_DEPRECATED_ATTRIBUTE const std::string& getStringValue()
+    {
+        return this->getString();
+    }
     const std::string& getString()const;
 
     /**
      * Gets the string length of the label.
      * Note: This length will be larger than the raw string length,
-     * if you want to get the raw string length, you should call this->getString().size() instead.
+     * if you want to get the raw string length,
+     * you should call this->getString().size() instead.
      *
      * @return  String length.
      */
@@ -121,22 +134,28 @@ public:
      *
      * @param size The font size.
      */
-    void setFontSize(int size);
+    void setFontSize(float size);
 
     /**
      * Gets the font size of label.
      *
      * @return The font size.
      */
-    int getFontSize()const;
+    float getFontSize()const;
 
     /**
      * Sets the font name of label.
      *  If you are trying to use a system font, you could just pass a font name
      * If you are trying to use a TTF, you should pass a file path to the TTF file
-     * Usage:  Text *text = Text::create("Hello", "Arial", 20);  //create a system font UIText
-     *         text->setFontName("Marfelt");  // it will change the font  to  system font no matter the previous font type is TTF or system font
-     *         text->setFontName("xxxx/xxx.ttf"); //it will change the font  to TTF font no matter the previous font type is TTF or system font
+     * Usage:
+     * @code
+     *          //create a system font UIText
+     *         Text *text = Text::create("Hello", "Arial", 20);
+     *         // it will change the font to system font no matter the previous font type is TTF or system font
+     *         text->setFontName("Marfelt");
+     *         //it will change the font to TTF font no matter the previous font type is TTF or system font
+     *         text->setFontName("xxxx/xxx.ttf");
+     * @endcode
      * @param name Font name.
      */
     void setFontName(const std::string& name);
@@ -146,7 +165,7 @@ public:
      * @return Font name.
      */
     const std::string& getFontName()const;
-    
+
     /** Gets the font type.
      * @return The font type.
      */
@@ -222,19 +241,19 @@ public:
      * @return Vertical text alignment type
      */
     TextVAlignment getTextVerticalAlignment()const;
-    
+
     /** Sets text color.
      *
      * @param color Text color.
      */
     void setTextColor(const Color4B color);
-    
+
     /** Gets text color.
      *
      * @return Text color.
      */
     const Color4B& getTextColor() const;
-    
+
     /**
      * Enable shadow for the label.
      *
@@ -244,32 +263,42 @@ public:
      * @param offset The offset of shadow effect.
      * @param blurRadius The blur radius of shadow effect.
      */
-    void enableShadow(const Color4B& shadowColor = Color4B::BLACK,const Size &offset = Size(2,-2), int blurRadius = 0);
-    
+    void enableShadow(const Color4B& shadowColor = Color4B::BLACK,
+                      const Size &offset = Size(2,-2),
+                      int blurRadius = 0);
+
     /**
      * Enable outline for the label.
      * It only works on IOS and Android when you use System fonts.
      *
      * @param outlineColor The color of outline.
      * @param outlineSize The size of outline.
-     */ 
+     */
     void enableOutline(const Color4B& outlineColor,int outlineSize = 1);
-    
+
     /** Only support for TTF.
      *
      * @param glowColor The color of glow.
      */
     void enableGlow(const Color4B& glowColor);
-    
-    /** Disable shadow/outline/glow rendering.
+
+    /** Disable all text effects, including shadow, outline and glow.
      */
     void disableEffect();
-    
+
+    /**
+     * Disable specific text effect.
+     * Use LabelEffect parameter to specify which effect should be disabled.
+     *
+     * @see `LabelEffect`
+     */
+    void disableEffect(LabelEffect effect);
+
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init() override;
     virtual bool init(const std::string& textContent,
                       const std::string& fontName,
-                      int fontSize);
+                      float fontSize);
 
 protected:
     virtual void initRenderer() override;
@@ -277,7 +306,7 @@ protected:
     virtual void onPressStateChangedToPressed() override;
     virtual void onPressStateChangedToDisabled() override;
     virtual void onSizeChanged() override;
-   
+
     void labelScaleChangedWithSize();
     virtual Widget* createCloneInstance() override;
     virtual void copySpecialProperties(Widget* model) override;
@@ -287,7 +316,7 @@ protected:
     float _normalScaleValueX;
     float _normalScaleValueY;
     std::string _fontName;
-    int _fontSize;
+    float _fontSize;
     float _onSelectedScaleOffset;
     Label* _labelRenderer;
     bool _labelRendererAdaptDirty;

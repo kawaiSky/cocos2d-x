@@ -5,13 +5,15 @@
 -- @parent_module ccexp
 
 --------------------------------
--- 
+-- brief Get the local video filie name.<br>
+-- return The video file name.
 -- @function [parent=#VideoPlayer] getFileName 
 -- @param self
 -- @return string#string ret (return value: string)
         
 --------------------------------
--- 
+-- brief Get the URL of remoting video source.<br>
+-- return A remoting URL address.
 -- @function [parent=#VideoPlayer] getURL 
 -- @param self
 -- @return string#string ret (return value: string)
@@ -23,24 +25,12 @@
 -- @return experimental::ui::VideoPlayer#experimental::ui::VideoPlayer self (return value: cc.experimental::ui::VideoPlayer)
         
 --------------------------------
--- Pauses playback.
--- @function [parent=#VideoPlayer] pause 
--- @param self
--- @return experimental::ui::VideoPlayer#experimental::ui::VideoPlayer self (return value: cc.experimental::ui::VideoPlayer)
-        
---------------------------------
 -- Causes the video player to keep aspect ratio or no when displaying the video.<br>
 -- param enable    Specify true to keep aspect ratio or false to scale the video until <br>
 -- both dimensions fit the visible bounds of the view exactly.
 -- @function [parent=#VideoPlayer] setKeepAspectRatioEnabled 
 -- @param self
 -- @param #bool enable
--- @return experimental::ui::VideoPlayer#experimental::ui::VideoPlayer self (return value: cc.experimental::ui::VideoPlayer)
-        
---------------------------------
--- Resumes playback.
--- @function [parent=#VideoPlayer] resume 
--- @param self
 -- @return experimental::ui::VideoPlayer#experimental::ui::VideoPlayer self (return value: cc.experimental::ui::VideoPlayer)
         
 --------------------------------
@@ -78,7 +68,8 @@
 -- @return bool#bool ret (return value: bool)
         
 --------------------------------
--- 
+-- brief A function which will be called when video is playing.<br>
+-- param event @see VideoPlayer::EventType.
 -- @function [parent=#VideoPlayer] onPlayEvent 
 -- @param self
 -- @param #int event
@@ -122,10 +113,28 @@
 -- @return experimental::ui::VideoPlayer#experimental::ui::VideoPlayer self (return value: cc.experimental::ui::VideoPlayer)
         
 --------------------------------
+-- Pauses playback.
+-- @function [parent=#VideoPlayer] pause 
+-- @param self
+-- @return experimental::ui::VideoPlayer#experimental::ui::VideoPlayer self (return value: cc.experimental::ui::VideoPlayer)
+        
+--------------------------------
 -- 
 -- @function [parent=#VideoPlayer] setVisible 
 -- @param self
 -- @param #bool visible
+-- @return experimental::ui::VideoPlayer#experimental::ui::VideoPlayer self (return value: cc.experimental::ui::VideoPlayer)
+        
+--------------------------------
+-- Resumes playback.
+-- @function [parent=#VideoPlayer] resume 
+-- @param self
+-- @return experimental::ui::VideoPlayer#experimental::ui::VideoPlayer self (return value: cc.experimental::ui::VideoPlayer)
+        
+--------------------------------
+-- 
+-- @function [parent=#VideoPlayer] VideoPlayer 
+-- @param self
 -- @return experimental::ui::VideoPlayer#experimental::ui::VideoPlayer self (return value: cc.experimental::ui::VideoPlayer)
         
 return nil

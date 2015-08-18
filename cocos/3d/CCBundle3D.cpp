@@ -182,8 +182,7 @@ bool Bundle3D::load(const std::string& path)
     getModelRelativePath(path);
 
     bool ret = false;
-    std::string ext = path.substr(path.length() - 4, 4);
-    std::transform(ext.begin(), ext.end(), ext.begin(), tolower);
+    std::string ext = FileUtils::getInstance()->getFileExtension(path);
     if (ext == ".c3t")
     {
         _isBinary = false;
@@ -216,73 +215,24 @@ bool Bundle3D::loadObj(MeshDatas& meshdatas, MaterialDatas& materialdatas, NodeD
     else
         mtlPath = fullPath.substr(0, fullPath.find_last_of("\\/") + 1).c_str();
     
-    ObjLoader::shapes_t shapes;
-    auto ret = ObjLoader::LoadObj(shapes, fullPath.c_str(), mtlPath.c_str());
+    std::vector<tinyobj::shape_t> shapes;
+    std::vector<tinyobj::material_t> materials;
+    auto ret = tinyobj::LoadObj(shapes, materials, fullPath.c_str(), mtlPath.c_str());
     if (ret.empty())
     {
         //fill data
-        MeshData* meshdata = new (std::nothrow) MeshData();
-        MeshVertexAttrib attrib;
-        attrib.size = 3;
-        attrib.type = GL_FLOAT;
-        if (shapes.positions.size())
-        {
-            attrib.vertexAttrib = GLProgram::VERTEX_ATTRIB_POSITION;
-            attrib.attribSizeBytes = attrib.size * sizeof(float);
-            meshdata->attribs.push_back(attrib);
-
-        }
-        bool hasnormal = false, hastex = false;
-        if (shapes.normals.size())
-        {
-            hasnormal = true;
-            attrib.vertexAttrib = GLProgram::VERTEX_ATTRIB_NORMAL;
-            attrib.attribSizeBytes = attrib.size * sizeof(float);;
-            meshdata->attribs.push_back(attrib);
-        }
-        if (shapes.texcoords.size())
-        {
-            hastex = true;
-            attrib.size = 2;
-            attrib.vertexAttrib = GLProgram::VERTEX_ATTRIB_TEX_COORD;
-            attrib.attribSizeBytes = attrib.size * sizeof(float);
-            meshdata->attribs.push_back(attrib);
-        }
-        auto vertexNum = shapes.positions.size() / 3;
-        for(unsigned int i = 0; i < vertexNum; i++)
-        {
-            meshdata->vertex.push_back(shapes.positions[i * 3]);
-            meshdata->vertex.push_back(shapes.positions[i * 3 + 1]);
-            meshdata->vertex.push_back(shapes.positions[i * 3 + 2]);
-
-            if (hasnormal)
-            {
-                meshdata->vertex.push_back(shapes.normals[i * 3]);
-                meshdata->vertex.push_back(shapes.normals[i * 3 + 1]);
-                meshdata->vertex.push_back(shapes.normals[i * 3 + 2]);
-            }
-
-            if (hastex)
-            {
-                meshdata->vertex.push_back(shapes.texcoords[i * 2]);
-                meshdata->vertex.push_back(shapes.texcoords[i * 2 + 1]);
-            }
-        }
-        meshdatas.meshDatas.push_back(meshdata);
-
+        //convert material
         int i = 0;
         char str[20];
         std::string dir = "";
         auto last = fullPath.rfind("/");
         if (last != -1)
             dir = fullPath.substr(0, last + 1);
-
-        for (const auto& it : shapes.shapes)
-        {
+        for (auto& material : materials) {
             NMaterialData materialdata;
             
             NTextureData tex;
-            tex.filename = it.material.diffuse_texname.empty() ? it.material.diffuse_texname : dir + it.material.diffuse_texname;
+            tex.filename = material.diffuse_texname.empty() ? material.diffuse_texname : dir + material.diffuse_texname;
             tex.type = NTextureData::Usage::Diffuse;
             tex.wrapS = GL_CLAMP_TO_EDGE;
             tex.wrapT = GL_CLAMP_TO_EDGE;
@@ -290,19 +240,91 @@ bool Bundle3D::loadObj(MeshDatas& meshdatas, MaterialDatas& materialdatas, NodeD
             sprintf(str, "%d", i++);
             materialdata.textures.push_back(tex);
             materialdata.id = str;
+            material.name = str;
             materialdatas.materials.push_back(materialdata);
-
-            meshdata->subMeshIndices.push_back(it.mesh.indices);
-            meshdata->subMeshAABB.push_back(calculateAABB(meshdata->vertex, meshdata->getPerVertexSize(), it.mesh.indices));
-            meshdata->subMeshIds.push_back(str);
-            auto node = new (std::nothrow) NodeData();
-            auto modelnode = new (std::nothrow) ModelData();
-            modelnode->matrialId = str;
-            modelnode->subMeshId = str;
-            node->id = it.name;
-            node->modelNodeDatas.push_back(modelnode);
-            nodedatas.nodes.push_back(node);
         }
+        
+        //convert mesh
+        i = 0;
+        for (auto& shape : shapes) {
+            auto mesh = shape.mesh;
+            MeshData* meshdata = new (std::nothrow) MeshData();
+            MeshVertexAttrib attrib;
+            attrib.size = 3;
+            attrib.type = GL_FLOAT;
+            
+            if (mesh.positions.size())
+            {
+                attrib.vertexAttrib = GLProgram::VERTEX_ATTRIB_POSITION;
+                attrib.attribSizeBytes = attrib.size * sizeof(float);
+                meshdata->attribs.push_back(attrib);
+                
+            }
+            bool hasnormal = false, hastex = false;
+            if (mesh.normals.size())
+            {
+                hasnormal = true;
+                attrib.vertexAttrib = GLProgram::VERTEX_ATTRIB_NORMAL;
+                attrib.attribSizeBytes = attrib.size * sizeof(float);;
+                meshdata->attribs.push_back(attrib);
+            }
+            if (mesh.texcoords.size())
+            {
+                hastex = true;
+                attrib.size = 2;
+                attrib.vertexAttrib = GLProgram::VERTEX_ATTRIB_TEX_COORD;
+                attrib.attribSizeBytes = attrib.size * sizeof(float);
+                meshdata->attribs.push_back(attrib);
+            }
+            
+            auto vertexNum = mesh.positions.size() / 3;
+            for(unsigned int k = 0; k < vertexNum; k++)
+            {
+                meshdata->vertex.push_back(mesh.positions[k * 3]);
+                meshdata->vertex.push_back(mesh.positions[k * 3 + 1]);
+                meshdata->vertex.push_back(mesh.positions[k * 3 + 2]);
+                
+                if (hasnormal)
+                {
+                    meshdata->vertex.push_back(mesh.normals[k * 3]);
+                    meshdata->vertex.push_back(mesh.normals[k * 3 + 1]);
+                    meshdata->vertex.push_back(mesh.normals[k * 3 + 2]);
+                }
+                
+                if (hastex)
+                {
+                    meshdata->vertex.push_back(mesh.texcoords[k * 2]);
+                    meshdata->vertex.push_back(mesh.texcoords[k * 2 + 1]);
+                }
+            }
+            
+            //split into submesh according to material
+            std::map<int, std::vector<unsigned short> > subMeshMap;
+            for (size_t k = 0; k < mesh.material_ids.size(); k++) {
+                int id = mesh.material_ids[k];
+                size_t idx = k * 3;
+                subMeshMap[id].push_back(mesh.indices[idx]);
+                subMeshMap[id].push_back(mesh.indices[idx + 1]);
+                subMeshMap[id].push_back(mesh.indices[idx + 2]);
+            }
+            
+            auto node = new (std::nothrow) NodeData();
+            node->id = shape.name;
+            for (auto& submesh : subMeshMap) {
+                meshdata->subMeshIndices.push_back(submesh.second);
+                meshdata->subMeshAABB.push_back(calculateAABB(meshdata->vertex, meshdata->getPerVertexSize(), submesh.second));
+                sprintf(str, "%d", i++);
+                meshdata->subMeshIds.push_back(str);
+                
+                auto modelnode = new (std::nothrow) ModelData();
+                modelnode->matrialId = submesh.first == -1 ? "" : materials[submesh.first].name;
+                modelnode->subMeshId = str;
+                node->modelNodeDatas.push_back(modelnode);
+            }
+            nodedatas.nodes.push_back(node);
+            meshdatas.meshDatas.push_back(meshdata);
+        }
+        
         return true;
     }
     CCLOG("warning: load %s file error: %s", fullPath.c_str(), ret.c_str());
@@ -487,6 +509,7 @@ bool Bundle3D::loadMeshDatasBinary_0_1(MeshDatas& meshdatas)
     if (_binaryReader.read(&attribSize, 4, 1) != 1 || attribSize < 1)
     {
         CCLOG("warning: Failed to read meshdata: attribCount '%s'.", _path.c_str());
+        CC_SAFE_DELETE(meshdata);
         return false;
     }
     enum
@@ -509,6 +532,7 @@ bool Bundle3D::loadMeshDatasBinary_0_1(MeshDatas& meshdatas)
         if (_binaryReader.read(&vUsage, 4, 1) != 1 || _binaryReader.read(&vSize, 4, 1) != 1)
         {
             CCLOG("warning: Failed to read meshdata: usage or size '%s'.", _path.c_str());
+            CC_SAFE_DELETE(meshdata);
             return false;
         }
 
@@ -545,6 +569,7 @@ bool Bundle3D::loadMeshDatasBinary_0_1(MeshDatas& meshdatas)
     if (_binaryReader.read(&meshdata->vertexSizeInFloat, 4, 1) != 1 || meshdata->vertexSizeInFloat == 0)
     {
         CCLOG("warning: Failed to read meshdata: vertexSizeInFloat '%s'.", _path.c_str());
+        CC_SAFE_DELETE(meshdata);
         return false;
     }
 
@@ -552,6 +577,7 @@ bool Bundle3D::loadMeshDatasBinary_0_1(MeshDatas& meshdatas)
     if (_binaryReader.read(&meshdata->vertex[0], 4, meshdata->vertexSizeInFloat) != meshdata->vertexSizeInFloat)
     {
         CCLOG("warning: Failed to read meshdata: vertex element '%s'.", _path.c_str());
+        CC_SAFE_DELETE(meshdata);
         return false;
     }
 
@@ -563,6 +589,7 @@ bool Bundle3D::loadMeshDatasBinary_0_1(MeshDatas& meshdatas)
         if (_binaryReader.read(&nIndexCount, 4, 1) != 1)
         {
             CCLOG("warning: Failed to read meshdata: nIndexCount '%s'.", _path.c_str());
+            CC_SAFE_DELETE(meshdata);
             return false;
         }
 
@@ -571,6 +598,7 @@ bool Bundle3D::loadMeshDatasBinary_0_1(MeshDatas& meshdatas)
         if (_binaryReader.read(&indices[0], 2, nIndexCount) != nIndexCount)
         {
             CCLOG("warning: Failed to read meshdata: indices '%s'.", _path.c_str());
+            CC_SAFE_DELETE(meshdata);
             return false;
         }
 
@@ -596,6 +624,7 @@ bool Bundle3D::loadMeshDatasBinary_0_2(MeshDatas& meshdatas)
     if (_binaryReader.read(&attribSize, 4, 1) != 1 || attribSize < 1)
     {
         CCLOG("warning: Failed to read meshdata: attribCount '%s'.", _path.c_str());
+        CC_SAFE_DELETE(meshdata);
         return false;
     }
     enum
@@ -618,6 +647,7 @@ bool Bundle3D::loadMeshDatasBinary_0_2(MeshDatas& meshdatas)
         if (_binaryReader.read(&vUsage, 4, 1) != 1 || _binaryReader.read(&vSize, 4, 1) != 1)
         {
             CCLOG("warning: Failed to read meshdata: usage or size '%s'.", _path.c_str());
+            CC_SAFE_DELETE(meshdata);
             return false;
         }
 
@@ -654,6 +684,7 @@ bool Bundle3D::loadMeshDatasBinary_0_2(MeshDatas& meshdatas)
     if (_binaryReader.read(&meshdata->vertexSizeInFloat, 4, 1) != 1 || meshdata->vertexSizeInFloat == 0)
     {
         CCLOG("warning: Failed to read meshdata: vertexSizeInFloat '%s'.", _path.c_str());
+        CC_SAFE_DELETE(meshdata);
         return false;
     }
 
@@ -661,6 +692,7 @@ bool Bundle3D::loadMeshDatasBinary_0_2(MeshDatas& meshdatas)
     if (_binaryReader.read(&meshdata->vertex[0], 4, meshdata->vertexSizeInFloat) != meshdata->vertexSizeInFloat)
     {
         CCLOG("warning: Failed to read meshdata: vertex element '%s'.", _path.c_str());
+        CC_SAFE_DELETE(meshdata);
         return false;
     }
 
@@ -669,6 +701,7 @@ bool Bundle3D::loadMeshDatasBinary_0_2(MeshDatas& meshdatas)
     if (_binaryReader.read(&submeshCount, 4, 1) != 1)
     {
         CCLOG("warning: Failed to read meshdata: submeshCount '%s'.", _path.c_str());
+        CC_SAFE_DELETE(meshdata);
         return false;
     }
 
@@ -678,6 +711,7 @@ bool Bundle3D::loadMeshDatasBinary_0_2(MeshDatas& meshdatas)
         if (_binaryReader.read(&nIndexCount, 4, 1) != 1)
         {
             CCLOG("warning: Failed to read meshdata: nIndexCount '%s'.", _path.c_str());
+            CC_SAFE_DELETE(meshdata);
             return false;
         }
 
@@ -686,6 +720,7 @@ bool Bundle3D::loadMeshDatasBinary_0_2(MeshDatas& meshdatas)
         if (_binaryReader.read(&indices[0], 2, nIndexCount) != nIndexCount)
         {
             CCLOG("warning: Failed to read meshdata: indices '%s'.", _path.c_str());
+            CC_SAFE_DELETE(meshdata);
             return false;
         }
 
@@ -747,18 +782,27 @@ bool  Bundle3D::loadMeshDatasJson(MeshDatas& meshdatas)
             meshData->subMeshIndices.push_back(indexArray);
             meshData->numIndex = (int)meshData->subMeshIndices.size();
 
-            //meshData->subMeshAABB.push_back(calculateAABB(meshData->vertex, meshData->getPerVertexSize(), indexArray));
-            const rapidjson::Value& mesh_part_aabb = mesh_part[AABBS];
-            if (mesh_part.HasMember(AABBS) && mesh_part_aabb.Size() == 6)
+            if(mesh_data.HasMember(AABBS))
             {
-                Vec3 min = Vec3(mesh_part_aabb[(rapidjson::SizeType)0].GetDouble(), mesh_part_aabb[(rapidjson::SizeType)1].GetDouble(), mesh_part_aabb[(rapidjson::SizeType)2].GetDouble());
-                Vec3 max = Vec3(mesh_part_aabb[(rapidjson::SizeType)3].GetDouble(), mesh_part_aabb[(rapidjson::SizeType)4].GetDouble(), mesh_part_aabb[(rapidjson::SizeType)5].GetDouble());
-                meshData->subMeshAABB.push_back(AABB(min, max));
+                const rapidjson::Value& mesh_part_aabb = mesh_part[AABBS];
+                if (mesh_part.HasMember(AABBS) && mesh_part_aabb.Size() == 6)
+                {
+                    Vec3 min(mesh_part_aabb[(rapidjson::SizeType)0].GetDouble(),
+                             mesh_part_aabb[(rapidjson::SizeType)1].GetDouble(), mesh_part_aabb[(rapidjson::SizeType)2].GetDouble());
+                    Vec3 max(mesh_part_aabb[(rapidjson::SizeType)3].GetDouble(),
+                             mesh_part_aabb[(rapidjson::SizeType)4].GetDouble(), mesh_part_aabb[(rapidjson::SizeType)5].GetDouble());
+                    meshData->subMeshAABB.push_back(AABB(min, max));
+                }
+                else
+                {
+                    meshData->subMeshAABB.push_back(calculateAABB(meshData->vertex, meshData->getPerVertexSize(), indexArray));
+                }
             }
             else
             {
                 meshData->subMeshAABB.push_back(calculateAABB(meshData->vertex, meshData->getPerVertexSize(), indexArray));
             }
+           
         }
         meshdatas.meshDatas.push_back(meshData);
     }
@@ -815,6 +859,7 @@ bool Bundle3D::loadNodes(NodeDatas& nodedatas)
         modelnode->invBindPose = skinData.inverseBindPoseMatrices;
         node->modelNodeDatas.push_back(modelnode);
         nodedatas.nodes.push_back(node);
+        delete[] nodeDatas;
     }
     else
     {
@@ -874,9 +919,11 @@ bool Bundle3D::loadMaterialsBinary(MaterialDatas& materialdatas)
     {
         NMaterialData materialData;
         materialData.id = _binaryReader.readString();
+        
+        // skip: diffuse(3), ambient(3), emissive(3), opacity(1), specular(3), shininess(1)
         float  data[14];
         _binaryReader.read(&data,sizeof(float), 14);
-
+        
         unsigned int textruenum = 1;
         _binaryReader.read(&textruenum, 4, 1);
         for(unsigned int j = 0; j < textruenum ; j++ )
@@ -1000,8 +1047,8 @@ bool Bundle3D::loadJson(const std::string& path)
     _jsonBuffer[size] = '\0';
     if (_jsonReader.ParseInsitu<0>(_jsonBuffer).HasParseError())
     {
-        CCASSERT(false, "Parse json failed");
         clear();
+        CCASSERT(false, "Parse json failed");
         return false;
     }
 
@@ -1434,7 +1481,7 @@ bool Bundle3D::loadAnimationDataJson(const std::string& id, Animation3DData* ani
                 {
                     const rapidjson::Value&  bone_keyframe_translation =  bone_keyframe[TRANSLATION];
                     float keytime =  bone_keyframe[KEYTIME].GetDouble();
-                    Vec3 val = Vec3(bone_keyframe_translation[(rapidjson::SizeType)0].GetDouble(), bone_keyframe_translation[1].GetDouble(), bone_keyframe_translation[2].GetDouble());
+                    Vec3 val(bone_keyframe_translation[(rapidjson::SizeType)0].GetDouble(), bone_keyframe_translation[1].GetDouble(), bone_keyframe_translation[2].GetDouble());
                     animationdata->_translationKeys[bone_name].push_back(Animation3DData::Vec3Key(keytime,val));
                 }
 
@@ -1450,7 +1497,7 @@ bool Bundle3D::loadAnimationDataJson(const std::string& id, Animation3DData* ani
                 {
                     const rapidjson::Value&  bone_keyframe_scale =  bone_keyframe[SCALE];
                     float keytime =  bone_keyframe[KEYTIME].GetDouble();
-                    Vec3 val = Vec3(bone_keyframe_scale[(rapidjson::SizeType)0].GetDouble(), bone_keyframe_scale[1].GetDouble(), bone_keyframe_scale[2].GetDouble());
+                    Vec3 val(bone_keyframe_scale[(rapidjson::SizeType)0].GetDouble(), bone_keyframe_scale[1].GetDouble(), bone_keyframe_scale[2].GetDouble());
                     animationdata->_scaleKeys[bone_name].push_back(Animation3DData::Vec3Key(keytime,val));
                 }
             }
@@ -1661,6 +1708,8 @@ NodeData* Bundle3D::parseNodesRecursivelyJson(const rapidjson::Value& jvalue, bo
             if (modelnodedata->subMeshId == "" || modelnodedata->matrialId == "")
             {
                 CCLOG("warning: Node %s part is missing meshPartId or materialId", nodedata->id.c_str());
+                CC_SAFE_DELETE(modelnodedata);
+                CC_SAFE_DELETE(nodedata);
                 return nullptr;
             }
 
@@ -1676,6 +1725,8 @@ NodeData* Bundle3D::parseNodesRecursivelyJson(const rapidjson::Value& jvalue, bo
                     if (!bone.HasMember(NODE))
                     {
                         CCLOG("warning: Bone node ID missing");
+                        CC_SAFE_DELETE(modelnodedata);
+                        CC_SAFE_DELETE(nodedata);
                         return nullptr;
                     }
 
@@ -1802,6 +1853,8 @@ NodeData* Bundle3D::parseNodesRecursivelyBinary(bool& skeleton, bool singleSprit
             {
                 std::string err = "Node " + nodedata->id + " part is missing meshPartId or materialId";
                 CCLOG("Node %s part is missing meshPartId or materialId", nodedata->id.c_str());
+                CC_SAFE_DELETE(modelnodedata);
+                CC_SAFE_DELETE(nodedata);
                 return nullptr;
             }
 
@@ -1810,6 +1863,8 @@ NodeData* Bundle3D::parseNodesRecursivelyBinary(bool& skeleton, bool singleSprit
             if (_binaryReader.read(&bonesSize, 4, 1) != 1)
             {
                 CCLOG("warning: Failed to read meshdata: attribCount '%s'.", _path.c_str());
+                CC_SAFE_DELETE(modelnodedata);
+                CC_SAFE_DELETE(nodedata);
                 return nullptr;
             }
 
@@ -1823,6 +1878,8 @@ NodeData* Bundle3D::parseNodesRecursivelyBinary(bool& skeleton, bool singleSprit
                     Mat4 invbindpos;
                     if (!_binaryReader.readMatrix(invbindpos.m))
                     {
+                        CC_SAFE_DELETE(modelnodedata);
+                        CC_SAFE_DELETE(nodedata);
                         return nullptr;
                     }
 
@@ -1834,6 +1891,8 @@ NodeData* Bundle3D::parseNodesRecursivelyBinary(bool& skeleton, bool singleSprit
             if (_binaryReader.read(&uvMapping, 4, 1) != 1)
             {
                 CCLOG("warning: Failed to read nodedata: uvMapping '%s'.", _path.c_str());
+                CC_SAFE_DELETE(modelnodedata);
+                CC_SAFE_DELETE(nodedata);
                 return nullptr;
             }
             for(unsigned int j = 0; j < uvMapping; j++)
@@ -1842,6 +1901,8 @@ NodeData* Bundle3D::parseNodesRecursivelyBinary(bool& skeleton, bool singleSprit
                 if (_binaryReader.read(&textureIndexSize, 4, 1) != 1)
                 {
                     CCLOG("warning: Failed to read meshdata: attribCount '%s'.", _path.c_str());
+                    CC_SAFE_DELETE(modelnodedata);
+                    CC_SAFE_DELETE(nodedata);
                     return nullptr;
                 }
                 for(unsigned int k = 0; k < textureIndexSize; k++)
@@ -1849,6 +1910,8 @@ NodeData* Bundle3D::parseNodesRecursivelyBinary(bool& skeleton, bool singleSprit
                     unsigned int index=0;
                     if (_binaryReader.read(&index, 4, 1) != 1)
                     {
+                        CC_SAFE_DELETE(modelnodedata);
+                        CC_SAFE_DELETE(nodedata);
                         return nullptr;
                     }
                 }
@@ -1878,6 +1941,7 @@ NodeData* Bundle3D::parseNodesRecursivelyBinary(bool& skeleton, bool singleSprit
     if (_binaryReader.read(&childrenSize, 4, 1) != 1)
     {
         CCLOG("warning: Failed to read meshdata: attribCount '%s'.", _path.c_str());
+        CC_SAFE_DELETE(nodedata);
         return nullptr;
     }
     if (childrenSize > 0)
@@ -2078,15 +2142,60 @@ Reference* Bundle3D::seekToFirstType(unsigned int type, const std::string& id)
     return nullptr;
 }
 
+std::vector<Vec3> Bundle3D::getTrianglesList(const std::string& path)
+{
+    std::vector<Vec3> trianglesList;
+    
+    if (path.length() <= 4)
+        return trianglesList;
+    
+    auto bundle = Bundle3D::createBundle();
+    std::string ext = FileUtils::getInstance()->getFileExtension(path);
+    MeshDatas meshs;
+    if (ext == ".obj")
+    {
+        MaterialDatas materials;
+        NodeDatas nodes;
+        if (!Bundle3D::loadObj(meshs, materials, nodes, path))
+        {
+            Bundle3D::destroyBundle(bundle);
+            return trianglesList;
+        }
+    }
+    else
+    {
+        if (!bundle->load(path))
+        {
+            Bundle3D::destroyBundle(bundle);
+            return trianglesList;
+        }
+        
+        bundle->loadMeshDatas(meshs);
+        
+    }
+    
+    Bundle3D::destroyBundle(bundle);
+    for (auto iter : meshs.meshDatas){
+        int preVertexSize = iter->getPerVertexSize() / sizeof(float);
+        for (auto indexArray : iter->subMeshIndices){
+            for (auto i : indexArray){
+                trianglesList.push_back(Vec3(iter->vertex[i * preVertexSize], iter->vertex[i * preVertexSize + 1], iter->vertex[i * preVertexSize + 2]));
+            }
+        }
+    }
+    
+    return trianglesList;
+}
+
 Bundle3D::Bundle3D()
-    : _modelPath(""),
-    _path(""),
-    _version(""),
-    _jsonBuffer(nullptr),
-    _binaryBuffer(nullptr),
-    _referenceCount(0),
-    _references(nullptr),
-    _isBinary(false)
+: _modelPath(""),
+_path(""),
+_version(""),
+_jsonBuffer(nullptr),
+_binaryBuffer(nullptr),
+_referenceCount(0),
+_references(nullptr),
+_isBinary(false)
 {
 
 }
@@ -2100,11 +2209,11 @@ cocos2d::AABB Bundle3D::calculateAABB( const std::vector<float>& vertex, int str
 {
     AABB aabb;
     stride /= 4;
-    for(const auto& it : index)
-        {
-            Vec3 point = Vec3(vertex[it * stride ], vertex[ it * stride + 1], vertex[it * stride + 2 ]);
-            aabb.updateMinMax(&point, 1);
-        }
+    for (const auto& it : index)
+    {
+        Vec3 point(vertex[it * stride], vertex[it * stride + 1], vertex[it * stride + 2]);
+        aabb.updateMinMax(&point, 1);
+    }
     return aabb;
 }
 

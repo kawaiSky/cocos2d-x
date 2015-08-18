@@ -19,7 +19,7 @@
 -- return The font size.
 -- @function [parent=#Text] getFontSize 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return float#float ret (return value: float)
         
 --------------------------------
 -- 
@@ -28,11 +28,13 @@
 -- @return string#string ret (return value: string)
         
 --------------------------------
---  Disable shadow/outline/glow rendering.
--- @function [parent=#Text] disableEffect 
+-- @overload self, int         
+-- @overload self         
+-- @function [parent=#Text] disableEffect
 -- @param self
+-- @param #int effect
 -- @return Text#Text self (return value: ccui.Text)
-        
+
 --------------------------------
 --  Gets text color.<br>
 -- return Text color.
@@ -52,9 +54,15 @@
 -- Sets the font name of label.<br>
 -- If you are trying to use a system font, you could just pass a font name<br>
 -- If you are trying to use a TTF, you should pass a file path to the TTF file<br>
--- Usage:  Text *text = Text::create("Hello", "Arial", 20);create a system font UIText<br>
--- text->setFontName("Marfelt"); it will change the font  to  system font no matter the previous font type is TTF or system font<br>
--- text->setFontName("xxxx/xxx.ttf");it will change the font  to TTF font no matter the previous font type is TTF or system font<br>
+-- Usage:<br>
+-- code<br>
+-- create a system font UIText<br>
+-- Text *text = Text::create("Hello", "Arial", 20);<br>
+-- it will change the font to system font no matter the previous font type is TTF or system font<br>
+-- text->setFontName("Marfelt");<br>
+-- it will change the font to TTF font no matter the previous font type is TTF or system font<br>
+-- text->setFontName("xxxx/xxx.ttf");<br>
+-- endcode<br>
 -- param name Font name.
 -- @function [parent=#Text] setFontName 
 -- @param self
@@ -75,6 +83,15 @@
 -- @param self
 -- @param #string text
 -- @return Text#Text self (return value: ccui.Text)
+        
+--------------------------------
+-- 
+-- @function [parent=#Text] init 
+-- @param self
+-- @param #string textContent
+-- @param #string fontName
+-- @param #float fontSize
+-- @return bool#bool ret (return value: bool)
         
 --------------------------------
 -- Gets the touch scale enabled of label.<br>
@@ -103,7 +120,8 @@
 --------------------------------
 -- Gets the string length of the label.<br>
 -- Note: This length will be larger than the raw string length,<br>
--- if you want to get the raw string length, you should call this->getString().size() instead.<br>
+-- if you want to get the raw string length,<br>
+-- you should call this->getString().size() instead.<br>
 -- return  String length.
 -- @function [parent=#Text] getStringLength 
 -- @param self
@@ -146,7 +164,7 @@
 -- param size The font size.
 -- @function [parent=#Text] setFontSize 
 -- @param self
--- @param #int size
+-- @param #float size
 -- @return Text#Text self (return value: ccui.Text)
         
 --------------------------------
@@ -188,13 +206,13 @@
 -- @return Text#Text self (return value: ccui.Text)
         
 --------------------------------
--- @overload self, string, string, int         
+-- @overload self, string, string, float         
 -- @overload self         
 -- @function [parent=#Text] create
 -- @param self
 -- @param #string textContent
 -- @param #string fontName
--- @param #int fontSize
+-- @param #float fontSize
 -- @return Text#Text ret (return value: ccui.Text)
 
 --------------------------------
@@ -210,6 +228,12 @@
 -- @return Node#Node ret (return value: cc.Node)
         
 --------------------------------
+-- 
+-- @function [parent=#Text] init 
+-- @param self
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
 -- Returns the "class name" of widget.
 -- @function [parent=#Text] getDescription 
 -- @param self
@@ -222,7 +246,9 @@
 -- @return size_table#size_table ret (return value: size_table)
         
 --------------------------------
--- Default constructor.
+-- Default constructor.<br>
+-- js ctor<br>
+-- lua new
 -- @function [parent=#Text] Text 
 -- @param self
 -- @return Text#Text self (return value: ccui.Text)

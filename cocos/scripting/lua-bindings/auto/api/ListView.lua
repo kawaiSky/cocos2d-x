@@ -180,8 +180,8 @@
         
 --------------------------------
 -- Changes scroll direction of scrollview.<br>
--- Direction Direction::VERTICAL means vertical scroll, Direction::HORIZONTAL means horizontal scroll<br>
--- param dir, set the list view's scroll direction
+-- Direction Direction::VERTICAL means vertical scroll, Direction::HORIZONTAL means horizontal scroll.<br>
+-- param dir Set the list view's scroll direction.
 -- @function [parent=#ListView] setDirection 
 -- @param self
 -- @param #int dir
@@ -215,7 +215,15 @@
 -- @return ListView#ListView self (return value: ccui.ListView)
         
 --------------------------------
--- Default constructor
+-- 
+-- @function [parent=#ListView] init 
+-- @param self
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
+-- Default constructor<br>
+-- js ctor<br>
+-- lua new
 -- @function [parent=#ListView] ListView 
 -- @param self
 -- @return ListView#ListView self (return value: ccui.ListView)

@@ -32,12 +32,15 @@ THE SOFTWARE.
 #include "base/CCRef.h"
 #include "base/CCValue.h"
 #include "platform/CCGL.h"
+#include "3d/CCAnimate3D.h"
 
 /**
  * @addtogroup base
  * @{
  */
 NS_CC_BEGIN
+
+class EventCustom;
 
 /** @class Configuration
  * @brief Configuration contains some openGL variables
@@ -164,6 +167,9 @@ public:
      */
     int getMaxSupportSpotLightInShader() const;
 
+    /** get 3d animate quality*/
+    Animate3DQuality getAnimate3DQuality() const;
+    
     /** Returns whether or not an OpenGL is supported. 
      *
      * @param searchName A given search name.
@@ -207,6 +213,8 @@ public:
      * @param filename Config file name.
      */
 	void loadConfigFile(const std::string& filename);
+    
+    static const char* CONFIG_FILE_LOADED;
 
 private:
     Configuration(void);
@@ -230,8 +238,11 @@ protected:
     int             _maxDirLightInShader; //max support directional light in shader
     int             _maxPointLightInShader; // max support point light in shader
     int             _maxSpotLightInShader; // max support spot light in shader
+    Animate3DQuality  _animate3DQuality; // animate 3d quality
 	
 	ValueMap        _valueDict;
+    
+    EventCustom*    _loadedEvent;
 };
 
 

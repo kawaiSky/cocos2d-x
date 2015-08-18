@@ -37,7 +37,8 @@
 --------------------------------
 -- brief Toggle 9-slice feature.<br>
 -- If Scale9Sprite is 9-slice disabled, the Scale9Sprite will rendered as a normal sprite.<br>
--- param enabled True to enable 9-slice, false otherwise.
+-- param enabled True to enable 9-slice, false otherwise.<br>
+-- js NA
 -- @function [parent=#Scale9Sprite] setScale9Enabled 
 -- @param self
 -- @param #bool enabled
@@ -76,6 +77,14 @@
 -- @function [parent=#Scale9Sprite] disableCascadeOpacity 
 -- @param self
 -- @return Scale9Sprite#Scale9Sprite self (return value: ccui.Scale9Sprite)
+        
+--------------------------------
+-- Query the current bright state.<br>
+-- return @see `State`<br>
+-- since v3.7
+-- @function [parent=#Scale9Sprite] getState 
+-- @param self
+-- @return int#int ret (return value: int)
         
 --------------------------------
 -- Change the state of 9-slice sprite.<br>
@@ -120,9 +129,8 @@
 -- @return Scale9Sprite#Scale9Sprite self (return value: ccui.Scale9Sprite)
         
 --------------------------------
--- @overload self, cc.Sprite, rect_table, bool, rect_table         
--- @overload self         
 -- @overload self, cc.Sprite, rect_table, rect_table         
+-- @overload self, cc.Sprite, rect_table, bool, rect_table         
 -- @overload self, cc.Sprite, rect_table, bool, vec2_table, size_table, rect_table         
 -- @function [parent=#Scale9Sprite] init
 -- @param self
@@ -177,7 +185,8 @@
         
 --------------------------------
 -- brief Query whether the Scale9Sprite is enable 9-slice or not.<br>
--- return True if 9-slice is enabled, false otherwise.
+-- return True if 9-slice is enabled, false otherwise.<br>
+-- js NA
 -- @function [parent=#Scale9Sprite] isScale9Enabled 
 -- @param self
 -- @return bool#bool ret (return value: bool)
@@ -356,11 +365,9 @@
         
 --------------------------------
 -- 
--- @function [parent=#Scale9Sprite] setCameraMask 
+-- @function [parent=#Scale9Sprite] init 
 -- @param self
--- @param #unsigned short mask
--- @param #bool applyChildren
--- @return Scale9Sprite#Scale9Sprite self (return value: ccui.Scale9Sprite)
+-- @return bool#bool ret (return value: bool)
         
 --------------------------------
 -- 
@@ -377,6 +384,14 @@
 -- @param #float scaleY
 -- @return Scale9Sprite#Scale9Sprite self (return value: ccui.Scale9Sprite)
 
+--------------------------------
+-- 
+-- @function [parent=#Scale9Sprite] setCameraMask 
+-- @param self
+-- @param #unsigned short mask
+-- @param #bool applyChildren
+-- @return Scale9Sprite#Scale9Sprite self (return value: ccui.Scale9Sprite)
+        
 --------------------------------
 -- 
 -- @function [parent=#Scale9Sprite] updateDisplayedColor 
@@ -399,7 +414,8 @@
         
 --------------------------------
 -- Default constructor.<br>
--- js ctor
+-- js ctor<br>
+-- lua new
 -- @function [parent=#Scale9Sprite] Scale9Sprite 
 -- @param self
 -- @return Scale9Sprite#Scale9Sprite self (return value: ccui.Scale9Sprite)

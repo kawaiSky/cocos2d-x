@@ -107,7 +107,7 @@
 -- @return ProtectedNode#ProtectedNode self (return value: cc.ProtectedNode)
         
 --------------------------------
--- / @} end of Children and Parent
+-- js NA
 -- @function [parent=#ProtectedNode] visit 
 -- @param self
 -- @param #cc.Renderer renderer
@@ -132,6 +132,12 @@
 --------------------------------
 -- 
 -- @function [parent=#ProtectedNode] cleanup 
+-- @param self
+-- @return ProtectedNode#ProtectedNode self (return value: cc.ProtectedNode)
+        
+--------------------------------
+-- 
+-- @function [parent=#ProtectedNode] ProtectedNode 
 -- @param self
 -- @return ProtectedNode#ProtectedNode self (return value: cc.ProtectedNode)
         

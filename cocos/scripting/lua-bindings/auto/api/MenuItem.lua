@@ -48,9 +48,15 @@
 -- @return rect_table#rect_table ret (return value: rect_table)
         
 --------------------------------
--- 
+-- js NA
 -- @function [parent=#MenuItem] getDescription 
 -- @param self
 -- @return string#string ret (return value: string)
+        
+--------------------------------
+-- js ctor
+-- @function [parent=#MenuItem] MenuItem 
+-- @param self
+-- @return MenuItem#MenuItem self (return value: cc.MenuItem)
         
 return nil

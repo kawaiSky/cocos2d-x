@@ -136,8 +136,7 @@ protected:
         float         weight;
         void*         tag; //
         BoneBlendState()
-        : localTranslate(Vec3::ZERO)
-        , localRot(Quaternion::identity())
+        : localRot(Quaternion::identity())
         , localScale(Vec3::ONE)
         , weight(1.f)
         , tag(nullptr)
@@ -234,7 +233,7 @@ protected:
     Vector<Bone3D*> _rootBones;
 };
 
-// end of actions group
+// end of 3d group
 /// @}
 
 NS_CC_END

@@ -15,11 +15,19 @@
 -- @return ImageView#ImageView self (return value: ccui.ImageView)
         
 --------------------------------
+-- 
+-- @function [parent=#ImageView] init 
+-- @param self
+-- @param #string imageFileName
+-- @param #int texType
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
 -- Enable scale9 renderer.<br>
--- param enable Set to true will use scale9 renderer, false otherwise.
+-- param enabled Set to true will use scale9 renderer, false otherwise.
 -- @function [parent=#ImageView] setScale9Enabled 
 -- @param self
--- @param #bool able
+-- @param #bool enabled
 -- @return ImageView#ImageView self (return value: ccui.ImageView)
         
 --------------------------------
@@ -77,6 +85,12 @@
         
 --------------------------------
 -- 
+-- @function [parent=#ImageView] init 
+-- @param self
+-- @return bool#bool ret (return value: bool)
+        
+--------------------------------
+-- 
 -- @function [parent=#ImageView] getDescription 
 -- @param self
 -- @return string#string ret (return value: string)
@@ -95,7 +109,9 @@
 -- @return ImageView#ImageView self (return value: ccui.ImageView)
         
 --------------------------------
--- Default constructor
+-- Default constructor<br>
+-- js ctor<br>
+-- lua new
 -- @function [parent=#ImageView] ImageView 
 -- @param self
 -- @return ImageView#ImageView self (return value: ccui.ImageView)
