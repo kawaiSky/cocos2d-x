@@ -10,6 +10,5 @@
 -- @param self
 -- @param #int keyCode
 -- @param #bool isPressed
--- @return EventKeyboard#EventKeyboard self (return value: cc.EventKeyboard)
         
 return nil

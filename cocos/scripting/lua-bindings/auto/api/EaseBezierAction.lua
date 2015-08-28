@@ -12,7 +12,6 @@
 -- @param #float p1
 -- @param #float p2
 -- @param #float p3
--- @return EaseBezierAction#EaseBezierAction self (return value: cc.EaseBezierAction)
         
 --------------------------------
 --  creates the action 
@@ -32,7 +31,6 @@
 -- @function [parent=#EaseBezierAction] update 
 -- @param self
 -- @param #float time
--- @return EaseBezierAction#EaseBezierAction self (return value: cc.EaseBezierAction)
         
 --------------------------------
 -- 

@@ -13,7 +13,6 @@
 -- @function [parent=#EventListener] setEnabled 
 -- @param self
 -- @param #bool enabled
--- @return EventListener#EventListener self (return value: cc.EventListener)
         
 --------------------------------
 --  Clones the listener, its subclasses have to override this method. 

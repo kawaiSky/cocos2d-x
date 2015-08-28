@@ -9,14 +9,12 @@
 -- @function [parent=#FadeOutTRTiles] turnOnTile 
 -- @param self
 -- @param #vec2_table pos
--- @return FadeOutTRTiles#FadeOutTRTiles self (return value: cc.FadeOutTRTiles)
         
 --------------------------------
 -- 
 -- @function [parent=#FadeOutTRTiles] turnOffTile 
 -- @param self
 -- @param #vec2_table pos
--- @return FadeOutTRTiles#FadeOutTRTiles self (return value: cc.FadeOutTRTiles)
         
 --------------------------------
 -- 
@@ -24,7 +22,6 @@
 -- @param self
 -- @param #vec2_table pos
 -- @param #float distance
--- @return FadeOutTRTiles#FadeOutTRTiles self (return value: cc.FadeOutTRTiles)
         
 --------------------------------
 -- 
@@ -53,6 +50,5 @@
 -- @function [parent=#FadeOutTRTiles] update 
 -- @param self
 -- @param #float time
--- @return FadeOutTRTiles#FadeOutTRTiles self (return value: cc.FadeOutTRTiles)
         
 return nil

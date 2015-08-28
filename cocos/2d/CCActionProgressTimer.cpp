@@ -25,6 +25,7 @@ THE SOFTWARE.
 ****************************************************************************/
 #include "2d/CCActionProgressTimer.h"
 #include "2d/CCProgressTimer.h"
+#include "ui/UILoadingBar.h"
 
 NS_CC_BEGIN
 
@@ -126,6 +127,55 @@ void ProgressFromTo::startWithTarget(Node *target)
 void ProgressFromTo::update(float time)
 {
     ((kProgressTimerCast)(_target))->setPercentage(_from + (_to - _from) * time);
+}
+
+// implementation of ProgressLoadingBarFromTo
+
+ProgressLoadingBarFromTo* ProgressLoadingBarFromTo::create(float duration, float fromPercentage, float toPercentage)
+{
+    ProgressLoadingBarFromTo *progressFromTo = new (std::nothrow) ProgressLoadingBarFromTo();
+    progressFromTo->initWithDuration(duration, fromPercentage, toPercentage);
+    progressFromTo->autorelease();
+    
+    return progressFromTo;
+}
+
+bool ProgressLoadingBarFromTo::initWithDuration(float duration, float fromPercentage, float toPercentage)
+{
+    if (ActionInterval::initWithDuration(duration))
+    {
+        _to = toPercentage;
+        _from = fromPercentage;
+        
+        return true;
+    }
+    
+    return false;
+}
+
+ProgressLoadingBarFromTo* ProgressLoadingBarFromTo::clone() const
+{
+    // no copy constructor
+    auto a = new (std::nothrow) ProgressLoadingBarFromTo();
+    a->initWithDuration(_duration, _from, _to);
+    a->autorelease();
+    return a;
+}
+
+
+ProgressLoadingBarFromTo* ProgressLoadingBarFromTo::reverse() const
+{
+    return ProgressLoadingBarFromTo::create(_duration, _to, _from);
+}
+
+void ProgressLoadingBarFromTo::startWithTarget(Node *target)
+{
+    ActionInterval::startWithTarget(target);
+}
+
+void ProgressLoadingBarFromTo::update(float time)
+{
+    (static_cast<cocos2d::ui::LoadingBar*>(_target))->setPercent(_from + (_to - _from) * time);
 }
 
 NS_CC_END

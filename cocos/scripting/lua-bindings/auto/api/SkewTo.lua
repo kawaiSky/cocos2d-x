@@ -18,7 +18,6 @@
 -- @function [parent=#SkewTo] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return SkewTo#SkewTo self (return value: cc.SkewTo)
         
 --------------------------------
 -- 
@@ -37,6 +36,5 @@
 -- @function [parent=#SkewTo] update 
 -- @param self
 -- @param #float time
--- @return SkewTo#SkewTo self (return value: cc.SkewTo)
         
 return nil

@@ -22,7 +22,6 @@
 -- @function [parent=#DelayTime] update 
 -- @param self
 -- @param #float time
--- @return DelayTime#DelayTime self (return value: cc.DelayTime)
         
 --------------------------------
 -- 

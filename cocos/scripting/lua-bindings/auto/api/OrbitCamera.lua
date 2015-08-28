@@ -22,7 +22,6 @@
 -- @function [parent=#OrbitCamera] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return OrbitCamera#OrbitCamera self (return value: cc.OrbitCamera)
         
 --------------------------------
 -- 
@@ -35,6 +34,5 @@
 -- @function [parent=#OrbitCamera] update 
 -- @param self
 -- @param #float time
--- @return OrbitCamera#OrbitCamera self (return value: cc.OrbitCamera)
         
 return nil

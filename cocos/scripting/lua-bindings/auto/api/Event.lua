@@ -36,12 +36,10 @@
 -- @function [parent=#Event] setResult 
 -- @param self
 -- @param #string result
--- @return Event#Event self (return value: cc.Event)
         
 --------------------------------
 --  Stops propagation for current event 
 -- @function [parent=#Event] stopPropagation 
 -- @param self
--- @return Event#Event self (return value: cc.Event)
         
 return nil

@@ -18,7 +18,6 @@
 -- @function [parent=#SkewBy] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return SkewBy#SkewBy self (return value: cc.SkewBy)
         
 --------------------------------
 -- 

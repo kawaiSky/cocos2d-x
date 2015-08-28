@@ -958,6 +958,37 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(TintBy);
 };
 
+class CC_DLL ProgressLabelTo : public ActionInterval
+{
+public:
+    static ProgressLabelTo* create(float time,float to);
+    static ProgressLabelTo* createWithFrom(float time,float from, float to);
+    
+    static ProgressLabelTo* createWithFromAndFix(float time,float from, float to,int fixed);
+    void setFromLabel(bool fromLabel);
+    void setFiexd(int fiexd);
+    bool initWithDuration(float duration, float from,float to);
+    //
+    // Overrides
+    //
+    virtual void startWithTarget(Node *target) override;
+    virtual void update(float time) override;
+    virtual ProgressLabelTo* reverse() const override;
+    virtual ProgressLabelTo* clone() const override;
+    
+CC_CONSTRUCTOR_ACCESS:
+    ProgressLabelTo():_fiexd(0){};
+    virtual ~ProgressLabelTo() {}
+    
+private:
+    CC_DISALLOW_COPY_AND_ASSIGN(ProgressLabelTo);
+    float _from;
+    float _to;
+    bool _fromLabel;
+    int _fiexd;
+};
+
+
 /** @brief Delays the action a certain amount of seconds
 */
 class CC_DLL DelayTime : public ActionInterval

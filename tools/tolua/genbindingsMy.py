@@ -133,11 +133,13 @@ def main():
         tolua_root = '%s/tools/tolua' % project_root
         output_dir = '%s/cocos/scripting/lua-bindings/auto' % project_root
 
-        cmd_args = {'chili_sharesdk.ini' : ('chili_shareSDK', 'chili_sharesdk_auto'), \
-                    'chili_webSprite.ini' : ('chili_webSprite', 'chili_webSprite_auto'), \
-                    'cocos2dx_zip.ini' : ('cocos2dx_zip', 'cocos2dx_zip_auto'), \
-                    'cocos2dx_experimental_webview.ini' : ('cocos2dx_experimental_webview', 'cocos2dx_experimental_webview_auto'), \
-                    'chili_effect.ini' : ('chili_effect', 'chili_effect_auto'), \
+        cmd_args = {'cocos2dx.ini' : ('cocos2d-x', 'lua_cocos2dx_auto'), \
+                    #'chili_sharesdk.ini' : ('chili_shareSDK', 'chili_sharesdk_auto'), \
+                    #'chili_webSprite.ini' : ('chili_webSprite', 'chili_webSprite_auto'), \
+                    #'cocos2dx_zip.ini' : ('cocos2dx_zip', 'cocos2dx_zip_auto'), \
+                    #'cocos2dx_experimental_webview.ini' : ('cocos2dx_experimental_webview', 'cocos2dx_experimental_webview_auto'), \
+                    #'chili_effect.ini' : ('chili_effect', 'chili_effect_auto'), \
+                    #'dragonbones.ini' : ('dragonbones', 'lua_dragonbones_auto'), \
                     #'cocos2dx_extension.ini' : ('cocos2dx_extension', 'lua_cocos2dx_extension_auto'), \
                     #'cocos2dx_ui.ini' : ('cocos2dx_ui', 'lua_cocos2dx_ui_auto'), \
                     #'cocos2dx_studio.ini' : ('cocos2dx_studio', 'lua_cocos2dx_studio_auto'), \

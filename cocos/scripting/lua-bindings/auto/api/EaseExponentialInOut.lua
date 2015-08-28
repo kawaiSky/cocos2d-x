@@ -22,7 +22,6 @@
 -- @function [parent=#EaseExponentialInOut] update 
 -- @param self
 -- @param #float time
--- @return EaseExponentialInOut#EaseExponentialInOut self (return value: cc.EaseExponentialInOut)
         
 --------------------------------
 -- 

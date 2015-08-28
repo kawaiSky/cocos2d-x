@@ -8,7 +8,6 @@
 --  executes the callback 
 -- @function [parent=#CallFunc] execute 
 -- @param self
--- @return CallFunc#CallFunc self (return value: cc.CallFunc)
         
 --------------------------------
 -- 
@@ -21,7 +20,6 @@
 -- @function [parent=#CallFunc] setTargetCallback 
 -- @param self
 -- @param #cc.Ref sel
--- @return CallFunc#CallFunc self (return value: cc.CallFunc)
         
 --------------------------------
 -- 
@@ -34,7 +32,6 @@
 -- @function [parent=#CallFunc] update 
 -- @param self
 -- @param #float time
--- @return CallFunc#CallFunc self (return value: cc.CallFunc)
         
 --------------------------------
 -- 

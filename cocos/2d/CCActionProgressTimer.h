@@ -104,6 +104,42 @@ private:
 // end of actions group
 /// @}
 
+/**
+ @brief Progress from a percentage to another percentage
+ @since v0.99.1
+ */
+class CC_DLL ProgressLoadingBarFromTo : public ActionInterval
+{
+public:
+    /** Creates and initializes the action with a duration, a "from" percentage and a "to" percentage */
+    static ProgressLoadingBarFromTo* create(float duration, float fromPercentage, float toPercentage);
+    
+    //
+    // Overrides
+    //
+    virtual ProgressLoadingBarFromTo* clone() const override;
+    virtual ProgressLoadingBarFromTo* reverse() const override;
+    virtual void startWithTarget(Node *target) override;
+    virtual void update(float time) override;
+    
+CC_CONSTRUCTOR_ACCESS:
+    ProgressLoadingBarFromTo() {}
+    virtual ~ProgressLoadingBarFromTo() {}
+    
+    /** Initializes the action with a duration, a "from" percentage and a "to" percentage */
+    bool initWithDuration(float duration, float fromPercentage, float toPercentage);
+    
+protected:
+    float _to;
+    float _from;
+    
+private:
+    CC_DISALLOW_COPY_AND_ASSIGN(ProgressLoadingBarFromTo);
+};
+
+// end of actions group
+/// @}
+
 NS_CC_END
 
 #endif // __ACTION_CCPROGRESS_TIMER_H__

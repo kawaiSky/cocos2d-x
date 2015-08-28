@@ -15,7 +15,6 @@
 -- todo support blur for shadow effect
 -- @function [parent=#Label] enableShadow 
 -- @param self
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 --  Sets the untransformed size of the label in a more efficient way. 
@@ -23,7 +22,6 @@
 -- @param self
 -- @param #unsigned int width
 -- @param #unsigned int height
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -41,7 +39,6 @@
 --  disable shadow/outline/glow rendering 
 -- @function [parent=#Label] disableEffect 
 -- @param self
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 --  set TTF configuration for Label 
@@ -65,7 +62,6 @@
 -- @function [parent=#Label] setWidth 
 -- @param self
 -- @param #unsigned int width
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -84,7 +80,6 @@
 -- @function [parent=#Label] setClipMarginEnabled 
 -- @param self
 -- @param #bool clipEnabled
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 --  changes the string to render<br>
@@ -92,14 +87,12 @@
 -- @function [parent=#Label] setString 
 -- @param self
 -- @param #string text
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
 -- @function [parent=#Label] setSystemFontName 
 -- @param self
 -- @param #string systemFont
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -122,20 +115,17 @@
 -- @function [parent=#Label] setLineHeight 
 -- @param self
 -- @param #float height
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
 -- @function [parent=#Label] setSystemFontSize 
 -- @param self
 -- @param #float fontSize
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 --  update content immediately.
 -- @function [parent=#Label] updateContent 
 -- @param self
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -148,7 +138,6 @@
 -- @function [parent=#Label] setLineBreakWithoutSpace 
 -- @param self
 -- @param #bool breakWithoutSpace
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -162,7 +151,6 @@
 -- @param self
 -- @param #color4b_table outlineColor
 -- @param #int outlineSize
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 --  Returns the additional kerning of this label<br>
@@ -197,7 +185,6 @@
 -- @function [parent=#Label] setMaxLineWidth 
 -- @param self
 -- @param #unsigned int maxLineWidth
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -210,7 +197,6 @@
 -- @function [parent=#Label] setVerticalAlignment 
 -- @param self
 -- @param #int vAlignment
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 --  Returns the line height of this label<br>
@@ -238,7 +224,6 @@
 -- @function [parent=#Label] setTextColor 
 -- @param self
 -- @param #color4b_table color
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 --  Sets the untransformed size of the label.<br>
@@ -247,7 +232,6 @@
 -- @function [parent=#Label] setHeight 
 -- @param self
 -- @param #unsigned int height
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -260,7 +244,6 @@
 -- @function [parent=#Label] enableGlow 
 -- @param self
 -- @param #color4b_table glowColor
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -276,7 +259,6 @@
 -- @function [parent=#Label] setAdditionalKerning 
 -- @param self
 -- @param #float space
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -301,7 +283,6 @@
 -- @function [parent=#Label] setHorizontalAlignment 
 -- @param self
 -- @param #int hAlignment
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- @overload self, int, int         
@@ -310,13 +291,11 @@
 -- @param self
 -- @param #int hAlignment
 -- @param #int vAlignment
--- @return Label#Label self (return value: cc.Label)
 
 --------------------------------
 -- 
 -- @function [parent=#Label] requestSystemFontRefresh 
 -- @param self
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -367,7 +346,6 @@
 -- @param #cc.Renderer renderer
 -- @param #mat4_table transform
 -- @param #unsigned int flags
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -376,21 +354,18 @@
 -- @param #cc.Node child
 -- @param #int zOrder
 -- @param #int tag
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
 -- @function [parent=#Label] setScaleY 
 -- @param self
 -- @param #float scaleY
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
 -- @function [parent=#Label] setScaleX 
 -- @param self
 -- @param #float scaleX
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -409,7 +384,6 @@
 -- @function [parent=#Label] setBlendFunc 
 -- @param self
 -- @param #cc.BlendFunc blendFunc
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -418,7 +392,6 @@
 -- @param #cc.Renderer renderer
 -- @param #mat4_table parentTransform
 -- @param #unsigned int parentFlags
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -437,27 +410,23 @@
 -- @function [parent=#Label] setOpacityModifyRGB 
 -- @param self
 -- @param #bool isOpacityModifyRGB
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
 -- @function [parent=#Label] setScale 
 -- @param self
 -- @param #float scale
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
 -- @function [parent=#Label] sortAllChildren 
 -- @param self
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
 -- @function [parent=#Label] updateDisplayedOpacity 
 -- @param self
 -- @param #unsigned char parentOpacity
--- @return Label#Label self (return value: cc.Label)
         
 --------------------------------
 -- 
@@ -476,6 +445,5 @@
 -- @function [parent=#Label] updateDisplayedColor 
 -- @param self
 -- @param #color3b_table parentColor
--- @return Label#Label self (return value: cc.Label)
         
 return nil

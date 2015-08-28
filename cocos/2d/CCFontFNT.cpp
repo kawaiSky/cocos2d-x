@@ -743,10 +743,10 @@ int  FontFNT::getHorizontalKerningForChars(unsigned short firstChar, unsigned sh
         HASH_FIND_INT(_configuration->_kerningDictionary, &key, element);
         
         if (element)
-            ret = element->amount;
+            ret = element->amount + _configuration->_padding.right;
     }
     
-    return ret;
+    return ret + _configuration->_padding.right;
 }
 
 FontAtlas * FontFNT::createFontAtlas()

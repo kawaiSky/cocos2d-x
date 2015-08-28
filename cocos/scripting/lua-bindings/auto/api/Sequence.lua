@@ -9,7 +9,6 @@
 -- @function [parent=#Sequence] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return Sequence#Sequence self (return value: cc.Sequence)
         
 --------------------------------
 -- 
@@ -21,7 +20,6 @@
 -- 
 -- @function [parent=#Sequence] stop 
 -- @param self
--- @return Sequence#Sequence self (return value: cc.Sequence)
         
 --------------------------------
 -- 
@@ -34,6 +32,5 @@
 -- @function [parent=#Sequence] update 
 -- @param self
 -- @param #float t
--- @return Sequence#Sequence self (return value: cc.Sequence)
         
 return nil

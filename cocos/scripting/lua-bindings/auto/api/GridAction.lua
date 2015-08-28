@@ -15,7 +15,6 @@
 -- @function [parent=#GridAction] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return GridAction#GridAction self (return value: cc.GridAction)
         
 --------------------------------
 -- 

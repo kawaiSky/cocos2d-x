@@ -9,7 +9,6 @@
 -- @function [parent=#Follow] setBoundarySet 
 -- @param self
 -- @param #bool value
--- @return Follow#Follow self (return value: cc.Follow)
         
 --------------------------------
 -- 
@@ -33,7 +32,6 @@
 -- @function [parent=#Follow] step 
 -- @param self
 -- @param #float dt
--- @return Follow#Follow self (return value: cc.Follow)
         
 --------------------------------
 -- 
@@ -45,7 +43,6 @@
 -- 
 -- @function [parent=#Follow] stop 
 -- @param self
--- @return Follow#Follow self (return value: cc.Follow)
         
 --------------------------------
 -- 

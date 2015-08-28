@@ -71,7 +71,7 @@
     if (ConfigParser::getInstance()->isLanscape()) {
         return UIInterfaceOrientationMaskLandscape;
     }else{
-        return UIInterfaceOrientationMaskPortraitUpsideDown;
+        return UIInterfaceOrientationMaskPortrait;
     }
 #endif
 }

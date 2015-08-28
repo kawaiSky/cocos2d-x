@@ -80,6 +80,7 @@ class XXTEA {
      * @return bool  true on success, PEAR_Error on failure
      */
     function setKey($key) {
+       
         if (is_string($key)) {
             $k = $this->_str2long($key, false);
         } elseif (is_array($key)) {

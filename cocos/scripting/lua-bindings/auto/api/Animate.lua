@@ -16,7 +16,6 @@
 -- @function [parent=#Animate] setAnimation 
 -- @param self
 -- @param #cc.Animation animation
--- @return Animate#Animate self (return value: cc.Animate)
         
 --------------------------------
 --  creates the action with an Animation and will restore the original frame when the animation is over 
@@ -30,7 +29,6 @@
 -- @function [parent=#Animate] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return Animate#Animate self (return value: cc.Animate)
         
 --------------------------------
 -- 
@@ -42,7 +40,6 @@
 -- 
 -- @function [parent=#Animate] stop 
 -- @param self
--- @return Animate#Animate self (return value: cc.Animate)
         
 --------------------------------
 -- 
@@ -55,6 +52,5 @@
 -- @function [parent=#Animate] update 
 -- @param self
 -- @param #float t
--- @return Animate#Animate self (return value: cc.Animate)
         
 return nil

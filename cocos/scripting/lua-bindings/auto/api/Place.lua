@@ -22,7 +22,6 @@
 -- @function [parent=#Place] update 
 -- @param self
 -- @param #float time
--- @return Place#Place self (return value: cc.Place)
         
 --------------------------------
 -- 

@@ -22,7 +22,6 @@
 -- @function [parent=#EaseBounceInOut] update 
 -- @param self
 -- @param #float time
--- @return EaseBounceInOut#EaseBounceInOut self (return value: cc.EaseBounceInOut)
         
 --------------------------------
 -- 

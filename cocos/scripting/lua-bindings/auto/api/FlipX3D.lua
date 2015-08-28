@@ -22,6 +22,5 @@
 -- @function [parent=#FlipX3D] update 
 -- @param self
 -- @param #float time
--- @return FlipX3D#FlipX3D self (return value: cc.FlipX3D)
         
 return nil

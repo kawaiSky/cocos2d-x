@@ -29,6 +29,5 @@
 -- @function [parent=#PageTurn3D] update 
 -- @param self
 -- @param #float time
--- @return PageTurn3D#PageTurn3D self (return value: cc.PageTurn3D)
         
 return nil

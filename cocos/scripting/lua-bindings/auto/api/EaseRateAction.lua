@@ -9,7 +9,6 @@
 -- @function [parent=#EaseRateAction] setRate 
 -- @param self
 -- @param #float rate
--- @return EaseRateAction#EaseRateAction self (return value: cc.EaseRateAction)
         
 --------------------------------
 --  get rate value for the actions 

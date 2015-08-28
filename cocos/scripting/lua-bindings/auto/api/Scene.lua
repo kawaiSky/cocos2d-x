@@ -9,7 +9,6 @@
 -- @function [parent=#Scene] render 
 -- @param self
 -- @param #cc.Renderer renderer
--- @return Scene#Scene self (return value: cc.Scene)
         
 --------------------------------
 --  creates a new Scene object with a predefined Size 
@@ -32,7 +31,6 @@
 -- @param #cc.Node child
 -- @param #int zOrder
 -- @param #int tag
--- @return Scene#Scene self (return value: cc.Scene)
 
 --------------------------------
 -- 
@@ -45,6 +43,5 @@
 -- @function [parent=#Scene] update 
 -- @param self
 -- @param #float delta
--- @return Scene#Scene self (return value: cc.Scene)
         
 return nil

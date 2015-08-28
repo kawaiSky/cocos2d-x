@@ -37,7 +37,10 @@ THE SOFTWARE.
 #include "base/CCEventCustom.h"
 #include "base/CCEventDispatcher.h"
 #include "platform/CCStdC.h"
-
+#include "2d/CCLabel.h"
+#include "base/ccUtils.h"
+#include <sstream>
+#include <iomanip>
 NS_CC_BEGIN
 
 // Extra action for making a Sequence or Spawn when only adding one action to it.
@@ -2109,6 +2112,104 @@ DelayTime* DelayTime::reverse() const
 {
     return DelayTime::create(_duration);
 }
+
+
+//
+// ProgressLableTo
+//
+ProgressLabelTo* ProgressLabelTo::create(float time,float to)
+{
+    ProgressLabelTo* action = new (std::nothrow) ProgressLabelTo();
+    action->setFromLabel(true);
+    action->initWithDuration(time, 0, to);
+    action->autorelease();
+    
+    return action;
+}
+ProgressLabelTo* ProgressLabelTo::createWithFrom(float time, float from, float to)
+{
+    ProgressLabelTo* action = new (std::nothrow) ProgressLabelTo();
+    action->setFromLabel(false);
+    action->initWithDuration(time, from, to);
+    action->autorelease();
+    
+    return action;
+}
+ProgressLabelTo* ProgressLabelTo::createWithFromAndFix(float time, float from, float to,int fixed)
+{
+    ProgressLabelTo* action = new (std::nothrow) ProgressLabelTo();
+    action->setFromLabel(false);
+    action->setFiexd(fixed);
+    action->initWithDuration(time, from, to);
+    action->autorelease();
+    
+    return action;
+}
+
+/**
+ProgressLabelTo::ProgressLabelTo(){
+    _fiexd = 0;
+}
+*/
+void ProgressLabelTo::setFromLabel(bool fromLabel){
+    _fromLabel = fromLabel;
+}
+void ProgressLabelTo::setFiexd(int fixed){
+    CCASSERT(_fiexd <= 7,"label MAX fixed point IS 7");
+    _fiexd = fixed;
+}
+bool ProgressLabelTo::initWithDuration(float duration, float from, float to)
+{
+    if( ActionInterval::initWithDuration(duration) ){
+        _to = to;
+        _from = from;
+        return true;
+    }
+    return false;
+}
+
+void ProgressLabelTo::startWithTarget(cocos2d::Node *target)
+{
+    ActionInterval::startWithTarget(target);
+    if (_fromLabel) {
+        cocos2d::Label* label = static_cast<cocos2d::Label*>(target);
+        float from = utils::atof(label->getString().c_str());
+        _from = from;
+    }
+    
+    
+}
+
+ProgressLabelTo* ProgressLabelTo::clone() const
+{
+    // no copy constructor
+    auto a = new (std::nothrow) ProgressLabelTo();
+    a->initWithDuration(_duration,_from,_to);
+    a->autorelease();
+    return a;
+}
+
+void ProgressLabelTo::update(float time)
+{
+    if (_target) {
+        std::string _string("0");
+        std::stringstream o;
+        if( o << std::fixed << std::setprecision( _fiexd )<< (_from + (_to - _from)*time) ){
+            _string = o.str();
+        }
+        static_cast<cocos2d::Label*>(_target)->setString( _string );
+    }
+    return;
+}
+
+ProgressLabelTo* ProgressLabelTo::reverse() const
+{
+    CCASSERT(false, "reverse() not supported in TintTo");
+    return nullptr;
+}
+
+
+
 
 //
 // ReverseTime

@@ -30,7 +30,6 @@
 --  it will call glUseProgram() 
 -- @function [parent=#GLProgram] use 
 -- @param self
--- @return GLProgram#GLProgram self (return value: cc.GLProgram)
         
 --------------------------------
 --  returns the vertexShader error log 
@@ -44,7 +43,6 @@
 -- @function [parent=#GLProgram] setUniformsForBuiltins
 -- @param self
 -- @param #mat4_table modelView
--- @return GLProgram#GLProgram self (return value: cc.GLProgram)
 
 --------------------------------
 --  It will create 4 uniforms:<br>
@@ -55,7 +53,6 @@
 -- And it will bind "GLProgram::UNIFORM_SAMPLER" to 0
 -- @function [parent=#GLProgram] updateUniforms 
 -- @param self
--- @return GLProgram#GLProgram self (return value: cc.GLProgram)
         
 --------------------------------
 --  calls glUniform1i only if the values are different than the previous call for this same shader program. <br>
@@ -65,13 +62,11 @@
 -- @param self
 -- @param #int location
 -- @param #int i1
--- @return GLProgram#GLProgram self (return value: cc.GLProgram)
         
 --------------------------------
 -- 
 -- @function [parent=#GLProgram] reset 
 -- @param self
--- @return GLProgram#GLProgram self (return value: cc.GLProgram)
         
 --------------------------------
 --   It will add a new attribute to the shader by calling glBindAttribLocation 
@@ -79,7 +74,6 @@
 -- @param self
 -- @param #string attributeName
 -- @param #unsigned int index
--- @return GLProgram#GLProgram self (return value: cc.GLProgram)
         
 --------------------------------
 --  calls glGetAttribLocation 
@@ -118,6 +112,5 @@
 -- 
 -- @function [parent=#GLProgram] GLProgram 
 -- @param self
--- @return GLProgram#GLProgram self (return value: cc.GLProgram)
         
 return nil

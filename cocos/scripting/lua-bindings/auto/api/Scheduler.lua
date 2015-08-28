@@ -14,7 +14,6 @@
 -- @function [parent=#Scheduler] setTimeScale 
 -- @param self
 -- @param #float timeScale
--- @return Scheduler#Scheduler self (return value: cc.Scheduler)
         
 --------------------------------
 -- 
@@ -26,6 +25,5 @@
 -- js ctor
 -- @function [parent=#Scheduler] Scheduler 
 -- @param self
--- @return Scheduler#Scheduler self (return value: cc.Scheduler)
         
 return nil

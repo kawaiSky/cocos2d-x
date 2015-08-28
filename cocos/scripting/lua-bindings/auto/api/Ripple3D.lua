@@ -9,7 +9,6 @@
 -- @function [parent=#Ripple3D] setAmplitudeRate 
 -- @param self
 -- @param #float fAmplitudeRate
--- @return Ripple3D#Ripple3D self (return value: cc.Ripple3D)
         
 --------------------------------
 -- 
@@ -22,7 +21,6 @@
 -- @function [parent=#Ripple3D] setAmplitude 
 -- @param self
 -- @param #float fAmplitude
--- @return Ripple3D#Ripple3D self (return value: cc.Ripple3D)
         
 --------------------------------
 -- 
@@ -35,7 +33,6 @@
 -- @function [parent=#Ripple3D] setPosition 
 -- @param self
 -- @param #vec2_table position
--- @return Ripple3D#Ripple3D self (return value: cc.Ripple3D)
         
 --------------------------------
 --  get center position 
@@ -66,6 +63,5 @@
 -- @function [parent=#Ripple3D] update 
 -- @param self
 -- @param #float time
--- @return Ripple3D#Ripple3D self (return value: cc.Ripple3D)
         
 return nil

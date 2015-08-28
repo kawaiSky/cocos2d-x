@@ -16,14 +16,12 @@
 -- @function [parent=#Animation] addSpriteFrame 
 -- @param self
 -- @param #cc.SpriteFrame frame
--- @return Animation#Animation self (return value: cc.Animation)
         
 --------------------------------
 --  Sets whether to restore the original frame when animation finishes 
 -- @function [parent=#Animation] setRestoreOriginalFrame 
 -- @param self
 -- @param #bool restoreOriginalFrame
--- @return Animation#Animation self (return value: cc.Animation)
         
 --------------------------------
 -- 
@@ -42,7 +40,6 @@
 -- @function [parent=#Animation] setFrames 
 -- @param self
 -- @param #array_table frames
--- @return Animation#Animation self (return value: cc.Animation)
         
 --------------------------------
 --  Gets the array of AnimationFrames 
@@ -55,14 +52,12 @@
 -- @function [parent=#Animation] setLoops 
 -- @param self
 -- @param #unsigned int loops
--- @return Animation#Animation self (return value: cc.Animation)
         
 --------------------------------
 --  Sets the delay in seconds of the "delay unit" 
 -- @function [parent=#Animation] setDelayPerUnit 
 -- @param self
 -- @param #float delayPerUnit
--- @return Animation#Animation self (return value: cc.Animation)
         
 --------------------------------
 --  Adds a frame with an image filename. Internally it will create a SpriteFrame and it will add it.<br>
@@ -71,7 +66,6 @@
 -- @function [parent=#Animation] addSpriteFrameWithFile 
 -- @param self
 -- @param #string filename
--- @return Animation#Animation self (return value: cc.Animation)
         
 --------------------------------
 --  Gets the total Delay units of the Animation. 
@@ -99,7 +93,6 @@
 -- @param self
 -- @param #cc.Texture2D pobTexture
 -- @param #rect_table rect
--- @return Animation#Animation self (return value: cc.Animation)
         
 --------------------------------
 -- @overload self, array_table, float, unsigned int         

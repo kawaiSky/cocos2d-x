@@ -292,6 +292,11 @@
 
 
 --------------------------------------------------------
+-- the cc ProgressLabelTo
+-- @field [parent=#cc] ProgressLabelTo#ProgressLabelTo ProgressLabelTo preloaded module
+
+
+--------------------------------------------------------
 -- the cc DelayTime
 -- @field [parent=#cc] DelayTime#DelayTime DelayTime preloaded module
 
@@ -639,6 +644,11 @@
 --------------------------------------------------------
 -- the cc ProgressFromTo
 -- @field [parent=#cc] ProgressFromTo#ProgressFromTo ProgressFromTo preloaded module
+
+
+--------------------------------------------------------
+-- the cc ProgressLoadingBarFromTo
+-- @field [parent=#cc] ProgressLoadingBarFromTo#ProgressLoadingBarFromTo ProgressLoadingBarFromTo preloaded module
 
 
 --------------------------------------------------------

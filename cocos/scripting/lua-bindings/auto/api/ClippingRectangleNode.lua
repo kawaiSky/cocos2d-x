@@ -15,7 +15,6 @@
 -- @function [parent=#ClippingRectangleNode] setClippingEnabled 
 -- @param self
 -- @param #bool enabled
--- @return ClippingRectangleNode#ClippingRectangleNode self (return value: cc.ClippingRectangleNode)
         
 --------------------------------
 -- 
@@ -28,7 +27,6 @@
 -- @function [parent=#ClippingRectangleNode] setClippingRegion 
 -- @param self
 -- @param #rect_table clippingRegion
--- @return ClippingRectangleNode#ClippingRectangleNode self (return value: cc.ClippingRectangleNode)
         
 --------------------------------
 -- @overload self         
@@ -45,6 +43,5 @@
 -- @param #cc.Renderer renderer
 -- @param #mat4_table parentTransform
 -- @param #unsigned int parentFlags
--- @return ClippingRectangleNode#ClippingRectangleNode self (return value: cc.ClippingRectangleNode)
         
 return nil

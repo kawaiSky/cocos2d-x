@@ -9,14 +9,12 @@
 -- @function [parent=#Component] setEnabled 
 -- @param self
 -- @param #bool b
--- @return Component#Component self (return value: cc.Component)
         
 --------------------------------
 -- 
 -- @function [parent=#Component] setName 
 -- @param self
 -- @param #string name
--- @return Component#Component self (return value: cc.Component)
         
 --------------------------------
 -- 
@@ -29,7 +27,6 @@
 -- @function [parent=#Component] update 
 -- @param self
 -- @param #float delta
--- @return Component#Component self (return value: cc.Component)
         
 --------------------------------
 -- 
@@ -48,7 +45,6 @@
 -- @function [parent=#Component] setOwner 
 -- @param self
 -- @param #cc.Node pOwner
--- @return Component#Component self (return value: cc.Component)
         
 --------------------------------
 -- 

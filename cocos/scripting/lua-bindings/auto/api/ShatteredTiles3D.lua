@@ -25,6 +25,5 @@
 -- @function [parent=#ShatteredTiles3D] update 
 -- @param self
 -- @param #float time
--- @return ShatteredTiles3D#ShatteredTiles3D self (return value: cc.ShatteredTiles3D)
         
 return nil

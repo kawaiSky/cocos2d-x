@@ -57,7 +57,6 @@
 -- @function [parent=#FileUtils] setFilenameLookupDictionary 
 -- @param self
 -- @param #map_table filenameLookupDict
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- Remove a file<br>
@@ -97,7 +96,6 @@
 -- @function [parent=#FileUtils] setSearchRootPath 
 -- @param self
 -- @param #char path
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- Loads the filenameLookup dictionary from the contents of a filename.<br>
@@ -131,7 +129,6 @@
 -- @function [parent=#FileUtils] loadFilenameLookupDictionaryFromFile 
 -- @param self
 -- @param #string filename
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- 
@@ -209,7 +206,6 @@
 -- @function [parent=#FileUtils] setSearchPaths 
 -- @param self
 -- @param #array_table searchPaths
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- Retrieve the file size<br>
@@ -231,7 +227,6 @@
 -- @function [parent=#FileUtils] setSearchResolutionsOrder 
 -- @param self
 -- @param #array_table searchResolutionsOrder
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- Append search order of the resources.<br>
@@ -241,7 +236,6 @@
 -- @param self
 -- @param #string order
 -- @param #bool front
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- Add search path.<br>
@@ -250,7 +244,6 @@
 -- @param self
 -- @param #string path
 -- @param #bool front
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- Checks whether a file exists.<br>
@@ -270,7 +263,6 @@
 -- this method should be invoked to clean the file search cache.
 -- @function [parent=#FileUtils] purgeCachedEntries 
 -- @param self
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- Gets full path from a file name and the path of the reletive file.<br>
@@ -290,14 +282,12 @@
 -- @function [parent=#FileUtils] setWritablePath 
 -- @param self
 -- @param #char writablePath
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- Sets/Gets whether to pop-up a message box when failed to load an image.
 -- @function [parent=#FileUtils] setPopupNotify 
 -- @param self
 -- @param #bool notify
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- Checks whether the path is a directory<br>
@@ -337,7 +327,6 @@
 -- Destroys the instance of FileUtils.
 -- @function [parent=#FileUtils] destroyInstance 
 -- @param self
--- @return FileUtils#FileUtils self (return value: cc.FileUtils)
         
 --------------------------------
 -- Gets the instance of FileUtils.

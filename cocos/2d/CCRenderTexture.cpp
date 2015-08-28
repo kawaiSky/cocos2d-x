@@ -271,7 +271,7 @@ bool RenderTexture::initWithWidthAndHeight(int w, int h, Texture2D::PixelFormat 
         // check if it worked (probably worth doing :) )
         CCASSERT(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE, "Could not attach texture to framebuffer");
 
-        _texture->setAliasTexParameters();
+        //_texture->setAliasTexParameters();
 
         // retained
         setSprite(Sprite::createWithTexture(_texture));

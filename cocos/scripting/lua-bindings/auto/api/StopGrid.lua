@@ -15,7 +15,6 @@
 -- @function [parent=#StopGrid] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return StopGrid#StopGrid self (return value: cc.StopGrid)
         
 --------------------------------
 -- 

@@ -9,7 +9,6 @@
 -- @function [parent=#BezierTo] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return BezierTo#BezierTo self (return value: cc.BezierTo)
         
 --------------------------------
 -- 

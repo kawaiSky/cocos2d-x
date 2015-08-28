@@ -400,7 +400,9 @@ bool PageView::scrollPages(float touchOffset)
     {
         return false;
     }
-    
+    if (touchOffset == 0) {
+        return false;
+    }
     if (!_leftBoundaryChild || !_rightBoundaryChild)
     {
         return false;
@@ -492,7 +494,7 @@ void PageView::handleReleaseLogic(Touch *touch)
         float curPageLocation = curPagePos.x;
         float pageWidth = getContentSize().width;
         if (!_usingCustomScrollThreshold) {
-            _customScrollThreshold = pageWidth / 2.0;
+            _customScrollThreshold = pageWidth / 5.0; //still sky
         }
         float boundary = _customScrollThreshold;
         if (curPageLocation <= -boundary)

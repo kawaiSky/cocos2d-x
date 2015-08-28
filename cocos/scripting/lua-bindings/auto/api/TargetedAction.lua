@@ -16,7 +16,6 @@
 -- @function [parent=#TargetedAction] setForcedTarget 
 -- @param self
 -- @param #cc.Node forcedTarget
--- @return TargetedAction#TargetedAction self (return value: cc.TargetedAction)
         
 --------------------------------
 --  Create an action with the specified action and forced target 
@@ -31,7 +30,6 @@
 -- @function [parent=#TargetedAction] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return TargetedAction#TargetedAction self (return value: cc.TargetedAction)
         
 --------------------------------
 -- 
@@ -43,7 +41,6 @@
 -- 
 -- @function [parent=#TargetedAction] stop 
 -- @param self
--- @return TargetedAction#TargetedAction self (return value: cc.TargetedAction)
         
 --------------------------------
 -- 
@@ -56,6 +53,5 @@
 -- @function [parent=#TargetedAction] update 
 -- @param self
 -- @param #float time
--- @return TargetedAction#TargetedAction self (return value: cc.TargetedAction)
         
 return nil

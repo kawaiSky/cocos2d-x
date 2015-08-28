@@ -9,7 +9,6 @@
 -- @function [parent=#FiniteTimeAction] setDuration 
 -- @param self
 -- @param #float duration
--- @return FiniteTimeAction#FiniteTimeAction self (return value: cc.FiniteTimeAction)
         
 --------------------------------
 --  get duration in seconds of the action

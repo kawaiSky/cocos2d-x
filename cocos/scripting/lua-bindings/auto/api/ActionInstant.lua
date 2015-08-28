@@ -9,7 +9,6 @@
 -- @function [parent=#ActionInstant] step 
 -- @param self
 -- @param #float dt
--- @return ActionInstant#ActionInstant self (return value: cc.ActionInstant)
         
 --------------------------------
 -- 
@@ -34,6 +33,5 @@
 -- @function [parent=#ActionInstant] update 
 -- @param self
 -- @param #float time
--- @return ActionInstant#ActionInstant self (return value: cc.ActionInstant)
         
 return nil

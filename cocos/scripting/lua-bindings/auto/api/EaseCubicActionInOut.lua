@@ -22,7 +22,6 @@
 -- @function [parent=#EaseCubicActionInOut] update 
 -- @param self
 -- @param #float time
--- @return EaseCubicActionInOut#EaseCubicActionInOut self (return value: cc.EaseCubicActionInOut)
         
 --------------------------------
 -- 

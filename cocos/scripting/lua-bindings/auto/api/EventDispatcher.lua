@@ -10,7 +10,13 @@
 -- @param self
 -- @param #cc.Node target
 -- @param #bool recursive
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
+        
+--------------------------------
+-- 
+-- @function [parent=#EventDispatcher] dispatchEventTouch 
+-- @param self
+-- @param #cc.Event event
+-- @return bool#bool ret (return value: bool)
         
 --------------------------------
 --  Adds a event listener for a specified event with the priority of scene graph.<br>
@@ -22,14 +28,12 @@
 -- @param self
 -- @param #cc.EventListener listener
 -- @param #cc.Node node
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Whether to enable dispatching events 
 -- @function [parent=#EventDispatcher] setEnabled 
 -- @param self
 -- @param #bool isEnabled
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Adds a event listener for a specified event with the fixed priority.<br>
@@ -41,7 +45,6 @@
 -- @param self
 -- @param #cc.EventListener listener
 -- @param #int fixedPriority
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Remove a listener<br>
@@ -49,7 +52,6 @@
 -- @function [parent=#EventDispatcher] removeEventListener 
 -- @param self
 -- @param #cc.EventListener listener
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Resumes all listeners which are associated the specified target. 
@@ -57,7 +59,6 @@
 -- @param self
 -- @param #cc.Node target
 -- @param #bool recursive
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Removes all listeners which are associated with the specified target. 
@@ -65,7 +66,6 @@
 -- @param self
 -- @param #cc.Node target
 -- @param #bool recursive
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Sets listener's priority with fixed value. 
@@ -73,7 +73,6 @@
 -- @param self
 -- @param #cc.EventListener listener
 -- @param #int fixedPriority
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Adds a Custom event listener.<br>
@@ -92,20 +91,17 @@
 -- @function [parent=#EventDispatcher] dispatchEvent 
 -- @param self
 -- @param #cc.Event event
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Removes all listeners 
 -- @function [parent=#EventDispatcher] removeAllEventListeners 
 -- @param self
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Removes all custom listeners with the same event name 
 -- @function [parent=#EventDispatcher] removeCustomEventListeners 
 -- @param self
 -- @param #string customEventName
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Checks whether dispatching events is enabled 
@@ -118,12 +114,10 @@
 -- @function [parent=#EventDispatcher] removeEventListenersForType 
 -- @param self
 -- @param #int listenerType
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 --------------------------------
 --  Constructor of EventDispatcher 
 -- @function [parent=#EventDispatcher] EventDispatcher 
 -- @param self
--- @return EventDispatcher#EventDispatcher self (return value: cc.EventDispatcher)
         
 return nil

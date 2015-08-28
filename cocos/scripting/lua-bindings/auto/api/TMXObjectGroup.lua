@@ -9,7 +9,6 @@
 -- @function [parent=#TMXObjectGroup] setPositionOffset 
 -- @param self
 -- @param #vec2_table offset
--- @return TMXObjectGroup#TMXObjectGroup self (return value: cc.TMXObjectGroup)
         
 --------------------------------
 --  return the value for the specific property name 
@@ -44,7 +43,6 @@
 -- @function [parent=#TMXObjectGroup] setGroupName 
 -- @param self
 -- @param #string groupName
--- @return TMXObjectGroup#TMXObjectGroup self (return value: cc.TMXObjectGroup)
         
 --------------------------------
 -- @overload self         
@@ -64,19 +62,16 @@
 -- @function [parent=#TMXObjectGroup] setProperties 
 -- @param self
 -- @param #map_table properties
--- @return TMXObjectGroup#TMXObjectGroup self (return value: cc.TMXObjectGroup)
         
 --------------------------------
 --  Sets the array of the objects 
 -- @function [parent=#TMXObjectGroup] setObjects 
 -- @param self
 -- @param #array_table objects
--- @return TMXObjectGroup#TMXObjectGroup self (return value: cc.TMXObjectGroup)
         
 --------------------------------
 -- js ctor
 -- @function [parent=#TMXObjectGroup] TMXObjectGroup 
 -- @param self
--- @return TMXObjectGroup#TMXObjectGroup self (return value: cc.TMXObjectGroup)
         
 return nil

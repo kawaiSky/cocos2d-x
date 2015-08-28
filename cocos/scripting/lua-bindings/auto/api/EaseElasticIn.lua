@@ -24,7 +24,6 @@
 -- @function [parent=#EaseElasticIn] update 
 -- @param self
 -- @param #float time
--- @return EaseElasticIn#EaseElasticIn self (return value: cc.EaseElasticIn)
         
 --------------------------------
 -- 

@@ -22,7 +22,6 @@
 -- @function [parent=#EaseQuinticActionOut] update 
 -- @param self
 -- @param #float time
--- @return EaseQuinticActionOut#EaseQuinticActionOut self (return value: cc.EaseQuinticActionOut)
         
 --------------------------------
 -- 

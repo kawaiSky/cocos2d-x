@@ -22,6 +22,5 @@
 -- @function [parent=#FlipY3D] update 
 -- @param self
 -- @param #float time
--- @return FlipY3D#FlipY3D self (return value: cc.FlipY3D)
         
 return nil

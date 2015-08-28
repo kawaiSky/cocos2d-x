@@ -9,7 +9,6 @@
 -- @function [parent=#NodeGrid] setTarget 
 -- @param self
 -- @param #cc.Node target
--- @return NodeGrid#NodeGrid self (return value: cc.NodeGrid)
         
 --------------------------------
 -- @overload self         
@@ -24,7 +23,6 @@
 -- @function [parent=#NodeGrid] setGrid 
 -- @param self
 -- @param #cc.GridBase grid
--- @return NodeGrid#NodeGrid self (return value: cc.NodeGrid)
         
 --------------------------------
 -- 
@@ -39,6 +37,5 @@
 -- @param #cc.Renderer renderer
 -- @param #mat4_table parentTransform
 -- @param #unsigned int parentFlags
--- @return NodeGrid#NodeGrid self (return value: cc.NodeGrid)
         
 return nil

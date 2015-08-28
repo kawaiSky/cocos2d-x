@@ -12,7 +12,6 @@
 -- @param self
 -- @param #string plist_content
 -- @param #cc.Texture2D texture
--- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
 -- @overload self, string, string         
@@ -22,7 +21,6 @@
 -- @param self
 -- @param #string plist
 -- @param #cc.Texture2D texture
--- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
 
 --------------------------------
 --  Adds an sprite frame with a given name.<br>
@@ -31,7 +29,6 @@
 -- @param self
 -- @param #cc.SpriteFrame frame
 -- @param #string frameName
--- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
 --  Removes unused sprite frames.<br>
@@ -39,7 +36,6 @@
 -- It is convenient to call this method after when starting a new Scene.
 -- @function [parent=#SpriteFrameCache] removeUnusedSpriteFrames 
 -- @param self
--- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
 --  Returns an Sprite Frame that was previously added.<br>
@@ -60,7 +56,6 @@
 -- @function [parent=#SpriteFrameCache] removeSpriteFramesFromFile 
 -- @param self
 -- @param #string plist
--- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
 -- 
@@ -76,7 +71,6 @@
 -- In the long term: it will be the same.
 -- @function [parent=#SpriteFrameCache] removeSpriteFrames 
 -- @param self
--- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
 --  Removes all Sprite Frames associated with the specified textures.<br>
@@ -85,7 +79,6 @@
 -- @function [parent=#SpriteFrameCache] removeSpriteFramesFromTexture 
 -- @param self
 -- @param #cc.Texture2D texture
--- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
 --  Removes multiple Sprite Frames from a plist file content.<br>
@@ -94,20 +87,17 @@
 -- @function [parent=#SpriteFrameCache] removeSpriteFramesFromFileContent 
 -- @param self
 -- @param #string plist_content
--- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
 --  Deletes an sprite frame from the sprite frame cache. 
 -- @function [parent=#SpriteFrameCache] removeSpriteFrameByName 
 -- @param self
 -- @param #string name
--- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
 --  Destroys the cache. It releases all the Sprite Frames and the retained instance. 
 -- @function [parent=#SpriteFrameCache] destroyInstance 
 -- @param self
--- @return SpriteFrameCache#SpriteFrameCache self (return value: cc.SpriteFrameCache)
         
 --------------------------------
 --  Returns the shared instance of the Sprite Frame cache 

@@ -9,7 +9,6 @@
 -- @function [parent=#EaseElastic] setPeriod 
 -- @param self
 -- @param #float fPeriod
--- @return EaseElastic#EaseElastic self (return value: cc.EaseElastic)
         
 --------------------------------
 --  get period of the wave in radians. default is 0.3 

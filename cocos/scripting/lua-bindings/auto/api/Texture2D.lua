@@ -38,7 +38,6 @@
 -- lua NA
 -- @function [parent=#Texture2D] releaseGLTexture 
 -- @param self
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 --------------------------------
 -- 
@@ -84,14 +83,12 @@
 -- @function [parent=#Texture2D] setMaxT 
 -- @param self
 -- @param #float maxT
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 --------------------------------
 --  draws a texture inside a rect 
 -- @function [parent=#Texture2D] drawInRect 
 -- @param self
 -- @param #rect_table rect
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 --------------------------------
 -- 
@@ -107,7 +104,6 @@
 -- since v0.8
 -- @function [parent=#Texture2D] setAliasTexParameters 
 -- @param self
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 --------------------------------
 --  sets antialias texture parameters:<br>
@@ -117,7 +113,6 @@
 -- since v0.8
 -- @function [parent=#Texture2D] setAntiAliasTexParameters 
 -- @param self
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 --------------------------------
 --  Generates mipmap images for the texture.<br>
@@ -125,7 +120,6 @@
 -- since v0.99.0
 -- @function [parent=#Texture2D] generateMipmap 
 -- @param self
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 --------------------------------
 -- js NA<br>
@@ -145,7 +139,6 @@
 -- @function [parent=#Texture2D] setGLProgram 
 -- @param self
 -- @param #cc.GLProgram program
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 --------------------------------
 --  content size 
@@ -166,7 +159,6 @@
 -- @function [parent=#Texture2D] drawAtPoint 
 -- @param self
 -- @param #vec2_table point
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 --------------------------------
 -- 
@@ -185,7 +177,6 @@
 -- @function [parent=#Texture2D] setMaxS 
 -- @param self
 -- @param #float maxS
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 --------------------------------
 --  sets the default pixel format for UIImagescontains alpha channel.<br>
@@ -204,7 +195,6 @@
 -- @function [parent=#Texture2D] setDefaultAlphaPixelFormat 
 -- @param self
 -- @param #int format
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 --------------------------------
 --  returns the alpha pixel format<br>
@@ -217,6 +207,5 @@
 -- js ctor
 -- @function [parent=#Texture2D] Texture2D 
 -- @param self
--- @return Texture2D#Texture2D self (return value: cc.Texture2D)
         
 return nil

@@ -18,14 +18,12 @@
 -- @function [parent=#ClippingNode] setInverted 
 -- @param self
 -- @param #bool inverted
--- @return ClippingNode#ClippingNode self (return value: cc.ClippingNode)
         
 --------------------------------
 -- 
 -- @function [parent=#ClippingNode] setStencil 
 -- @param self
 -- @param #cc.Node stencil
--- @return ClippingNode#ClippingNode self (return value: cc.ClippingNode)
         
 --------------------------------
 --  The alpha threshold.<br>
@@ -49,7 +47,6 @@
 -- @function [parent=#ClippingNode] setAlphaThreshold 
 -- @param self
 -- @param #float alphaThreshold
--- @return ClippingNode#ClippingNode self (return value: cc.ClippingNode)
         
 --------------------------------
 --  Inverted. If this is set to true,<br>
@@ -74,6 +71,5 @@
 -- @param #cc.Renderer renderer
 -- @param #mat4_table parentTransform
 -- @param #unsigned int parentFlags
--- @return ClippingNode#ClippingNode self (return value: cc.ClippingNode)
         
 return nil

@@ -17,7 +17,6 @@
 -- @function [parent=#Blink] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return Blink#Blink self (return value: cc.Blink)
         
 --------------------------------
 -- 
@@ -29,7 +28,6 @@
 -- 
 -- @function [parent=#Blink] stop 
 -- @param self
--- @return Blink#Blink self (return value: cc.Blink)
         
 --------------------------------
 -- 
@@ -42,6 +40,5 @@
 -- @function [parent=#Blink] update 
 -- @param self
 -- @param #float time
--- @return Blink#Blink self (return value: cc.Blink)
         
 return nil

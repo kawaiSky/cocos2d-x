@@ -99,6 +99,7 @@ def main():
 
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
     cocos_root = os.path.abspath(os.path.join(project_root, ''))
+    print(cocos_root)
     cxx_generator_root = os.path.abspath(os.path.join(project_root, 'tools/bindings-generator'))
 
     # save config to file
@@ -137,6 +138,7 @@ def main():
                     #'cocos2dx_assetsmanager.ini' : ('cocos2dx_assetsmanager', 'lua_cocos2dx_assetsmanager_auto'), \
                     #'cocos2dx_extension.ini' : ('cocos2dx_extension', 'lua_cocos2dx_extension_auto'), \
                     'cocos2dx_ui.ini' : ('cocos2dx_ui', 'lua_cocos2dx_ui_auto'), \
+                    'chili_utils.ini' : ('chili_utils', 'chili_utils_auto'), \
                     #'cocos2dx_studio.ini' : ('cocos2dx_studio', 'lua_cocos2dx_studio_auto'), \
                     #'cocos2dx_spine.ini' : ('cocos2dx_spine', 'lua_cocos2dx_spine_auto'), \
                     #'cocos2dx_physics.ini' : ('cocos2dx_physics', 'lua_cocos2dx_physics_auto'), \

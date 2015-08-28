@@ -59,6 +59,29 @@ function NetworkTestScene:createHTTPRequestTest()
     request:start()
 end
 
+
+function buyItem( itemid )
+    价格 ＝ 读表获得(itemId)
+    当前金币 ＝ getCurrentGold()
+    if 当前金币 >=  价格 then
+        return 成功 ， 当前金币 － 价格
+    else
+        return 失败
+    end
+end
+
+function  onResponse(event)
+    结果 = event:getResponseString()
+    结果数组 ＝ 逗号分割（结果）
+    if 结果数组［1］ ＝＝ “成功” then
+        设置当前的金币（ 结果数组［2］ ）
+    else
+        显示消息（“金币不足”）
+    end
+end
+
+
+
 function NetworkTestScene:createHTTPRequestBadDomainTest()
     self.requestCount = self.requestCount + 1
     local index = self.requestCount

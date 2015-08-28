@@ -10,7 +10,6 @@
 -- @param self
 -- @param #vec2_table pos
 -- @param #float distance
--- @return FadeOutUpTiles#FadeOutUpTiles self (return value: cc.FadeOutUpTiles)
         
 --------------------------------
 --  creates the action with the grid size and the duration 

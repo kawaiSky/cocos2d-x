@@ -390,6 +390,9 @@ Widget* GUIReader::widgetFromBinaryFile(const char *fileName)
                     if (key == "version") {
                         fileVersion = tpChildArray[i].GetValue(&tCocoLoader);
                         break;
+                    }else{
+                        auto test = tpChildArray[i].GetValue(&tCocoLoader);
+                        //printf("--key = %s -- value = %s",test);
                     }
                 }
                 

@@ -456,6 +456,67 @@ tolua_lerror:
     return 0;
 }
 
+static int lua_cocos2dx_spine_SkeletonAnimation_setSlotAlpha(lua_State* tolua_S)
+{
+    int argc = 0;
+    spine::SkeletonAnimation* cobj = nullptr;
+    bool ok  = true;
+    
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+    
+    
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"sp.SkeletonAnimation",0,&tolua_err)) goto tolua_lerror;
+#endif
+    
+    cobj = (spine::SkeletonAnimation*)tolua_tousertype(tolua_S,1,0);
+    
+#if COCOS2D_DEBUG >= 1
+    if (!cobj)
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_cocos2dx_spine_SkeletonAnimation_setAnimation'", nullptr);
+        return 0;
+    }
+#endif
+    
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 2)
+    {
+        //int arg0;
+        //const char* arg1;
+        double arg2;
+        
+       // ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0, "sp.SkeletonAnimation:setAnimation");
+        
+        std::string arg1_tmp;
+        ok &= luaval_to_std_string(tolua_S, 2, &arg1_tmp, "sp.SkeletonAnimation:setAnimation");
+        //arg1 = arg1_tmp.c_str();
+        
+        ok &= luaval_to_number(tolua_S, 3,&arg2, "sp.SkeletonAnimation:setAnimation");
+        if(!ok)
+            return 0;
+        auto slot = cobj->findSlot(arg1_tmp);
+        slot->a = arg2;
+        //cobj->setAnimation(arg0, arg1, arg2);
+        
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "setAnimation",argc, 3);
+    return 0;
+    
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_spine_SkeletonAnimation_setAnimation'.",&tolua_err);
+#endif
+    
+    return 0;
+}
+
+
+
 static void extendCCSkeletonAnimation(lua_State* L)
 {
     lua_pushstring(L, "sp.SkeletonAnimation");
@@ -468,6 +529,7 @@ static void extendCCSkeletonAnimation(lua_State* L)
         tolua_function(L, "setBlendFunc", tolua_spine_SkeletoneAnimation_setBlendFunc);
         tolua_function(L, "addAnimation", lua_cocos2dx_spine_SkeletonAnimation_addAnimation);
         tolua_function(L, "setAnimation", lua_cocos2dx_spine_SkeletonAnimation_setAnimation);
+        tolua_function(L, "setSlotAlpha", lua_cocos2dx_spine_SkeletonAnimation_setSlotAlpha);
     }
     lua_pop(L, 1);
     
@@ -476,13 +538,16 @@ static void extendCCSkeletonAnimation(lua_State* L)
     g_luaType[typeName] = "sp.SkeletonAnimation";
     g_typeCast["SkeletonAnimation"] = "sp.SkeletonAnimation";
 }
-
+static void extendSlot(lua_State* L){
+    lua_pushstring(L, "sp.");
+}
 int register_all_cocos2dx_spine_manual(lua_State* L)
 {
     if (nullptr == L)
         return 0;
 
     extendCCSkeletonAnimation(L);
+    //extendSlot(L);
     
     return 0;
 }

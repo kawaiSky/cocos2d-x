@@ -15,14 +15,12 @@
 -- @function [parent=#SpriteFrame] setRotated 
 -- @param self
 -- @param #bool rotated
--- @return SpriteFrame#SpriteFrame self (return value: cc.SpriteFrame)
         
 --------------------------------
 --  set texture of the frame, the texture is retained 
 -- @function [parent=#SpriteFrame] setTexture 
 -- @param self
 -- @param #cc.Texture2D pobTexture
--- @return SpriteFrame#SpriteFrame self (return value: cc.SpriteFrame)
         
 --------------------------------
 -- 
@@ -35,7 +33,6 @@
 -- @function [parent=#SpriteFrame] setRectInPixels 
 -- @param self
 -- @param #rect_table rectInPixels
--- @return SpriteFrame#SpriteFrame self (return value: cc.SpriteFrame)
         
 --------------------------------
 --  get texture of the frame 
@@ -54,7 +51,6 @@
 -- @function [parent=#SpriteFrame] setOffsetInPixels 
 -- @param self
 -- @param #vec2_table offsetInPixels
--- @return SpriteFrame#SpriteFrame self (return value: cc.SpriteFrame)
         
 --------------------------------
 -- 
@@ -67,7 +63,6 @@
 -- @function [parent=#SpriteFrame] setOriginalSize 
 -- @param self
 -- @param #size_table sizeInPixels
--- @return SpriteFrame#SpriteFrame self (return value: cc.SpriteFrame)
         
 --------------------------------
 --  get original size of the trimmed image 
@@ -80,14 +75,12 @@
 -- @function [parent=#SpriteFrame] setOriginalSizeInPixels 
 -- @param self
 -- @param #size_table sizeInPixels
--- @return SpriteFrame#SpriteFrame self (return value: cc.SpriteFrame)
         
 --------------------------------
 -- 
 -- @function [parent=#SpriteFrame] setOffset 
 -- @param self
 -- @param #vec2_table offsets
--- @return SpriteFrame#SpriteFrame self (return value: cc.SpriteFrame)
         
 --------------------------------
 -- 
@@ -100,7 +93,6 @@
 -- @function [parent=#SpriteFrame] setRect 
 -- @param self
 -- @param #rect_table rect
--- @return SpriteFrame#SpriteFrame self (return value: cc.SpriteFrame)
         
 --------------------------------
 --  get offset of the frame 

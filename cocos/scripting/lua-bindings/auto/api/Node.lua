@@ -14,7 +14,6 @@
 -- @param #cc.Node child
 -- @param #int localZOrder
 -- @param #string name
--- @return Node#Node self (return value: cc.Node)
 
 --------------------------------
 -- @overload self, cc.Component         
@@ -44,21 +43,18 @@
 -- @function [parent=#Node] setRotationSkewY 
 -- @param self
 -- @param #float rotationY
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
 -- @function [parent=#Node] setOpacityModifyRGB 
 -- @param self
 -- @param #bool value
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
 -- @function [parent=#Node] setCascadeOpacityEnabled 
 -- @param self
 -- @param #bool cascadeOpacityEnabled
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- @overload self         
@@ -72,14 +68,12 @@
 -- @function [parent=#Node] setOnExitCallback 
 -- @param self
 -- @param #function callback
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Pauses all scheduled selectors, actions and event listeners..<br>
 -- This method is called internally by onExit
 -- @function [parent=#Node] pause 
 -- @param self
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Converts a local Vec2 to world space coordinates.The result is in Points.<br>
@@ -112,7 +106,6 @@
 -- @function [parent=#Node] updateDisplayedOpacity 
 -- @param self
 -- @param #unsigned char parentOpacity
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 --  get & set camera mask, the node is visible by the camera whose camera flag & node's camera mask is true 
@@ -128,7 +121,6 @@
 -- @function [parent=#Node] setRotation 
 -- @param self
 -- @param #float rotation
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Changes the scale factor on Z axis of this node<br>
@@ -138,7 +130,6 @@
 -- @function [parent=#Node] setScaleZ 
 -- @param self
 -- @param #float scaleZ
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Sets the scale (y) of the node.<br>
@@ -148,7 +139,6 @@
 -- @function [parent=#Node] setScaleY 
 -- @param self
 -- @param #float scaleY
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Sets the scale (x) of the node.<br>
@@ -158,7 +148,6 @@
 -- @function [parent=#Node] setScaleX 
 -- @param self
 -- @param #float scaleX
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Sets the X rotation (angle) of the node in degrees which performs a horizontal rotational skew.<br>
@@ -171,20 +160,17 @@
 -- @function [parent=#Node] setRotationSkewX 
 -- @param self
 -- @param #float rotationX
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
 -- @function [parent=#Node] setonEnterTransitionDidFinishCallback 
 -- @param self
 -- @param #function callback
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- removes all components
 -- @function [parent=#Node] removeAllComponents 
 -- @param self
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
@@ -198,7 +184,6 @@
 -- @param self
 -- @param #unsigned short mask
 -- @param #bool applyChildren
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Returns a tag that is used to identify the node easily.<br>
@@ -236,7 +221,6 @@
 -- @param self
 -- @param #cc.Node child
 -- @param #bool cleanup
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Converts a Vec2 to world space coordinates. The result is in Points.
@@ -271,21 +255,18 @@
 -- @function [parent=#Node] setSkewX 
 -- @param self
 -- @param #float skewX
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
 -- @function [parent=#Node] setGLProgramState 
 -- @param self
 -- @param #cc.GLProgramState glProgramState
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
 -- @function [parent=#Node] setOnEnterCallback 
 -- @param self
 -- @param #function callback
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 --  Sets the position (x,y) using values between 0 and 1.<br>
@@ -299,14 +280,12 @@
 -- @function [parent=#Node] setNormalizedPosition 
 -- @param self
 -- @param #vec2_table position
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
 -- @function [parent=#Node] setonExitTransitionDidStartCallback 
 -- @param self
 -- @param #function callback
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- convenience methods which take a Touch instead of Vec2
@@ -321,7 +300,6 @@
 -- @function [parent=#Node] removeAllChildrenWithCleanup
 -- @param self
 -- @param #bool cleanup
--- @return Node#Node self (return value: cc.Node)
 
 --------------------------------
 -- 
@@ -341,7 +319,6 @@
 -- @function [parent=#Node] setParent 
 -- @param self
 -- @param #cc.Node parent
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 --  Returns a string that is used to identify the node.<br>
@@ -356,7 +333,6 @@
 -- This method is called internally by onEnter
 -- @function [parent=#Node] resume 
 -- @param self
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- returns the rotation (X,Y,Z) in degrees.
@@ -392,7 +368,6 @@
 -- @param self
 -- @param #float x
 -- @param #float y
--- @return Node#Node self (return value: cc.Node)
 
 --------------------------------
 -- Removes an action from the running action list by its tag.<br>
@@ -400,7 +375,6 @@
 -- @function [parent=#Node] stopActionByTag 
 -- @param self
 -- @param #int tag
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Reorders a child according to a new z value.<br>
@@ -410,7 +384,6 @@
 -- @param self
 -- @param #cc.Node child
 -- @param #int localZOrder
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Sets whether the anchor point will be (0,0) when you position this node.<br>
@@ -421,7 +394,6 @@
 -- @function [parent=#Node] ignoreAnchorPointForPosition 
 -- @param self
 -- @param #bool ignore
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Changes the Y skew angle of the node in degrees.<br>
@@ -435,7 +407,6 @@
 -- @function [parent=#Node] setSkewY 
 -- @param self
 -- @param #float skewY
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Sets the 'z' coordinate in the position. It is the OpenGL Z vertex value.<br>
@@ -447,7 +418,6 @@
 -- @function [parent=#Node] setPositionZ 
 -- @param self
 -- @param #float positionZ
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Sets the rotation (X,Y,Z) in degrees.<br>
@@ -456,7 +426,6 @@
 -- @function [parent=#Node] setRotation3D 
 -- @param self
 -- @param #vec3_table rotation
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Gets/Sets x or y coordinate individually for position.<br>
@@ -464,14 +433,12 @@
 -- @function [parent=#Node] setPositionX 
 -- @param self
 -- @param #float x
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Sets the Transformation matrix manually.
 -- @function [parent=#Node] setNodeToParentTransform 
 -- @param self
 -- @param #mat4_table transform
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Returns the anchor point in percent.<br>
@@ -490,7 +457,7 @@
 -- return The number of actions that are running plus the ones that are schedule to run
 -- @function [parent=#Node] getNumberOfRunningActions 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return long#long ret (return value: long)
         
 --------------------------------
 -- Calls children's updateTransform() method recursively.<br>
@@ -499,7 +466,6 @@
 -- e.g., `batchNode->addChild(myCustomNode)`, while you can only addChild(sprite) before.
 -- @function [parent=#Node] updateTransform 
 -- @param self
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Determines if the node is visible<br>
@@ -514,7 +480,7 @@
 -- return The amount of children.
 -- @function [parent=#Node] getChildrenCount 
 -- @param self
--- @return int#int ret (return value: int)
+-- @return long#long ret (return value: long)
         
 --------------------------------
 -- Converts a Vec2 to node (local) space coordinates. The result is in Points.<br>
@@ -572,7 +538,6 @@
 -- @param #cc.Renderer renderer
 -- @param #mat4_table parentTransform
 -- @param #unsigned int parentFlags
--- @return Node#Node self (return value: cc.Node)
 
 --------------------------------
 -- Removes a child from the container by tag value. It will also cleanup all running actions depending on the cleanup parameter<br>
@@ -582,7 +547,6 @@
 -- @param self
 -- @param #string name
 -- @param #bool cleanup
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
@@ -597,13 +561,11 @@
 -- @function [parent=#Node] setScheduler 
 -- @param self
 -- @param #cc.Scheduler scheduler
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Stops and removes all actions from the running action list .
 -- @function [parent=#Node] stopAllActions 
 -- @param self
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Returns the X skew angle of the node in degrees.<br>
@@ -643,7 +605,6 @@
 -- @function [parent=#Node] setName 
 -- @param self
 -- @param #string name
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
@@ -687,14 +648,12 @@
 -- @function [parent=#Node] setActionManager 
 -- @param self
 -- @param #cc.ActionManager actionManager
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
 -- @function [parent=#Node] setColor 
 -- @param self
 -- @param #color3b_table color
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Returns whether or not the node is "running".<br>
@@ -740,14 +699,12 @@
 -- @param self
 -- @param #int tag
 -- @param #bool cleanup
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
 -- @function [parent=#Node] setPositionY 
 -- @param self
 -- @param #float y
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
@@ -760,7 +717,6 @@
 -- @function [parent=#Node] updateDisplayedColor 
 -- @param self
 -- @param #color3b_table parentColor
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Sets whether the node is visible<br>
@@ -769,7 +725,6 @@
 -- @function [parent=#Node] setVisible 
 -- @param self
 -- @param #bool visible
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Returns the matrix that transform parent's space coordinates to the node's (local) space coordinates.<br>
@@ -804,7 +759,6 @@
 -- @function [parent=#Node] setGlobalZOrder 
 -- @param self
 -- @param #float globalZOrder
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- @overload self, float, float         
@@ -813,7 +767,6 @@
 -- @param self
 -- @param #float scaleX
 -- @param #float scaleY
--- @return Node#Node self (return value: cc.Node)
 
 --------------------------------
 -- Gets a child from the container with its tag<br>
@@ -834,7 +787,6 @@
 -- @function [parent=#Node] setOrderOfArrival 
 -- @param self
 -- @param #int orderOfArrival
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Returns the scale factor on Z axis of this node<br>
@@ -872,7 +824,6 @@
 -- @function [parent=#Node] setLocalZOrder 
 -- @param self
 -- @param #int localZOrder
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
@@ -885,20 +836,17 @@
 -- @function [parent=#Node] setCascadeColorEnabled 
 -- @param self
 -- @param #bool cascadeColorEnabled
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
 -- @function [parent=#Node] setOpacity 
 -- @param self
 -- @param #unsigned char opacity
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Stops all running actions and schedulers
 -- @function [parent=#Node] cleanup 
 -- @param self
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- / @{/ @name component functions<br>
@@ -922,7 +870,6 @@
 -- @function [parent=#Node] stopAllActionsByTag 
 -- @param self
 -- @param #int tag
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
@@ -942,7 +889,6 @@
 -- @function [parent=#Node] setEventDispatcher 
 -- @param self
 -- @param #cc.EventDispatcher dispatcher
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Returns the Node's Global Z Order.<br>
@@ -960,7 +906,6 @@
 -- @param #cc.Renderer renderer
 -- @param #mat4_table transform
 -- @param #unsigned int flags
--- @return Node#Node self (return value: cc.Node)
 
 --------------------------------
 -- Returns a user assigned Object<br>
@@ -972,7 +917,6 @@
 -- @function [parent=#Node] setUserObject 
 -- @param self
 -- @param #cc.Ref userObject
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- @overload self, bool         
@@ -980,21 +924,18 @@
 -- @function [parent=#Node] removeFromParentAndCleanup
 -- @param self
 -- @param #bool cleanup
--- @return Node#Node self (return value: cc.Node)
 
 --------------------------------
 -- Sets the position (X, Y, and Z) in its parent's coordinate system
 -- @function [parent=#Node] setPosition3D 
 -- @param self
 -- @param #vec3_table position
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
 -- @function [parent=#Node] update 
 -- @param self
 -- @param #float delta
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Sorts the children array once before drawing, instead of every time when a child is added or reordered.<br>
@@ -1002,7 +943,6 @@
 -- note Don't call this manually unless a child added needs to be removed in the same frame
 -- @function [parent=#Node] sortAllChildren 
 -- @param self
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Returns the inverse world affine transform matrix. The matrix is in Pixels.
@@ -1021,7 +961,6 @@
 -- @function [parent=#Node] setGLProgram 
 -- @param self
 -- @param #cc.GLProgram glprogram
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- Gets the scale factor of the node,  when X and Y have the same scale factor.<br>
@@ -1062,7 +1001,6 @@
 -- @function [parent=#Node] setTag 
 -- @param self
 -- @param #int tag
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- 
@@ -1076,7 +1014,6 @@
 -- @function [parent=#Node] stopAction 
 -- @param self
 -- @param #cc.Action action
--- @return Node#Node self (return value: cc.Node)
         
 --------------------------------
 -- @overload self         

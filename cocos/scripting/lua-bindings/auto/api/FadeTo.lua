@@ -17,7 +17,6 @@
 -- @function [parent=#FadeTo] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return FadeTo#FadeTo self (return value: cc.FadeTo)
         
 --------------------------------
 -- 
@@ -36,6 +35,5 @@
 -- @function [parent=#FadeTo] update 
 -- @param self
 -- @param #float time
--- @return FadeTo#FadeTo self (return value: cc.FadeTo)
         
 return nil

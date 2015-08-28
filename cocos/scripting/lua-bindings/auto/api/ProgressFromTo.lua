@@ -18,7 +18,6 @@
 -- @function [parent=#ProgressFromTo] startWithTarget 
 -- @param self
 -- @param #cc.Node target
--- @return ProgressFromTo#ProgressFromTo self (return value: cc.ProgressFromTo)
         
 --------------------------------
 -- 
@@ -37,6 +36,5 @@
 -- @function [parent=#ProgressFromTo] update 
 -- @param self
 -- @param #float time
--- @return ProgressFromTo#ProgressFromTo self (return value: cc.ProgressFromTo)
         
 return nil

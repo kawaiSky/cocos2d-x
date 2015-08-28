@@ -11,21 +11,18 @@
 -- @param self
 -- @param #float w
 -- @param #float h
--- @return LayerColor#LayerColor self (return value: cc.LayerColor)
         
 --------------------------------
 --  change height in Points
 -- @function [parent=#LayerColor] changeHeight 
 -- @param self
 -- @param #float h
--- @return LayerColor#LayerColor self (return value: cc.LayerColor)
         
 --------------------------------
 --  change width in Points
 -- @function [parent=#LayerColor] changeWidth 
 -- @param self
 -- @param #float w
--- @return LayerColor#LayerColor self (return value: cc.LayerColor)
         
 --------------------------------
 -- @overload self, color4b_table, float, float         
@@ -45,7 +42,6 @@
 -- @param #cc.Renderer renderer
 -- @param #mat4_table transform
 -- @param #unsigned int flags
--- @return LayerColor#LayerColor self (return value: cc.LayerColor)
         
 --------------------------------
 -- 
@@ -58,6 +54,5 @@
 -- @function [parent=#LayerColor] setContentSize 
 -- @param self
 -- @param #size_table var
--- @return LayerColor#LayerColor self (return value: cc.LayerColor)
         
 return nil

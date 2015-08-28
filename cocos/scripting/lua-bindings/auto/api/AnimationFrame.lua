@@ -9,7 +9,6 @@
 -- @function [parent=#AnimationFrame] setSpriteFrame 
 -- @param self
 -- @param #cc.SpriteFrame frame
--- @return AnimationFrame#AnimationFrame self (return value: cc.AnimationFrame)
         
 --------------------------------
 -- @overload self         
@@ -23,7 +22,6 @@
 -- @function [parent=#AnimationFrame] setDelayUnits 
 -- @param self
 -- @param #float delayUnits
--- @return AnimationFrame#AnimationFrame self (return value: cc.AnimationFrame)
         
 --------------------------------
 -- 
@@ -48,7 +46,6 @@
 -- @function [parent=#AnimationFrame] setUserInfo 
 -- @param self
 -- @param #map_table userInfo
--- @return AnimationFrame#AnimationFrame self (return value: cc.AnimationFrame)
         
 --------------------------------
 -- Creates the animation frame with a spriteframe, number of delay units and a notification user info<br>
