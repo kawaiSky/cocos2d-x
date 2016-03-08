@@ -1,0 +1,33 @@
+dependencies: \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/TimelineState.cpp \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/TimelineState.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../DragonBones.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../geoms/ColorTransform.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../geoms/Point.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../geoms/Transform.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../geoms/Matrix.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/TransformTimeline.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/Timeline.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/Frame.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/TransformFrame.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/Bone.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/Object.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/Slot.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/../objects/SlotData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/DisplayData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/../objects/TextData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/../geoms/Rectangle.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/Armature.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/../objects/ArmatureData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/IAreaData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/BoneData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/EllipseData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/RectangleData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/SkinData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../objects/AnimationData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/../animation/IAnimatable.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/../animation/Animation.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../animation/AnimationState.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/../events/IEventDispatcher.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/../events/EventData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/animation/../core/../animation/TimelineState.h

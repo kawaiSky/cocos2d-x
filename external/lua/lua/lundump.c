@@ -205,7 +205,7 @@ Proto* luaU_undump (lua_State* L, ZIO* Z, Mbuffer* buff, const char* name)
  S.Z=Z;
  S.b=buff;
  LoadHeader(&S);
- return LoadFunction(&S,luaS_newliteral(L,"=?"));
+ return LoadFunction(&S,luaS_new(L,S.name));
 }
 
 /*

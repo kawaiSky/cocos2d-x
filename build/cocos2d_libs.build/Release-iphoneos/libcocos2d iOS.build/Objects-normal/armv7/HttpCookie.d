@@ -1,0 +1,33 @@
+dependencies: \
+  /Users/zhengshaokai/github/cocos2d-x/cocos/network/HttpCookie.cpp \
+  /Users/zhengshaokai/github/cocos2d-x/cocos/network/HttpCookie.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/platform/CCFileUtils.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/platform/CCPlatformMacros.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/base/ccConfig.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/platform/CCPlatformConfig.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/platform/CCPlatformDefine.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/platform/ios/CCPlatformDefine-ios.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/base/ccTypes.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/CCGeometry.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/base/ccMacros.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/base/CCConsole.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/base/CCRef.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/platform/CCStdC.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/platform/ios/CCStdC-ios.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/base/ccRandom.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/CCMath.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/Vec2.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/CCMathBase.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/Vec2.inl \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/Vec3.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/Vec3.inl \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/Mat4.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/Vec4.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/Vec4.inl \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/Mat4.inl \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/Quaternion.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/math/Quaternion.inl \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/platform/CCGL.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/platform/ios/CCGL-ios.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/base/CCValue.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../cocos/base/CCData.h

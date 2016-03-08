@@ -1,0 +1,29 @@
+dependencies: \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/XMLDataParser.cpp \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/XMLDataParser.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../DragonBones.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/BaseDataParser.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../geoms/ColorTransform.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../geoms/Matrix.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../geoms/Point.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../geoms/Rectangle.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../geoms/Transform.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/IAreaData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/RectangleData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/EllipseData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/Frame.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/TransformFrame.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/Timeline.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/TransformTimeline.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/AnimationData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/TextData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/DisplayData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/SlotData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/SkinData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/BoneData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/ArmatureData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../objects/DragonBonesData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../textures/TextureData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/../textures/TextureAtlasData.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/dbtinyxml2.h \
+  /Users/zhengshaokai/github/v3quick/cocos/editor-support/dragonbones/parsers/ConstValues.h

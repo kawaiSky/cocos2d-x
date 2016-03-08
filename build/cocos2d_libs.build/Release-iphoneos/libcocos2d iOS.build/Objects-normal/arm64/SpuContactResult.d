@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuContactResult.cpp \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuContactResult.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/../SpuDoubleBuffer.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/../SpuFakeDma.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/../PlatformDefinitions.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btScalar.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btMinMax.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/vmInclude.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/vectormath_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/vec_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/quat_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/mat_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/../PpuAddressSpace.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btTransform.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btMatrix3x3.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btVector3.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btAlignedAllocator.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btQuaternion.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btQuadWord.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletCollision//NarrowPhaseCollision/btPersistentManifold.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletCollision//NarrowPhaseCollision/btManifoldPoint.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btTransformUtil.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletCollision//NarrowPhaseCollision/btDiscreteCollisionDetectorInterface.h

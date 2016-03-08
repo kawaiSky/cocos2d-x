@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/zhengshaokai/github/v3quick/cocos/base/CCDataVisitor.cpp \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/base/CCRef.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/platform/CCPlatformMacros.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/base/ccConfig.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/platform/CCPlatformConfig.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/platform/CCPlatformDefine.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/platform/ios/CCPlatformDefine-ios.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/deprecated/CCBool.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/base/CCDataVisitor.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/deprecated/CCInteger.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/base/CCConsole.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/base/ccMacros.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/platform/CCStdC.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/platform/ios/CCStdC-ios.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/base/ccRandom.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/platform/CCCommon.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/deprecated/CCFloat.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/deprecated/CCDouble.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/deprecated/CCString.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/deprecated/CCArray.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/base/ccCArray.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/deprecated/CCDictionary.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/base/uthash.h \
+  /Users/zhengshaokai/github/v3quick/build/../cocos/deprecated/CCSet.h

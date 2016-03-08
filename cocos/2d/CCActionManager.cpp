@@ -259,7 +259,7 @@ void ActionManager::removeAction(Action *action)
     }
     else
     {
-        CCLOG("cocos2d: removeAction: Target not found");
+        //CCLOG("cocos2d: removeAction: Target not found");
     }
 }
 

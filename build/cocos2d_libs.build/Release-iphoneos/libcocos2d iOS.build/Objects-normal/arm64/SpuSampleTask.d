@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuSampleTask/SpuSampleTask.cpp \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuSampleTask/SpuSampleTask.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuSampleTask/../PlatformDefinitions.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btScalar.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btMinMax.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/vmInclude.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/vectormath_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/vec_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/quat_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/mat_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuSampleTask/../PpuAddressSpace.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btVector3.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btAlignedAllocator.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btMatrix3x3.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btQuaternion.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btQuadWord.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletDynamics/Dynamics/btRigidBody.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btAlignedObjectArray.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btTransform.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletCollision//BroadphaseCollision/btBroadphaseProxy.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletCollision//CollisionDispatch/btCollisionObject.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btMotionState.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuSampleTask/../SpuFakeDma.h

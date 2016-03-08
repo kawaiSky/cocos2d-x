@@ -299,6 +299,7 @@ class simple_allocator {
  public:
   virtual uint8_t *allocate(size_t size) const { return new uint8_t[size]; }
   virtual void deallocate(uint8_t *p) const { delete[] p; }
+    virtual ~simple_allocator(){};
 };
 
 // This is a minimal replication of std::vector<uint8_t> functionality,

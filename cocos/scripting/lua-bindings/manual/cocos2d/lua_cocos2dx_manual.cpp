@@ -6577,10 +6577,17 @@ static int lua_cocos2dx_Console_addCommand(lua_State* tolua_S)
                 [=](int fd, const std::string& args)
                 {
                     //lua-callback, the third param;
-                    tolua_pushnumber(tolua_S, fd);
-                    tolua_pushstring(tolua_S, args.c_str());
                     
-                    LuaEngine::getInstance()->getLuaStack()->executeFunctionByHandler(handler, 2);
+                    Director *dir = Director::getInstance();
+                    Scheduler *sched = dir->getScheduler();
+                    sched->performFunctionInCocosThread([=](){
+                        tolua_pushnumber(tolua_S, fd);
+                        tolua_pushstring(tolua_S, args.c_str());
+                        
+                        LuaEngine::getInstance()->getLuaStack()->executeFunctionByHandler(handler, 2);
+                    });
+                    
+                    
                 }
             };
             cobj->addCommand(outValue);
@@ -7359,7 +7366,28 @@ tolua_lerror:
     return 0;
 #endif
 }
-
+static int tolua_cocos2d_utils_getCascadeBoundingBox(lua_State* tolua_S)
+{
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_istable(tolua_S,1,0, &tolua_err) ||
+        !tolua_isusertype(tolua_S, 2, "cc.Node", 0, &tolua_err)
+        )
+        goto tolua_lerror;
+    else
+#endif
+    {
+        cocos2d::Node* node = static_cast<Node*>(tolua_tousertype(tolua_S, 2, nullptr));
+        cocos2d::Rect ret = utils::getCascadeBoundingBox(node);
+        rect_to_luaval(tolua_S, ret);
+        return 1;
+    }
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'tolua_cocos2d_utils_getCascadeBoundingBox'.",&tolua_err);
+    return 0;
+#endif
+}
 int register_all_cocos2dx_module_manual(lua_State* tolua_S)
 {
     if (nullptr == tolua_S)
@@ -7372,6 +7400,7 @@ int register_all_cocos2dx_module_manual(lua_State* tolua_S)
         tolua_beginmodule(tolua_S,"utils");
             tolua_function(tolua_S, "captureScreen", tolua_cocos2d_utils_captureScreen);
             tolua_function(tolua_S, "findChildren", tolua_cocos2d_utils_findChildren);
+            tolua_function(tolua_S, "getCascadeBoundingBox", tolua_cocos2d_utils_getCascadeBoundingBox);
         tolua_endmodule(tolua_S);
     tolua_endmodule(tolua_S);
     

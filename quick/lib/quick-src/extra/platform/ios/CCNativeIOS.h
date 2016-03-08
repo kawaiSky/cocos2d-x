@@ -47,7 +47,6 @@ USING_NS_CC_EXTRA;
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
 - (void)showAlertViewWithObjcDelegate:(id<UIAlertViewDelegate>)delegate;
 #endif
-
 #if CC_LUA_ENGINE_ENABLED > 0
 - (void)showAlertViewWithLuaListener:(LUA_FUNCTION)listener;
 - (void)removeAlertViewLuaListener;

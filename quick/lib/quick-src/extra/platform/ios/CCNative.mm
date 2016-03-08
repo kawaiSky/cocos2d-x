@@ -84,7 +84,11 @@ const string Native::getDeviceName(void)
     UIDevice *device = [UIDevice currentDevice];
     return [[device name] cStringUsingEncoding:NSUTF8StringEncoding];
 }
-
+void Native::copyToClipBoard(const char *context)
+{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = [NSString stringWithCString:context encoding:NSUTF8StringEncoding];
+}
 void Native::vibrate()
 {
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);

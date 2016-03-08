@@ -241,6 +241,12 @@
 		566F016019B5EB0F00FCA620 /* CustomGUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 566F015D19B5EB0F00FCA620 /* CustomGUIReader.cpp */; };
 		566F016119B5EB0F00FCA620 /* CustomGUIReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 566F015E19B5EB0F00FCA620 /* CustomGUIReader.h */; };
 		566F016219B5EB0F00FCA620 /* CustomGUIReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 566F015E19B5EB0F00FCA620 /* CustomGUIReader.h */; };
+		A1398E5A1B9C2EE800F83692 /* cocos2dx_webview_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1398E581B9C2EE800F83692 /* cocos2dx_webview_manual.cpp */; };
+		A1398E5B1B9C2EE800F83692 /* cocos2dx_webview_manual.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A1398E591B9C2EE800F83692 /* cocos2dx_webview_manual.hpp */; };
+		A1398E601B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1398E5E1B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.cpp */; };
+		A1398E611B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A1398E5F1B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.hpp */; };
+		A1992F781BAA92540054F477 /* cocos2dx_experimental_webview_auto.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A1398E5F1B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.hpp */; };
+		A1992F791BAA92640054F477 /* cocos2dx_experimental_webview_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1398E5E1B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.cpp */; };
 		A1CAB7D61B4B9ED3004E851C /* lua_dragonbones_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CAB7D41B4B9ED3004E851C /* lua_dragonbones_auto.cpp */; };
 		A1CAB7D71B4B9ED3004E851C /* lua_dragonbones_auto.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A1CAB7D51B4B9ED3004E851C /* lua_dragonbones_auto.hpp */; };
 		A1CAB7D81B4B9FA0004E851C /* lua_dragonbones_auto.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A1CAB7D51B4B9ED3004E851C /* lua_dragonbones_auto.hpp */; };
@@ -516,6 +522,10 @@
 		3E2BDB0919C5E6100055CDCD /* lua_cocos2dx_audioengine_manual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lua_cocos2dx_audioengine_manual.h; sourceTree = "<group>"; };
 		566F015D19B5EB0F00FCA620 /* CustomGUIReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CustomGUIReader.cpp; sourceTree = "<group>"; };
 		566F015E19B5EB0F00FCA620 /* CustomGUIReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGUIReader.h; sourceTree = "<group>"; };
+		A1398E581B9C2EE800F83692 /* cocos2dx_webview_manual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cocos2dx_webview_manual.cpp; sourceTree = "<group>"; };
+		A1398E591B9C2EE800F83692 /* cocos2dx_webview_manual.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cocos2dx_webview_manual.hpp; sourceTree = "<group>"; };
+		A1398E5E1B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cocos2dx_experimental_webview_auto.cpp; sourceTree = "<group>"; };
+		A1398E5F1B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cocos2dx_experimental_webview_auto.hpp; sourceTree = "<group>"; };
 		A1CAB7D41B4B9ED3004E851C /* lua_dragonbones_auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_dragonbones_auto.cpp; sourceTree = "<group>"; };
 		A1CAB7D51B4B9ED3004E851C /* lua_dragonbones_auto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua_dragonbones_auto.hpp; sourceTree = "<group>"; };
 		DA1769EF1A1A0D12006F5EA8 /* lua_cocos2dx_assetsmanager_auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_cocos2dx_assetsmanager_auto.cpp; sourceTree = "<group>"; };
@@ -742,6 +752,8 @@
 		1AACE74818BC45C200215002 /* auto */ = {
 			isa = PBXGroup;
 			children = (
+				A1398E5E1B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.cpp */,
+				A1398E5F1B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.hpp */,
 				A1CAB7D41B4B9ED3004E851C /* lua_dragonbones_auto.cpp */,
 				A1CAB7D51B4B9ED3004E851C /* lua_dragonbones_auto.hpp */,
 				DA1769F51A1B1351006F5EA8 /* lua_cocos2dx_csloader_auto.cpp */,
@@ -780,6 +792,8 @@
 		1AACE75B18BC45C200215002 /* manual */ = {
 			isa = PBXGroup;
 			children = (
+				A1398E581B9C2EE800F83692 /* cocos2dx_webview_manual.cpp */,
+				A1398E591B9C2EE800F83692 /* cocos2dx_webview_manual.hpp */,
 				3E2BDB0719C5E6100055CDCD /* audioengine */,
 				158C128419A0FA1300781A76 /* 3d */,
 				15427D41198F73F700DC375D /* cocosdenshion */,
@@ -990,6 +1004,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1992F781BAA92540054F477 /* cocos2dx_experimental_webview_auto.hpp in Headers */,
 				DA4B56291A3AF60C00567969 /* ldo.h in Headers */,
 				15EFA1F71989E582000C57D3 /* lua_cocos2dx_experimental_auto.hpp in Headers */,
 				15415AA719A71A53004F1E71 /* auxiliar.h in Headers */,
@@ -1133,6 +1148,7 @@
 				DAC1A7D51A3AF952003BE8E0 /* ltable.h in Headers */,
 				15EFA641198B32BB000C57D3 /* CCLuaObjcBridge.h in Headers */,
 				15EFA642198B32BB000C57D3 /* tolua_fix.h in Headers */,
+				A1398E5B1B9C2EE800F83692 /* cocos2dx_webview_manual.hpp in Headers */,
 				155C7E2119A71CCE00F08B25 /* LuaSkeletonAnimation.h in Headers */,
 				DAC1A7B71A3AF952003BE8E0 /* ldebug.h in Headers */,
 				DAC1A7B41A3AF952003BE8E0 /* lcode.h in Headers */,
@@ -1140,6 +1156,7 @@
 				DAC1A7AF1A3AF952003BE8E0 /* lapi.h in Headers */,
 				566F016219B5EB0F00FCA620 /* CustomGUIReader.h in Headers */,
 				15EFA62B198B3220000C57D3 /* LuaOpengl.h in Headers */,
+				A1398E611B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.hpp in Headers */,
 				15415AD419A71A53004F1E71 /* timeout.h in Headers */,
 				15EFA62C198B3220000C57D3 /* lua_cocos2dx_deprecated.h in Headers */,
 				155C7E2919A71CE800F08B25 /* lua_cocos2dx_ui_manual.hpp in Headers */,
@@ -1326,6 +1343,7 @@
 				DA4B56251A3AF60C00567969 /* ldblib.c in Sources */,
 				15415A7019A71768004F1E71 /* lua_cocos2dx_extension_auto.cpp in Sources */,
 				DA4B56261A3AF60C00567969 /* ldebug.c in Sources */,
+				A1992F791BAA92640054F477 /* cocos2dx_experimental_webview_auto.cpp in Sources */,
 				155C7DF619A71C3E00F08B25 /* lua_cocos2dx_cocosdenshion_manual.cpp in Sources */,
 				DA4B564D1A3AF60C00567969 /* lundump.c in Sources */,
 				15415AA519A71A53004F1E71 /* auxiliar.c in Sources */,
@@ -1436,7 +1454,9 @@
 				DAC1A7B51A3AF952003BE8E0 /* ldblib.c in Sources */,
 				15415AB619A71A53004F1E71 /* io.c in Sources */,
 				A1CAB7D91B4B9FA2004E851C /* lua_dragonbones_auto.cpp in Sources */,
+				A1398E5A1B9C2EE800F83692 /* cocos2dx_webview_manual.cpp in Sources */,
 				DAC1A7B61A3AF952003BE8E0 /* ldebug.c in Sources */,
+				A1398E601B9C2F5800F83692 /* cocos2dx_experimental_webview_auto.cpp in Sources */,
 				155C7DF719A71C4000F08B25 /* lua_cocos2dx_cocosdenshion_manual.cpp in Sources */,
 				DAC1A7DD1A3AF952003BE8E0 /* lundump.c in Sources */,
 				155C7DEF19A71C0900F08B25 /* lua_cocos2dx_ui_auto.cpp in Sources */,
@@ -1590,6 +1610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ENABLE_BITCODE = NO;
 				EXECUTABLE_PREFIX = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
@@ -1617,6 +1638,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ENABLE_BITCODE = NO;
 				EXECUTABLE_PREFIX = "";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

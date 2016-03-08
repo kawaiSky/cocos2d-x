@@ -69,6 +69,12 @@ void Native::cancelAlert(void)
     [[NativeMac sharedInstance] cancelAlertView];
 }
 
+void Native::copyToClipBoard(const char *context)
+{
+    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+    [pasteboard setString:[NSString stringWithCString:context encoding:NSUTF8StringEncoding] forType:NSStringPboardType];
+    //pasteboard.setString = [NSString stringWithCString:context encoding:NSUTF8StringEncoding];
+}
 
 #pragma mark -
 #pragma mark misc

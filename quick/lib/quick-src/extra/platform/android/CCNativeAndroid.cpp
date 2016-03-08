@@ -15,15 +15,40 @@ NS_CC_EXTRA_BEGIN
 
 void Native::showActivityIndicator(void)
 {
-    CCLOG("Native::showActivityIndicator() - not support this platform.");
+    //CCLOG("Native::showActivityIndicator() - not support this platform.");
+    JniMethodInfo methodInfo;
+    if (JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/utils/PSNative", "showActivityIndicatorWithMsg", 
+        "(Ljava/lang/String;)V"))
+    {
+        jstring jmsg = methodInfo.env->NewStringUTF("");
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jmsg);
+        methodInfo.env->DeleteLocalRef(jmsg);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    }
 }
 
 void Native::hideActivityIndicator(void)
 {
-    CCLOG("Native::hideActivityIndicator() - not support this platform.");
+    JniMethodInfo methodInfo;
+    if (JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/utils/PSNative", "hideActivityIndicatorWithMsg", 
+        "()V"))
+    {
+        //jstring jmsg = methodInfo.env->NewStringUTF(msg);
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
+        //methodInfo.env->DeleteLocalRef(jmsg);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    }
 }
-void Native::showActivityIndicatorWithMsg(char const*){
-    CCLOG("Native::showActivityIndicatorWithMsg() - not support this platform.");
+void Native::showActivityIndicatorWithMsg(char const* msg){
+    JniMethodInfo methodInfo;
+    if (JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/utils/PSNative", "showActivityIndicatorWithMsg", 
+        "(Ljava/lang/String;)V"))
+    {
+        jstring jmsg = methodInfo.env->NewStringUTF(msg);
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jmsg);
+        methodInfo.env->DeleteLocalRef(jmsg);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    }
 }
 
 //  alert view

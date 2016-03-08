@@ -64,7 +64,7 @@ public:
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     static void showAlertObjc(void *delegate);
 #endif
-    
+    static void copyToClipBoard(const char* context);
 #if CC_LUA_ENGINE_ENABLED > 0
     static int addAlertButtonLua(const char* buttonTitle);
     static void showAlertLua(LUA_FUNCTION listener);

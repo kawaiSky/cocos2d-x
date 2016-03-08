@@ -34906,6 +34906,21 @@ int lua_cocos2dx_GLProgramState_setUniformFloat(lua_State* tolua_S)
     argc = lua_gettop(tolua_S)-1;
     do{
         if (argc == 2) {
+            std::string arg0;
+            ok &= luaval_to_std_string(tolua_S, 2,&arg0, "cc.GLProgramState:setUniformFloat");
+            
+            if (!ok) { break; }
+            double arg1;
+            ok &= luaval_to_number(tolua_S, 3,&arg1, "cc.GLProgramState:setUniformFloat");
+            
+            if (!ok) { break; }
+            cobj->setUniformFloat(arg0, arg1);
+            return 0;
+        }
+    }while(0);
+    ok  = true;
+    do{
+        if (argc == 2) {
             int arg0;
             ok &= luaval_to_int32(tolua_S, 2,(int *)&arg0, "cc.GLProgramState:setUniformFloat");
 
@@ -34919,21 +34934,7 @@ int lua_cocos2dx_GLProgramState_setUniformFloat(lua_State* tolua_S)
         }
     }while(0);
     ok  = true;
-    do{
-        if (argc == 2) {
-            std::string arg0;
-            ok &= luaval_to_std_string(tolua_S, 2,&arg0, "cc.GLProgramState:setUniformFloat");
-
-            if (!ok) { break; }
-            double arg1;
-            ok &= luaval_to_number(tolua_S, 3,&arg1, "cc.GLProgramState:setUniformFloat");
-
-            if (!ok) { break; }
-            cobj->setUniformFloat(arg0, arg1);
-            return 0;
-        }
-    }while(0);
-    ok  = true;
+    
     luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n",  "cc.GLProgramState:setUniformFloat",argc, 2);
     return 0;
 

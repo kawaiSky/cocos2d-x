@@ -236,7 +236,8 @@ int lua_cocos2dx_physics_PhysicsWorld_queryRect(lua_State* tolua_S)
         if(!ok)
             return 0;
         cobj->queryRect(arg0, arg1, nullptr);
-        toluafix_remove_function_by_refid(tolua_S, handler);
+        
+        (tolua_S, handler);
         lua_settop(tolua_S, 1);
         return 1;
     }

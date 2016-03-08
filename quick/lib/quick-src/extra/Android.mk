@@ -17,7 +17,7 @@ LOCAL_SRC_FILES := \
     $(LOCAL_PATH)/platform/android/CCNativeAndroid.cpp \
     $(LOCAL_PATH)/platform/android/CCNetworkAndroid.cpp
 
-
+ifeq ($(CC_USE_QUICK_FILETER),1)
 #filters
 LOCAL_SRC_FILES += \
     $(LOCAL_PATH)/luabinding/lua_cocos2dx_extension_filter_auto.cpp \
@@ -40,7 +40,8 @@ LOCAL_SRC_FILES += \
     $(LOCAL_PATH)/filters/filters/CCCustomFilter.cpp \
     $(LOCAL_PATH)/filters/nodes/CCFilteredSprite.cpp \
     $(LOCAL_PATH)/filters/shaders/ccFilterShaders.cpp 
-
+endif
+ifeq ($(CC_USE_QUICK_NANOVG),1)
 #nanovg
 LOCAL_SRC_FILES += \
     $(LOCAL_PATH)/luabinding/lua_cocos2dx_extension_nanovg_auto.cpp \
@@ -48,7 +49,7 @@ LOCAL_SRC_FILES += \
     $(LOCAL_PATH)/nanovg/nanovg/nanovg.c \
     $(LOCAL_PATH)/nanovg/nanonode/NVGNode.cpp \
     $(LOCAL_PATH)/nanovg/nanonode/NVGDrawNode.cpp
-
+endif
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH) \
                            $(LOCAL_PATH)/luabinding

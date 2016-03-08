@@ -1,9 +1,13 @@
 package org.cocos2dx.utils;
 
+import java.lang.reflect.Method;
 import java.util.Vector;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import android.annotation.TargetApi;
+import android.app.ProgressDialog;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -13,6 +17,9 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Vibrator;
 import android.telephony.TelephonyManager;
+import android.view.Window;
+
+import android.content.ClipboardManager;
 
 public class PSNative {
 	static Cocos2dxActivity mContext = null;
@@ -22,7 +29,7 @@ public class PSNative {
 	static PSDialog mCreatingDialog = null;
 	static PSDialog mShowingDialog = null;
 	static Vector<PSDialog> mShowingDialogs = null;
-
+	static ProgressDialog spinner = null;
 	static Drawable mAppIcon = null;
 
 	static PSDialog.PSDialogListener mPSDialogListener = new PSDialog.PSDialogListener() {
@@ -40,6 +47,37 @@ public class PSNative {
 				.getSystemService(Context.VIBRATOR_SERVICE);
 
 		mShowingDialogs = new Vector<PSDialog>();
+		
+		spinner = new ProgressDialog(context);
+        spinner.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        spinner.setCancelable(false);
+       // spinner.setMessage(getContext().getString(R.string.com_facebook_loading));
+	}
+	
+	public static void showActivityIndicatorWithMsg(String msg){
+		if (mContext == null) {
+			return;
+		}
+		final String _msg = msg;
+		mContext.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				spinner.setMessage(_msg);
+				spinner.show();
+			}
+		});
+	}
+	public static void hideActivityIndicatorWithMsg(){
+		if (mContext == null) {
+			return;
+		}
+
+		mContext.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+					spinner.hide();
+			}
+		});
 	}
 
 	public static void setAppIcon(Drawable icon) {
@@ -226,7 +264,41 @@ public class PSNative {
 		}
 		mVibrator.vibrate(pattern, repeatcout);
 	}
+	
+	@SuppressWarnings("deprecation")
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	public static void copyToClipBoard(final String context){
+		mContext.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.HONEYCOMB){           
+				     // 包含新API的代码块
+					//import android.content.ClipboardManager;
+					ClipboardManager clipboardManager = (ClipboardManager)mContext.getSystemService( Context.CLIPBOARD_SERVICE );
+					clipboardManager.setPrimaryClip(ClipData.newPlainText(null, context));
+					//if (clipboardManager.hasPrimaryClip()){
+					//    clipboardManager.getPrimaryClip().getItemAt(0).getText();
+					//}
 
+				}else{
+				     // 包含旧的API的代码块
+					//import android.text.ClipboardManager;
+					//import android.text.ClipboardManager;
+					android.text.ClipboardManager clipboardManager = (android.text.ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+					clipboardManager.setText(context);
+					//if (clipboardManager.hasText()){
+					//    clipboardManager.getText();
+					//}
+
+				}
+			}
+		});
+		
+		
+		
+	}
+	
+	
 	public static Context getAppContext() {
 		return mContext;
 	}

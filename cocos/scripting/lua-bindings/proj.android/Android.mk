@@ -56,6 +56,8 @@ LOCAL_SRC_FILES := ../manual/CCLuaBridge.cpp \
           ../../../../external/lua/tolua/tolua_to.c \
           ../../../../external/xxtea/xxtea.cpp \
           ../auto/lua_cocos2dx_audioengine_auto.cpp \
+          ../auto/cocos2dx_experimental_webview_auto.cpp \
+          ../manual/cocos2dx_webview_manual.cpp \
           ../manual/audioengine/lua_cocos2dx_audioengine_manual.cpp
 
 #3d

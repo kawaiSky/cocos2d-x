@@ -1,0 +1,28 @@
+dependencies: \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SequentialThreadSupport.cpp \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SequentialThreadSupport.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btScalar.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/PlatformDefinitions.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btMinMax.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/vmInclude.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/vectormath_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/vec_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/quat_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/vectormath/scalar/mat_aos.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/PpuAddressSpace.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btAlignedObjectArray.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btAlignedAllocator.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/btThreadSupportInterface.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuCollisionTaskProcess.h \
+  /Users/zhengshaokai/github/cocos2d-x/external/bullet/BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletCollision//CollisionDispatch/btCollisionObject.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btTransform.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btMatrix3x3.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btVector3.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btQuaternion.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btQuadWord.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/LinearMath/btMotionState.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletCollision//CollisionShapes/btCollisionShape.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletCollision//BroadphaseCollision/btBroadphaseProxy.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletCollision//CollisionShapes/btConvexShape.h \
+  /Users/zhengshaokai/github/cocos2d-x/build/../external/bullet/BulletCollision//CollisionShapes/btCollisionMargin.h

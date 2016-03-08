@@ -149,13 +149,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Link>
-      <AdditionalDependencies>d2d1.lib;d3d11.lib;dwrite.lib;dxguid.lib;dxgi.lib;ole32.lib;windowscodecs.lib;libGLESv2.lib;libEGL.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d2d1.lib;d3d11.lib;dwrite.lib;dxguid.lib;dxgi.lib;ole32.lib;windowscodecs.lib;libGLESv2.lib;libEGL.lib;zlib.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\external\winrt-specific\zlib\prebuilt\$(Platform);$(ProjectDir)..\..\..\external\winrt-specific\angle\prebuilt\$(Platform);%(AdditionalLibraryDirectories);$(VCInstallDir)\lib\store;$(VCInstallDir)\lib</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(EngineRoot)external\sqlite3\include;$(EngineRoot)external\unzip;$(EngineRoot)external\edtaa3func;$(EngineRoot)external\tinyxml2;$(EngineRoot)external\png\include\wp8;$(EngineRoot)external\jpeg\include\wp8;$(EngineRoot)external\tiff\include\wp8;$(EngineRoot)external\freetype2\include\wp8;$(EngineRoot)external\wp8-specific\zlib\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(EngineRoot)external\sqlite3\include;$(EngineRoot)external\unzip;$(EngineRoot)external\edtaa3func;$(EngineRoot)external\tinyxml2;$(EngineRoot)external\png\include\wp8;$(EngineRoot)external\jpeg\include\wp8;$(EngineRoot)external\tiff\include\wp8;$(EngineRoot)external\freetype2\include\wp8;$(EngineRoot)external\wp8-specific\angle\include;$(EngineRoot)external\wp8-specific\zlib\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>WP8_SHADER_COMPILER;CC_USE_PHYSICS=0;CC_STATIC;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>

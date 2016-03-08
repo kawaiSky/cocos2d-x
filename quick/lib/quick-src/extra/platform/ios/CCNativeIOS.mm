@@ -92,7 +92,6 @@ static NativeIOS *s_sharedInstance;
     activityIndicatorView_ = nil;
 }
 
-
 #pragma mark -
 #pragma mark alert view
 

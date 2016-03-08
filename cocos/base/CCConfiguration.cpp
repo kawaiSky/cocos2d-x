@@ -44,6 +44,8 @@ Configuration::Configuration()
 , _supportsBGRA8888(false)
 , _supportsDiscardFramebuffer(false)
 , _supportsShareableVAO(false)
+, _supportsOESDepth24(false)
+, _supportsOESPackedDepthStencil(false)
 , _maxSamplesAllowed(0)
 , _maxTextureUnits(0)
 , _glExtensions(nullptr)
@@ -141,7 +143,15 @@ void Configuration::gatherGPUInfo()
 
     _supportsShareableVAO = checkForGLExtension("vertex_array_object");
 	_valueDict["gl.supports_vertex_array_object"] = Value(_supportsShareableVAO);
+    
+    _supportsOESDepth24 = checkForGLExtension("GL_OES_depth24");
+    _valueDict["gl.supports_OES_depth24"] = Value(_supportsOESDepth24);
+    
+    
+    _supportsOESPackedDepthStencil = checkForGLExtension("GL_OES_packed_depth_stencil");
+    _valueDict["gl.supports_OES_packed_depth_stencil"] = Value(_supportsOESPackedDepthStencil);
 
+    
     CHECK_GL_ERROR_DEBUG();
 }
 
@@ -245,6 +255,16 @@ bool Configuration::supportsShareableVAO() const
 #else
     return false;
 #endif
+}
+
+bool Configuration::supportsOESDepth24() const
+{
+    return _supportsOESDepth24;
+    
+}
+bool Configuration::supportsOESPackedDepthStencil() const
+{
+    return _supportsOESPackedDepthStencil;
 }
 
 int Configuration::getMaxSupportDirLightInShader() const

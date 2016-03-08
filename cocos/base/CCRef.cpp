@@ -94,8 +94,8 @@ void Ref::release()
     }
     if (_referenceCount == 0)
     {
-        
-        //sky 判断是否在那个lua的数组中是的话 向testin 发送数据
+		//*
+        //
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
         auto poolManager = PoolManager::getInstance();
         if (!poolManager->getCurrentPool()->isClearing() && poolManager->isObjectInPools(this))
@@ -130,7 +130,7 @@ void Ref::release()
             CCASSERT(false, "The reference shouldn't be 0 because it is still in autorelease pool.");
         }
 #endif
-
+		//*/
 #if CC_REF_LEAK_DETECTION
         untrackRef(this);
 #endif
