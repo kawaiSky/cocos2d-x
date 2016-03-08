@@ -113,6 +113,7 @@ build/build/
 cocos/scripting/lua-bindings/proj.ios_mac/build/
 tests/*/runtime/
 tests/*/publish/
+build/cocos2d_libs.build/Release-iphoneos/
 
 # Android
 project.properties
