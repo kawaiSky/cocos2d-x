@@ -35,6 +35,7 @@ NS_CC_BEGIN
 class DrawNode;
 class LayerColor;
 class LayerGradient;
+class StencilStateManager;
 
 
 namespace ui {
@@ -488,29 +489,15 @@ protected:
     Type _layoutType;
     ClippingType _clippingType;
     DrawNode* _clippingStencil;
-    bool _scissorRectDirty;
+    bool _scissorOldState;
+    Rect _clippingOldRect;
     Rect _clippingRect;
     Layout* _clippingParent;
     bool _clippingRectDirty;
     
     //clipping
-
-    GLboolean _currentStencilEnabled;
-    GLuint _currentStencilWriteMask;
-    GLenum _currentStencilFunc;
-    GLint _currentStencilRef;
-    GLuint _currentStencilValueMask;
-    GLenum _currentStencilFail;
-    GLenum _currentStencilPassDepthFail;
-    GLenum _currentStencilPassDepthPass;
-    GLboolean _currentDepthWriteMask;
+    StencilStateManager *_stencileStateManager;
     
-    GLboolean _currentAlphaTestEnabled;
-    GLenum _currentAlphaTestFunc;
-    GLclampf _currentAlphaTestRef;
- 
-    
-    GLint _mask_layer_le;
     GroupCommand _groupCommand;
     CustomCommand _beforeVisitCmdStencil;
     CustomCommand _afterDrawStencilCmd;

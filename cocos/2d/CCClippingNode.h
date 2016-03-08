@@ -35,6 +35,7 @@
 
 NS_CC_BEGIN
 
+class StencilStateManager;
 /** ClippingNode is a subclass of Node.
  It draws its content (childs) clipped using a stencil.
  The stencil is an other Node that will not be drawn.
@@ -123,34 +124,10 @@ CC_CONSTRUCTOR_ACCESS:
     virtual bool init(Node *stencil);
 
 protected:
-    /**draw fullscreen quad to clear stencil bits
-    */
-    void drawFullScreenQuadClearStencil();
-
+    
     Node* _stencil;
-    GLfloat _alphaThreshold;
-    bool    _inverted;
-
-    //renderData and callback
-    void onBeforeVisit();
-    void onAfterDrawStencil();
-    void onAfterVisit();
-
-    GLboolean _currentStencilEnabled;
-    GLuint _currentStencilWriteMask;
-    GLenum _currentStencilFunc;
-    GLint _currentStencilRef;
-    GLuint _currentStencilValueMask;
-    GLenum _currentStencilFail;
-    GLenum _currentStencilPassDepthFail;
-    GLenum _currentStencilPassDepthPass;
-    GLboolean _currentDepthWriteMask;
-
-    GLboolean _currentAlphaTestEnabled;
-    GLenum _currentAlphaTestFunc;
-    GLclampf _currentAlphaTestRef;
-
-    GLint _mask_layer_le;
+    
+    StencilStateManager* _stencilStateManager;
     
     GroupCommand _groupCommand;
     CustomCommand _beforeVisitCmd;

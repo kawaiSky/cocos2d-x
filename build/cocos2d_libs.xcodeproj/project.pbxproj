@@ -1801,6 +1801,8 @@
 		A17CA75F1B903626000A5DB2 /* UIScrollViewBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A17CA75C1B903626000A5DB2 /* UIScrollViewBar.cpp */; };
 		A17CA7601B903626000A5DB2 /* UIScrollViewBar.h in Headers */ = {isa = PBXBuildFile; fileRef = A17CA75D1B903626000A5DB2 /* UIScrollViewBar.h */; };
 		A17CA7611B903626000A5DB2 /* UIScrollViewBar.h in Headers */ = {isa = PBXBuildFile; fileRef = A17CA75D1B903626000A5DB2 /* UIScrollViewBar.h */; };
+		A194EBF71C8EC2A100562BAF /* CCStencilStateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A194EBF51C8EC2A100562BAF /* CCStencilStateManager.cpp */; };
+		A194EBF81C8EC2A100562BAF /* CCStencilStateManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A194EBF61C8EC2A100562BAF /* CCStencilStateManager.hpp */; };
 		A1CAB7461B4B9A29004E851C /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CAB6ED1B4B9A29004E851C /* Animation.cpp */; };
 		A1CAB7471B4B9A29004E851C /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CAB6ED1B4B9A29004E851C /* Animation.cpp */; };
 		A1CAB7481B4B9A29004E851C /* Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CAB6EE1B4B9A29004E851C /* Animation.h */; };
@@ -3129,6 +3131,8 @@
 		A16C9B371AC95CC100615241 /* xxtea_file.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xxtea_file.cpp; sourceTree = "<group>"; };
 		A17CA75C1B903626000A5DB2 /* UIScrollViewBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIScrollViewBar.cpp; sourceTree = "<group>"; };
 		A17CA75D1B903626000A5DB2 /* UIScrollViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewBar.h; sourceTree = "<group>"; };
+		A194EBF51C8EC2A100562BAF /* CCStencilStateManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCStencilStateManager.cpp; path = ../base/CCStencilStateManager.cpp; sourceTree = "<group>"; };
+		A194EBF61C8EC2A100562BAF /* CCStencilStateManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CCStencilStateManager.hpp; path = ../base/CCStencilStateManager.hpp; sourceTree = "<group>"; };
 		A1CAB6ED1B4B9A29004E851C /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
 		A1CAB6EE1B4B9A29004E851C /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
 		A1CAB6EF1B4B9A29004E851C /* AnimationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimationState.cpp; sourceTree = "<group>"; };
@@ -3522,6 +3526,8 @@
 		1A5700A2180BC5E60088DEC7 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				A194EBF51C8EC2A100562BAF /* CCStencilStateManager.cpp */,
+				A194EBF61C8EC2A100562BAF /* CCStencilStateManager.hpp */,
 				299CF1F919A434BC00C378C1 /* ccRandom.cpp */,
 				299CF1FA19A434BC00C378C1 /* ccRandom.h */,
 				464AD6E3197EBB1400E502D8 /* pvr.cpp */,
@@ -6446,6 +6452,7 @@
 				50ABBD9E1925AB4100A911A9 /* ccGLStateCache.h in Headers */,
 				15AE1B9619AADA9A00C27E9E /* CocosGUI.h in Headers */,
 				1A57008C180BC5A10088DEC7 /* CCActionProgressTimer.h in Headers */,
+				A194EBF81C8EC2A100562BAF /* CCStencilStateManager.hpp in Headers */,
 				1A570090180BC5A10088DEC7 /* CCActionTiledGrid.h in Headers */,
 				DA8C62A519E52C6400000516 /* ioapi_mem.h in Headers */,
 				1A570094180BC5A10088DEC7 /* CCActionTween.h in Headers */,
@@ -7692,6 +7699,7 @@
 				29394CF319B01DBA00D2DE1A /* UIWebView.mm in Sources */,
 				15AE18BD19AAD33D00C27E9E /* CCLabelBMFontLoader.cpp in Sources */,
 				B29A7E2E19EE1B7700872B35 /* Slot.c in Sources */,
+				A194EBF71C8EC2A100562BAF /* CCStencilStateManager.cpp in Sources */,
 				50ABC01E1926664800A911A9 /* CCThread.cpp in Sources */,
 				B29A7DF419EE1B7700872B35 /* AttachmentLoader.c in Sources */,
 				1A5701EB180BCB8C0088DEC7 /* CCTransitionPageTurn.cpp in Sources */,
