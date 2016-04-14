@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <thread>
-#include "platform/android/jni/jniHelper.h"
+#include "platform/android/jni/JniHelper.h"
 
 #if CC_LUA_ENGINE_ENABLED > 0
 extern "C" {
