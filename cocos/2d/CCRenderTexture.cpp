@@ -46,7 +46,7 @@ RenderTexture::RenderTexture()
 , _fullviewPort(Rect::ZERO)
 , _FBO(0)
 , _depthRenderBufffer(0)
-, _stencilBuffer(0)
+, _stencilRenderBuffer(0)
 , _oldFBO(0)
 , _texture(0)
 , _textureCopy(0)
@@ -81,8 +81,8 @@ RenderTexture::~RenderTexture()
     {
         glDeleteRenderbuffers(1, &_depthRenderBufffer);
     }
-    if (_stencilBuffer) {
-        glDeleteRenderbuffers(1, &_stencilBuffer);
+    if (_stencilRenderBuffer) {
+        glDeleteRenderbuffers(1, &_stencilRenderBuffer);
     }
     CC_SAFE_DELETE(_UITextureImage);
 }
@@ -278,7 +278,7 @@ bool RenderTexture::initWithWidthAndHeight(int w, int h, Texture2D::PixelFormat 
             {
                 
                 glGenRenderbuffers(1, &_depthRenderBufffer);
-                glGenRenderbuffers(1, &_stencilRenderBufffer);
+                glGenRenderbuffers(1, &_stencilRenderBuffer);
                 glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBufffer);
                 
                 if(Configuration::getInstance()->supportsOESDepth24())
@@ -290,12 +290,12 @@ bool RenderTexture::initWithWidthAndHeight(int w, int h, Texture2D::PixelFormat 
                     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, (GLsizei)powW, (GLsizei)powH);
                 }
                 
-                glBindRenderbuffer(GL_RENDERBUFFER, _stencilRenderBufffer);
+                glBindRenderbuffer(GL_RENDERBUFFER, _stencilRenderBuffer);
                 glRenderbufferStorage(GL_RENDERBUFFER, GL_STENCIL_INDEX8,  (GLsizei)powW, (GLsizei)powH);
                 
                 glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBufffer);
                 glFramebufferRenderbuffer(GL_FRAMEBUFFER,
-                                          GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilRenderBufffer);
+                                          GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _stencilRenderBuffer);
             }
 #else
             
