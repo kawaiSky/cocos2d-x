@@ -66,7 +66,7 @@ if ($config['help'])
 
 if (!$config['api_ver'])
 {
-	$config['api_ver'] = '19';
+	$config['api_ver'] = '20';
 }
 
 $builder = new ApkBuilder($config);

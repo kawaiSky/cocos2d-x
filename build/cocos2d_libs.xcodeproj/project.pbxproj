@@ -1803,6 +1803,8 @@
 		A17CA7611B903626000A5DB2 /* UIScrollViewBar.h in Headers */ = {isa = PBXBuildFile; fileRef = A17CA75D1B903626000A5DB2 /* UIScrollViewBar.h */; };
 		A194EBF71C8EC2A100562BAF /* CCStencilStateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A194EBF51C8EC2A100562BAF /* CCStencilStateManager.cpp */; };
 		A194EBF81C8EC2A100562BAF /* CCStencilStateManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A194EBF61C8EC2A100562BAF /* CCStencilStateManager.hpp */; };
+		A1A53AB91CD321D900D2FBE1 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A53AB71CD321D500D2FBE1 /* libcrypto.a */; };
+		A1A53ABC1CD321EB00D2FBE1 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A53ABA1CD321E600D2FBE1 /* libssl.a */; };
 		A1CAB7461B4B9A29004E851C /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CAB6ED1B4B9A29004E851C /* Animation.cpp */; };
 		A1CAB7471B4B9A29004E851C /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CAB6ED1B4B9A29004E851C /* Animation.cpp */; };
 		A1CAB7481B4B9A29004E851C /* Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CAB6EE1B4B9A29004E851C /* Animation.h */; };
@@ -3133,6 +3135,8 @@
 		A17CA75D1B903626000A5DB2 /* UIScrollViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewBar.h; sourceTree = "<group>"; };
 		A194EBF51C8EC2A100562BAF /* CCStencilStateManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCStencilStateManager.cpp; path = ../base/CCStencilStateManager.cpp; sourceTree = "<group>"; };
 		A194EBF61C8EC2A100562BAF /* CCStencilStateManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CCStencilStateManager.hpp; path = ../base/CCStencilStateManager.hpp; sourceTree = "<group>"; };
+		A1A53AB71CD321D500D2FBE1 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		A1A53ABA1CD321E600D2FBE1 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		A1CAB6ED1B4B9A29004E851C /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
 		A1CAB6EE1B4B9A29004E851C /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
 		A1CAB6EF1B4B9A29004E851C /* AnimationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimationState.cpp; sourceTree = "<group>"; };
@@ -3355,10 +3359,12 @@
 			files = (
 				15AE1C1919AAE30900C27E9E /* libwebsockets.a in Frameworks */,
 				15AE1B4A19AAD49000C27E9E /* libcurl.a in Frameworks */,
+				A1A53ABC1CD321EB00D2FBE1 /* libssl.a in Frameworks */,
 				A07A4CAF1783777C0073F6A7 /* Foundation.framework in Frameworks */,
 				1A570364180BD1120088DEC7 /* libpng.a in Frameworks */,
 				1A570378180BD1B40088DEC7 /* libjpeg.a in Frameworks */,
 				1A5703A4180BD2350088DEC7 /* libtiff.a in Frameworks */,
+				A1A53AB91CD321D900D2FBE1 /* libcrypto.a in Frameworks */,
 				29031E0919BFE8DE00EFA1DF /* libchipmunk.a in Frameworks */,
 				1A5703BB180BD2800088DEC7 /* libwebp.a in Frameworks */,
 				1A57052E180BD3280088DEC7 /* libfreetype.a in Frameworks */,
@@ -4233,6 +4239,8 @@
 		1AAF541B180E3B6A000584C8 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				A1A53ABA1CD321E600D2FBE1 /* libssl.a */,
+				A1A53AB71CD321D500D2FBE1 /* libcrypto.a */,
 				1AAF541C180E3B6A000584C8 /* libcurl.a */,
 			);
 			name = ios;
