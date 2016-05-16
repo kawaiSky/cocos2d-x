@@ -9,7 +9,7 @@ if (DS == '/')
     if ($ret[0] == "Linux") {
         # code...
         define('LUAJIT_BIN','luajit');
-        define('LUA_BIN','/usr/local/bin/luac/luac');
+        define('LUA_BIN','/usr/local/bin/luac');
     }else{
         define('LUAJIT_BIN', BIN_DIR . '/mac/luajit');
         define('LUA_BIN', BIN_DIR . '/mac/luac');
