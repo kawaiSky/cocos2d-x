@@ -5,7 +5,7 @@ define('BIN_DIR', rtrim(dirname(dirname(__DIR__)), '/\\'));
 
 if (DS == '/')
 {
-    exec("uname",$ret,$res)
+    exec("uname",$ret,$res);
     if ($ret[0] == "Linux") {
         # code...
         define('LUAJIT_BIN','luajit');
