@@ -8,6 +8,7 @@ class FilesPacker
     const COMPILE_ZIP = 'zip';
     const COMPILE_FILES = 'files';
     const COMPILE_C = 'c';
+    const SPLIT_CHAR = 'SPLIT_CHAR';
     #const ENCRYPT_XXTEA_ZIP = 'xxtea_zip';
     #const ENCRYPT_XXTEA_CHUNK = 'xxtea_chunk';
     const ENCRYPT_XXTEA_DEFAULT_SIGN = 'XXTEA';
