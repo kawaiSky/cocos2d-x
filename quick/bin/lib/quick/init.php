@@ -1,5 +1,5 @@
 <?php
-
+ini_set("memory_limit","1024M");
 define('DS', DIRECTORY_SEPARATOR);
 define('BIN_DIR', rtrim(dirname(dirname(__DIR__)), '/\\'));
 
