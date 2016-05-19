@@ -199,7 +199,7 @@ function getScriptFileBytecodes($path, $tmpfile, $usingluajit = 0)
     }
     else
     {
-        $command = sprintf('%s -o "%s" "%s"', LUA_BIN, $tmpfile, $path); 
+        $command = sprintf('%s -o "%s" "%s"', LUA_BIN, $tmpfile, $path);
     }
     passthru($command);
 
