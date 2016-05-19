@@ -160,13 +160,16 @@ class ScriptsCompiler
 
         $files = $this->searchSourceFiles();
         $modules = $this->prepareForCompile($files);
-
+        var_dump($files);
+        var_dump($modules);
+        var_dump($this->config);
         if ($this->config['encrypt'] == self::ENCRYPT_XXTEA_CHUNK)
         {
             $bytes = $this->compileModules($modules, $this->config['key'], $this->config['sign']);
         }
         elseif ($this->config['compile'] != self::COMPILE_CSRC)
         {
+            print("compilte csrc");
             $bytes = $this->compileModules($modules);
         }
         else
@@ -285,6 +288,8 @@ class ScriptsCompiler
         foreach ($modules as $path => $module)
         {
             $bytes = getScriptFileBytecodes($path, $module['tempFilePath'], $this->config['jit']);
+            print("bytes = \n");
+            print($bytes);
             if ($xxtea)
             {
                 $bytes = $sign . $xxtea->encrypt($bytes);
@@ -320,6 +325,7 @@ class ScriptsCompiler
         }
         foreach ($modules as $path => $module)
         {
+            print($module['moduleName']);
             $zip->addFromString($this->config['prefix'] . $module['moduleName'], $bytes[$path]);
         }
         $zip->close();
